@@ -20,17 +20,7 @@ module.exports = {
             title: 'Overview',
             collapsable: true,
             children: [
-              '/overview/cio_documentation',
               '/overview/how_it_works'
-            ]
-          },
-          {
-            title: 'Installation',
-            collapsable: true,
-            children: [
-              '/installation/create_cio_cluster',
-              '/installation/data_drive_requirements',
-              '/installation/server_requirements'
             ]
           },
           {
@@ -114,6 +104,14 @@ module.exports = {
             children: [
               '/cloud_reference_guide/cio_on_digitalocean',
               '/cloud_reference_guide/cio_on_aws'
+            ]
+          },
+          {
+            title: 'Hardware Requirements',
+            collapsable: true,
+            children: [
+              '/hardware_requirements/server_requirements',
+              '/hardware_requirements/data_drive_requirements'
             ]
           },
           {
