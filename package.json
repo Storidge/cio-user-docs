@@ -1,7 +1,7 @@
 {
   "name": "cio-userdocs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Storidge’s CIO (container I/O) software was created to simplify the life of developers, DevOps and storage administrators. Purpose built to remove the pain of managing storage for applications, we make storage simple so you can focus on applications instead of managing infrastructure.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/Storidge/cio-userdocs/issues"
   },
-  "homepage": "https://github.com/Storidge/cio-userdocs#readme"
+  "homepage": "https://github.com/Storidge/cio-userdocs#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }

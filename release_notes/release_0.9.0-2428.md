@@ -16,7 +16,7 @@ cluster and provides protection against zone failures.
 - Updates API for cio info unit conversion and cio vdinfo allocate% replacing used capacity 
 - Add API routes for /vdisks and /nodeid path - Use hostname for instance id when /etc/hostname is set 
 - Enable firewall on storage nodes with mk_iptables.sh for Ubuntu 16.04 
-- Add multi-zone (aka stretched cluster) feature. Use cioctl create --zone <zone1> <zone2> to start a cluster 
+- Add multi-zone (aka stretched cluster) feature. Use cioctl create --zone &lt;zone1&gt; &lt;zone2&gt; to start a cluster 
 - Add ZONE_LIST to configuration file 
 - Update node auto-rejoin feature for multi-zone cluster (aka stretched cluster) 
 - Improve cioctl join-token to output command strings based on balanced and unbalance cluster nodes 
