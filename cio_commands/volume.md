@@ -2,7 +2,7 @@
 
 **`cio volume COMMAND [options]`**
 
-Create, get info about, list, move, remove, and update volumes.
+Create, get info, list, move, remove, and update volumes.
 
 ## **create**
 
@@ -78,14 +78,14 @@ Succeed: Add vd2: Type:3-copy, Size:5GB
 
 ## **help**
 
-**`cio volume help`**
+**`cio volume --help`**
 
 Display `cio volume` commands with usage information.
 
 #### **Example**
 
 ```
-$ cio volume help
+$ cio volume --help
 Usage: cio volume COMMAND [<volumename>] [options]
 
 Create, get info, list all, move, remove or update volumes
@@ -343,7 +343,7 @@ Update a volume's attributes.
 
 - **-V , --vdisk &lt;id&gt;** : Specify volume id of volume to modify.
 
-- **-y , --yes** : Automatically confirm destructive actions.
+- **-y , --yes** : Automatically confirm volume deletion.
 
 
 #### **Examples**

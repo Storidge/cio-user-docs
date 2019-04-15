@@ -2,7 +2,7 @@
 
 **`cio events [options]`**
 
-Display the 10 latest cio events.
+Display most recent 10 cio events.
 
 ### **Options**
 

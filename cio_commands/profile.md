@@ -136,7 +136,7 @@ Succeed: Remove profile: Profile JNFS removed
 
 **`cio profile show <volume>`**
 
-Save a profile to the datastore from a yaml config file.
+Extracts a profile from a volume. Useful for redirecting to named profile and saving to datastore.
 
 #### **Example**
 

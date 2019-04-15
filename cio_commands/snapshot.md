@@ -2,7 +2,7 @@
 
 **`cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`**
 
-Manually create, get info about, list, or remove snapshots.
+Create, get info, list, or remove snapshots.
 
 #### **Options**
 
@@ -32,14 +32,14 @@ Succeed: Created a snapshot of '/cio/vd6' in '/cio/vd6/.snap/2019-04-14-2034-f23
 
 ## **help**
 
-**`cio snapshot help`**
+**`cio snapshot --help`**
 
 Display snapshot commands and usage information.
 
 #### **Example**
 
 ```
-$ cio snapshot help
+$ cio snapshot --help
 Usage: cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]
 
 Manually create a snapshot, print info, list all snapshots or remove a snapshot
