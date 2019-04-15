@@ -2,9 +2,9 @@
 
 The command-line is one way of interacting with the Storidge cio software. 
 
-This interface is available using the cio command, and comes installed with automatically. The cio command in turn has many subcommands, such as cio info, cio volume, cio snapshot, etc.
+This interface is available using the `cio` command, and comes installed. The `cio` command has many subcommands, such as cio info, cio volume, cio snapshot, etc.
 
-Running `cio` by itself displays help showing all available subcommands. In addition to this, you can run any cio command with the -h flag to output help about that specific command. For example, try running `cio volume -h`. The help will output a one sentence synopsis of what the command does as well as a list of all the flags the command accepts.
+Running `cio` by itself displays help showing all available subcommands. In addition, you can run any command with the -h flag to output help information. For example, try running `cio volume -h`. The help will output a one sentence usage info and lists all options the command accepts. Details on various cio commands are available in the left navigational section of this site.
 
-Further details and use cases of various cio commands is available by reading the appropriate sub-section available in the left navigational area of this site.
+To simplify the command-line for developers, the actions of sub-commands have aliases, e.g. `list` and `ls` both list resources. `create` and `add` are aliases, `delete`, `remove` and `rm` all remove resources. 
 
