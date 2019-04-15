@@ -1,6 +1,12 @@
-# node
+# nodeid
 
-Top page for cio commands
+**`cio nodeid`**
 
-Add individual .md pages for sub-commands
+Display node id. New node id is generated if none exists.
 
+#### **Example**
+
+```
+$ cio nodeid
+f2385660
+```

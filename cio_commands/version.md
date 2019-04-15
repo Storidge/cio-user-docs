@@ -1,6 +1,12 @@
-# node
+# version
 
-Top page for cio commands
+**`cio version`**
 
-Add individual .md pages for sub-commands
+Display installed version of cio.
 
+### **Example**
+
+```
+$ cio version
+Version: V0.9.0-2729
+```
