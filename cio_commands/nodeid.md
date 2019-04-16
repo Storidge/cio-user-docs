@@ -1,4 +1,4 @@
-# nodeid
+# cio nodeid
 
 **`cio nodeid`**
 

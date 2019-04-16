@@ -1,4 +1,4 @@
-# info
+# cio info
 
 **`cio info [options]`**
 

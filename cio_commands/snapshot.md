@@ -1,4 +1,4 @@
-# snapshot
+# cio snapshot
 
 **`cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`**
 

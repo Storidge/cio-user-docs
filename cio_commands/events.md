@@ -1,4 +1,4 @@
-# events
+# cio events
 
 **`cio events [options]`**
 

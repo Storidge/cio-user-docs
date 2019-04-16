@@ -1,4 +1,4 @@
-# node
+# cio node
 
 **`cio node ls`**
 **`cio node list`**

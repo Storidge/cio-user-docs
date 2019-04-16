@@ -1,4 +1,4 @@
-# profile
+# cio profile
 
 **`cio profile COMMAND [<profile | volume>]`**
 
