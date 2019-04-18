@@ -1,6 +1,12 @@
-# join-token
+# cioctl join-token
 
-Top page for cio commands
+**`cioctl join-token`**
 
-Add individual .md pages for sub-commands
+Generates a join-token to add a node to an existing cluster.
 
+#### **Example**
+
+```
+$ cioctl join-token
+    cioctl node add 192.168.1.131 root 4758b5fc
+```

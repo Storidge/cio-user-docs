@@ -1,6 +1,5 @@
-# unload
+# cioctl unload
 
-Top page for cio commands
+**`cioctl unload`**
 
-Add individual .md pages for sub-commands
-
+Stop cio on a single node cluster. 

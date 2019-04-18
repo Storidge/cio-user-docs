@@ -1,6 +1,5 @@
-# load
+# cioctl load
 
-Top page for cio commands
+**`cioctl load`**
 
-Add individual .md pages for sub-commands
-
+Start cio on a single node cluster.

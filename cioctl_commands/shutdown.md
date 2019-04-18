@@ -1,6 +1,5 @@
-# shutdown
+# cioctl shutdown
 
-Top page for cio commands
+**`cioctl shutdown`**
 
-Add individual .md pages for sub-commands
-
+Stop services and shutdown all the nodes in the cluster. 

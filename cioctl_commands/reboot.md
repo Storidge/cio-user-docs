@@ -1,6 +1,5 @@
-# reboot
+# cioctl reboot
 
-Top page for cio commands
+**`cioctl reboot`**
 
-Add individual .md pages for sub-commands
-
+Stop services and reboot all the nodes in the cluster.
