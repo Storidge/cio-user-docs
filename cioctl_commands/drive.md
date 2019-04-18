@@ -18,6 +18,8 @@ Add a drive to the storage pool.
 #### **Example**
 
 ```
+$ cioctl drive add /dev/sdd u1
+Succeed: node a8d3b506 has drive /dev/sdd added
 ```
 
 ## **help**
@@ -101,8 +103,15 @@ n4                   /dev/sdd     cio  SSD        19  92a88ffd0002sdd       norm
 
 Remove a faulty drive from the storage pool.
 
-#### **Example**
+#### **Examples**
 
+Remove a faulty drive.
+```
+$ cioctl drive rm a8d3b5060002sdd
+Succeed: drive a8d3b5060002sdd removed from storage pool
+```
+
+Remove a normal drive.
 ```
 $ cioctl drive rm 92a88ffd0001sdc
 Fail: Drive sdc on node 92a88ffd is not faulty
