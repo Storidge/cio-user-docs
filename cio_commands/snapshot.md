@@ -1,10 +1,19 @@
 # cio snapshot
 
+<h3>Usage</h3>
+
 **`cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`**
 
 Create, get info, list, or remove snapshots.
 
-#### **Options**
+<h3>Commands</h3>
+
+- **create** : Create snapshot of a volume
+- **info** : Display snapshot information by snapshot id
+- **list** : List snapshots on a volume
+- **remove** : Remove snapshot by snapshot id
+
+<h3>Options</h3>
 
 - **-v , --volume &lt;volume name&gt;** : Apply to a volume identified by volume name.
 
@@ -14,29 +23,33 @@ Create, get info, list, or remove snapshots.
 
 ## **create**
 
-**`cio snapshot create`**
+<h3>Usage</h3>
+
+**`cio snapshot create <volume name> [options]`**
 
 Manually create a snapshot on a volume.
 
-#### **Options**
+<h3>Options</h3>
 
  - **--description "&lt;description&gt;"** : Add a description of the snapshot.
 
-#### **Example**
+<h3>Examples</h3>
 
-Create a snapshot of volume bar and add description "snapshot description" to it.
+Create a snapshot of volume bar and add description.
 ```
-$ sudo cio snapshot create bar --description "snapshot description"
+$ sudo cio snapshot create bar --description "manual snapshot of volume bar"
 Succeed: Created a snapshot of '/cio/vd6' in '/cio/vd6/.snap/2019-04-14-2034-f2385660-0006'
 ```
 
 ## **help**
 
+<h3>Usage</h3>
+
 **`cio snapshot --help`**
 
-Display snapshot commands and usage information.
+Display `cio snapshot` commands with usage information.
 
-#### **Example**
+<h3>Examples</h3>
 
 ```
 $ cio snapshot --help
@@ -59,11 +72,13 @@ Options:
 
 ## **info**
 
+<h3>Usage</h3>
+
 **`cio snapshot info <YYYY-MM-DD-HHMM-NODEID-VDID>`**
 
 Display snapshot information by snapshot id.
 
-#### **Example**
+<h3>Examples</h3>
 
 ```
 $ cio snapshot info 2019-04-14-2034-f2385660-0006
@@ -78,30 +93,32 @@ description: snapshot description
 
 ## **list**
 
+<h3>Usage</h3>
+
 **`cio snapshot list <volumename>`**
 
 Display a list of snapshots on a volume.
 
-#### **Example**
+<h3>Examples</h3>
 
 ```
-$ cio snapshot list bar
-SNAPSHOT                        DATE                    DESCRIPTION
-2019-04-14-2009-f2385660-0006   Sun Apr 14 20:09 2019   Manual snapshot with auto cleanup
-2019-04-14-2011-f2385660-0006   Sun Apr 14 20:11 2019   Manual snapshot with auto cleanup
-2019-04-14-2012-f2385660-0006   Sun Apr 14 20:12 2019   Manual snapshot with auto cleanup
-2019-04-14-2034-f2385660-0006   Sun Apr 14 20:34 2019   snapshot description
+$ cio snapshot list rotate
+SNAPSHOT                           DATE                    DESCRIPTION
+2019-04-21-1551-2c19b9f6-0000005   Sun Apr 21 15:51 2019   Rotating snapshot with auto cleanup
+2019-04-21-1626-2c19b9f6-0000005   Sun Apr 21 16:26 2019   Snapshot volume rotate
 ```
 
 ## **remove**
+
+<h3>Usage</h3>
 
 **`cio snapshot remove <YYYY-MM-DD-HHMM-NODEID-VDID>`**
 
 Remove a snapshot by id.
 
-#### **Example**
+<h3>Examples</h3>
 
 ```
-$ sudo cio snapshot remove 2019-04-14-2034-f2385660-0006
-Delete snapshot on volume (null) at '/cio/vd6/.snap/2019-04-14-2034-f2385660-0006'
+# cio snapshot rm 2019-04-21-1626-2c19b9f6-0000005
+Delete snapshot on volume rotate at '/cio/snap/vd5/.snap/2019-04-21-1626-2c19b9f6-0000005'
 ```

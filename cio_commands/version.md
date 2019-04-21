@@ -1,10 +1,12 @@
 # cio version
 
+### **Usage**
+
 **`cio version`**
 
 Display installed version of cio.
 
-### **Example**
+### **Examples**
 
 ```
 $ cio version

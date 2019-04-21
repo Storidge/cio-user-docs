@@ -99,6 +99,7 @@ module.exports = {
             title: 'cioctl commands',
             collapsable: true,
             children: [
+              '/cioctl_commands/overview',
               '/cioctl_commands/create',
               '/cioctl_commands/drive',
               '/cioctl_commands/init',

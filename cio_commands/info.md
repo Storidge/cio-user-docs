@@ -1,58 +1,87 @@
 # cio info
 
+### **Usage**
+
 **`cio info [options]`**
 
-Display information about the cluster.
+Display cluster or node information.
 
 ### **Options**
 
 - **-c , --capacity** : Display capacity details.
 
-- **-n , --node &lt;node&gt;** : Display information for a specific node identified by the node name.
+- **-n , --node &lt;node&gt;** : Display node information identified by the node name.
 
-- **-N , --nodeid &lt;nodeid&gt;** : Display information for a specific node identified by the node id.
+- **-N , --nodeid &lt;nodeid&gt;** : Display node information identified by the node id.
 
-
-- **--nounits** : Display cluster information using byte units.
+- **--nounits** : Display information using byte units.
 
 ### **Examples**
 
 Display cluster information:
 ```
 $ cio info
-Domain: f2385660
-Domain ID: b922ab4a
+Domain: 2c19b9f6
+Domain ID: 4c91166f
 
 Metadata Version: 1.0
 Nodes: 4
-Vdisks: 6
-SSDs: 12
+Vdisks: 4
+SSDs: 16
 HDDs: 0
-Total capacity: 0.105TB
-Used capacity: 0.037TB
-Free capacity: 0.069TB
-Provisioned capacity: 0.234TB
-Total IOPS: 83925
+Total capacity: 0.297TB
+Used capacity: 0.034TB
+Free capacity: 0.263TB
+Provisioned capacity: 0.156TB
+Total IOPS: 69166
 Used IOPS: 0
-Free IOPS: 83925
-Provisioned IOPS: 1092
-Total bandwidth: 1041.774MiB/s
+Free IOPS: 69166
+Provisioned IOPS: 846
+Total bandwidth: 4751.998MiB/s
 Used bandwidth: 0.000MiB/s
-Free bandwidth: 1041.774MiB/s
-Provisioned bandwidth: 8.910MiB/s
-Status: Normal
+Free bandwidth: 4751.998MiB/s
+Provisioned bandwidth: 53.185MiB/s
+Condition: Normal
 ```
 
-Display cluster capacity information:
+Display node information:
 ```
-$ cio info -c
-Total capacity: 0.105TB
-SSD capacity: 0.105TB
+$ cio info -n cio1
+Domain: 2c19b9f6
+Domain ID: 4c91166f
+
+Metadata Version: 1.0
+Nodes: 4
+Vdisks: 1
+SSDs: 4
+HDDs: 0
+Total capacity: 0.074TB
+Used capacity: 0.012TB
+Free capacity: 0.062TB
+Provisioned capacity: 0.039TB
+Total IOPS: 17290
+Used IOPS: 0
+Free IOPS: 17290
+Provisioned IOPS: 18
+Total bandwidth: 1392.800MiB/s
+Used bandwidth: 0.000MiB/s
+Free bandwidth: 1392.800MiB/s
+Provisioned bandwidth: 1.449MiB/s
+Condition: normal
+Status: normal
+```
+
+Display node capacity information:
+```
+$ cio info -n cio1 -c
+Total capacity: 0.074TB
+SSD capacity: 0.074TB
 HDD capacity: 0.000TB
-Used SSD: 0.037TB
+Used SSD: 0.012TB
 Used HDD: 0.000TB
-Free SSD: 0.069TB
+Free SSD: 0.062TB
 Free HDD: 0.000TB
-Provisioned SSD: 0.234TB
+Provisioned SSD: 0.039TB
 Provisioned HDD: 0.000TB
 ```
+

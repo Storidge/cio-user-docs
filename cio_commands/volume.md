@@ -1,16 +1,30 @@
 # cio volume
 
+<h3>Usage</h3>
+
 **`cio volume COMMAND [options]`**
 
 Create, get info, list, move, remove, and update volumes.
 
+<h3>Commands</h3>
+
+- **create** : Create a volume
+- **info** : Display volume information by name or id
+- **list** : List volumes in cluster or on a node
+- **move** : Move volume to specified node
+- **remove** : Remove a volume
+- **update** : Update volume attributes
+
 ## **create**
 
+<h3>Usage</h3>
+
 **`cio volume create [options]`**
+**`cio volume add [options]`**
 
 Create a volume.
 
-#### **Options**
+<h3>Options</h3>
 
 - **--bandwidthmin &lt;min bandwidth&gt;** : Set the minimum bandwidth in MiB/s.
 
@@ -20,7 +34,7 @@ Create a volume.
 
 - **-d , --dedupe** : Enable de-duplication.
 
-- **-D , --directory &lt;directory&gt;** : Set bind mount directory for Docker. Defaults to `/cio`
+- **-D , --directory &lt;directory&gt;** : Set bind mount directory for Docker. Defaults to `/cio/volumes`
 
 - **-e , --encryption** : Enable encryption.
 
@@ -34,7 +48,7 @@ Create a volume.
 
 - **-I , --interface &lt;interface parameters...&gt;** : Set interface parameters.
 
-- **--interval &lt;snapshot interval&gt;** : Set snapshot interval in minutes.
+- **--interval &lt;snapshot interval&gt;** : Set periodic snapshot interval in minutes.
 
 - **--label &lt;key&gt;=&lt;value&gt;** : Add a label.
 
@@ -62,27 +76,45 @@ Create a volume.
 
 - **-v , --volume &lt;volumename&gt;** : Set a volume name.
 
-#### **Examples**
+<h3>Examples</h3>
 
-Create a volume.
+Create volume named 'foo' with default parameters
 
 ```
-$ cio volume create
+$ cio volume create foo
 Succeed: Add vd5: Type:2-copy, Size:20GB
 ```
-Create a volume named 'Hello' with a capacity of 5 GB, a redundancy level of 3, and thick provisioning.
+Create a volume named 'Hello' with a capacity of 5 GB, three copy redundancy, and thick provisioning.
 ```
-$ cio volume create -v Hello -c 5 -l 3 -P thick
+$ cio volume create Hello -c 5 -l 3 -P thick
 Succeed: Add vd2: Type:3-copy, Size:5GB
+```
+Create volume named 'nginx' with profile NGINX
+```
+$ cio volume create nginx -p NGINX
+Succeed: Add vd5: Type:2-copy, Size:25GB
+```
+Create volume 'manual' with manual snapshots, bind mount /cio/snap and max 10 snapshots
+```
+$ cio volume create manual -s -D /cio/snap --snapshotMax 10
+Succeed: Add vd2: Type:2-copy, Size:20GB
+```
+
+Create volume 'rotate' with periodic snapshots every 60 minutes and max 24 snapshots
+```
+$ cio volume create rotate -s -D /cio/snap --interval 60 --snapshotMax 24
+Succeed: Add vd3: Type:2-copy, Size:20GB
 ```
 
 ## **help**
+
+<h3>Usage</h3>
 
 **`cio volume --help`**
 
 Display `cio volume` commands with usage information.
 
-#### **Example**
+<h3>Examples</h3>
 
 ```
 $ cio volume --help
@@ -102,21 +134,18 @@ Commands:
 
 ## **info**
 
+<h3>Usage</h3>
+
 **`cio volume info [<volumename>] [options]`**
+**`cio volume inspect [<volumename>] [options]`**
 
 Display volume info by name or id.
 
-#### **Options**
-
-- **--attachstatus** : Display attach status.
+<h3>Options</h3>
 
 - **--clusterid** : Display cluster id.
 
-- **--container** : Display containers.
-
 - **-D , --directory** - Display mount directory.
-
-- **--datasetid** - Display dataset id.
 
 - **-f , --filesystem** - Display filesystem details.
 
@@ -138,7 +167,7 @@ Display volume info by name or id.
 
 - **-V , --vdisk** : Display just vdisk ID.
 
-#### **Examples**
+<h3>Examples</h3>
 
 Display info by volume name for a volume named portainer.
 
@@ -199,12 +228,14 @@ $ cio volume info portainer -D
 
 ## **list**
 
+<h3>Usage</h3>
+
 **`cio volume ls [options]`**
 **`cio volume list [options]`**
 
-List all of the volumes on the cluster.
+List all volumes in a cluster or on a node
 
-#### **Options**
+<h3>Options</h3>
 
 - **-a , --allocated** : Display the list of volumes with a column showing the percentage of allocated capacity.
 
@@ -214,39 +245,40 @@ List all of the volumes on the cluster.
 
 - **--nounits** : Display volume information using byte units.
 
-#### **Examples**
+<h3>Examples</h3>
 
 List all the volumes on the cluster.
-
 ```
 $ cio volume ls
+
+root@v4:/etc/storidge/profiles# cio volume ls
 NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME
-n3                   vd1       SSD   2-copy                  20GB  44ddb75f  portainer         
-n3                   vd2       SSD   2-copy                  20GB  bc31c6de  my-volume               
-n3                   vd3       SSD   2-copy                  20GB  24448206  another-volume         
-n3                   vd4       SSD   2-copy                  20GB  837d83b2                
-n2                   vd5       SSD   2-copy                  20GB  18268962               
-n1                   vd6       SSD   2-copy                  50GB  1ff59356  Hello
+v2                   vd9       SSD   2-copy                  20GB  8f0db895  portainer
+v4                   vd3       SSD   2-copy                  20GB  08ba8120  foo
+v4                   vd4       SSD   2-copy                  20GB  ce34c0e2  manual
+v1                   vd5       SSD   2-copy                  20GB  a79d2ebe  rotate
+v2                   vd6       SSD   2-copy                  25GB  c678c49e  nginx
 ```
 
-List all of the volumes on the node named 'n3' and display allocated capacity percentages.
-
+List all volumes on node named 'v2' with allocated capacity percentage.
 ```
-$ cio volume ls -a -n n3
+$ cio volume ls -a -n v2
 NODENAME             VDISK     DRIVE TYPE                    SIZE  UUID      VOLUMENAME             ALLOCATED
-n3                   vd1       SSD   2-copy                  20GB  44ddb75f  portainer                   0.4%
-n3                   vd2       SSD   2-copy                  20GB  bc31c6de  my-volume                   0.4%
-n3                   vd3       SSD   2-copy                  20GB  24448206  another-volume              0.4%
-n3                   vd4       SSD   2-copy                  20GB  837d83b2                              0.4%
+v2                   vd9       SSD   2-copy                  20GB  8f0db895  portainer                   0.4%
+v2                   vd1       SSD   2-copy                  20GB  7a4d0803  bw                          0.4%
+v2                   vd2       SSD   2-copy                  20GB  f5de8225  bwtest                      0.4%
+v2                   vd6       SSD   2-copy                  25GB  c678c49e  nginx                       0.3%
 ```
 
 ## **move**
 
+<h3>Usage</h3>
+
 **`cio volume move [<volumename>] [options]`**
 
-Move a volume between nodes. Open volumes cannot be moved.
+Move a volume to specified node. Do not move opened volumes mounted to an application.
 
-#### **Options**
+<h3>Options</h3>
 
 - **-v , --volume &lt;volumename&gt;** : Specify volume name of the volume to move.
 
@@ -256,27 +288,31 @@ Move a volume between nodes. Open volumes cannot be moved.
 
 - **-N , --nodeid &lt;dst nodeid&gt;** : Identify destination node by node id.
 
-#### **Examples**
+<h3>Examples</h3>
 
-Move open volume portainer from node n3 to node n1.
+Move volume foo to node v2.
 ```
-$ cio volume move portainer -n n1
-Fail: Move vd1: vdisk is opened
-```
-Move closed volume Hello from node n3 to node n1.
-```
-$ cio volume move Hello -n n1
+$ cio volume move foo -n v2
 Succeed: Move vd2 from 99f8673e to f2385660
+```
+Open volumes cannot be moved! 
+```
+$ cio volume move portainer -n v2
+Fail: Move vd1: vdisk is opened
 ```
 
 ## **remove**
 
+<h3>Usage</h3>
+
 **`cio volume rm [<volumename>] [options]`**
 **`cio volume remove [<volumename>] [options]`**
 
+**`cio volume delete [<volumename>] [options]`**
+
 Remove a volume.  
 
-#### **Options**
+<h3>Options</h3>
 
 - **-v , --volume &lt;volumename&gt;** : Specify name of volume to delete.
 
@@ -284,30 +320,28 @@ Remove a volume.
 
 - **-y , --yes** : Do not prompt for removal confirmation.
 
-#### **Examples**
+<h3>Examples</h3>
 
-Remove volume toRemove by name.
+Remove volume foo by name.
 ```
-$ cio volume rm toRemove
+$ cio volume rm foo
 This operation will remove the vdisk and delete all existing data! Please confirm you wish to proceed [Y/N]: Y
 Succeed: Remove vd3
 ```
-Remove volume toRemove by id without confirmation.
+Remove volume foo by volume id without confirmation.
 ```
 $ cio volume rm -y -V 3
 Succeed: Remove vd3
 ```
 ## **update**
 
+<h3>Usage</h3>
+
 **`cio volume update [<volumename>] [options]`**
 
 Update a volume's attributes.  
 
-#### **Options**
-
-- **--attachstatus &lt;attach status&gt;** : Set attachment status.
-
-- **--add-container &lt;container id> &lt;container image> [container name]** : Add a container.
+<h3>Options</h3>
 
 - **--bandwidthmin &lt;min BW&gt;** : Set minimum bandwidth in MiB/s.
 
@@ -319,8 +353,6 @@ Update a volume's attributes.
 
 - **-D , --directory &lt;directory&gt;** : Set bind mount directory for Docker.
 
-- **--datasetid &lt;dataset id&gt;** : Set dataset id.
-
 - **-g , --grow &lt;size in GB&gt;** : Grow volume by size in GB.
 
 - **--iopsmin &lt;min IOPS&gt;** : Set minimum IOPS.
@@ -330,8 +362,6 @@ Update a volume's attributes.
 - **--label &lt;key>=<value&gt;** : Add a label to this volume.
 
 - **-p , --profile &lt;profile&gt;** : Use profile to modify volume.
-
-- **--remove-container &lt;id | all&gt;** : Remove one container or all containers.
 
 - **-S , --status &lt;status&gt;** : Set volume status.
 
@@ -343,13 +373,15 @@ Update a volume's attributes.
 
 - **-V , --vdisk &lt;id&gt;** : Specify volume id of volume to modify.
 
-- **-y , --yes** : Automatically confirm volume deletion.
+<h3>Examples</h3>
 
-
-#### **Examples**
-
-Update volume portainer capacity from 20 GB to 25 GB.
+Change volume portainer capacity from 20 GB to 25 GB.
 ```
 $ cio volume update portainer -c 25
-Succeed: Update vd1 capacity: increased to 25GB
+Succeed: Update vd9 capacity: increased to 25GB
+```
+Change IOPS limits on volume portainer.
+```
+$ cio volume update portainer --iopsmin 1000 --iopsmax 8500
+Succeed: Update vd9 iops: iops_min:1000 iops_max:8500
 ```

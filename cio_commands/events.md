@@ -1,16 +1,18 @@
 # cio events
 
+### **Usage**
+
 **`cio events [options]`**
 
-Display most recent 10 cio events.
+Display most recent cio events. Defaults to 10 events if `-n` option not specified.
 
 ### **Options**
 
-- **-n &lt;number&gt;** : Display the last number cio events.
+- **-n &lt;number&gt;** : Display most recent n number of events.
 
-- **-f** : Display real time cio events continuously.
+- **-f** : Display cio events as they are received.
 
-### **Example**
+### **Examples**
 
 Display the 5 latest cluster events.
 

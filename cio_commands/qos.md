@@ -1,10 +1,12 @@
 # cio qos
 
+### **Usage**
+
 **`cio qos`**
 
-Run fio and display the read IOPS for each volume.
+Report IOPS for each volume. Used to verify performance settings using read I/Os.
 
-### **Example**
+### **Examples**
 
 ```
 $ cio qos
