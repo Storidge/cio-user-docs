@@ -1,4 +1,4 @@
-# cli overview
+# overview
 
 The command-line is one way of interacting with the Storidge cio software. 
 

@@ -16,13 +16,45 @@ module.exports = {
         ],
         sidebar: [
           {
-            title: 'Get Started',
+            title: 'Installation',
             collapsable: true,
             children: [
-              '/get_started/installing_developer_release',
-              '/get_started/data_drive_requirements',
-              '/get_started/server_requirements',
-              '/get_started/how_it_works'
+              '/installation/installing_developer_release',
+              '/installation/data_drive_requirements',
+              '/installation/server_requirements',
+              '/installation/how_it_works'
+            ]
+          },
+          {
+            title: 'cio CLI',
+            collapsable: true,
+            children: [
+              '/cio_cli/overview',
+              '/cio_cli/events',
+              '/cio_cli/info',
+              '/cio_cli/node',
+              '/cio_cli/nodeid',
+              '/cio_cli/profile',
+              '/cio_cli/qos',
+              '/cio_cli/snapshot',
+              '/cio_cli/version',
+              '/cio_cli/volume'
+            ]
+          },
+          {
+            title: 'cioctl CLI',
+            collapsable: true,
+            children: [
+              '/cioctl_cli/overview',
+              '/cioctl_cli/create',
+              '/cioctl_cli/drive',
+              '/cioctl_cli/init',
+              '/cioctl_cli/join-token',
+              '/cioctl_cli/load',
+              '/cioctl_cli/node',
+              '/cioctl_cli/reboot',
+              '/cioctl_cli/shutdown',
+              '/cioctl_cli/unload'
             ]
           },
           {
@@ -77,38 +109,6 @@ module.exports = {
             collapsable: true,
             children: [
               '/cloud_reference_guide/storidge_on_digitalocean_cloud'
-            ]
-          },
-          {
-            title: 'cio commands',
-            collapsable: true,
-            children: [
-              '/cio_commands/cli_overview',
-              '/cio_commands/events',
-              '/cio_commands/info',
-              '/cio_commands/node',
-              '/cio_commands/nodeid',
-              '/cio_commands/profile',
-              '/cio_commands/qos',
-              '/cio_commands/snapshot',
-              '/cio_commands/version',
-              '/cio_commands/volume'
-            ]
-          },
-          {
-            title: 'cioctl commands',
-            collapsable: true,
-            children: [
-              '/cioctl_commands/overview',
-              '/cioctl_commands/create',
-              '/cioctl_commands/drive',
-              '/cioctl_commands/init',
-              '/cioctl_commands/join-token',
-              '/cioctl_commands/load',
-              '/cioctl_commands/node',
-              '/cioctl_commands/reboot',
-              '/cioctl_commands/shutdown',
-              '/cioctl_commands/unload'
             ]
           },
           {

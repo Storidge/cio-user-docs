@@ -1,12 +1,18 @@
 # cioctl create
 
+### **Usage**
+
 **`cioctl create`**
 
-Generate command strings for creating a new cluster. If a cluster is already configured this command will de-configure and restart the cluster.
+Generate command strings for creating a new cluster. 
+
+Run the `cioctl join ...` command string on nodes to be added to the cluster. If creating a single node cluster for test, proceed to run the `cioctl init <token>` command string. 
+
+If a cluster is already configured, this command will delete current configuration, destroy cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster. 
 
 ### **Examples**
 
-To create a new cluster run `cioctl create` as root user on the SDS node and follow the instructions. If multiple IPs are available a message will prompt for specification.
+To create a new cluster run `cioctl create` as root user on the SDS node and follow the instructions. If multiple IPs are available a message will prompt to specify IP to use.
 ```
 $ cioctl create
 [sudo] password for centos:
