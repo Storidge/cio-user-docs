@@ -16,6 +16,13 @@ module.exports = {
         ],
         sidebar: [
           {
+            title: 'Overview',
+            collapsable: true,
+            children: [
+              '/overview/overview'
+            ]
+          },
+          {
             title: 'Installation',
             collapsable: true,
             children: [
@@ -76,13 +83,6 @@ module.exports = {
             children: [
               '/kubernetes_storage/volumes',
               '/kubernetes_storage/storage_classes'
-            ]
-          },
-          {
-            title: 'Profiles',
-            collapsable: true,
-            children: [
-              '/profiles/profiles'
             ]
           },
           {
