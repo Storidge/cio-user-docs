@@ -11,6 +11,7 @@ module.exports = {
         sidebarDepth: 2,
         nav: [
             { text: 'Home', link: 'https://storidge.com', },
+            { text: 'Guide', link: 'https://guide.storidge.com' },
             { text: 'API', link: 'https://storidge.com/api' },
             { text: 'GitHub', link: 'https://github.com/storidge' }
         ],
