@@ -19,17 +19,17 @@ module.exports = {
             title: 'Overview',
             collapsable: true,
             children: [
-              '/overview/overview'
+              '/overview/overview',
+              '/overview/how_it_works'
             ]
           },
           {
             title: 'Installation',
             collapsable: true,
             children: [
-              '/installation/installing_developer_release',
+              '/installation/create_cio_cluster',
               '/installation/data_drive_requirements',
-              '/installation/server_requirements',
-              '/installation/how_it_works'
+              '/installation/server_requirements'
             ]
           },
           {

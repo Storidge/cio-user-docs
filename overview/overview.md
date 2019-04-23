@@ -1,16 +1,18 @@
 # CIO Documentation
 
-Welcome to the documentation for Storidge's CIO. 
+Welcome to the documentation for Storidge's Container I/O (CIO). This website aims to document different aspects of CIO including CLI commands, API specification, use cases and references. 
 
- - the command line utility for managing the lifecycle of virtual machines. 
+CIO creates a storage abstraction layer on top of a group of hosts for stateful applications to persist and share data on logical resources. The capabilities of CIO enables you to:
 
-This website aims to document every feature of Vagrant from top-to-bottom, covering as much detail as possible. 
+- easily deploy and keep running highly available containerized applications 
+- run hyperconverged workloads with orchestration systems
+- effortlessly ensure consistent performance after container restarts with automated data locality
+- eliminate 'noisy neighbor' issues in production 
+- avoid 3 am support calls through automated storage operations and recovery
 
-If you are just getting started with CIO, it is recommended that you start with the getting started guide first, and then return to this page.
+If you are interested in how CIO compares with enterprise storage systems or other software defined storage solutions, refer to [CIO vs Others](https://guide.storidge.com/cio_vs_others/overview.html).
 
-
-The navigation will take you through each component of Vagrant. Click on a navigation item to get started, or read more about why developers, designers, and operators choose Vagrant for their needs.
-
+It is recommended that you start with the [Getting Started](https://guide.storidge.com) guide first, if you are just getting started with CIO. Then return to this page when you are ready for more details.
 
 
 

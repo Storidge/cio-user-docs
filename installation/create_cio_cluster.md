@@ -1,28 +1,28 @@
-# Installing Developer Release
+# Create CIO cluster
 
 ## **Prerequisites**
 
-First, you'll need to setup the cluster resources to orchestrate:
+First, you'll need resources to setup the cluster:
 
 - Physical or virtual [servers](http://storidge.com/docs/server-requirements/). A minimum three nodes is required to form a cluster but four nodes are recommended for improved operating redundancy. You can use `docker-machine create` to provision virtual servers. Here are examples using [VirtualBox](https://rominirani.com/docker-swarm-tutorial-b67470cf8872) and [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-create-a-cluster-of-docker-containers-with-docker-swarm-and-digitalocean-on-centos-7).
 - Since we want data protected and available, each host will need a minimum of four drives, one for the boot volume and three [data drives](http://storidge.com/docs/data-drive-requirements/) attached for CIO use.
 - Configure networking to allow SSH connections across all nodes.
 
-## **Install cio**
+## **Script install**
 
-For your convenience, a script is provided for installing the free version of CIO into development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
+For your convenience, a script is provided for installing the community edition CIO into development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
-CIO currently supports CentOS 7.4 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 14.04LTS (3.13 kernel). After verifying you have a supported distribution, run the demo script below to begin installation.
+CIO currently supports CentOS 7.5+ (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). After verifying you have a supported distribution, run the demo script below to begin installation.
 
 ```
-curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash
+curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 
 ```
 
 Example:
 
 ```
-root@c1:~# curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash
+root@c1:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 Started installing release 2148 at Tue Jan 30 12:47:26 PST 2018
 Loading cio software for: u16  (4.4.0-104-generic)
 ...
@@ -42,7 +42,7 @@ Please verify local drives are available, then run 'cioctl create' command on pr
 
 Add nodes to increase capacity and enable high availability for the cluster. Repeat the cio installation on all nodes that will be members of the cluster.
 
-## **Initialize the cluster**
+## **Initialize cluster**
 
 With the CIO software installed on all nodes, the next step is to create a cluster and then initialize the cluster for use. As part of cluster creation, CIO will automatically discover and add drive resources from each node. Drives that are partitioned or have a file system will not be added to the storage pool.
 
@@ -103,7 +103,7 @@ The initialization process will take a few minutes to complete for virtual serve
 
 This extra time is used to characterize the available performance and the performance information is used in CIO's quality-of-service (QoS) feature to deliver guaranteed performance for individual applications. For example, a four node Intel cluster with 3 NVMe devices each was tested at 6 million read IOPS in the cluster.
 
-## **Ready To Use**
+## **Ready to use**
 
 At the end of initialization, you have a four node [Docker Swarm](https://docs.docker.com/get-started/part4/) cluster running. The Swarm cluster will be automatically configured if one is not already running. There are three manager nodes and one worker node. Confirm with:
 
@@ -140,5 +140,3 @@ c4                   192.168.3.129     d2004822   standard   normal
 ```
 
 In this example, point the browser at 192.168.3.95:9000, where 9000 is the default Portainer service port number.
-
-
