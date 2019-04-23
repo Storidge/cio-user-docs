@@ -20,7 +20,7 @@ module.exports = {
             title: 'Overview',
             collapsable: true,
             children: [
-              '/overview/overview',
+              '/overview/cio_documentation',
               '/overview/how_it_works'
             ]
           },
