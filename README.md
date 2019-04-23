@@ -1,17 +1,19 @@
-# Welcome to Storidge Docs
+# CIO Documentation
 
-Storidge’s CIO (container I/O) software was created to simplify the life of developers, DevOps and storage administrators. Purpose built to remove the pain of managing storage for applications, we make storage simple so you can focus on applications instead of managing infrastructure.
+Welcome to the documentation for Storidge's Container I/O (CIO). This website aims to document different aspects of CIO including CLI commands, API specification, use cases and references. 
 
-CIO is a clustered block storage solution which is tightly integrated with container orchestrators. It provides a persistent storage layer from which applications can programmatically consume block, file and object storage services. In an orchestrated environment, the data volumes are hyper-converged and exposed on the same host where the application container is running. When a container is rescheduled to another host, the CIO storage orchestrator automatically moves the volume to the new host.
+CIO creates a storage abstraction layer on top of a group of hosts for stateful applications to persist and share data on logical resources. The capabilities of CIO enables you to:
 
-For organizations that want to future-proof their investments in container technology, CIO also supports accessing data volumes from outside the storage cluster. This enables applications running on virtual or physical servers to access the same volumes as the hyper-converged containers.
+- easily deploy and keep running highly available containerized applications 
+- run hyperconverged workloads with orchestration systems
+- effortlessly ensure consistent performance after container restarts with automated data locality
+- eliminate 'noisy neighbor' issues in production 
+- avoid 3 am support calls through automated storage operations and recovery
 
-Storidge technology:
-- Rapidly provisions in seconds based on application intent. Profiles minimizes the need for operations to actively manage storage for applications.
-- Provisions and manages storage at a container-granular level
-- Provides programmatic approach to provision storage through the scheduler and orchestration software
-- Orchestrates storage volumes to provide data persistence and high availability
-- Ensures redundancy of data by repairing drive and node failures when needed
-- Provides performance isolation with quality of service guarantees per containerized application
+If you are interested in how CIO compares with enterprise storage systems or other software defined storage solutions, refer to [CIO vs Others](https://guide.storidge.com/cio_vs_others/overview.html).
+
+It is recommended that you start with the [Getting Started](https://guide.storidge.com) guide first, if you are just getting started with CIO. Then return to this page when you are ready for more details.
+
+
 
 
