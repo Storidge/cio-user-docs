@@ -8,7 +8,7 @@ During intialization of a cluster, CIO will automatically discover, add and orga
 
 Within a cluster, each node has the Container IO (CIO) software and the Docker daemon. The CIO software pools storage resources from each host to form a persistent storage layer (Container IO Distributed Storage below) from which applications can programmatically consume block, file and object storage. This virtualization layer provide not just storage capacity but also data management capabilities to protect data and keep it highly available. Just as an Orchestration System provides management across a cluster for application containers,  Storidge plays a parallel role to provide storage orchestration and data management services for stateful applications in the cluster. 
 
-![cio swarm cluster](C:\Users\jk\Documents\Images\cio swarm cluster.png)
+![cio swarm cluster](../images/cio-swarm-cluster.png)
 
 Storidge integrates with orchestration systems through a plugin API. Our volume plugin and Container IO (CIO) software is installed on every member node of a cluster and enables storage to be natively provisioned from within a Docker environment. Application containers consume Storidge volumes by passing requests through the Orchestration System. Requests for Docker storage are forwarded through the CIO volume plugin and processed by the Container IO Distributed Storage layer which manages the lifecycle of the virtual volumes. 
 
@@ -110,7 +110,7 @@ $ mount | grep vd2
 
 Per the MYSQL profile, the mysql-data volume is thin provisioned, using capacity only as the application consumes it. This volume is replicated and striped across the cluster nodes and drives to ensure data redundancy and availability. 
 
-![mysql volume](C:\Users\jk\Documents\Images\mysql volume.png)
+![mysql volume](../images/mysql-volume.png)
 
 From the application point of view:
 
@@ -128,6 +128,8 @@ Storidge's Container IO software creates a persistent storage layer that ensures
 Metadata in a Storidge cluster is fully distributed. Each node manages three copies of the metadata for volumes that it owns. Since the metadata is in the data path, this approach reduces latency by not having to reference a “master”. In addition, the size of the failure domain is reduced since there is no single point of failure. 
 
 Data redundancy is built around the concept of microdisks. Microdisks are small allocation units that are interchangeable horizontally across nodes and vertically across tiers of storage. A volume is composed of arrays of microdisks which are fully redundant. When a node fails, remaining operational nodes rebuild the volumes that it owns to restore data redundancy. Since microdisks are interchangeable, the recovery compute and IO workloads are distributed over all nodes and drives in a cluster. Recovery is fast as Storidge tracks and rebuilds only the microdisks with data written. 
+
+![high availability](../images/high-availability.png)
 
 When a node fails, the Orchestration System will restart failed services on operational nodes. Storidge will automatically detach volumes from the failed node and mount it to the node where the container is restarting. With redundant copies in the cluster, the restarted container has immediate access to data and continues running. The rebuilding of the container's volume is non-blocking and continues in the background even after an application container is rescheduled to a new node. Failed nodes are completely removed from metadata in the cluster. This eliminates the possibility of a failed node rejoining the cluster and potentially corrupting data. 
 
