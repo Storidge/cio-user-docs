@@ -54,9 +54,11 @@ module.exports = {
             collapsable: true,
             children: [
               '/cioctl_cli/overview',
+              '/cioctl_cli/add',
               '/cioctl_cli/create',
               '/cioctl_cli/drive',
               '/cioctl_cli/init',
+              '/cioctl_cli/join',
               '/cioctl_cli/join-token',
               '/cioctl_cli/load',
               '/cioctl_cli/node',
