@@ -111,7 +111,7 @@ module.exports = {
             title: 'Cloud Reference Guide',
             collapsable: true,
             children: [
-              '/cloud_reference_guide/storidge_on_digitalocean_cloud'
+              '/cloud_reference_guide/cio_on_digitalocean'
             ]
           },
           {
