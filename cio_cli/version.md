@@ -4,11 +4,11 @@
 
 **`cio version`**
 
-Display installed version of cio.
+Display installed version of cio software.
 
 ### **Examples**
 
 ```
 $ cio version
-Version: V0.9.0-2729
+Version: V1.0.0-2888
 ```

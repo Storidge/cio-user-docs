@@ -10,9 +10,9 @@ Display cluster or node information.
 
 - **-c , --capacity** : Display capacity details.
 
-- **-n , --node &lt;node&gt;** : Display node information identified by the node name.
+- **-n , --node &lt;node&gt;** : Display information for node name.
 
-- **-N , --nodeid &lt;nodeid&gt;** : Display node information identified by the node id.
+- **-N , --nodeid &lt;nodeid&gt;** : Display information for node id.
 
 - **--nounits** : Display information using byte units.
 

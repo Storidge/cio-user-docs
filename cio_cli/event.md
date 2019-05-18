@@ -1,23 +1,21 @@
-# cio events
+# cio event
 
 ### **Usage**
 
-**`cio events [options]`**
+**`cio event [options]`**
 
-Display most recent cio events. Defaults to 10 events if `-n` option not specified.
+Display most recent cio events. Defaults to 500 events if `-n` option not specified.
 
 ### **Options**
 
 - **-n &lt;number&gt;** : Display most recent n number of events.
 
-- **-f** : Display cio events as they are received.
-
 ### **Examples**
 
-Display the 5 latest cluster events.
+Display the 5 most recent events.
 
 ```
-$ cio events -n 5
+$ cio event -n 5
 04/14/2019-06:28:51 [info] [DFS] volume toRemove (vd3) removed on node 1862a9a1:1011
 04/14/2019-06:34:24 [info] [DFS] volume help (vd3) created on node 1862a9a1:1009
 04/14/2019-07:05:30 [info] [DFS] volume portainer (vd1) is expanded on node 99f8673e:1010

@@ -15,11 +15,11 @@ Create, get info, list, or remove snapshots.
 
 <h3>Options</h3>
 
-- **-v , --volume &lt;volume name&gt;** : Apply to a volume identified by volume name.
+- **-v , --volume &lt;volume name&gt;** : Volume name
 
-- **-V , --vdisk &lt;id&gt;** : Apply to a volume identified by volume id.
+- **-V , --vdisk &lt;id&gt;** : Vdisk id
 
-- **&lt;YYYY-MM-DD-HHMM-NODEID-VDID&gt;** : Snapshot id used when removing or inspecting a snapshot.
+- **&lt;YYYY-MM-DD-HHMM-NODEID-VDID&gt;** : Snapshot id
 
 ## **create**
 
@@ -27,11 +27,11 @@ Create, get info, list, or remove snapshots.
 
 **`cio snapshot create <volume name> [options]`**
 
-Manually create a snapshot on a volume.
+Create a snapshot on a volume.
 
 <h3>Options</h3>
 
- - **--description "&lt;description&gt;"** : Add a description of the snapshot.
+ - **--description "&lt;description&gt;"** : Add a description of snapshot.
 
 <h3>Examples</h3>
 

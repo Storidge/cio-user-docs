@@ -4,7 +4,7 @@
 
 **`cio profile COMMAND [<profile | volume>]`**
 
-Create, display, list or remove profiles from datastore. Get profile from an existing volume.
+Create, display, list or remove profiles. Get profile from an existing volume.
 
 <h3>Commands</h3>
 
@@ -12,7 +12,7 @@ Create, display, list or remove profiles from datastore. Get profile from an exi
 - **info** : Display a profile in datastore
 - **list** : List profiles in datastore
 - **remove** : Remove profile from datastore
-- **show** : Display profile of volume in yaml format
+- **show** : Display profile of volume
 
 ## **create**
 

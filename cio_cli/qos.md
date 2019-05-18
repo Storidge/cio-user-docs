@@ -4,7 +4,7 @@
 
 **`cio qos`**
 
-Report IOPS for each volume. Used to verify performance settings using read I/Os.
+Report IOPS for each volume on a node. Used to verify performance settings using read I/Os.
 
 ### **Examples**
 

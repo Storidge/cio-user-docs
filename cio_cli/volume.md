@@ -4,7 +4,7 @@
 
 **`cio volume COMMAND [options]`**
 
-Create, get info, list, move, remove, and update volumes.
+Create, get info, list, move, remove, or update volume.
 
 <h3>Commands</h3>
 
@@ -26,55 +26,55 @@ Create a volume.
 
 <h3>Options</h3>
 
-- **--bandwidthmin &lt;min bandwidth&gt;** : Set the minimum bandwidth in MiB/s.
+- **--bandwidthmin &lt;min bandwidth&gt;** : Minimum bandwidth in MiB/s
 
-- **--bandwidthmax &lt;max bandwidth&gt;** : Set the maximum bandwidth in MiB/s.
+- **--bandwidthmax &lt;max bandwidth&gt;** : Maximum bandwidth in MiB/s
 
-- **-c , --capacity &lt;size&gt;** : Set volume size in GB. Defaults to 20 GB.
+- **-c , --capacity &lt;size&gt;** : Volume size in GiB
 
-- **-d , --dedupe** : Enable de-duplication.
+- **-d , --dedupe** : Enable de-duplication feature
 
-- **-D , --directory &lt;directory&gt;** : Set bind mount directory for Docker. Defaults to `/cio/volumes`
+- **-D , --directory &lt;directory&gt;** : Bind mount directory. Defaults to `/cio/volumes`
 
-- **-e , --encryption** : Enable encryption.
+- **-e , --encryption** : Enable encryption feature
 
-- **-f , --filesystem &lt;filesystem type&gt;** : Set a filesystem.
+- **-f , --filesystem &lt;filesystem type&gt;** : Set filesystem to btrfs, ext4 or xfs
 
-- **-h , --help** : Show usage information.
+- **-h , --help** : Show usage information
 
-- **--iopsmin &lt;min IOPS&gt;** : Set minimum IOPS.
+- **--iopsmin &lt;min IOPS&gt;** : Guaranteed minimum IOPS
 
-- **--iopsmax &lt;max IOPS&gt;** : Set maximum IOPS.
+- **--iopsmax &lt;max IOPS&gt;** : Maximum IOPS allowed
 
-- **-I , --interface &lt;interface parameters...&gt;** : Set interface parameters.
+- **-I , --interface &lt;interface parameters...&gt;** : Set interface parameters
 
-- **--interval &lt;snapshot interval&gt;** : Set periodic snapshot interval in minutes.
+- **--interval &lt;snapshot interval&gt;** : Snapshot interval in minutes
 
-- **--label &lt;key&gt;=&lt;value&gt;** : Add a label.
+- **--label &lt;key&gt;=&lt;value&gt;** : Add label to volume
 
-- **-l , --level &lt;2 | 3&gt;** : Set redundancy level to 2 or 3 copy.
+- **-l , --level &lt;2 | 3&gt;** : Set redundancy level to 1, 2 or 3 copy
 
-- **-m , --compress** : Enable compression.
+- **-m , --compress** : Enable compression feature
 
-- **-n , --node &lt;nodename&gt;** : Create a volume on a specific node by name.
+- **-n , --node &lt;nodename&gt;** : Create volume on named node
 
-- **-N , --nodeid &lt;nodeid&gt;** : Create a volume on a specific node by id.
+- **-N , --nodeid &lt;nodeid&gt;** : Create volume on node with node id
 
-- **-o , --local** : create volume with the drives of the local node.
+- **-o , --local** : Create volume on local drives only 
 
-- **-p , --profile &lt;profile&gt;** : Create a volume configured with a profile.
+- **-p , --profile &lt;profile&gt;** : Use profile to create volume
 
-- **-P , --provision &lt;thin | thick&gt;** : Set thin or thick volume provisioning.
+- **-P , --provision &lt;thin | thick&gt;** : Select thin or thick provisioning
 
-- **-q , --quiet** : Display the assigned volume id.
+- **-q , --quiet** : Return assigned vdisk id
 
-- **-s , --snapshot** : Enable snapshots.
+- **-s , --snapshot** : Enable snapshot feature
 
-- **--snapshotMax &lt;max snapshots&gt;** : Set a maximum number of snapshots for the volume.
+- **--snapshotMax &lt;max snapshots&gt;** : Set maximum number of snapshots
 
-- **-t , --type &lt;SSD | HDD&gt;** : Set backend drive type.
+- **-t , --type &lt;SSD | HDD&gt;** : Select backend drive type
 
-- **-v , --volume &lt;volumename&gt;** : Set a volume name.
+- **-v , --volume &lt;volumename&gt;** : Set volume name
 
 <h3>Examples</h3>
 
@@ -143,29 +143,29 @@ Display volume info by name or id.
 
 <h3>Options</h3>
 
-- **--clusterid** : Display cluster id.
+- **--clusterid** : Display cluster id
 
-- **-D , --directory** - Display mount directory.
+- **-D , --directory** : Display mount directory
 
-- **-f , --filesystem** - Display filesystem details.
+- **-f , --filesystem** : Display filesystem
 
-- **--label** - Display volume label(s).
+- **--label** : Display volume label(s)
 
-- **-L , --long** - Display volume information in long format.
+- **-L , --long** : Display volume information in long format
 
-- **--nounits** - Display information in byte unit.
+- **--nounits** : Display information in byte unit
 
-- **-u , --uuid &lt;uuid&gt;** : Display volume information selected by uuid.
+- **-u , --uuid &lt;uuid&gt;** : Display volume information by uuid
 
-- **-u , --uuid** - Display just volume uuid.
+- **-u , --uuid** : Display volume uuid
 
-- **-v , --volume &lt;volumename&gt;** - Display volume information selected by volume name.
+- **-v , --volume &lt;volumename&gt;** : Display volume information by volume name
 
-- **-v , --volume** : Display just volume name.
+- **-v , --volume** : Display volume name
 
-- **-V , --vdisk &lt;id&gt;** - Display volume information selected by vdisk ID.
+- **-V , --vdisk &lt;id&gt;** : Display volume information by vdisk id
 
-- **-V , --vdisk** : Display just vdisk ID.
+- **-V , --vdisk** : Display vdisk id
 
 <h3>Examples</h3>
 
@@ -237,13 +237,13 @@ List all volumes in a cluster or on a node
 
 <h3>Options</h3>
 
-- **-a , --allocated** : Display the list of volumes with a column showing the percentage of allocated capacity.
+- **-a , --allocated** : List volumes with percentage of allocated capacity
 
-- **-n , --node &lt;nodename&gt;** : List volumes on a specific node by name.
+- **-n , --node &lt;nodename&gt;** : List volumes on node with node name
 
-- **-N , --nodeid &lt;nodeid&gt;** : List volumes on a specific node by id.
+- **-N , --nodeid &lt;nodeid&gt;** : List volumes on node with node id
 
-- **--nounits** : Display volume information using byte units.
+- **--nounits** : Display volume information using byte units
 
 <h3>Examples</h3>
 
@@ -276,17 +276,17 @@ v2                   vd6       SSD   2-copy                  25GB  c678c49e  ngi
 
 **`cio volume move [<volumename>] [options]`**
 
-Move a volume to specified node. Do not move opened volumes mounted to an application.
+Move a volume to specified node. Do not move volumes opened by an application.
 
 <h3>Options</h3>
 
-- **-v , --volume &lt;volumename&gt;** : Specify volume name of the volume to move.
+- **-v , --volume &lt;volumename&gt;** : Volume name to move
 
-- **-V , --vdisk &lt;id&gt;** : Specify volume id of the volume to move.
+- **-V , --vdisk &lt;id&gt;** : Vdisk id to move
 
-- **-n , --node &lt;dst nodename&gt;** : Identify destination node node name.
+- **-n , --node &lt;dst nodename&gt;** : Specify destination node by node name
 
-- **-N , --nodeid &lt;dst nodeid&gt;** : Identify destination node by node id.
+- **-N , --nodeid &lt;dst nodeid&gt;** : Specify destination node by node id
 
 <h3>Examples</h3>
 
@@ -343,35 +343,33 @@ Update a volume's attributes.
 
 <h3>Options</h3>
 
-- **--bandwidthmin &lt;min BW&gt;** : Set minimum bandwidth in MiB/s.
+- **--bandwidthmin &lt;min BW&gt;** : Minimum bandwidth in MiB/s
 
-- **--bandwidthmax &lt;max BW&gt;** : Set maximum bandwidth in MiB/s.
+- **--bandwidthmax &lt;max BW&gt;** : Maximum bandwidth in MiB/s
 
-- **-c , --capacity &lt;size in GB&gt;** : Set capacity in GB. Must be greater than current capacity.
+- **-c , --capacity &lt;size in GB&gt;** : Desired capacity in GiB. Must be greater than current capacity
 
-- **--clusterid &lt;cluster id&gt;** : Set cluster id.
+- **-D , --directory &lt;directory&gt;** : Bind mount directory
 
-- **-D , --directory &lt;directory&gt;** : Set bind mount directory for Docker.
+- **-g , --grow &lt;size in GB&gt;** : Size in GiB to grow
 
-- **-g , --grow &lt;size in GB&gt;** : Grow volume by size in GB.
+- **--iopsmin &lt;min IOPS&gt;** : Guaranteed minimum IOPS
 
-- **--iopsmin &lt;min IOPS&gt;** : Set minimum IOPS.
+- **--iopsmax &lt;max IOPS&gt;** : Maximum IOPS allowed
 
-- **--iopsmax &lt;max IOPS&gt;** : Set maximum IOPS.
+- **--label &lt;key>=<value&gt;** : Update label on volume
 
-- **--label &lt;key>=<value&gt;** : Add a label to this volume.
+- **-p , --profile &lt;profile&gt;** : Use profile to update volume
 
-- **-p , --profile &lt;profile&gt;** : Use profile to modify volume.
+- **-S , --status &lt;status&gt;** : Set volume status
 
-- **-S , --status &lt;status&gt;** : Set volume status.
+- **-U , --userid &lt;user id&gt;** : Set user id
 
-- **-U , --userid &lt;user id&gt;** : Set user id.
+- **-u , --uuid &lt;uuid&gt;** : Specify uuid of volume to modify
 
-- **-u , --uuid &lt;uuid&gt;** : Specify uuid of volume to modify.
+- **-v , --volume &lt;volumename&gt;** : Specify volume name to modify
 
-- **-v , --volume &lt;volumename&gt;** : Specify volume name of volume to modify.
-
-- **-V , --vdisk &lt;id&gt;** : Specify volume id of volume to modify.
+- **-V , --vdisk &lt;id&gt;** : Specify vdisk id of volume to modify
 
 <h3>Examples</h3>
 
