@@ -20,7 +20,7 @@ the correct permissions for the key.
 ## Install cio software
 Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). After verifying you have a supported distribution, run the convenience script below to begin installation.
 
-`curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash`
+`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 Example:
 ```
