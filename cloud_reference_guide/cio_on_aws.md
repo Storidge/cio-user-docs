@@ -15,7 +15,9 @@ When launching an instance AWS allows the reuse of an existing key or generates 
 Note: You may need to run `chmod 600 <ssh key>.pem` to set the correct permissions for the key before creating the cluster.
 
 ## Install cio software
-Storidge's CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). After verifying you have a supported distribution, run the convenience script below on each node to begin installation.
+Storidge's CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel which is not supported.
+
+After verifying you have a supported distribution, run the convenience script below on each node to begin installation.
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 

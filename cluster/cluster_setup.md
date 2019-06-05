@@ -50,10 +50,11 @@ The following ports are needed for Docker Swarm.
 
 A convenience script is provided for installing the free version of CIO into development environments quickly and non-interactively. This is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
-CIO currently supports CentOS 7.4 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 14.04LTS (3.13 kernel). After verifying you have a supported distribution, run the demo script below to begin installation.
+CIO currently supports CentOS 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel for servers). Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel, which is not supported. 
 
+After verifying you have a supported distribution, run the convenience script below to begin installation.
 ```
-curl -fsSL ftp://download.storidge.com/pub/free/demo | sudo bash
+curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 ```
 
 Example:

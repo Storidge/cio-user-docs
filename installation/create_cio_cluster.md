@@ -12,8 +12,9 @@ First, you'll need resources to setup the cluster:
 
 For your convenience, a script is provided for installing the community edition CIO into development environments quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
-CIO currently supports CentOS 7.5+ (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). After verifying you have a supported distribution, run the demo script below to begin installation.
+CIO currently supports CentOS 7.5+ (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel, which is not supported.
 
+After verifying you have a supported distribution, run the convenience script below to begin installation.
 ```
 curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 
