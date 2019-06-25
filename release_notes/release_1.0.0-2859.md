@@ -1,7 +1,7 @@
 # Release 1.0.0-2859
 This release adds beta support for auto expansion of volumes. Auto expansion is a service that eliminates application disruptions due to volumes running out of capacity. 
 
-When the auto expansion service is enabled for a volume, the Storidge software will automatically expand the volume capacity at both block and filesystem levels. This saves an operator from having to individually monitor and manage hundreds of volumes or applications runnning in cluster. He only has to monitor the overall available capacity in the storage pool which is much simpler. Values can be specified for threshold to trigger expansion, capacity to grow and maximum number of times to automatically increase capacity. Refer to [Using auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html/) for examples. 
+When the auto expansion service is enabled for a volume, the Storidge software will automatically expand the volume capacity at both block and filesystem levels. This saves an operator from having to individually monitor and manage hundreds of volumes or applications runnning in cluster. He only has to monitor the overall available capacity in the storage pool which is much simpler. Values can be specified for threshold to trigger expansion, capacity to grow and maximum number of times to automatically increase capacity. Refer to [Using auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html) for examples. 
 
 # New
 - Add auto expansion service to profiles, CLI and API
