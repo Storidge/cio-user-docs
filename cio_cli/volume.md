@@ -26,6 +26,8 @@ Create a volume.
 
 <h3>Options</h3>
 
+- **--autoexpand** : Enable auto capacity expansion feature
+
 - **--bandwidthmin &lt;min bandwidth&gt;** : Minimum bandwidth in MiB/s
 
 - **--bandwidthmax &lt;max bandwidth&gt;** : Maximum bandwidth in MiB/s
@@ -42,6 +44,8 @@ Create a volume.
 
 - **-h , --help** : Show usage information
 
+- **--increment** : Set percentage of capacity to auto expand each time
+
 - **--iopsmin &lt;min IOPS&gt;** : Guaranteed minimum IOPS
 
 - **--iopsmax &lt;max IOPS&gt;** : Maximum IOPS allowed
@@ -53,6 +57,8 @@ Create a volume.
 - **--label &lt;key&gt;=&lt;value&gt;** : Add label to volume
 
 - **-l , --level &lt;2 | 3&gt;** : Set redundancy level to 1, 2 or 3 copy
+
+- **--limit** : Set maximum number of times capacity can automatically increase
 
 - **-m , --compress** : Enable compression feature
 
@@ -72,6 +78,8 @@ Create a volume.
 
 - **--snapshotMax &lt;max snapshots&gt;** : Set maximum number of snapshots
 
+- **--threshold** : Set percentage capacity when expansion is triggered
+
 - **-t , --type &lt;SSD | HDD&gt;** : Select backend drive type
 
 - **-v , --volume &lt;volumename&gt;** : Set volume name
@@ -89,6 +97,13 @@ Create a volume named 'Hello' with a capacity of 5 GB, three copy redundancy, an
 $ cio volume create Hello -c 5 -l 3 -P thick
 Succeed: Add vd2: Type:3-copy, Size:5GB
 ```
+
+Create volume with auto expansion enabled and expansion threshold of 70%. Increase capacity 25% each time, and limit number of expansions to three. 
+```
+$ cio volume create auto --capacity 2 --autoexpand yes --threshold 70 --increment 25 --limit 3
+Succeed: Add vd2: Type:2-copy, Size:2GB
+```
+
 Create volume named 'nginx' with profile NGINX
 ```
 $ cio volume create nginx -p NGINX

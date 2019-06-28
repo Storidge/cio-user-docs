@@ -37,7 +37,14 @@ local: no
 provision: thin
 type: ssd
 service:
-  compression: no
+  autoexpand:
+    enabled: no
+    threshold: 70
+    increment: 25
+    limit: 2
+  compression:
+    enabled: no
+    algorithm: lzo
   dedupe: no
   encryption:
     enabled: no
