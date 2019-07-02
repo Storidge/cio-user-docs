@@ -358,6 +358,8 @@ Update a volume's attributes.
 
 <h3>Options</h3>
 
+- **--autoexpand** : Re-enable auto expansion for volume
+
 - **--bandwidthmin &lt;min BW&gt;** : Minimum bandwidth in MiB/s
 
 - **--bandwidthmax &lt;max BW&gt;** : Maximum bandwidth in MiB/s
