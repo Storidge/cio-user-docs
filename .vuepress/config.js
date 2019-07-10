@@ -17,10 +17,10 @@ module.exports = {
         ],
         sidebar: [
           {
-            title: 'Overview',
+            title: 'Introduction',
             collapsable: true,
             children: [
-              '/overview/how_it_works'
+              '/introduction/how_it_works'
             ]
           },
           {
