@@ -82,17 +82,6 @@ module.exports = {
             ]
           },
           {
-            title: 'Cluster',
-            collapsable: true,
-            children: [
-              '/cluster/overview',
-              '/cluster/cluster_setup',
-              '/cluster/create_a_cluster',
-              '/cluster/add_a_node',
-              '/cluster/remove_a_node'
-            ]
-          },
-          {
             title: 'Cookbook',
             collapsable: true,
             children: [
