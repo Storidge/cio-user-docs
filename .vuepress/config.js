@@ -21,6 +21,7 @@ module.exports = {
             collapsable: true,
             children: [
               '/introduction/how_it_works',
+              '/introduction/features',
               '/introduction/alternatives'
             ]
           },
