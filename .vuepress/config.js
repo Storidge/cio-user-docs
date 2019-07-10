@@ -20,7 +20,8 @@ module.exports = {
             title: 'Introduction',
             collapsable: true,
             children: [
-              '/introduction/how_it_works'
+              '/introduction/how_it_works',
+              '/introduction/alternatives'
             ]
           },
           {
