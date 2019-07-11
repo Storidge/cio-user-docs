@@ -98,11 +98,11 @@ module.exports = {
             ]
           },
           {
-            title: 'Hardware Requirements',
+            title: 'Prerequisites',
             collapsable: true,
             children: [
-              '/hardware_requirements/server_requirements',
-              '/hardware_requirements/data_drive_requirements'
+              '/prerequisites/hardware',
+              '/prerequisites/software'
             ]
           },
           {

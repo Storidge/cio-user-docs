@@ -1,4 +1,4 @@
-# Data Drive Requirements
+# Data Drive
 
 During installation, CIO will automatically discover and aggregate drives from each node into a shared storage pool. A minimum of three drives per node is required to ensure data redundancy. CIO will only add raw devices to the storage pool, i.e. drives formatted with a file system or partitioned will not be added. Delete the partitions or clear the drive metadata as needed. 
 
