@@ -23,6 +23,32 @@ Create, display, list or remove profiles. Get profile from an existing volume.
 
 Save a profile to the datastore from a yaml config file.
 
+<h3>Parameters</h3>
+The key value pairs in a profile declare the desired volume attributes. Profiles support the following volume attributes:
+
+| Key                | Valid Values      | Description                                 |
+|:-------------------|:------------------|:--------------------------------------------|
+| capacity           | NUMBER_IN_GB      | capacity in gigabytes                       |
+| directory          | PATH_ON_HOST      | bind mount directory on the host            |
+| filesystem         | btrfs, ext4, xfs  | file system to format and mount             |
+| iops min           | 30 to 1,000,000   | minimum iops guaranteed                     |
+| iops max           | 30 to 1,000,000   | maximum iops allowed                        |
+| level              | 2, 3              | number of synchronous replicas              |
+| provision          | thin, thick       | specify thin or thick provisioning          |
+| type               | ssd, hdd          | select media type                           |
+| **Auto Expansion** |                   |                                             |
+| enabled            | yes, no           | enable auto expansion service               |
+| increment          | PERCENTAGE_NUMBER | percentage of volume capacity to increment  |
+| limit              | NUMBER            | maximum number of times to increment        |
+| threshold          | PERCENTAGE_NUMBER | percentage of capacity to trigger expansion |
+| **Compression**    |                   |                                             |
+| enabled            | yes, no           | enable compression service                  |
+| algorithm          | lzo, zlib, zstd   | compression method to use                   |
+| **Snapshot**       |                   |                                             |
+| enabled            | yes, no           | enable snapshot service                     |
+| interval           | NUMBER_IN_MINUTES | interval for periodic snapshots in minutes  |
+| max                | MAXIMUM_NUMBER    | maximum number of snapshots                 |
+
 <h3>Examples</h3>
 
 Create a yaml config file. For example, this file `TEST`:
