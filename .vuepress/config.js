@@ -82,19 +82,26 @@ module.exports = {
             ]
           },
           {
-            title: 'Cookbook',
+            title: 'Integrations',
             collapsable: true,
             children: [
-              '/cookbook/cio_volume_with_minio',
-              '/cookbook/cloud_scale_minio_with_cio'
+              '/integrations/portainer'
             ]
           },
           {
             title: 'Cloud Reference Guide',
             collapsable: true,
             children: [
-              '/cloud_reference_guide/cio_on_digitalocean',
-              '/cloud_reference_guide/cio_on_aws'
+              '/cloud_reference_guide/cio_on_aws',
+              '/cloud_reference_guide/cio_on_digitalocean'
+            ]
+          },
+          {
+            title: 'Cookbook',
+            collapsable: true,
+            children: [
+              '/cookbook/cio_volume_with_minio',
+              '/cookbook/cloud_scale_minio_with_cio'
             ]
           },
           {

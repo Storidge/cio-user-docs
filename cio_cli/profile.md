@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-`cio profile COMMAND [<PROFILE | VOLUMENAME>]`
+`cio profile COMMAND [<PROFILENAME | VOLUMENAME>]`
 
 Create, display, list or remove profiles. Get profile from an existing volume.
 
@@ -20,9 +20,9 @@ Create, display, list or remove profiles. Get profile from an existing volume.
 
 <h3>Usage</h3>
 
-`cio profile create <PROFILE>`
+`cio profile create <PROFILENAME>`
 
-`cio profile add <PROFILE>`
+`cio profile add <PROFILENAME>`
 
 Save a profile to the datastore from a yaml config file.
 
@@ -92,9 +92,9 @@ Succeed: Create profile: Profile TEST saved
 
 <h3>Usage</h3>
 
-`cio profile info <PROFILE>`
+`cio profile info <PROFILENAME>`
 
-`cio profile inspect <PROFILE>`
+`cio profile inspect <PROFILENAME>`
 
 Display profile info from datastore. 
 
@@ -154,11 +154,11 @@ TEST                                     Sun Apr 21 13:58:23 2019
 
 <h3>Usage</h3>
 
-`cio profile rm <PROFILE>`
+`cio profile rm <PROFILENAME>`
 
-`cio profile remove <PROFILE>`
+`cio profile remove <PROFILENAME>`
 
-`cio profile delete <PROFILE>`
+`cio profile delete <PROFILENAME>`
 
 Remove a profile from the datastore.
 
