@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl drive COMMAND [<driveid>]`**
+`cioctl drive COMMAND [<DRIVEID>]`
 
 List, inspect, add, remove or rescan drive resources.
 
@@ -10,20 +10,23 @@ Drives are the raw devices that cio adds to a storage pool for creating volumes 
 
 The `add` subcommand enable drives to added to increase capacity in the storage pool. Drives that are marked 'faulty' by the cio software can be removed and replaced. Drives with 'normal' status cannot be removed. New drives that are attached to nodes can be discovered with the `rescan` subcommand if they are not listed automatically. 
 
-<h3>Commands</h3>
+<h3>Child commands</h3>
 
-- **add** : Add drive to storage pool
-- **info** : Get information on drive resource
-- **list** : List drives in cluster
-- **remove** : Remove drive from storage pool
-- **rescan** : Rescan nodes in cluster for new drives or changed capacity
+| Command               | Description                                                |
+|:----------------------|:-----------------------------------------------------------|
+| cioctl drive add      | Add drive to storage pool                                  |
+| cioctl drive info     | Get information on drive resource                          |
+| cioctl drive list     | List drives in cluster                                     |
+| cioctl drive remove   | Remove drive from storage pool                             |
+| cioctl drive rescan   | Rescan nodes in cluster for new drives or changed capacity | 
 
-## **add**
+## cioctl drive add
 
 <h3>Usage</h3>
 
-**`cioctl drive add <device> <node>`**
-**`cioctl drive create <device> <node>`**
+`cioctl drive add <device> <node>`
+
+`cioctl drive create <device> <node>`
 
 Add a drive to the storage pool. 
 
@@ -31,8 +34,10 @@ Only drives marked with 'available' status can be added to the storage pool. Dri
 
 <h3>Arguments</h3>
 
-- **device** : Device is the identifier from `cioctl drive list`
-- **node** : Specifies the node to which the drive is attached.
+| Name   | Description                                       |
+|:-------|:--------------------------------------------------|
+| device | Device is the identifier from `cioctl drive list` |
+| node   | Identify which node, drive is attached to         |
 
 <h3>Examples</h3>
 
@@ -41,41 +46,13 @@ $ cioctl drive add /dev/sdd u1
 Succeed: node a8d3b506 has drive /dev/sdd added
 ```
 
-## **help**
+## cioctl drive info
 
 <h3>Usage</h3>
 
-**`cioctl drive help`**
+`cioctl drive info <DRIVEID>`
 
-Shows command usage information.
-
-<h3>Examples</h3>
-
-```
-$ cioctl drive help
-Usage: cioctl drive COMMAND <drive label | device> [node]
-
-Drive management commands to add, get info, list or remove drives from the storage
-pool. This command defaults to drives attached to the local node. Node name is an
-optional parameter to manage drives on member nodes in the cluster.
-
-Commands:
-    add        Add a drive to the storage pool
-    help       Show command usage information
-    info       Display information on drive label
-    list       List drives in storage pool
-    remove     Remove a drive from storage pool
-    rescan     Rescan all nodes in a cluster for new drives or chnages to existing capacity
-
-Run 'cioctl drive COMMAND --help' for more information on a command
-```
-
-## **info**
-
-<h3>Usage</h3>
-
-**`cioctl drive info <drive-id>`**
-**`cioctl drive inspect <drive-id>`**
+`cioctl drive inspect <DRIVEID>`
 
 Get information about a device by drive id.
 
@@ -93,12 +70,13 @@ status: normal
 Succeed: drive a6b898730002sdd info complete
 ```
 
-## **list**
+## cioctl drive list
 
 <h3>Usage</h3>
 
-**`cioctl drive ls`**
-**`cioctl drive list`**
+`cioctl drive ls`
+
+`cioctl drive list`
 
 List drives in the cluster's storage pool. Drives marked as 'available' can be added to the storage pool.
 
@@ -121,13 +99,15 @@ n4                   /dev/sdc     cio  SSD        19  92a88ffd0001sdc       norm
 n4                   /dev/sdd     cio  SSD        19  92a88ffd0002sdd       normal
 ```
 
-## **remove**
+## cioctl drive remove
 
 <h3>Usage</h3>
 
-**`cioctl drive rm <drive id>`**
-**`cioctl drive remove <drive id>`**
-**`cioctl drive delete <drive id>`**
+`cioctl drive rm <DRIVEID>`
+
+`cioctl drive remove <DRIVEID>`
+
+`cioctl drive delete <DRIVEID>`
 
 Remove a faulty drive from the storage pool. Drives with 'normal' status cannot be removed. 
 
@@ -145,11 +125,11 @@ $ cioctl drive rm 92a88ffd0001sdc
 Fail: Drive sdc on node 92a88ffd is not faulty
 ```
 
-## **rescan**
+## cioctl drive rescan
 
 <h3>Usage</h3>
 
-**`cioctl drive rescan`**
+`cioctl drive rescan`
 
 Rescan all nodes in cluster for new drives or modified drive capacity. Any drive that can be added to the storage pool will have status 'available'.
 

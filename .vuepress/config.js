@@ -47,7 +47,6 @@ module.exports = {
             collapsable: true,
             children: [
               '/cioctl_cli/overview',
-              '/cioctl_cli/add',
               '/cioctl_cli/create',
               '/cioctl_cli/drive',
               '/cioctl_cli/init',
@@ -89,11 +88,11 @@ module.exports = {
             ]
           },
           {
-            title: 'Cloud Reference Guide',
+            title: 'Cloud Reference',
             collapsable: true,
             children: [
-              '/cloud_reference_guide/cio_on_aws',
-              '/cloud_reference_guide/cio_on_digitalocean'
+              '/cloud_reference/cio_on_aws',
+              '/cloud_reference/cio_on_digitalocean'
             ]
           },
           {

@@ -1,6 +1,6 @@
-# overview
+# Overview
 
-The cioctl command-line is used to manage cluster level resources, such as drives and nodes. This interface is generally used by operators unless a developer is managing their own cluster. 
+The cioctl command-line is used to manage cluster level resources, such as drives and nodes, which are part of the 'infrastructure'. This interface is generally used by operators unless a developer is managing their own cluster. 
 
 Like the cio command-line, the cioctl interface comes installed. The `cioctl` command-line has many subcommands, such as `cioctl create`, `cioctl init`, `cioctl reboot`, etc.
 

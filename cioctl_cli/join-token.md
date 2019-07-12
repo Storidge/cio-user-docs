@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl join-token`**
+`cioctl join-token`
 
 Generates a join-token to add a node to an existing cluster.
 

@@ -20,6 +20,8 @@ With this integration, the Portainer service will automatically detect the Stori
 - manage cluster status (reboot, shutdown, maintenance mode)
 - manage physical disks (adding, removing)
 
+![portainer integration](../images/storidge-monitoring.png)
+
 <h3>Community Edition</h3>
 
 The Community Edition of Storidge includes a license to provision up to 10TB of storage. This generous limit for the Portainer and Docker community should cover most deployments. This license allows up to 5 nodes (Docker hosts with disks) for production capable clusters. 

@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl shutdown`**
+`cioctl shutdown`
 
 Stop services and shutdown all nodes in the cluster. 
 

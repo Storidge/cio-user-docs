@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl unload`**
+`cioctl unload`
 
 Stop cio on a single node cluster. 
 

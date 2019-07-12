@@ -1,8 +1,8 @@
-# cioctl add
+# cioctl node add
 
 <h3>Usage</h3>
 
-**`cioctl node add`**
+`cioctl node add`
 
 The add command is generated through the `cioctl join-token` command to add a node to an existing cluster.  
 

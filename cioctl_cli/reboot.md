@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl reboot`**
+`cioctl reboot`
 
 Stop services and reboot all nodes in the cluster.
 

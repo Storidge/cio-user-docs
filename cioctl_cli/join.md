@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl join`**
+`cioctl join`
 
 The join command is generated through the `cioctl create` command to add nodes to a cluster before initializing it.  
 

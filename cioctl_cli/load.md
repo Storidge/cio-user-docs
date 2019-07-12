@@ -2,7 +2,7 @@
 
 <h3>Usage</h3>
 
-**`cioctl load`**
+`cioctl load`
 
 Restarts cio on a single node cluster.
 
