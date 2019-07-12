@@ -1,16 +1,18 @@
 # cio event
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio event [options]`**
+`cio event [options]`
 
 Display most recent cio events. Defaults to 500 events if `-n` option not specified.
 
-### **Options**
+<h3>Options</h3>
 
-- **-n &lt;number&gt;** : Display most recent n number of events.
+| Name                 | Description                              |
+|:---------------------|:-----------------------------------------|
+| -n NUMBER_OF_EVENTS  | Display most recent n number of events   |
 
-### **Examples**
+<h3>Examples</h3>
 
 Display the 5 most recent events.
 

@@ -1,22 +1,21 @@
 # cio info
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio info [options]`**
+`cio info [options]`
 
 Display cluster or node information.
 
-### **Options**
+<h3>Options</h3>
 
-- **-c , --capacity** : Display capacity details.
+| Name                | Description                          |
+|:--------------------|:-------------------------------------|
+| --capacity, -c      | Display capacity details             |
+| --node, -n NODENAME | Display info for node name           |
+| --nodeid, -N NODEID | Display info for node identifier     |
+| --nounits           | Display information using byte units |
 
-- **-n , --node &lt;node&gt;** : Display information for node name.
-
-- **-N , --nodeid &lt;nodeid&gt;** : Display information for node id.
-
-- **--nounits** : Display information using byte units.
-
-### **Examples**
+<h3>Examples</h3>
 
 Display cluster information:
 ```

@@ -1,12 +1,12 @@
 # cio nodeid
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio nodeid`**
+`cio nodeid`
 
 Displays node identifier. A new node identifier is generated if none exists.
 
-### **Examples**
+<h3>Examples</h3>
 
 ```
 $ cio nodeid

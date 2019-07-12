@@ -2,87 +2,65 @@
 
 <h3>Usage</h3>
 
-**`cio volume COMMAND [options]`**
+`cio volume COMMAND [options]`
 
 Create, get info, list, move, remove, or update volume.
 
-<h3>Commands</h3>
+<h3>Child commands</h3>
 
-- **create** : Create a volume
-- **info** : Display volume information by name or id
-- **list** : List volumes in cluster or on a node
-- **move** : Move volume to specified node
-- **remove** : Remove a volume
-- **update** : Update volume attributes
+| Command           | Description                             |
+|:------------------|:----------------------------------------|
+| cio volume create | Create a new volume                     |
+| cio volume info   | Display volume info by name or vdisk id |
+| cio volume list   | List volumes in cluster or on a node    |
+| cio volume move   | Move a volume to specified node         |
+| cio volume remove | Remove a volume                         |
+| cio volume update | Update volume attributes                |
 
-## **create**
+## cio volume create
 
 <h3>Usage</h3>
 
-**`cio volume create [options]`**
-**`cio volume add [options]`**
+`cio volume create [<VOLUMENAME>] [options]`
 
-Create a volume.
+`cio volume add [<VOLUMENAME>] [options]`
+
+Create a new volume.
 
 <h3>Options</h3>
 
-- **--autoexpand** : Enable auto capacity expansion feature
-
-- **--bandwidthmin &lt;min bandwidth&gt;** : Minimum bandwidth in MiB/s
-
-- **--bandwidthmax &lt;max bandwidth&gt;** : Maximum bandwidth in MiB/s
-
-- **-c , --capacity &lt;size&gt;** : Volume size in GiB
-
-- **-d , --dedupe** : Enable de-duplication feature
-
-- **-D , --directory &lt;directory&gt;** : Bind mount directory. Defaults to `/cio/volumes`
-
-- **-e , --encryption** : Enable encryption feature
-
-- **-f , --filesystem &lt;filesystem type&gt;** : Set filesystem to btrfs, ext4 or xfs
-
-- **-h , --help** : Show usage information
-
-- **--increment** : Set percentage of capacity to auto expand each time
-
-- **--iopsmin &lt;min IOPS&gt;** : Guaranteed minimum IOPS
-
-- **--iopsmax &lt;max IOPS&gt;** : Maximum IOPS allowed
-
-- **-I , --interface &lt;interface parameters...&gt;** : Set interface parameters
-
-- **--interval &lt;snapshot interval&gt;** : Snapshot interval in minutes
-
-- **--label &lt;key&gt;=&lt;value&gt;** : Add label to volume
-
-- **-l , --level &lt;2 | 3&gt;** : Set redundancy level to 1, 2 or 3 copy
-
-- **--limit** : Set maximum number of times capacity can automatically increase
-
-- **-m , --compress** : Enable compression feature
-
-- **-n , --node &lt;nodename&gt;** : Create volume on named node
-
-- **-N , --nodeid &lt;nodeid&gt;** : Create volume on node with node id
-
-- **-o , --local** : Create volume on local drives only 
-
-- **-p , --profile &lt;profile&gt;** : Use profile to create volume
-
-- **-P , --provision &lt;thin | thick&gt;** : Select thin or thick provisioning
-
-- **-q , --quiet** : Return assigned vdisk id
-
-- **-s , --snapshot** : Enable snapshot feature
-
-- **--snapshotMax &lt;max snapshots&gt;** : Set maximum number of snapshots
-
-- **--threshold** : Set percentage capacity when expansion is triggered
-
-- **-t , --type &lt;SSD | HDD&gt;** : Select backend drive type
-
-- **-v , --volume &lt;volumename&gt;** : Set volume name
+| Name               | Valid Values      | Description                                 |
+|:-------------------|:------------------|:--------------------------------------------|
+| --bandwidthmin     | 1 to 1,000,000    | Minimum bandwidth guaranteed                |
+| --bandwidthmax     | 1 to 1,000,000    | Maximum bandwidth allowed                   |
+| --capacity, -c     | NUMBER_IN_GB      | Volume capacity in gigabytes                |
+| --directory, -D    | PATH_ON_HOST      | Bind mount directory on the host            |
+| --filesystem, -f   | btrfs, ext4, xfs  | Filesystem to format and mount              |
+| --help             |                   | Display usage info                          |
+| --iopsmin          | 30 to 1,000,000   | Minimum iops guaranteed                     |
+| --iopsmax          | 30 to 1,000,000   | Maximum iops allowed                        |
+| --label            | KEY=VALUE         | Add label to volume                         |
+| --level, -l        | 2, 3              | Number of replicas for redundancy           |
+| --node, -n         | NODE_NAME         | Create volume on named node                 |
+| --nodeid, -N       | NODE_ID           | Create volume on node with node id          |
+| --local, -o        |                   | Create volume only on local attached drives |
+| --profile, -p      | PROFILE_NAME      | Use profile to create volume                |
+| --provision, -P    | thin, thick       | Specify thin or thick provisioning          |
+| --quiet, -q        |                   | Return assigned vdisk id                    |
+| --type, -t         | ssd, hdd          | Select backend media type                   |
+| --volume, -v       | VOLUME_NAME       | Set volume name                             |
+| **Auto Expansion** |                   |                                             |
+| --autoexpand       | yes               | Enable auto expansion service               |
+| --increment        | PERCENTAGE_NUMBER | Percentage of volume capacity to increment  |
+| --limit            | NUMBER            | Maximum number of times to expand           |
+| --threshold        | PERCENTAGE_NUMBER | Percentage of capacity to trigger expansion |
+| **Compression**    |                   |                                             |
+| --compression, -C  | yes               | Enable compression service                  |
+| --algorithm, -A    | lzo, zlib, zstd   | Compression method to use                   |
+| **Snapshot**       |                   |                                             |
+| --snapshot         | yes               | Enable snapshot service                     |
+| --interval         | NUMBER_IN_MINUTES | Interval for periodic snapshots in minutes  |
+| --snapshotMax      | MAX_NUMBER        | Maximum number of snapshots before rotating |
 
 <h3>Examples</h3>
 
@@ -121,66 +99,32 @@ $ cio volume create rotate -s -D /cio/snap --interval 60 --snapshotMax 24
 Succeed: Add vd3: Type:2-copy, Size:20GB
 ```
 
-## **help**
+## cio volume info
 
 <h3>Usage</h3>
 
-**`cio volume --help`**
+`cio volume info [<VOLUMENAME>] [options]`
 
-Display `cio volume` commands with usage information.
-
-<h3>Examples</h3>
-
-```
-$ cio volume --help
-Usage: cio volume COMMAND [<volumename>] [options]
-
-Create, get info, list all, move, remove or update volumes
-
-Commands:
-    create    Create a volume
-    help      Show command usage information
-    info      Display volume information by name or id
-    list      List volumes in cluster or on a node
-    move      Move volume to specified node
-    remove    Remove a volume
-    update    Update volume attributes
-```
-
-## **info**
-
-<h3>Usage</h3>
-
-**`cio volume info [<volumename>] [options]`**
-**`cio volume inspect [<volumename>] [options]`**
+`cio volume inspect [<VOLUMENAME>] [options]`
 
 Display volume info by name or id.
 
 <h3>Options</h3>
 
-- **--clusterid** : Display cluster id
-
-- **-D , --directory** : Display mount directory
-
-- **-f , --filesystem** : Display filesystem
-
-- **--label** : Display volume label(s)
-
-- **-L , --long** : Display volume information in long format
-
-- **--nounits** : Display information in byte unit
-
-- **-u , --uuid &lt;uuid&gt;** : Display volume information by uuid
-
-- **-u , --uuid** : Display volume uuid
-
-- **-v , --volume &lt;volumename&gt;** : Display volume information by volume name
-
-- **-v , --volume** : Display volume name
-
-- **-V , --vdisk &lt;id&gt;** : Display volume information by vdisk id
-
-- **-V , --vdisk** : Display vdisk id
+| Name                    | Description                                 |
+|:------------------------|:--------------------------------------------|
+| --directory, -D         | Display bind mount directory on the host    |
+| --filesystem, -f        | Display file system                         |
+| --help                  | Display usage info                          |
+| --label                 | Display labels on volume                    |
+| --long, -L              | Display extended volume info                |
+| --nounits               | Display information using byte units        |
+| --uuid, -u              | Display volume UUID                         |
+| --uuid, -u UUID         | Display volume info by UUID                 |
+| --volume, -v            | Display volume name                         |
+| --volume, -v VOLUMENAME | Display volume info by volume name          |
+| --vdisk, -V             | Display vdisk id                            |
+| --vdisk, -V VDISKID     | Display volume info by vdisk id             |
 
 <h3>Examples</h3>
 
@@ -241,24 +185,24 @@ $ cio volume info portainer -D
 /cio/portainer/vd1
 ```
 
-## **list**
+## cio volume list
 
 <h3>Usage</h3>
 
-**`cio volume ls [options]`**
-**`cio volume list [options]`**
+`cio volume ls [options]`
+
+`cio volume list [options]`
 
 List all volumes in a cluster or on a node
 
 <h3>Options</h3>
 
-- **-a , --allocated** : List volumes with percentage of allocated capacity
-
-- **-n , --node &lt;nodename&gt;** : List volumes on node with node name
-
-- **-N , --nodeid &lt;nodeid&gt;** : List volumes on node with node id
-
-- **--nounits** : Display volume information using byte units
+| Name                | Description                              |
+|:--------------------|:-----------------------------------------|
+| --allocated, -a     | List volumes with capacity allocated     |
+| --node, -n NODENAME | List volumes on node with node name      |
+| --nodeid, -N NODEID | List volumes on node with node id        |
+| --nounits           | Display information using byte units     |
 
 <h3>Examples</h3>
 
@@ -285,23 +229,22 @@ v2                   vd2       SSD   2-copy                  20GB  f5de8225  bwt
 v2                   vd6       SSD   2-copy                  25GB  c678c49e  nginx                       0.3%
 ```
 
-## **move**
+## cio volume move
 
 <h3>Usage</h3>
 
-**`cio volume move [<volumename>] [options]`**
+`cio volume move [<VOLUMENAME>] [options]`
 
-Move a volume to specified node. Do not move volumes opened by an application.
+Move volume to specified node. Do not move volumes opened by an application.
 
 <h3>Options</h3>
 
-- **-v , --volume &lt;volumename&gt;** : Volume name to move
-
-- **-V , --vdisk &lt;id&gt;** : Vdisk id to move
-
-- **-n , --node &lt;dst nodename&gt;** : Specify destination node by node name
-
-- **-N , --nodeid &lt;dst nodeid&gt;** : Specify destination node by node id
+| Name                    | Description                              |
+|:------------------------|:-----------------------------------------|
+| --volume, -v VOLUMENAME | Volume name to move                      |
+| --vdisk, -V VDISKID     | Vdisk id to move                         |
+| --node, -n NODENAME     | Specify destination node using node name |
+| --nodeid, -N NODEID     | Specify destination node using node id   |
 
 <h3>Examples</h3>
 
@@ -316,24 +259,25 @@ $ cio volume move portainer -n v2
 Fail: Move vd1: vdisk is opened
 ```
 
-## **remove**
+## cio volume remove
 
 <h3>Usage</h3>
 
-**`cio volume rm [<volumename>] [options]`**
-**`cio volume remove [<volumename>] [options]`**
+`cio volume rm [<VOLUMENAME>] [options]`
 
-**`cio volume delete [<volumename>] [options]`**
+`cio volume remove [<VOLUMENAME>] [options]`
+
+`cio volume delete [<VOLUMENAME>] [options]`
 
 Remove a volume.  
 
 <h3>Options</h3>
 
-- **-v , --volume &lt;volumename&gt;** : Specify name of volume to delete.
-
-- **-V , --vdisk &lt;id&gt;** : Specify id of volume to delete.
-
-- **-y , --yes** : Do not prompt for removal confirmation.
+| Name                    | Description                                    |
+|:------------------------|:-----------------------------------------------|
+| --volume,-v  VOLUMENAME | Volume name to delete                          |
+| --vdisk, -V VDISKID     | Vdisk id to delete                             |
+| --yes, -y               | Do not prompt for confirmation before deleting |
 
 <h3>Examples</h3>
 
@@ -348,45 +292,36 @@ Remove volume foo by volume id without confirmation.
 $ cio volume rm -y -V 3
 Succeed: Remove vd3
 ```
-## **update**
+## cio volume update
 
 <h3>Usage</h3>
 
-**`cio volume update [<volumename>] [options]`**
+`cio volume update [<VOLUMENAME>] [options]`
 
 Update a volume's attributes.  
 
 <h3>Options</h3>
 
-- **--autoexpand** : Re-enable auto expansion for volume
-
-- **--bandwidthmin &lt;min BW&gt;** : Minimum bandwidth in MiB/s
-
-- **--bandwidthmax &lt;max BW&gt;** : Maximum bandwidth in MiB/s
-
-- **-c , --capacity &lt;size in GB&gt;** : Desired capacity in GiB. Must be greater than current capacity
-
-- **-D , --directory &lt;directory&gt;** : Bind mount directory
-
-- **-g , --grow &lt;size in GB&gt;** : Size in GiB to grow
-
-- **--iopsmin &lt;min IOPS&gt;** : Guaranteed minimum IOPS
-
-- **--iopsmax &lt;max IOPS&gt;** : Maximum IOPS allowed
-
-- **--label &lt;key>=<value&gt;** : Update label on volume
-
-- **-p , --profile &lt;profile&gt;** : Use profile to update volume
-
-- **-S , --status &lt;status&gt;** : Set volume status
-
-- **-U , --userid &lt;user id&gt;** : Set user id
-
-- **-u , --uuid &lt;uuid&gt;** : Specify uuid of volume to modify
-
-- **-v , --volume &lt;volumename&gt;** : Specify volume name to modify
-
-- **-V , --vdisk &lt;id&gt;** : Specify vdisk id of volume to modify
+| Name               | Valid Values      | Description                                 |
+|:-------------------|:------------------|:--------------------------------------------|
+| --bandwidthmin     | 1 to 1,000,000    | Minimum bandwidth guaranteed                |
+| --bandwidthmax     | 1 to 1,000,000    | Maximum bandwidth allowed                   |
+| --capacity, -c     | NUMBER_IN_GB      | Desired capacity in gigabytes               |
+| --directory, -D    | PATH_ON_HOST      | Change bind mount directory on the host     |
+| --filesystem, -f   | btrfs, ext4, xfs  | Filesystem to format and mount              |
+| --grow, -g         | NUMBER_IN_GB      | Size in gigabytes to grow capacity          |
+| --help             |                   | Display usage info                          |
+| --iopsmin          | 30 to 1,000,000   | Minimum iops guaranteed                     |
+| --iopsmax          | 30 to 1,000,000   | Maximum iops allowed                        |
+| --label            | KEY=VALUE         | Update label on volume                      |
+| --profile, -p      | PROFILE_NAME      | Use profile to update volume                |
+| --status, -S       | STATUS            | Set volume status                           |
+| --userid, -U       | USERID            | Set user id                                 |
+| --uuid, -u         | UUID              | Specify volume to update by UUID            |
+| --volume, -v       | VOLUME_NAME       | Specify volume to update by volume name     |
+| --vdisk, -V        | VDISK_ID          | Specify volume to update by vdisk id        |
+| **Auto Expansion** |                   |                                             |
+| --autoexpand       | yes               | Re-enable auto expansion service            |
 
 <h3>Examples</h3>
 

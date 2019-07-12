@@ -1,13 +1,14 @@
 # cio node
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio node ls`**
-**`cio node list`**
+`cio node ls`
+
+`cio node list`
 
 List nodes in the cluster with node name, IP address, node identifier, role and cluster status.
 
-### **Examples**
+<h3>Examples</h3>
 
 ```
 $ cio node ls

@@ -1,21 +1,27 @@
 # cio capacity
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio capacity COMMAND [options]`**
+`cio capacity COMMAND [options]`
 
 Return capacity usage, consumption timeline and reports at cluster or volume level.
 
-### **Commands**
-- **info** : Cluster capacity usage information over time
-- **report** : Report capacity usage for each volume
+<h3>Child commands</h3>
 
-### **Options**
-- **--period** : Select reporting period for day, month or year
-- **--month** : Report capacity usage for all volumes by month
-- **--nounits** : Display information using byte units
+| Command             | Description                                  |
+|:--------------------|:---------------------------------------------|
+| cio capacity info   | Cluster capacity usage information over time |
+| cio capacity report | Report capacity usage for each volume        |
 
-### **Examples**
+<h3>Options</h3>
+
+| Name         | Valid Values      | Description                                    |
+|:-------------|:------------------|:-----------------------------------------------|
+| --period     | day, month, year  | Select reporting period                        |
+| --month      | MONTH             | Report capacity usage for all volumes by month |
+| --nounits    |                   | Display information using byte units           |
+
+<h3>Examples</h3>
 
 Display cluster capacity usage 
 

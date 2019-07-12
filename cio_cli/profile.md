@@ -2,29 +2,31 @@
 
 <h3>Usage</h3>
 
-**`cio profile COMMAND [<profile | volume>]`**
+`cio profile COMMAND [<PROFILE | VOLUMENAME>]`
 
 Create, display, list or remove profiles. Get profile from an existing volume.
 
-<h3>Commands</h3>
+<h3>Child commands</h3>
 
-- **create** : Save profile to datastore
-- **info** : Display a profile in datastore
-- **list** : List profiles in datastore
-- **remove** : Remove profile from datastore
-- **show** : Display profile of volume
+| Command            | Description                      |
+|:-------------------|:---------------------------------|
+| cio profile create | Save profile to datastore        |
+| cio profile info   | Display a profile from datastore |
+| cio profile list   | List profiles in datastore       |
+| cio profile remove | Remove profile from datastore    |
+| cio profile show   | Get profile from a volume        |
 
-## **create**
+## cio profile create
 
 <h3>Usage</h3>
 
-**`cio profile create <profile>`**
-**`cio profile add <profile>`**
+`cio profile create <PROFILE>`
+
+`cio profile add <PROFILE>`
 
 Save a profile to the datastore from a yaml config file.
 
 <h3>Parameters</h3>
-The key value pairs in a profile declare the desired volume attributes. Profiles support the following volume attributes:
 
 | Key                | Valid Values      | Description                                 |
 |:-------------------|:------------------|:--------------------------------------------|
@@ -47,7 +49,7 @@ The key value pairs in a profile declare the desired volume attributes. Profiles
 | **Snapshot**       |                   |                                             |
 | enabled            | yes, no           | enable snapshot service                     |
 | interval           | NUMBER_IN_MINUTES | interval for periodic snapshots in minutes  |
-| max                | MAXIMUM_NUMBER    | maximum number of snapshots                 |
+| max                | MAX_NUMBER        | maximum number of snapshots                 |
 
 <h3>Examples</h3>
 
@@ -74,11 +76,6 @@ service:
   dedupe: no
   encryption:
     enabled: no
-  replication:
-    enabled: no
-    destination: none
-    interval: 120
-    type: synchronous
   snapshot:
     enabled: no
     interval: 60
@@ -91,12 +88,13 @@ $ cio profile create TEST
 Succeed: Create profile: Profile TEST saved
 ```
 
-## **info**
+## cio profile info
 
 <h3>Usage</h3>
 
-**`cio profile info <profile>`**
-**`cio profile inspect <profile>`**
+`cio profile info <PROFILE>`
+
+`cio profile inspect <PROFILE>`
 
 Display profile info from datastore. 
 
@@ -118,23 +116,19 @@ service:
   dedupe: no
   encryption:
     enabled: no
-  replication:
-    enabled: no
-    destination: none
-    interval: 120
-    type: synchronous
   snapshot:
     enabled: no
     interval: 60
     max: 10
 ```
 
-## **list**
+## cio profile list
 
 <h3>Usage</h3>
 
-**`cio profile ls`**
-**`cio profile list`**
+`cio profile ls`
+
+`cio profile list`
 
 List profiles in the datastore.
 
@@ -156,13 +150,15 @@ SILVER                                   Sat Apr 20 07:23:07 2019
 TEST                                     Sun Apr 21 13:58:23 2019
 ```
 
-## **remove**
+## cio profile remove
 
 <h3>Usage</h3>
 
-**`cio profile rm <profile>`**
-**`cio profile remove <profile>`**
-**`cio profile delete <profile>`**
+`cio profile rm <PROFILE>`
+
+`cio profile remove <PROFILE>`
+
+`cio profile delete <PROFILE>`
 
 Remove a profile from the datastore.
 
@@ -173,11 +169,11 @@ $ cio profile rm TEST
 Succeed: Remove profile: Profile TEST removed
 ```
 
-## **show**
+## cio profile show
 
 <h3>Usage</h3>
 
-**`cio profile show <volume>`**
+`cio profile show [<VOLUMENAME>]`
 
 Get profile from a volume. Useful for redirecting to named profile and saving to datastore.
 

@@ -1,12 +1,12 @@
 # cio qos
 
-### **Usage**
+<h3>Usage</h3>
 
-**`cio qos`**
+`cio qos`
 
 Report IOPS for each volume on a node. Used to verify performance settings using read I/Os.
 
-### **Examples**
+<h3>Examples</h3>
 
 ```
 $ cio qos

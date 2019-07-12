@@ -2,36 +2,42 @@
 
 <h3>Usage</h3>
 
-**`cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`**
+`cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`
 
 Create, get info, list, or remove snapshots.
 
-<h3>Commands</h3>
+<h3>Child commands</h3>
 
-- **create** : Create snapshot of a volume
-- **info** : Display snapshot information by snapshot id
-- **list** : List snapshots on a volume
-- **remove** : Remove snapshot by snapshot id
+| Command             | Description                                         |
+|:--------------------|:----------------------------------------------------|
+| cio snapshot create | Create snapshot of a volume                         |
+| cio snapshot info   | Display snapshot information by snapshot identifier |
+| cio snapshot list   | List snapshots on a volume                          |
+| cio snapshot remove | Remove snapshot by snapshot identifier              |
 
 <h3>Options</h3>
 
-- **-v , --volume &lt;volume name&gt;** : Volume name
+| Name                        | Description         |
+|:----------------------------|:--------------------|
+| --volume, -v VOLUMENAME     | Volume              |
+| --vdisk, -V VDISKID         | Vdisk identifier    |
+| YYYY-MM-DD-HHMM-NODEID-VDID | Snapshot identifier |
 
-- **-V , --vdisk &lt;id&gt;** : Vdisk id
-
-- **&lt;YYYY-MM-DD-HHMM-NODEID-VDID&gt;** : Snapshot id
-
-## **create**
+## cio snapshot create
 
 <h3>Usage</h3>
 
-**`cio snapshot create <volume name> [options]`**
+`cio snapshot create [<VOLUMENAME>] [options]`
+
+`cio snapshot add [<VOLUMENAME>] [options]`
 
 Create a snapshot on a volume.
 
 <h3>Options</h3>
 
- - **--description "&lt;description&gt;"** : Add a description of snapshot.
+| Name                        | Description                      |
+|:----------------------------|:---------------------------------|
+| --description "DESCRIPTION" |Tag a description of the snapshot |
 
 <h3>Examples</h3>
 
@@ -41,40 +47,11 @@ $ sudo cio snapshot create bar --description "manual snapshot of volume bar"
 Succeed: Created a snapshot of '/cio/vd6' in '/cio/vd6/.snap/2019-04-14-2034-f2385660-0006'
 ```
 
-## **help**
+## cio snapshot info
 
 <h3>Usage</h3>
 
-**`cio snapshot --help`**
-
-Display `cio snapshot` commands with usage information.
-
-<h3>Examples</h3>
-
-```
-$ cio snapshot --help
-Usage: cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]
-
-Manually create a snapshot, print info, list all snapshots or remove a snapshot
-
-Commands:
-    create    Create snapshot of a volume
-    help      Show command usage information
-    info      Display snapshot information by snapshot id
-    list      List snapshots on a volume
-    remove    Remove snapshot by snapshot id
-
-Options:
-    -v | --volume <volume name>         apply to volume identified by volume name
-    -V | --vdisk <id>                   apply to volume identified by vdisk ID
-    YYYY-MM-DD-HHMM-NODEID-VDID         snapshot ID, present only for remove
-```
-
-## **info**
-
-<h3>Usage</h3>
-
-**`cio snapshot info <YYYY-MM-DD-HHMM-NODEID-VDID>`**
+`cio snapshot info <YYYY-MM-DD-HHMM-NODEID-VDID>`
 
 Display snapshot information by snapshot id.
 
@@ -91,11 +68,13 @@ source: (null)
 description: snapshot description
 ```
 
-## **list**
+## cio snapshot list
 
 <h3>Usage</h3>
 
-**`cio snapshot list <volumename>`**
+`cio snapshot ls [<VOLUMENAME>]`
+
+`cio snapshot list [<VOLUMENAME>]`
 
 Display a list of snapshots on a volume.
 
@@ -108,11 +87,15 @@ SNAPSHOT                           DATE                    DESCRIPTION
 2019-04-21-1626-2c19b9f6-0000005   Sun Apr 21 16:26 2019   Snapshot volume rotate
 ```
 
-## **remove**
+## cio snapshot remove
 
 <h3>Usage</h3>
 
-**`cio snapshot remove <YYYY-MM-DD-HHMM-NODEID-VDID>`**
+`cio snapshot rm <YYYY-MM-DD-HHMM-NODEID-VDID>`
+
+`cio snapshot remove <YYYY-MM-DD-HHMM-NODEID-VDID>`
+
+`cio snapshot delete <YYYY-MM-DD-HHMM-NODEID-VDID>`
 
 Remove a snapshot by id.
 
