@@ -11,6 +11,6 @@ Run the command string on the new node to be added. The creation of new join tok
 <h3>Example</h3>
 
 ```
-$ cioctl join-token
-    cioctl node add 192.168.1.131 root 4758b5fc
+root@sds:~# cioctl join-token
+    cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-076f50d0
 ```
