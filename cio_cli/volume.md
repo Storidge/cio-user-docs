@@ -50,7 +50,7 @@ Create a new volume.
 | --type, -t         | ssd, hdd          | Select backend media type                   |
 | --volume, -v       | VOLUME_NAME       | Set volume name                             |
 | **Auto Expansion** |                   |                                             |
-| --autoexpand       | yes               | Enable auto expansion service               |
+| --autoexpand       | yes, no           | Enable auto expansion service               |
 | --increment        | PERCENTAGE_NUMBER | Percentage of volume capacity to increment  |
 | --limit            | NUMBER            | Maximum number of times to expand           |
 | --threshold        | PERCENTAGE_NUMBER | Percentage of capacity to trigger expansion |
@@ -58,7 +58,7 @@ Create a new volume.
 | --compression, -C  | yes               | Enable compression service                  |
 | --algorithm, -A    | lzo, zlib, zstd   | Compression method to use                   |
 | **Snapshot**       |                   |                                             |
-| --snapshot         | yes               | Enable snapshot service                     |
+| --snapshot         | yes, no           | Enable snapshot service                     |
 | --interval         | NUMBER_IN_MINUTES | Interval for periodic snapshots in minutes  |
 | --snapshotMax      | MAX_NUMBER        | Maximum number of snapshots before rotating |
 
@@ -321,7 +321,12 @@ Update a volume's attributes.
 | --volume, -v       | VOLUME_NAME       | Specify volume to update by volume name     |
 | --vdisk, -V        | VDISK_ID          | Specify volume to update by vdisk id        |
 | **Auto Expansion** |                   |                                             |
-| --autoexpand       | yes               | Re-enable auto expansion service            |
+| --autoexpand       | yes, no           | Re-enable or stop auto expansion            |
+| --increment        | PERCENTAGE_NUMBER | Percentage of volume capacity to increment  |
+| --limit            | NUMBER            | Maximum number of times to expand           |
+| --threshold        | PERCENTAGE_NUMBER | Percentage of capacity to trigger expansion |
+| **Snapshot**       |                   |                                             |
+| --snapshot         | yes, no           | Re-enable or stop snapshot service          |
 
 <h3>Examples</h3>
 
