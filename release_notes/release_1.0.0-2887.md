@@ -17,11 +17,11 @@ Majority of changes focuses on bug fixes, stability and usability improvements.
 - Stop docker services before draining node to avoid unnecessary volume movements
 - Ensure drives are attached before inserting modules for cluster reboot
 - Add debug code to collect more info on auto expansion
-- Add 'cioctl rebuild' command to restart cluster rebuild
+- Add `cioctl rebuild` command to restart cluster rebuild
 - Remove need for fixed order of keys in profiles for compression service
 - Add auto expansion usage info
-- Add auto expansion fields to output of cio profile show command
-- Update cio profile show command for compression fields
+- Add auto expansion fields to output of `cio profile show` command
+- Update `cio profile show` command for compression fields
 - Improve low capacity handling to avoid vdisk corruption and vd0 mounting issues after random reboot
 - Allow volume rebuild for vd0 and vd1 when available capacity is low
 - Send event if rebuild is stopped due to low available capacity
@@ -29,6 +29,6 @@ Majority of changes focuses on bug fixes, stability and usability improvements.
 
 # Bug fixes
 - Fix for bug where cluster reboot times out
-- Fix bug where not all nodes rebooted during cioctl reboot operation
-- Fix bug where the autoexpand count is not updated in cio volume info
-- Fix bug where cio volume update reverts `--autoexpand` parameters back to default values
+- Fix bug where not all nodes rebooted during `cioctl reboot` operation
+- Fix bug where the autoexpand count is not updated in `cio volume info` command
+- Fix bug where `cio volume update` reverts `--autoexpand` parameters back to default values
