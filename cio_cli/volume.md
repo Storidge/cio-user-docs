@@ -116,6 +116,7 @@ Display volume info by name or id.
 | --directory, -D         | Display bind mount directory on the host    |
 | --filesystem, -f        | Display file system                         |
 | --help                  | Display usage info                          |
+| --json, -j              | Display in JSON format                      |
 | --label                 | Display labels on volume                    |
 | --long, -L              | Display extended volume info                |
 | --nounits               | Display information using byte units        |
@@ -154,6 +155,40 @@ filesystem                     xfs
 labels                         
 allocated                      0.4%
 ```
+
+Display volume info in json format
+```
+root@t1:~# cio volume info portainer --json
+{
+  "vdisk": 1,
+  "uuid": "6db0d022",
+  "node": "t3",
+  "ipaddr": "192.168.3.84",
+  "nodeid": "ee31a199",
+  "name": "portainer",
+  "capacity": "20GB",
+  "redundancy": "2",
+  "driveType": "SSD",
+  "localDriveOnly": "no",
+  "provisioning": "thin",
+  "minimumIOPS": 10,
+  "maximumIOPS": 10000000,
+  "directory": "/cio/portainer/vd1",
+  "autoexpandEnabled": false,
+  "autoexpandThreshold": 80,
+  "autoexpandIncrement": 20,
+  "autoexpandLimit": 3,
+  "autoexpandCount": 0,
+  "encryption": false,
+  "snapshot": false,
+  "snapInterval": 0,
+  "maximumSnapshots": 0,
+  "filesystem": "xfs",
+  "labels": {"stage": "production", "version": "1.21.0"},
+  "allocated": "0.4%"
+}
+```
+
 Display info by volume id for vd1.
 ```
 $ cio volume info -V 1
