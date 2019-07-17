@@ -36,7 +36,14 @@ with 'cioctl join-token' on sds node. Then run the 'cioctl node add ...' output 
 
 **Install Additional Nodes**
 
-You can add more nodes to the cluster to increase capacity, performance and enable high availability for your applications. Repeat the convenience script installation on all nodes that will be addeded to the cluster.
+You can add more nodes to the cluster to increase capacity, performance and enable high availability for your applications. Repeat the convenience script installation on all nodes that will be added to the cluster.
+
+`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+
+::: tip
+For production deployments, a minimum of four nodes is recommended
+:::
+
 
 ## Configure cluster
 With the CIO software installed on all nodes, the next step is to create a cluster and initialize it for use. As part of cluster creation, CIO will automatically discover and add drive resources from each node.
@@ -84,7 +91,7 @@ Configuring Docker Swarm cluster with Portainer service
 At the end of initialization, you have a CIO storage cluster running. A Docker Swarm cluster will be automatically configured if one is not already
 running. 
 
-Run the `docker node ls` and `cio node ls` commands to confirm:
+Run `docker node ls` to show the compute cluster nodes.
 
 ```
 root@ip-172-31-22-159:~# docker node ls
@@ -92,7 +99,11 @@ ID                            HOSTNAME            STATUS              AVAILABILI
 k9lwu33n1qvc4qw06t8rhmrn0     c-8ca106d7          Ready               Active              Reachable           18.09.6
 18yxcme2s8b4q9jiq0iceh35y     c-6945fd81          Ready               Active              Leader              18.09.6
 pmjn72izhrrb6hn2gnaq895c4 *   c-abc38f75          Ready               Active              Reachable           18.09.6
+```
 
+Run `cio node ls` to list the persistent storage nodes and status.
+
+```
 root@ip-172-31-22-159:~# cio node ls
 NODENAME             IP                NODE_ID    ROLE       STATUS
 c-abc38f75           172.31.22.159     abc38f75   sds        normal

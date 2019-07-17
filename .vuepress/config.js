@@ -55,6 +55,7 @@ module.exports = {
               '/cioctl_cli/load',
               '/cioctl_cli/node',
               '/cioctl_cli/reboot',
+              '/cioctl_cli/rebuild',
               '/cioctl_cli/shutdown',
               '/cioctl_cli/unload'
             ]
@@ -91,8 +92,8 @@ module.exports = {
             title: 'Cloud Reference',
             collapsable: true,
             children: [
-              '/cloud_reference/cio_on_aws',
-              '/cloud_reference/cio_on_digitalocean'
+              '/cloud_reference/aws',
+              '/cloud_reference/digitalocean'
             ]
           },
           {

@@ -6,7 +6,7 @@
 - Automated node recovery
 - [Shared storage pool](https://docs.storidge.com/introduction/how_it_works.html#efficient-capacity-sharing)
 - Rapid volume rebuild
-- Online software updates 
+- [Online software updates](https://guide.storidge.com/getting_started/node_maintenance.html)
 
 - [Declarative requests with profiles](https://guide.storidge.com/getting_started/why_profiles.html)
 - [Data redundancy with network RAID](https://docs.storidge.com/introduction/how_it_works.html#data-redundancy)
