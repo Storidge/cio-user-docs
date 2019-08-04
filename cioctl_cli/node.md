@@ -14,6 +14,7 @@ Add, cordon, uncordon or remove a node
 | cioctl node remove    | Remove node from cluster                       |
 | cioctl node cordon    | Drain node and cordon for maintenance          |
 | cioctl node uncordon  | Rejoin cluster and resume scheduling onto node |
+| cioctl node update    | Update Storidge software on node               |
 
 
 ## cioctl node add
@@ -86,3 +87,31 @@ In cordoned state, the node is temporarily removed from the cio cluster. Changed
 Rejoin cluster and resume scheduling onto node.
 
 After maintenance is completed, run the `cioctl node uncordon` command to add the node back to the cio cluster. The uncordoned node is automatically re-enabled to run services from the next cordoned node. 
+
+
+## cioctl node update
+
+<h3>Usage</h3>
+
+`cioctl node update`
+
+Updates Storidge software on node. Run this command on node to be updated. 
+
+The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command will automatically check for software updates. 
+
+If an update is available, the node will be cordoned, the software update is downloaded and installed. When the Storidge software installation is completed, the node will be rebooted and automatically rejoin the cluster. 
+
+<h3>Example</h3>
+
+On the node to be updated, run `cioctl node update`:
+
+```
+root@t5:~# cioctl node update
+Release 2915 is available for upgrade
+Loading cio software for: u16  (4.4.0-116-generic)
+488233b0d7b8
+.
+.
+.
+Success: This node has been updated to cio version 1.0.0-2915. This node will be rebooted and automatically rejoin the cluster
+```

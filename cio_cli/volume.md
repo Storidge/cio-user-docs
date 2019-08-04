@@ -116,7 +116,7 @@ Display volume info by name or id.
 | --directory, -D         | Display bind mount directory on the host    |
 | --filesystem, -f        | Display file system                         |
 | --help                  | Display usage info                          |
-| --json, -j              | Display in JSON format                      |
+| --json, -j              | Display volume info in JSON format          |
 | --label                 | Display labels on volume                    |
 | --long, -L              | Display extended volume info                |
 | --nounits               | Display information using byte units        |
