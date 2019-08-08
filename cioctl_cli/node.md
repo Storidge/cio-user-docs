@@ -35,7 +35,7 @@ root@sds:~# cioctl join-token
 
 Then run the generated add string on the node to be added:
 ```
-[root@worker ~]# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-076f50d0 
+[root@worker ~]# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-076f50d0
 Adding this node to cluster as a storage node
 ...
 node: Initializing metadata
@@ -60,9 +60,9 @@ Remove a node from the cluster. In a multi-node cluster a minimum of three nodes
 When a cluster only has three nodes, CIO disables node removal as a minimum of three nodes are required for data redundancy.
 :::
 
-The `cioctl node remove` command is used to remove nodes that are either no longer needed or must be replaced. As with the `cioctl node cordon` command, the node will be gracefully stopped before removal from the cluster. Background processes on the remaining nodes will rebuild the data that was on the removed node. 
+The `cioctl node remove` command is used to remove nodes that are either no longer needed or must be replaced. As with the `cioctl node cordon` command, the node will be gracefully stopped before removal from the cluster. Background processes on the remaining nodes will rebuild the data that was on the removed node.
 
-A removed node can be added back to the cluster by running a `cioctl join-token` command and then the `cioctl node add ...` command string. However the node will be treated as a new node as all previous history has been erased from the cluster. 
+A removed node can be added back to the cluster by running a `cioctl join-token` command and then the `cioctl node add ...` command string. However the node will be treated as a new node as all previous history has been erased from the cluster.
 
 
 ## cioctl node cordon
@@ -71,11 +71,11 @@ A removed node can be added back to the cluster by running a `cioctl join-token`
 
 `cioctl node cordon <NODENAME | NODEID>`
 
-Drain and cordon node for maintenance. 
+Drain and cordon node for maintenance.
 
-The `cioctl node cordon` command supports online maintenance for a multi-node cluster. Each node member is cordoned, updated and uncordoned sequentially, until all node members are updated. This command will trigger a process to gracefully stop running containers and services, flush data and metadata, detach and unmount volumes, before unloading cio processes. The node will show status as 'cordoned' in `cio node ls` when ready for maintenace. 
+The `cioctl node cordon` command supports online maintenance for a multi-node cluster. Each node member is cordoned, updated and uncordoned sequentially, until all node members are updated. This command will trigger a process to gracefully stop running containers and services, flush data and metadata, detach and unmount volumes, before unloading cio processes. The node will show status as 'cordoned' in `cio node ls` when ready for maintenace.
 
-In cordoned state, the node is temporarily removed from the cio cluster. Changed block tracking is engaged to track updates that are destined for the cordoned node to enable fast rebuilds when the node is rejoined to the cluster. Any previously running services on the cordoned node will be restarted by the scheduler on other running nodes. 
+In cordoned state, the node is temporarily removed from the cio cluster. Changed block tracking is engaged to track updates that are destined for the cordoned node to enable fast rebuilds when the node is rejoined to the cluster. Any previously running services on the cordoned node will be restarted by the scheduler on other running nodes.
 
 
 ## cioctl node uncordon
@@ -86,7 +86,7 @@ In cordoned state, the node is temporarily removed from the cio cluster. Changed
 
 Rejoin cluster and resume scheduling onto node.
 
-After maintenance is completed, run the `cioctl node uncordon` command to add the node back to the cio cluster. The uncordoned node is automatically re-enabled to run services from the next cordoned node. 
+After maintenance is completed, run the `cioctl node uncordon` command to add the node back to the cio cluster. The uncordoned node is automatically re-enabled to run services from the next cordoned node.
 
 
 ## cioctl node update
@@ -95,11 +95,15 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 `cioctl node update`
 
-Updates Storidge software on node. Run this command on node to be updated. 
+Updates Storidge software on node. Run this command on node to be updated.
 
-The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command will automatically check for software updates. 
+The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command will automatically check for software updates.
 
-If an update is available, the node will be cordoned, the software update is downloaded and installed. When the Storidge software installation is completed, the node will be rebooted and automatically rejoin the cluster. 
+If an update is available, the node will be cordoned, the software update is downloaded and installed. When the Storidge software installation is completed, the node will be rebooted and automatically rejoin the cluster.
+
+::: tip Important
+Always update the 'standard' nodes first, and update the sds node last.
+:::
 
 <h3>Example</h3>
 
