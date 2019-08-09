@@ -99,7 +99,7 @@ Updates Storidge software on node. Run this command on node to be updated.
 
 The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command automatically checks for software updates.
 
-If update is available, the node is cordoned, the software update is downloaded and installed. When the software installation is completed, the node is rebooted and automatically rejoins the cluster.
+If an update is available, the node is cordoned, services drained to other nodes, update software is downloaded and installed. When the software installation is completed, the node is rebooted and automatically rejoins the cluster.
 
 ::: tip Important
 Always update the 'standard' nodes first, and update the sds node last.
