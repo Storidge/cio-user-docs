@@ -15,7 +15,7 @@ Add, cordon, uncordon or remove a node
 | cioctl node cordon    | Drain node and cordon for maintenance          |
 | cioctl node uncordon  | Rejoin cluster and resume scheduling onto node |
 | cioctl node update    | Update Storidge software on node               |
-
+| cioctl node clean     | Revert changes made from joining a cluster     |
 
 ## cioctl node add
 
@@ -97,9 +97,9 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 Updates Storidge software on node. Run this command on node to be updated.
 
-The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command will automatically check for software updates.
+The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command automatically checks for software updates.
 
-If an update is available, the node will be cordoned, the software update is downloaded and installed. When the Storidge software installation is completed, the node will be rebooted and automatically rejoin the cluster.
+If update is available, the node is cordoned, the software update is downloaded and installed. When the software installation is completed, the node is rebooted and automatically rejoins the cluster.
 
 ::: tip Important
 Always update the 'standard' nodes first, and update the sds node last.
@@ -119,3 +119,13 @@ Loading cio software for: u16  (4.4.0-116-generic)
 .
 Success: This node has been updated to cio version 1.0.0-2915. This node will be rebooted and automatically rejoin the cluster
 ```
+
+## cioctl node clean
+
+<h3>Usage</h3>
+
+`cioctl node clean`
+
+Revert changes made from joining a cluster. Run this command on node to clean state.
+
+`cioctl node clean` will check that the node is not a member of a cluster. If so this command revert changes made to the node by `cioctl init` or `cioctl join`. It removes files that were created and wipes state information on the node. 

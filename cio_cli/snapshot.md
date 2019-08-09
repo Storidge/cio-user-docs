@@ -19,7 +19,7 @@ Create, get info, list, or remove snapshots.
 
 | Name                        | Description         |
 |:----------------------------|:--------------------|
-| --volume, -v VOLUMENAME     | Volume              |
+| --volume, -v VOLUMENAME     | Volume name         |
 | --vdisk, -V VDISKID         | Vdisk identifier    |
 | YYYY-MM-DD-HHMM-NODEID-VDID | Snapshot identifier |
 
@@ -27,9 +27,9 @@ Create, get info, list, or remove snapshots.
 
 <h3>Usage</h3>
 
-`cio snapshot create [<VOLUMENAME>] [options]`
+`cio snapshot create <VOLUMENAME> [options]`
 
-`cio snapshot add [<VOLUMENAME>] [options]`
+`cio snapshot add <VOLUMENAME> [options]`
 
 Create a snapshot on a volume.
 
@@ -38,6 +38,8 @@ Create a snapshot on a volume.
 | Name                        | Description                      |
 |:----------------------------|:---------------------------------|
 | --description "DESCRIPTION" |Tag a description of the snapshot |
+| --volume, -v VOLUMENAME     | Volume name                      |
+| --vdisk, -V VDISKID         | Vdisk identifier                 |
 
 <h3>Examples</h3>
 
@@ -72,9 +74,9 @@ description: snapshot description
 
 <h3>Usage</h3>
 
-`cio snapshot ls [<VOLUMENAME>]`
+`cio snapshot ls <VOLUMENAME>`
 
-`cio snapshot list [<VOLUMENAME>]`
+`cio snapshot list <VOLUMENAME>`
 
 Display a list of snapshots on a volume.
 
