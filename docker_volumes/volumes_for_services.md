@@ -1,16 +1,16 @@
 # Volumes for Services
 
-[Docker Swarm](https://docs.docker.com/engine/swarm/) is the cluster management component embedded in the Docker Engine. A swarm cluster consists of multiple hosts which run as manager or worker nodes. Containers run as a service within a swarm cluster and it is the role of the manager to maintain the desired state of the service. When a service is created the desired state can be defined in terms of the number of replicas, ports the service exposes, and network or storage resources allocated to the service. 
+[Docker Swarm](https://docs.docker.com/engine/swarm/) is the cluster management component embedded in the Docker Engine. A swarm cluster consists of multiple hosts which run as manager or worker nodes. Containers run as a service within a swarm cluster and it is the role of the manager to maintain the desired state of the service. When a service is created the desired state can be defined in terms of the number of replicas, ports the service exposes, and network or storage resources allocated to the service.
 
-CIO provides a data management platform for a swarm cluster so persistent storage can be programmatically provisioned and managed for stateful applications. 
+CIO provides a data management platform for a swarm cluster so persistent storage can be programmatically provisioned and managed for stateful applications.
 
-When a service is rescheduled by docker to a different node, the CIO volume plugin moves the volume to the new node where the service is restarting. More importantly when a node fails and Docker Swarm restarts services on new nodes, the CIO storage orchestrator fails over the correct volumes to keep the stateful services running. This greatly simplifies the operational burden of ensuring high availability for stateful services and applications. 
+When a service is rescheduled by docker to a different node, the CIO volume plugin moves the volume to the new node where the service is restarting. More importantly when a node fails and Docker Swarm restarts services on new nodes, the CIO storage orchestrator fails over the correct volumes to keep the stateful services running. This greatly simplifies the operational burden of ensuring high availability for stateful services and applications.
 
-#### **Create**
+## **Create**
 
-To [start a service](https://docs.docker.com/engine/reference/commandline/service_create/) you use the `docker service create` command. A persistent volume for the service can be specified by using the `--mount` flag. If the volume does not already exist, Docker creates the volume. 
+To [start a service](https://docs.docker.com/engine/reference/commandline/service_create/) you use the `docker service create` command. A persistent volume for the service can be specified by using the `--mount` flag. If the volume does not already exist, Docker creates the volume.
 
-**Note:**  that the `docker service create` command does not support the `-v` or `--volume` flag. To mount a volume into a service's container, you must use the `--mount` flag. 
+**Note:**  that the `docker service create` command does not support the `-v` or `--volume` flag. To mount a volume into a service's container, you must use the `--mount` flag.
 
 You specify a CIO volume in a `docker service create` command by using the `volume-driver` option to call the cio driver and the `volume-opt` option to set volume options. For example
 
@@ -24,9 +24,35 @@ docker service create \
 mysql
 ```
 
-This creates a volume named mysql-data with volume options set in [profile](http://storidge.com/docs/profiles/) MYSQL for a MySQL database running as a service. The replicas value is set to 1 as schedulers do not have a naming convention for scaling persistent volumes with services. 
+This creates a volume named mysql-data with volume options set in [profile](http://storidge.com/docs/profiles/) MYSQL for a MySQL database running as a service.
 
-While the example above uses a profile to set multiple volume options, volume options can also be individually set. Use comma separated key-value pairs to set multiple volume options. 
+To create and mount a unique volume into each task of a service, use a templatized notation. The example below deploys a service with 5 tasks with the `.Task.Slot` template assigning volume N to task N.
+
+```
+docker service create \
+--mount source={{.Service.Name}}-{{.Task.Slot}},target=/var/lib/mysql,volume-driver=cio,volume-opt=profile=MYSQL \
+--replicas 5 \
+--detach=false \
+-e MYSQL_ROOT_PASSWORD=mysecret \
+--name mysql \
+mysql
+```
+
+Valid placeholders you can use with the template notation are:
+
+| **Placeholder**            | **Description**             |
+|----------------------------|-----------------------------|
+| .Service.ID                | Service ID                  |
+| .Service.Name              | Service name                |
+| .Service.Labels            | Service labels              |
+| .Node.ID                   | Node ID                     |
+| .Node.Hostname             | Node Hostname               |
+| .Task.ID                   | Task ID                     |
+| .Task.Name                 | Task name                   |
+| .Task.Slot                 | Task slot                   |
+
+
+While the examples above uses a profile to set multiple volume options, volume options can also be individually set. Use comma separated key-value pairs to set multiple volume options.
 
 The following options are supported by the CIO volume plugin:  
 
@@ -41,9 +67,9 @@ The following options are supported by the CIO volume plugin:
 | provision  | Thick or thin provisioning   | thin, thick         | provision=thick |
 | profile    | Template for volume creation | profile name        | profile=MYSQL   |
 
-#### **Inspect**
+## **Inspect**
 
-Use `docker service inspect mysql` to verify that the volume above was created and mounted correctly. Look for the `Mounts` section. 
+Use `docker service inspect mysql` to verify that the volume above was created and mounted correctly. Look for the `Mounts` section.
 
 ```
 "Mounts": [
@@ -63,11 +89,11 @@ Use `docker service inspect mysql` to verify that the volume above was created a
 ],
 ```
 
-This shows that the mount is a volume, with the source (volume name mysql-data) mounted in the container at directory /var/lib/mysql. The driver configuration section shows that profile MYSQL was used to set the volume options. 
+This shows that the mount is a volume, with the source (volume name mysql-data) mounted in the container at directory /var/lib/mysql. The driver configuration section shows that profile MYSQL was used to set the volume options.
 
-#### **Remove**
+## **Remove**
 
-To remove the volume, first remove the service. 
+To remove the volume, first remove the service.
 
 ```
 $ docker service rm mysql
@@ -75,14 +101,12 @@ $ docker service rm mysql
 $ docker volume rm mysql
 ```
 
-
-
-### **docker volume create**
+## **docker volume create**
 
 You can create and manage volumes separate from a service with the `docker volume create` command. The `--driver` flag is used to call the cio volume plugin and volume options are passed to the driver using the `-o` or `--opt` flag. For example
 
 ```
-docker volume create --driver cio 
+docker volume create --driver cio
 --name mysqldb \
 --opt size=50 \
 --opt type=ssd \
@@ -100,4 +124,3 @@ docker service create \
 --name mysql \
 mysql
 ```
-

@@ -20,6 +20,7 @@ module.exports = {
         nav: [
             { text: 'Home', link: 'https://storidge.com', },
             { text: 'Guide', link: 'https://guide.storidge.com' },
+            { text: 'FAQ', link: 'https://faq.storidge.com' },
             { text: 'API', link: 'https://storidge.com/api' },
             { text: 'Support', link: 'https://storidge.com/support' }
         ],
@@ -62,6 +63,7 @@ module.exports = {
               '/cioctl_cli/join-token',
               '/cioctl_cli/load',
               '/cioctl_cli/node',
+              '/cioctl_cli/report',
               '/cioctl_cli/reboot',
               '/cioctl_cli/rebuild',
               '/cioctl_cli/shutdown',
