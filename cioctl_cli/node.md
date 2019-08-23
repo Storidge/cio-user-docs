@@ -93,9 +93,9 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 <h3>Usage</h3>
 
-`cioctl node update`
+`cioctl node update <NODENAME | NODEID>`
 
-Updates Storidge software on node. Run this command on node to be updated.
+Updates Storidge software on node to latest version
 
 The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command automatically checks for software updates.
 
@@ -107,10 +107,10 @@ Always update the 'standard' nodes first, and update the sds node last.
 
 <h3>Example</h3>
 
-On the node to be updated, run `cioctl node update`:
+To update node worker3, run:
 
 ```
-root@t5:~# cioctl node update
+root@t5:~# cioctl node update worker3
 Release 2915 is available for upgrade
 Loading cio software for: u16  (4.4.0-116-generic)
 488233b0d7b8
@@ -128,4 +128,4 @@ Success: This node has been updated to cio version 1.0.0-2915. This node will be
 
 Revert changes made from joining a cluster. Run this command on node to clean state.
 
-`cioctl node clean` will check that the node is not a member of a cluster. If so this command revert changes made to the node by `cioctl init` or `cioctl join`. It removes files that were created and wipes state information on the node. 
+`cioctl node clean` will check that the node is not a member of a cluster. If so this command revert changes made to the node by `cioctl init` or `cioctl join`. It removes files that were created and wipes state information on the node.

@@ -6,6 +6,8 @@
 
 Create, get info, list, move, remove, or update volume.
 
+Storidge volumes can be specified using the volume name (-v flag or default), the vdisk ID (-V flag) or uuid (-u flag). Each identifier is unique and can be used interchangeably.
+
 <h3>Child commands</h3>
 
 | Command           | Description                             |
@@ -64,39 +66,69 @@ Create a new volume.
 
 <h3>Examples</h3>
 
+**Create with default settings**
+
 Create volume named 'foo' with default parameters
 
 ```
 $ cio volume create foo
 Succeed: Add vd5: Type:2-copy, Size:20GB
 ```
+
+**Create with parameters**
+
 Create a volume named 'Hello' with a capacity of 5 GB, three copy redundancy, and thick provisioning.
 ```
 $ cio volume create Hello -c 5 -l 3 -P thick
 Succeed: Add vd2: Type:3-copy, Size:5GB
 ```
 
-Create volume with auto expansion enabled and expansion threshold of 70%. Increase capacity 25% each time, and limit number of expansions to three. 
+**Create with auto expansion enabled**
+
+Create volume with auto expansion enabled and expansion threshold of 70%. Increase capacity 25% each time, and limit number of expansions to three.
 ```
 $ cio volume create auto --capacity 2 --autoexpand yes --threshold 70 --increment 25 --limit 3
-Succeed: Add vd2: Type:2-copy, Size:2GB
+Succeed: Add vd3: Type:2-copy, Size:2GB
 ```
+
+**Create with labels**
+
+Create volume with labels.
+```
+$ cio volume create label --label version=1.0 --label stage=test --label region=us-west  
+Succeed: Add vd4: Type:2-copy, Size:20GB
+```
+
+**Create with shared volume label**
+
+Create volume marked with shared volume label.
+```
+$ cio volume create share --label cio.volume=shared  
+Succeed: Add vd5: Type:2-copy, Size:20GB
+```
+
+**Create with profile**
 
 Create volume named 'nginx' with profile NGINX
 ```
 $ cio volume create nginx -p NGINX
-Succeed: Add vd5: Type:2-copy, Size:25GB
+Succeed: Add vd6: Type:2-copy, Size:25GB
 ```
+
+**Create with manual snapshot enabled**
+
 Create volume 'manual' with manual snapshots, bind mount /cio/snap and max 10 snapshots
 ```
 $ cio volume create manual -s -D /cio/snap --snapshotMax 10
-Succeed: Add vd2: Type:2-copy, Size:20GB
+Succeed: Add vd7: Type:2-copy, Size:20GB
 ```
+
+**Create with periodic snapshot enabled**
 
 Create volume 'rotate' with periodic snapshots every 60 minutes and max 24 snapshots
 ```
 $ cio volume create rotate -s -D /cio/snap --interval 60 --snapshotMax 24
-Succeed: Add vd3: Type:2-copy, Size:20GB
+Succeed: Add vd8: Type:2-copy, Size:20GB
 ```
 
 ## cio volume info
@@ -129,6 +161,8 @@ Display volume info by name or id.
 
 <h3>Examples</h3>
 
+**Info by volume name**
+
 Display info by volume name for a volume named portainer.
 
 ```
@@ -156,7 +190,9 @@ labels
 allocated                      0.4%
 ```
 
-Display volume info in json format
+**Info with JSON output**
+
+Display volume info in JSON format
 ```
 root@t1:~# cio volume info portainer --json
 {
@@ -189,6 +225,8 @@ root@t1:~# cio volume info portainer --json
 }
 ```
 
+**Info by vdisk identifier**
+
 Display info by volume id for vd1.
 ```
 $ cio volume info -V 1
@@ -214,6 +252,9 @@ filesystem                     xfs
 labels                         
 allocated                      0.4%
 ```
+
+**Display bind mount directory**
+
 Display mount directory for portainer volume.
 ```
 $ cio volume info portainer -D
@@ -241,6 +282,8 @@ List all volumes in a cluster or on a node
 
 <h3>Examples</h3>
 
+**List all volumes**
+
 List all the volumes on the cluster.
 ```
 $ cio volume ls
@@ -253,6 +296,8 @@ v4                   vd4       SSD   2-copy                  20GB  ce34c0e2  man
 v1                   vd5       SSD   2-copy                  20GB  a79d2ebe  rotate
 v2                   vd6       SSD   2-copy                  25GB  c678c49e  nginx
 ```
+
+**List volumes on a node**
 
 List all volumes on node named 'v2' with allocated capacity percentage.
 ```
@@ -283,12 +328,17 @@ Move volume to specified node. Do not move volumes opened by an application.
 
 <h3>Examples</h3>
 
+**Move volume to specified node**
+
 Move volume foo to node v2.
 ```
 $ cio volume move foo -n v2
 Succeed: Move vd2 from 99f8673e to f2385660
 ```
-Open volumes cannot be moved! 
+
+**Do not move open volumes**
+
+Open volumes cannot be moved!
 ```
 $ cio volume move portainer -n v2
 Fail: Move vd1: vdisk is opened
@@ -316,12 +366,17 @@ Remove a volume.
 
 <h3>Examples</h3>
 
+**Remove by volume name**
+
 Remove volume foo by name.
 ```
 $ cio volume rm foo
 This operation will remove the vdisk and delete all existing data! Please confirm you wish to proceed [Y/N]: Y
 Succeed: Remove vd3
 ```
+
+**Remove vdisk without confirmation**
+
 Remove volume foo by volume id without confirmation.
 ```
 $ cio volume rm -y -V 3
@@ -365,11 +420,16 @@ Update a volume's attributes.
 
 <h3>Examples</h3>
 
+**Update volume capacity**
+
 Change volume portainer capacity from 20 GB to 25 GB.
 ```
 $ cio volume update portainer -c 25
 Succeed: Update vd9 capacity: increased to 25GB
 ```
+
+**Update performance limits**
+
 Change IOPS limits on volume portainer.
 ```
 $ cio volume update portainer --iopsmin 1000 --iopsmax 8500
