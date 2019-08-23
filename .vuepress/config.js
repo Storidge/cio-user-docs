@@ -25,6 +25,7 @@ module.exports = {
             { text: 'Support', link: 'https://storidge.com/support' }
         ],
         sidebar: [
+          ['/', 'Docs Home'],
           {
             title: 'Introduction',
             collapsable: true,
