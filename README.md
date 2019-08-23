@@ -1,5 +1,6 @@
-<center><h1>CIO Documentation</h1></center>
-<center><h3>We have the solution for modernizing storage - on your digital transformation journey</h3></center>
+![Logo](https://i.imgur.com/FfIj2NA.png)
+
+<h1>CIO Documentation</h1>
 ---
 
 Welcome to the documentation for Storidge's Container I/O (CIO). 
