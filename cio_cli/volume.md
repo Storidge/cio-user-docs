@@ -65,6 +65,7 @@ Create a new volume.
 <h3>Examples</h3>
 
 **Create with default settings**
+
 Create volume named 'foo' with default parameters
 
 ```
@@ -73,6 +74,7 @@ Succeed: Add vd5: Type:2-copy, Size:20GB
 ```
 
 **Create with parameters**
+
 Create a volume named 'Hello' with a capacity of 5 GB, three copy redundancy, and thick provisioning.
 ```
 $ cio volume create Hello -c 5 -l 3 -P thick
@@ -80,6 +82,7 @@ Succeed: Add vd2: Type:3-copy, Size:5GB
 ```
 
 **Create with auto expansion enabled**
+
 Create volume with auto expansion enabled and expansion threshold of 70%. Increase capacity 25% each time, and limit number of expansions to three.
 ```
 $ cio volume create auto --capacity 2 --autoexpand yes --threshold 70 --increment 25 --limit 3
@@ -87,6 +90,7 @@ Succeed: Add vd3: Type:2-copy, Size:2GB
 ```
 
 **Create with labels**
+
 Create volume with labels.
 ```
 $ cio volume create label --label version=1.0 --label stage=test --label region=us-west  
@@ -94,6 +98,7 @@ Succeed: Add vd4: Type:2-copy, Size:20GB
 ```
 
 **Create with shared volume label**
+
 Create volume marked with shared volume label.
 ```
 $ cio volume create share --label cio.volume=shared  
@@ -101,6 +106,7 @@ Succeed: Add vd5: Type:2-copy, Size:20GB
 ```
 
 **Create with profile**
+
 Create volume named 'nginx' with profile NGINX
 ```
 $ cio volume create nginx -p NGINX
@@ -108,6 +114,7 @@ Succeed: Add vd6: Type:2-copy, Size:25GB
 ```
 
 **Create with manual snapshot enabled**
+
 Create volume 'manual' with manual snapshots, bind mount /cio/snap and max 10 snapshots
 ```
 $ cio volume create manual -s -D /cio/snap --snapshotMax 10
@@ -115,6 +122,7 @@ Succeed: Add vd7: Type:2-copy, Size:20GB
 ```
 
 **Create with periodic snapshot enabled**
+
 Create volume 'rotate' with periodic snapshots every 60 minutes and max 24 snapshots
 ```
 $ cio volume create rotate -s -D /cio/snap --interval 60 --snapshotMax 24
