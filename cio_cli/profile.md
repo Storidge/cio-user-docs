@@ -35,6 +35,7 @@ Save a profile to the datastore from a yaml config file.
 | filesystem         | btrfs, ext4, xfs  | file system to format and mount             |
 | iops min           | 30 to 1,000,000   | minimum iops guaranteed                     |
 | iops max           | 30 to 1,000,000   | maximum iops allowed                        |
+| label              | KEY=VALUE         | Add label to volume                         |
 | level              | 2, 3              | number of synchronous replicas              |
 | provision          | thin, thick       | specify thin or thick provisioning          |
 | type               | ssd, hdd          | select media type                           |
@@ -52,6 +53,8 @@ Save a profile to the datastore from a yaml config file.
 | max                | MAX_NUMBER        | maximum number of snapshots                 |
 
 <h3>Examples</h3>
+
+**Create profile TEST**
 
 Create a yaml config file. For example, this file `TEST`:
 ```
@@ -82,6 +85,41 @@ service:
     max: 10
 ```
 
+**Create profile with shared volume label**
+
+Create a yaml config file. For example, this file `SHARE`:
+```
+capacity: 20
+directory: /cio/volumes
+iops:
+  min: 1000
+  max: 2000
+label:
+  cio.volume: shared
+level: 2
+local: no
+provision: thin
+type: ssd
+service:
+  autoexpand:
+    enabled: no
+    threshold: 70
+    increment: 25
+    limit: 2
+  compression:
+    enabled: no
+    algorithm: lzo
+  dedupe: no
+  encryption:
+    enabled: no
+  snapshot:
+    enabled: no
+    interval: 60
+    max: 10
+```
+
+**Save profile TEST**
+
 Save profile TEST to the datastore.
 ```
 $ cio profile create TEST
@@ -96,7 +134,7 @@ Succeed: Create profile: Profile TEST saved
 
 `cio profile inspect <PROFILENAME>`
 
-Display profile info from datastore. 
+Display profile info from datastore.
 
 <h3>Examples</h3>
 
