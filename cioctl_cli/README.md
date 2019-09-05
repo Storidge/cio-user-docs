@@ -19,6 +19,7 @@ Running `cioctl` by itself displays help showing all available subcommands. In a
 | cioctl load        | Restart cio operation. For single node cluster only             |
 | cioctl node        | Cordon, uncordon, update or remove a node                       |
 | cioctl reboot      | Stop services and reboot all nodes                              |
+| cioctl rebuild     | Restart volume rebuilds                                         |
 | cioctl report      | Collect logs and info from all nodes into a report              |
 | cioctl shutdown    | Stop services and shutdown all nodes                            |
 | cioctl unload      | Stop cio operation. For single node cluster only                |
