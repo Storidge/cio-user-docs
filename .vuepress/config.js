@@ -54,6 +54,7 @@ module.exports = {
               '/cioctl_cli/join-token',
               '/cioctl_cli/load',
               '/cioctl_cli/node',
+              '/cioctl_cli/report',
               '/cioctl_cli/reboot',
               '/cioctl_cli/rebuild',
               '/cioctl_cli/shutdown',
