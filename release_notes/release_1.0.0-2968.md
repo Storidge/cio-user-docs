@@ -3,7 +3,7 @@ This release adds a few new capabilities. The 2968 release adds initial support 
 
 A new `cioctl report` command is added to simplify the gathering of logs and info from all nodes for diagnostics.
 
-We added initial support for a shared volume concept similar to shared volumes in Kubernetes pods. This allows multiple services to share the same volume on a Swarm node. See example stack file at https://github.com/Storidge/docker-stacks/blob/master/share.yml.
+We've added initial support for a shared volume concept similar to shared volumes in Kubernetes pods. This allows multiple services to share the same volume on a Swarm node. See example stack file at https://github.com/Storidge/docker-stacks/blob/master/share.yml.
 
 This release also includes a number of stability and usability improvements.
 
@@ -11,9 +11,9 @@ This release also includes a number of stability and usability improvements.
 
 To simplify code maintenance going forward, a change was made in the network message format used for internode communications. This unfortunately breaks individual node software updates.
 
-If you have an existing cluster running v1.0.0-2942, do NOT use the `cioctl node update` command to update individual nodes. Instead use the curl script method to update all nodes. When all nodes are updated, run `cioctl reboot` to reboot the cluster into the new version.
+If you have an existing cluster running v1.0.0-2942 or earlier, do NOT use the `cioctl node update` command to update individual nodes. Instead use the curl script method to update all nodes. When all nodes are updated, run `cioctl reboot` to reboot the cluster into the new version.
 
-There was an intermediate release v1.0.0-2949. This version supports `cioctl node update` for updating individual nodes to v1.0.0-2968.
+There was a recent release v1.0.0-2949. This version will support `cioctl node update` for updating individual nodes to v1.0.0-2968.
 
 ## New
 - Initial support for Ubuntu 18.04 LTS (beta)
