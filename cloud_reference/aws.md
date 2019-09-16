@@ -10,7 +10,10 @@ First, you'll need to setup the cluster resources to orchestrate:
 - A security group which enables all inbound traffic within the cluster.
 
 ## Install cio software
-Storidge's CIO software currently supports CentOS 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel which is not supported.
+
+Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
+
+Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the server edition of Ubuntu 18.04 instead for 4.15 kernel support.  
 
 After verifying you have a supported distribution, run the convenience script below to begin installation.
 
@@ -52,7 +55,7 @@ With the CIO software installed on all nodes, the next step is to create a clust
 Drives that are partitioned or have a file system will not be added to the storage pool
 :::
 
-Run the `cioctl create` command on the node you wish to be the leader of the cluster. This generates a `cioctl join` and a `cioctl init` command. 
+Run the `cioctl create` command on the node you wish to be the leader of the cluster. This generates a `cioctl join` and a `cioctl init` command.
 
 ```
 root@ip-172-31-22-159:~# cioctl create
@@ -64,7 +67,7 @@ After adding all storage nodes, return to this node and run following command to
     cioctl init bd987b6a
 ```
 
-Run the `cioctl join` command on nodes joining the cluster. 
+Run the `cioctl join` command on nodes joining the cluster.
 
 ## Initialize cluster
 
@@ -89,7 +92,7 @@ Configuring Docker Swarm cluster with Portainer service
 
 ## Login dashboard
 At the end of initialization, you have a CIO storage cluster running. A Docker Swarm cluster will be automatically configured if one is not already
-running. 
+running.
 
 Run `docker node ls` to show the compute cluster nodes.
 
@@ -121,4 +124,3 @@ zhu4ykc1hdlu        portainer.1         portainer/portainer:latest   c-6945fd81 
 **Note:** If not using a VPN, you will need to add a rule to the security group allowing inbound TCP traffic on port 9000 to access the Portainer dashboard.
 
 Login to Portainer at any node's public IP on port 9000. The public IP addresses of the AWS instances can be found in the EC2 Management Console under Instances.
-

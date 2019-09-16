@@ -15,7 +15,9 @@ The Digital Ocean block storage service is only available in regions AMS3, BLR1,
 
 ## Install cio software
 
-Storidge's CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel) and Ubuntu 16.04LTS (4.4 kernel). Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel which is not supported.
+Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
+
+Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the server edition of Ubuntu 18.04 instead for 4.15 kernel support.  
 
 After verifying you have a supported distribution, run the convenience script below to begin installation.
 
@@ -50,7 +52,7 @@ For production deployments, a minimum of four nodes is recommended
 
 ## Configure cluster
 
-With the CIO software installed on all nodes, the next step is to create a cluster and then initialize the cluster for use. As part of cluster creation, CIO will automatically discover and add drive resources from each node. 
+With the CIO software installed on all nodes, the next step is to create a cluster and then initialize the cluster for use. As part of cluster creation, CIO will automatically discover and add drive resources from each node.
 
 ::: tip
 Drives that are partitioned or have a file system will not be added to the storage pool
@@ -96,7 +98,7 @@ Adding this node to cluster as a storage node
 root@cio2:~#
 ```
 
-Repeat the `cioctl join` command on other nodes joining the cluster. 
+Repeat the `cioctl join` command on other nodes joining the cluster.
 
 
 ## Initialize cluster
@@ -121,9 +123,9 @@ Configuring Docker Swarm cluster with Portainer service
 
 ## Login dashboard
 
-At the end of initialization, you have a cio cluster running. A Swarm cluster will be automatically configured if one is not already running. 
+At the end of initialization, you have a cio cluster running. A Swarm cluster will be automatically configured if one is not already running.
 
-Run `docker node ls` to show the compute cluster nodes. 
+Run `docker node ls` to show the compute cluster nodes.
 
 ```
 root@cio1:~# docker node ls
@@ -153,5 +155,4 @@ ID                  NAME                MODE                REPLICAS            
 z8gj7wd6zhfd        portainer           replicated          1/1                 portainer/portainer:latest   *:9000->9000/tcp
 ```
 
-Login to the Portainer dashboard at any node's public IP on port 9000. 
-
+Login to the Portainer dashboard at any node's public IP on port 9000.
