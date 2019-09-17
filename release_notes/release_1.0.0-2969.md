@@ -1,4 +1,4 @@
-# Release 1.0.0-2968
+# Release 1.0.0-2969
 This release adds a few new capabilities. The 2968 release adds initial support for Ubuntu 18.04. Due to limited testing hours, this should be considered for beta use only.
 
 A new `cioctl report` command is added to simplify the gathering of logs and info from all nodes for diagnostics.
@@ -35,6 +35,8 @@ There was a recent release v1.0.0-2949. This version will support `cioctl node u
 - Update `cio info` output to not include capacity of faulty drives
 - Change IPAM function to use CIDR for specifying IP address range when used with NFS and S3 interface containers
 - Simplify `cio volume move` and `cio volume create` network message format.
+- Updates `cioctl rebalance` command
+- Updates `cioctl node update` to redirect install/uninstall messages to /var/lib/storidge
 
 ## Bug fixes
 - Fix a bug where node is in maintenance mode after a cluster reboot, i.e. `cioctl reboot`
