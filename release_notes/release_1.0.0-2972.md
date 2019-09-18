@@ -21,9 +21,10 @@ There was a recent release v1.0.0-2949. This version will support `cioctl node u
 - Add initial support for shared volume with containers on same Swarm node, similar to Kubernetes pod. A shared volume requires a volume label with key value 'cio.volume=shared'. See example at https://github.com/Storidge/cio-profiles/blob/master/SHARE
 
 ## Improvements
-- Add support Ubuntu 4.4.0-{160, 161, 163} kernel, AWS Ubuntu 4.4.0-1092
+- Add support Ubuntu 4.4.0-{160, 161, 163, 164} kernel, AWS Ubuntu 4.4.0-{1092, 1094}
 - Add support Ubuntu 4.15.0-{20, 29, 54, 55, 62}, AWS Ubuntu 4.15.0-1044
 - Remove retracted Ubuntu 4.4.0-158 kernel
+- Point Centos 7.6 repo to mirror.centos.org
 - Update `cioctl node clean` to reject command on nodes that are part of a cluster
 - Change portainer and agent to run as a stack instead of a service. A copy of the portainer.yml is saved at /etc/storidge/config so the stack can be removed and re-deployed.
 - The uninstall script now removes MongDB and mongo-c-driver
