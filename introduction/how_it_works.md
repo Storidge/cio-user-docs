@@ -18,10 +18,10 @@ Storidge's CIO software adds the capabilities below to a container cluster.
 
 - surpass limitations of static infrastructure
 - automated volume management and storage operations
-- automatic data locality 
+- automatic data locality
 - data redundancy with network RAID
 - effortless high availability for applications
-- efficient shared capacity 
+- efficient shared capacity
 - auto capacity expansion for stateful apps
 - pooled performance from storage aggregation
 
@@ -55,9 +55,9 @@ The Container IO abstraction layer also provides the benefit of a consistent int
 
 ## **Automated Volume Management**
 
-Just as [LVM](https://wiki.ubuntu.com/Lvm) provides volume management within an instance or host, Storidge's persistent storage layer provides volume management for a cluster of nodes. 
+Just as [LVM](https://wiki.ubuntu.com/Lvm) provides volume management within an instance or host, Storidge's persistent storage layer provides volume management for a cluster of nodes.
 
-The CIO software automates volume and storage operations to greatly simplify storage management. In the event of hardware failures, data and node recovery completes without operator intervention. When containers are rescheduled, storage orchestration and automatic data locality ensure consistent application performance with no operator effort. 
+The CIO software automates volume and storage operations to greatly simplify storage management. In the event of hardware failures, data and node recovery completes without operator intervention. When containers are rescheduled, storage orchestration and automatic data locality ensure consistent application performance with no operator effort.
 
 The following section steps through a simple example of volume provisioning. When a volume creation request is received from Docker, the CIO software instantiates a local block device with a virtual disk ID at /dev/vdisk. This block device is created on the same node where the container will be running. Since containers consume storage through a file system, the block device is auto-formatted, mounted at the specified directory and passed to the container through a propagated mount in a Docker managed directory.
 
@@ -73,7 +73,7 @@ $ docker service create \
 mysql
 ```
 
-This command calls the CIO volume plugin to create a volume named 'mysql-data'. The `--mount` flag uses [profile](https://docs.storidge.com/profiles/) MYSQL to create the volume. 
+This command calls the CIO volume plugin to create a volume named 'mysql-data'. The `--mount` flag uses [profile](https://docs.storidge.com/cio_cli/profile.html) MYSQL to create the volume. 
 
 The profile is a [YAML](http://yaml.org/spec/current.html) formatted file used to specify an application’s storage requirements in terms of resources, data protection, access methods and placement. The following sample MYSQL profile comes with the CIO software installation. This profile should be edited to fit operational needs.  
 
@@ -128,9 +128,9 @@ From the application point of view:
 
 ## **Automatic Data Locality**
 
-For containers, having local storage access reduces latency and improves applications’ response times. An example would be databases where having low latency performance ensures the ability to deliver consistent transaction processing. For this reason, it is ideal to schedule containers and pods on nodes where its data is located. However containers can be rescheduled at any time to new nodes for different reasons. This makes ensuring data locality very difficult. 
+For containers, having local storage access reduces latency and improves applications’ response times. An example would be databases where having low latency performance ensures the ability to deliver consistent transaction processing. For this reason, it is ideal to schedule containers and pods on nodes where its data is located. However containers can be rescheduled at any time to new nodes for different reasons. This makes ensuring data locality very difficult.
 
-Enter automatic data locality. When a container is rescheduled to a new node, CIO's storage orchestrator moves the volume to the container on the new node. As host I/O requests are received, locality rebuild is triggered if data is not found locally. During locality rebuild, a storage extent is allocated and a copy of data is copied into the storage extent, i.e. data is rebuilt locally. A copy of the data on another node will be deallocated. 
+Enter automatic data locality. When a container is rescheduled to a new node, CIO's storage orchestrator moves the volume to the container on the new node. As host I/O requests are received, locality rebuild is triggered if data is not found locally. During locality rebuild, a storage extent is allocated and a copy of data is copied into the storage extent, i.e. data is rebuilt locally. A copy of the data on another node will be deallocated.
 
 With data locality, optimizing data placement for local node access happens automatically, requires no configuration by operations and works with any application. No operational effort is required to deliver consistent high performance and low latency for applications.
 
@@ -162,7 +162,7 @@ Having a common storage pool allows for efficient capacity sharing as thin provi
 
 ## **Auto Capacity Expansion**
 
-A shared storage pool enables volume capacity for critical applications to be expanded automatically based on policy settings. The volume is expanded when a pre-defined capacity threshold is crossed at both the block and filesystem level. Since the expansion happens while the application is running, there is no disruption of services. 
+A shared storage pool enables volume capacity for critical applications to be expanded automatically based on policy settings. The volume is expanded when a pre-defined capacity threshold is crossed at both the block and filesystem level. Since the expansion happens while the application is running, there is no disruption of services.
 
 When auto capacity expansion is extended to all application volumes, it eliminates the need to monitor individual volumes for out of space conditions. Monitoring is greatly simplified since you only need to monitor the capacity of the storage pool.
 
@@ -179,4 +179,3 @@ Combined with Storidge's QoS feature, this allows important databases to be prov
 Storidge's CIO software creates a very useful storage abstraction layer for stateful applications to persist, share and manage data on logical resources. This abstraction layer separates applications from underlying infrastructure, making applications more available and portable. Since the CIO software can be deployed on bare metal servers, virtual servers and multi clouds, it helps deliver applications faster because it enables uniformity across development, test and production environments.
 
 From a business perspective, the abstraction layer is valuable because it breaks dependencies on expensive hardware refresh cycles, manual processes requiring trained experts, and practices that slows instead of helping accelerate organizational change. It also bridges a critical gap as enterprises progress on their digital transformation journey towards a more software defined data center. Modernizing storage is an important and neccessary component that any organizations must implement to fully realize IT and business transformation.
-

@@ -1,4 +1,4 @@
-# Release 1.0.0-2969
+# Release 1.0.0-2972
 This release adds a few new capabilities. The 2968 release adds initial support for Ubuntu 18.04. Due to limited testing hours, this should be considered for beta use only.
 
 A new `cioctl report` command is added to simplify the gathering of logs and info from all nodes for diagnostics.
