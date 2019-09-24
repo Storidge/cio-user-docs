@@ -125,7 +125,8 @@ module.exports = {
             collapsable: true,
             children: [
               '/prerequisites/hardware',
-              '/prerequisites/software'
+              '/prerequisites/software',
+              '/prerequisites/ports'
             ]
           },
           {
