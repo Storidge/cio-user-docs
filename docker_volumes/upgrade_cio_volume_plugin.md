@@ -66,7 +66,7 @@ Upgraded plugin cio:latest to docker.io/storidge/cio:latest
 
 Note that using the  `-f` or `--force` flag could be disruptive to the containerized application on an operating cluster, e.g. the Docker propagated mount point could be removed.
 
-An alternative way to update the plugin is to first set the cio nodes to drain state, update the plugin and then set the cio nodes back to active state to continue operation, i.e.:
+An alternative way to update the plugin is to first set the Storidge nodes to drain state, update the plugin and then set the Storidge nodes back to active state to continue operation, i.e.:
 
 1. Run `docker node update --availability drain <cio node name>` to set each node to drain state
 2. Use the disable, upgrade and enable plugin commands above to update the volume plugin

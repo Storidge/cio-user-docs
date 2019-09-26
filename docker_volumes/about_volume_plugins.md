@@ -1,6 +1,6 @@
 ---
 title: About Volume Plugins
-description: Overview of volume plugins and the Storidge volume plugin for Docker 
+description: Overview of volume plugins and the Storidge volume plugin for Docker
 lang: en-US
 ---
 
@@ -10,7 +10,7 @@ Docker integrates with external storage systems through the volume plugin API. T
 
 The volume plugin system was introduced with Docker version 1.8.0 and continues through to version 1.12.0. As of Docker version 1.13.0, the original volume plugin is considered “legacy” as the v2 plugin architecture was introduced.
 
-A CIO installation installs the original volume plugin(v1) for Docker version 1.12.6 and below. The new volume plugin (v2) is installed for Docker version 1.13.0 and above.  The volume plugin enables requests for storage to be passed to the CIO software.
+A Storidge software installation installs the original volume plugin(v1) for Docker version 1.12.6 and below. The new volume plugin (v2) is installed for Docker version 1.13.0 and above.  The volume plugin enables requests for storage to be passed to the Storidge data management software.
 
 If the v2 volume plugin is not already installed, it can be downloaded and installed by using:
 
