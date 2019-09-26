@@ -11,7 +11,7 @@ lang: en-US
 
 To start a container you use the `docker run` command. You can specify a volume in a `docker run` command by using the `-v` or `--volume` flag. If the volume does not yet exist, Docker creates the volume.
 
-You can specify a CIO volume in a `docker run` command by using the `--volume-driver` flag to call the cio driver. The example below calls the cio volume plugin to create a volume named foo, for the alpine container.
+You can specify a Storidge volume in a `docker run` command by using the `--volume-driver` flag to call the cio driver. The example below calls the cio volume plugin to create a volume named foo, for the alpine container.
 
 ```
 docker run -it --volume-driver cio -v foo:/tmp --name foo alpine sh

@@ -1,12 +1,12 @@
 ---
 title: Volumes
-description: Provision Docker volumes for Swarm clusters with Storidge 
+description: Provision Docker volumes for Swarm clusters with Storidge
 lang: en-US
 ---
 
 # Volumes
 
-Storidge provides scalable and persistent storage for your Docker infrastructure. Our CIO (continer I/O) software aggregates storage from a cluster of nodes into a global capacity and performance pool. The CIO software creates volumes and allocates capacity and performance for containers and services from this global resource.
+Storidge provides scalable and persistent storage for your Docker infrastructure. Our CIO (container I/O) software aggregates storage from a cluster of nodes into a global capacity and performance pool. The CIO software creates volumes and allocates capacity and performance for containers and services from this global resource.
 
 Capacity and performance can be scaled by adding new nodes to or removing existing nodes from the cluster. Storidge's CIO software runs hyperconverged with Docker on both physical and virtual servers to enable consistent and repeatable deployments across public and private clouds.
 
@@ -22,13 +22,13 @@ The data volumes created by Storidge's CIO software:
 
 Docker integrates with external storage systems through the [volume plugin API](https://docs.docker.com/engine/extend/plugins_volume/). The API enables volumes to be natively provisioned in a Docker environment and then attached to an application running in a container or service.
 
-The CIO installation package installs a v2 volume plugin for Docker version 1.13.0 and above. The volume plugin enables request for storage to be passed to the CIO software whether from a `docker run`, `docker service create`, `docker volume create` command or [Docker Compose](https://docs.docker.com/compose/overview/) file.
+The Storidge installation package installs a v2 volume plugin for Docker version 1.13.0 and above. The volume plugin enables request for storage to be passed to the CIO software whether from a `docker run`, `docker service create`, `docker volume create` command or [Docker Compose](https://docs.docker.com/compose/overview/) file.
 
 **Create volumes**
 
 You can create and manage volumes separate from a container using the `docker volume create` command. Use the `--driver` flag to specify the volume plugin and use the `-o` or `--opt` flag to set options for creating a volume.
 
-For example, create a CIO volume with name “foo” and use profile MYSQL to set volume options.
+For example, create a Storidge volume with name “foo” and use profile MYSQL to set volume options.
 
 ```
 docker volume create --driver cio --name foo --opt profile=MYSQL
@@ -46,7 +46,7 @@ docker volume create --driver cio
 --label version=3.3 --label release=stable
 ```
 
-Volume options supported by the CIO plugin are:  
+Volume options supported by the plugin are:  
 
 | **option** | **description**              | value           | example          |
 | ---------- | ---------------------------- | --------------- | ---------------- |
