@@ -1,6 +1,12 @@
-# Upgrade CIO Volume Plugin
+---
+title: Upgrade Storidge Volume Plugin
+description: Steps to upgrade the Storidge volume plugin for Docker
+lang: en-US
+---
 
-This guide shows the steps to upgrade the CIO docker volume plugin. Run the command sequence below on all nodes in the cluster. 
+# Upgrade Storidge Volume Plugin
+
+This guide shows the steps to upgrade the Storidge docker volume plugin. Run the command sequence below on all nodes in the cluster.
 
 ## List the plugin
 
@@ -10,7 +16,7 @@ ID                  NAME                DESCRIPTION                             
 663a4acd7b35        cio:latest          Storidge's ContainerIO plugin for Docker   true
 ```
 
-If the volume plugin shows as enabled, disable the plugin first to proceed. 
+If the volume plugin shows as enabled, disable the plugin first to proceed.
 
 ## Disable the plugin
 
@@ -18,13 +24,13 @@ If the volume plugin shows as enabled, disable the plugin first to proceed.
 # docker plugin disable cio
 ```
 
-If you get the error "plugin cio:latest is in use", use the -f or --force flag. 
+If you get the error "plugin cio:latest is in use", use the -f or --force flag.
 
 ```
 # docker plugin disable cio -f
 ```
 
-Using the `-f` flag could be disruptive to applications. See the section below for a non-disruptive upgrade. 
+Using the `-f` flag could be disruptive to applications. See the section below for a non-disruptive upgrade.
 
 ## Upgrade the plugin
 
@@ -58,12 +64,10 @@ Upgraded plugin cio:latest to docker.io/storidge/cio:latest
 
 ## Non-disruptive plugin upgrade
 
-Note that using the  `-f` or `--force` flag could be disruptive to the containerized application on an operating cluster, e.g. the Docker propagated mount point could be removed. 
+Note that using the  `-f` or `--force` flag could be disruptive to the containerized application on an operating cluster, e.g. the Docker propagated mount point could be removed.
 
 An alternative way to update the plugin is to first set the cio nodes to drain state, update the plugin and then set the cio nodes back to active state to continue operation, i.e.:
 
 1. Run `docker node update --availability drain <cio node name>` to set each node to drain state
 2. Use the disable, upgrade and enable plugin commands above to update the volume plugin
-3. Run  `docker node update --availability active <cio node name>` to set each node back to active state 
-
-
+3. Run  `docker node update --availability active <cio node name>` to set each node back to active state

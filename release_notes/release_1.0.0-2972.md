@@ -1,3 +1,9 @@
+---
+title: Release 1.0.0-2972
+description: Release notes for Storidge CIO version 1.0.0-2972
+lang: en-US
+---
+
 # Release 1.0.0-2972
 This release adds a few new capabilities. The 2968 release adds initial support for Ubuntu 18.04. Due to limited testing hours, this should be considered for beta use only.
 

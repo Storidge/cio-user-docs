@@ -1,3 +1,9 @@
+---
+title: Release 0.9.0-2745
+description: Release notes for Storidge CIO version 0.9.0-2745
+lang: en-US
+---
+
 # Release 0.9.0-2745
 
 # Improvements

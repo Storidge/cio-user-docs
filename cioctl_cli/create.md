@@ -1,10 +1,16 @@
+---
+title: cioctl create
+description: cioctl create command usage 
+lang: en-US
+---
+
 # cioctl create
 
 <h3>Usage</h3>
 
 `cioctl create`
 
-Generate command strings for creating a new cluster. 
+Generate command strings for creating a new cluster.
 
 <h3>Options</h3>
 
@@ -16,9 +22,9 @@ Generate command strings for creating a new cluster.
 
 Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
-Use the `--ip` option to specify the interface to use for the storage network. This is used when there are more than one network interfaces that can be specified, to keep host and storage traffic separated. 
+Use the `--ip` option to specify the interface to use for the storage network. This is used when there are more than one network interfaces that can be specified, to keep host and storage traffic separated.
 
-If a cluster is already configured, running this command will provide option to delete current configuration, destroy cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster. 
+If a cluster is already configured, running this command will provide option to delete current configuration, destroy cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
 
 ::: tip
 If creating a single node cluster, use the `--single-node` option to start initializing the cluster, e.g. `cioctl create --single-node`

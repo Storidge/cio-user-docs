@@ -1,3 +1,9 @@
+---
+title: cioctl rebuild
+description: cioctl rebuild command usage 
+lang: en-US
+---
+
 # cioctl rebuild
 
 <h3>Usage</h3>

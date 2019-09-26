@@ -1,3 +1,9 @@
+---
+title: Release 1.0.0-2803
+description: Release notes for Storidge CIO version 1.0.0-2803
+lang: en-US
+---
+
 # Release 1.0.0-2803
 
 # New

@@ -1,3 +1,9 @@
+---
+title: cio snapshot
+description: cio snapshot command usage 
+lang: en-US
+---
+
 # cio snapshot
 
 <h3>Usage</h3>

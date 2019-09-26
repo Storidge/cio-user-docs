@@ -1,3 +1,9 @@
+---
+title: cio info
+description: cio info command usage 
+lang: en-US
+---
+
 # cio info
 
 <h3>Usage</h3>
@@ -83,4 +89,3 @@ Free HDD: 0.000TB
 Provisioned SSD: 0.039TB
 Provisioned HDD: 0.000TB
 ```
-

@@ -1,6 +1,12 @@
+---
+title: Features
+description: Features and benefits of Storidge for Docker containers and Kubernetes pods
+lang: en-US
+---
+
 # Features
 
-- Automated provisioning 
+- Automated provisioning
 - [Automatic data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/)
 - [Effortless high availability](https://docs.storidge.com/introduction/how_it_works.html#effortlesss-high-availability)
 - Automated node recovery
@@ -19,4 +25,3 @@
 - Encryption
 - Compression
 - [Snapshots](https://guide.storidge.com/getting_started/snapshots.html)
-

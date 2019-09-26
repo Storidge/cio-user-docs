@@ -1,3 +1,9 @@
+---
+title: cioctl drive
+description: cioctl drive command usage 
+lang: en-US
+---
+
 # cioctl drive
 
 <h3>Usage</h3>
@@ -6,9 +12,9 @@
 
 List, inspect, add, remove or rescan drive resources.
 
-Drives are the raw devices that cio adds to a storage pool for creating volumes used by applications. When a cluster is created, cio will perform an automated discovery for drives to be added. Only drives that do not have filesystems or partitions will be automatically added. Drives can be local attached devices, e.g. ephemeral drives on cloud instances or can be networked attached devices. 
+Drives are the raw devices that cio adds to a storage pool for creating volumes used by applications. When a cluster is created, cio will perform an automated discovery for drives to be added. Only drives that do not have filesystems or partitions will be automatically added. Drives can be local attached devices, e.g. ephemeral drives on cloud instances or can be networked attached devices.
 
-The `add` subcommand enable drives to added to increase capacity in the storage pool. Drives that are marked 'faulty' by the cio software can be removed and replaced. Drives with 'normal' status cannot be removed. New drives that are attached to nodes can be discovered with the `rescan` subcommand if they are not listed automatically. 
+The `add` subcommand enable drives to added to increase capacity in the storage pool. Drives that are marked 'faulty' by the cio software can be removed and replaced. Drives with 'normal' status cannot be removed. New drives that are attached to nodes can be discovered with the `rescan` subcommand if they are not listed automatically.
 
 <h3>Child commands</h3>
 
@@ -18,7 +24,7 @@ The `add` subcommand enable drives to added to increase capacity in the storage 
 | cioctl drive info     | Get information on drive resource                          |
 | cioctl drive list     | List drives in cluster                                     |
 | cioctl drive remove   | Remove drive from storage pool                             |
-| cioctl drive rescan   | Rescan nodes in cluster for new drives or changed capacity | 
+| cioctl drive rescan   | Rescan nodes in cluster for new drives or changed capacity |
 
 ## cioctl drive add
 
@@ -28,9 +34,9 @@ The `add` subcommand enable drives to added to increase capacity in the storage 
 
 `cioctl drive create <device> <node>`
 
-Add a drive to the storage pool. 
+Add a drive to the storage pool.
 
-Only drives marked with 'available' status can be added to the storage pool. Drives are added by specifying the drive path and node name. These two parameters are listed in the `cioctl drive ls` command. 
+Only drives marked with 'available' status can be added to the storage pool. Drives are added by specifying the drive path and node name. These two parameters are listed in the `cioctl drive ls` command.
 
 <h3>Arguments</h3>
 
@@ -109,7 +115,7 @@ n4                   /dev/sdd     cio  SSD        19  92a88ffd0002sdd       norm
 
 `cioctl drive delete <DRIVEID>`
 
-Remove a faulty drive from the storage pool. Drives with 'normal' status cannot be removed. 
+Remove a faulty drive from the storage pool. Drives with 'normal' status cannot be removed.
 
 <h3>Examples</h3>
 

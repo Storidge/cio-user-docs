@@ -1,4 +1,10 @@
-# Digital Ocean Cloud
+---
+title: Digital Ocean
+description: Cloud reference for installing persistent storage cluster on Digital Ocean
+lang: en-US
+---
+
+# Digital Ocean
 
 This guide shows you how to easily deploy Storidge's Container IO (CIO) software on the DigitalOcean cloud platform. Follow the steps below to bring up a Swarm cluster with a Portainer dashboard, that's ready to run stateful apps in just a few minutes.
 

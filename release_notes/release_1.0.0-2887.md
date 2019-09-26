@@ -1,10 +1,16 @@
-# Release 1.0.0-2887
-This release adds a new capability for shared volumes in a Swarm cluster without requiring NFS. 
+---
+title: Release 1.0.0-2887
+description: Release notes for Storidge CIO version 1.0.0-2887
+lang: en-US
+---
 
-Majority of changes focuses on bug fixes, stability and usability improvements. 
+# Release 1.0.0-2887
+This release adds a new capability for shared volumes in a Swarm cluster without requiring NFS.
+
+Majority of changes focuses on bug fixes, stability and usability improvements.
 
 # New
-- Add support for shared volumes in a Swarm cluster without NFS 
+- Add support for shared volumes in a Swarm cluster without NFS
 
 # Improvements
 - Add support Ubuntu 4.4.0-155, AWS Ubuntu 4.4.0-1087

@@ -1,3 +1,9 @@
+---
+title: Ports
+description: Ports list used by Storidge CIO software 
+lang: en-US
+---
+
 # Ports
 
 The following table lists the ports that need to be open to and from nodes that are running in a Storidge cluster.

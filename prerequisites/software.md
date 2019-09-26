@@ -1,3 +1,9 @@
+---
+title: Software
+description: Software prerequisites for persistent storage with Storidge
+lang: en-US
+---
+
 # Software
 
 Verify that your system meets the software requirements below before proceeding to installation.

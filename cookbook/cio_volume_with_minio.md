@@ -1,16 +1,16 @@
 ---
-meta:
-  - name: description
-    content: Storidge volume with Minio
+title: Storidge Volume With Minio
+description: Cookbook for using Storidge persistent storage with Minio
+lang: en-US
 ---
 
-# CIO Volume With Minio
+# Storidge Volume With Minio
 
 [Minio](https://minio.io/) is an object storage server compatible with [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). It is suited for storing unstructured data such as photos, videos, log files, backups and container images.
 
-Using CIO volumes with Minio is a great way to setup a highly available S3 compatible cloud storage service for development and testing environments.
+Using Storidge volumes with Minio is a great way to setup a highly available S3 compatible cloud storage service for development and testing environments.
 
-In this recipe we use a Docker Stack file to define the Minio service and the CIO volume. Then, using a single command, we can create and launch the Minio instance with highly available persistent storage.
+In this recipe we use a Docker Stack file to define the Minio service and the Storidge volume. Then, using a single command, we can create and launch the Minio instance with highly available persistent storage.
 
 
 
@@ -18,7 +18,7 @@ In this recipe we use a Docker Stack file to define the Minio service and the CI
 
 - Familiarity with [Docker Stack](https://docs.docker.com/docker-cloud/apps/stacks/).
 
-- CIO installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html). 
+- Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html).
 
   ​
 
@@ -31,7 +31,7 @@ echo "mysecret" | docker secret create secret_key -
 
 ## **Run Minio on Docker Stack**
 
-To deploy the Minio service on Docker Stack, save the following into a minio.yml file in your current working directory. Docker will pull the Minio image and CIO will create the minio1-data volume using the pre-defined MINIO profile.
+To deploy the Minio service on Docker Stack, save the following into a minio.yml file in your current working directory. Docker will pull the Minio image and Storidge will create the minio1-data volume using the pre-defined MINIO profile.
 
 ```
 version: '3.1'
@@ -78,10 +78,10 @@ Then run command
 docker stack deploy --compose-file=minio.yml minio
 ```
 
-The Minio instance is now available on the cluster at port 9001 and is accessible from any IP address of the cio cluster. List the node IPs with the `cio nodes` command:
+The Minio instance is now available on the cluster at port 9001 and is accessible from any IP address of the Storidge cluster. List the node IPs with the `cio node ls` command:
 
 ```
-$ cio nodes
+$ cio node ls
 NODENAME             IP                NODE_ID    ROLE       STATUS
 c1                   192.168.3.95      4132353b   sds        normal
 c2                   192.168.3.53      dceacd20   backup1    normal

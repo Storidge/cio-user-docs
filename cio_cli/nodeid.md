@@ -1,3 +1,9 @@
+---
+title: cio nodeid
+description: cio nodeid command usage 
+lang: en-US
+---
+
 # cio nodeid
 
 <h3>Usage</h3>

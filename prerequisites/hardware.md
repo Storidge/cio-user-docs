@@ -1,3 +1,9 @@
+---
+title: Hardware
+description: Hardware prerequisites for persistent storage with Storidge
+lang: en-US
+---
+
 # Hardware
 
 <h3>Server</h3>

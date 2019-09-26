@@ -1,3 +1,9 @@
+---
+title: cioctl join
+description: cioctl join command usage 
+lang: en-US
+---
+
 # cioctl join
 
 <h3>Usage</h3>

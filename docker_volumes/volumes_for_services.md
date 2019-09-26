@@ -1,3 +1,9 @@
+---
+title: Volumes for Services
+description: Provision volumes for Docker services with Storidge persistent storage
+lang: en-US
+---
+
 # Volumes for Services
 
 [Docker Swarm](https://docs.docker.com/engine/swarm/) is the cluster management component embedded in the Docker Engine. A swarm cluster consists of multiple hosts which run as manager or worker nodes. Containers run as a service within a swarm cluster and it is the role of the manager to maintain the desired state of the service. When a service is created the desired state can be defined in terms of the number of replicas, ports the service exposes, and network or storage resources allocated to the service.

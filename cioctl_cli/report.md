@@ -1,3 +1,9 @@
+---
+title: cioctl report
+description: cioctl report command usage 
+lang: en-US
+---
+
 # cioctl report
 
 <h3>Usage</h3>

@@ -1,3 +1,9 @@
+---
+title: cio event
+description: cio event command usage 
+lang: en-US
+---
+
 # cio event
 
 <h3>Usage</h3>

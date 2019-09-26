@@ -1,3 +1,9 @@
+---
+title: cio capacity
+description: cio capacity command usage 
+lang: en-US
+---
+
 # cio capacity
 
 <h3>Usage</h3>
@@ -23,7 +29,7 @@ Return capacity usage, consumption timeline and reports at cluster or volume lev
 
 <h3>Examples</h3>
 
-Display cluster capacity usage 
+Display cluster capacity usage
 
 ```
 $ cio capacity info --period day

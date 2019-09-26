@@ -1,3 +1,9 @@
+---
+title: Volumes for Docker Compose
+description: Provision volumes from Docker compose files with Storidge persistent storage
+lang: en-US
+---
+
 # Volumes for Docker Compose
 
 [Docker Compose](https://docs.docker.com/compose/overview/) allows users to define an application which consists of multiple services. A definition file describes the inter-dependencies between the services, including details such network or storage requirements, in a manner that is easy to maintain.

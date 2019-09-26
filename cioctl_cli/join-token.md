@@ -1,3 +1,9 @@
+---
+title: cioctl join-token
+description: cioctl join-token command usage 
+lang: en-US
+---
+
 # cioctl join-token
 
 <h3>Usage</h3>

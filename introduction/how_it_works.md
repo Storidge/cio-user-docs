@@ -1,3 +1,9 @@
+---
+title: How It Works
+description: How Storidge abstracts infrastructure to create data management platform for containers
+lang: en-US
+---
+
 # How It Works
 
 ## **Overview**
@@ -12,9 +18,9 @@ Within a cluster, each node has the CIO software and the Docker daemon. The CIO 
 
 Storidge integrates with orchestration systems through a plugin API. Our volume plugin and CIO software is installed on every member node of a cluster and enables storage to be natively provisioned from within a Docker environment. Application containers consume Storidge volumes by passing requests through the Orchestration System. Requests for Docker storage are forwarded through the CIO volume plugin and processed by the Container IO Distributed Storage layer which manages the lifecycle of the virtual volumes.
 
-## **Why CIO Abstraction Layer?**
+## **Why Storidge Abstraction Layer?**
 
-Storidge's CIO software adds the capabilities below to a container cluster.
+Storidge adds the capabilities below to a container cluster:
 
 - surpass limitations of static infrastructure
 - automated volume management and storage operations
@@ -25,7 +31,7 @@ Storidge's CIO software adds the capabilities below to a container cluster.
 - auto capacity expansion for stateful apps
 - pooled performance from storage aggregation
 
-![cio abstraction layer](../images/cio-abstraction-layer.png)
+![Storidge abstraction layer](../images/cio-abstraction-layer.png)
 
 Why add a persistent storage layer when volumes can be attached to instances on the cloud or from traditional storage in a private cloud? The following sections step through what happens when no abstraction layer exists, and how life improves with a persistent storage layer.
 
@@ -73,7 +79,7 @@ $ docker service create \
 mysql
 ```
 
-This command calls the CIO volume plugin to create a volume named 'mysql-data'. The `--mount` flag uses [profile](https://docs.storidge.com/cio_cli/profile.html) MYSQL to create the volume. 
+This command calls the CIO volume plugin to create a volume named 'mysql-data'. The `--mount` flag uses [profile](https://docs.storidge.com/cio_cli/profile.html) MYSQL to create the volume.
 
 The profile is a [YAML](http://yaml.org/spec/current.html) formatted file used to specify an application’s storage requirements in terms of resources, data protection, access methods and placement. The following sample MYSQL profile comes with the CIO software installation. This profile should be edited to fit operational needs.  
 

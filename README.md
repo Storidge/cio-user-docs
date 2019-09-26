@@ -1,16 +1,16 @@
 ---
-title: User documentation for persistent storage for Docker containers
-description: User documentation for persistent storage for Docker containers
+title: User documentation for persistent storage
+description: User documentation on persistent storage for Docker containers using Storidge
 lang: en-US
 ---
 
 ![Logo](https://i.imgur.com/FfIj2NA.png)
 
-<h1>CIO Documentation</h1>
+<h1>Storidge Documentation</h1>
 ---
 
 Welcome to the documentation for Storidge's Container I/O (CIO).
-This website aims to document different aspects of CIO including [CLI](https://docs.storidge.com/cio_cli/overview.html) commands,
+This website aims to document different aspects of the CIO software including [CLI](https://docs.storidge.com/cio_cli/overview.html) commands,
 [API](https://storidge.com/api/) specifications, common use cases and reference guides.
 
 If you are just getting started with CIO, it is recommended that you start with the [Getting Started](https://guide.storidge.com) guide.

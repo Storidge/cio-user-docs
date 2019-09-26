@@ -1,3 +1,9 @@
+---
+title: AWS
+description: Cloud reference for installing persistent storage cluster on AWS
+lang: en-US
+---
+
 # AWS
 
 This guide shows you how to easily deploy Storidge's Container IO (CIO) software on AWS instances. Follow the steps below to bring up a Swarm cluster with a Portainer dashboard, that's ready to run stateful apps in just a few minutes.

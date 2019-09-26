@@ -1,3 +1,9 @@
+---
+title: Release 1.0.0-2942
+description: Release notes for Storidge CIO version 1.0.0-2942
+lang: en-US
+---
+
 # Release 1.0.0-2942
 This release focuses on bug fixes, stability and usability improvements. It includes important stability fixes for AWS deployments.
 
