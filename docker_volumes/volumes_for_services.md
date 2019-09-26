@@ -8,9 +8,9 @@ lang: en-US
 
 [Docker Swarm](https://docs.docker.com/engine/swarm/) is the cluster management component embedded in the Docker Engine. A swarm cluster consists of multiple hosts which run as manager or worker nodes. Containers run as a service within a swarm cluster and it is the role of the manager to maintain the desired state of the service. When a service is created the desired state can be defined in terms of the number of replicas, ports the service exposes, and network or storage resources allocated to the service.
 
-CIO provides a data management platform for a swarm cluster so persistent storage can be programmatically provisioned and managed for stateful applications.
+Storidge provides a data management platform for a swarm cluster so persistent storage can be programmatically provisioned and managed for stateful applications.
 
-When a service is rescheduled by docker to a different node, the CIO volume plugin moves the volume to the new node where the service is restarting. More importantly when a node fails and Docker Swarm restarts services on new nodes, the CIO storage orchestrator fails over the correct volumes to keep the stateful services running. This greatly simplifies the operational burden of ensuring high availability for stateful services and applications.
+When a service is rescheduled by docker to a different node, the Storidge volume plugin automatically moves the volume to the new node where the service is restarting. More importantly when a node fails and Docker Swarm restarts services on new nodes, the storage orchestrator fails over the correct volumes to keep the stateful services running. This greatly simplifies the operational burden of ensuring high availability for stateful services and applications.
 
 ## **Create**
 
@@ -18,7 +18,7 @@ To [start a service](https://docs.docker.com/engine/reference/commandline/servic
 
 **Note:**  that the `docker service create` command does not support the `-v` or `--volume` flag. To mount a volume into a service's container, you must use the `--mount` flag.
 
-You specify a CIO volume in a `docker service create` command by using the `volume-driver` option to call the cio driver and the `volume-opt` option to set volume options. For example
+You specify a Storidge volume in a `docker service create` command by using the `volume-driver` option to call the cio driver and the `volume-opt` option to set volume options. For example
 
 ```
 docker service create \

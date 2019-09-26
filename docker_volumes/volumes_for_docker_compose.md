@@ -8,15 +8,15 @@ lang: en-US
 
 [Docker Compose](https://docs.docker.com/compose/overview/) allows users to define an application which consists of multiple services. A definition file describes the inter-dependencies between the services, including details such network or storage requirements, in a manner that is easy to maintain.
 
-Compose includes the ability to attach volumes to any service that has persistent storage requirements. With Compose version 3 and the Storidge volume plugin, you can easily create persistent storage for any stateful applications.  
+Compose includes the ability to attach volumes to any service that has persistent storage requirements. With Compose version 3 and the Storidge volume plugin (cio), you can easily create persistent storage for any stateful applications.  
 
 ## **Wordpress MySQL Example**
 
-This guide uses an example to show how the CIO volume plugin is called within a Docker Compose file. Additional examples of Compose files with the CIO volume plugin are available [here](https://github.com/Storidge/docker-stacks).
+This guide uses an example to show how the Storidge volume plugin is called within a Docker Compose file. Additional examples of Compose files with the volume plugin are available [here](https://github.com/Storidge/docker-stacks).
 
 The example below shows a file with two services, a MySQL database (key db:) and a WordPress (key wordpress:) installation. The MySQL service will use volume mysql-data to persist data which is accessed inside the container at path /var/lib/mysql.
 
-A volume specification (volumes:)  at the end of the wordpress-mysql.yml file completes the definition of the volume. Note the key mysql-data names the volume and calls the cio driver/volume plugin. Under driver options, the volume definition also specifies a MYSQL [profile](http://storidge.com/docs/profiles/) to be used for creating the volume.
+A volume specification (volumes:)  at the end of the wordpress-mysql.yml file completes the definition of the volume. Note the key mysql-data names the volume and calls the cio volume plugin. Under driver options, the volume definition also specifies a MYSQL [profile](http://storidge.com/docs/profiles/) to be used for creating the volume.
 
 ```
 # wordpress-mysql.yml
