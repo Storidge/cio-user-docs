@@ -1,6 +1,6 @@
 ---
 title: cioctl reboot
-description: cioctl reboot command usage 
+description: cioctl reboot command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: cio volume
-description: cio volume command usage 
+description: cio volume command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

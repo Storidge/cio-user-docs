@@ -1,6 +1,6 @@
 ---
 title: cioctl shutdown
-description: cioctl shutdown command usage 
+description: cioctl shutdown command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

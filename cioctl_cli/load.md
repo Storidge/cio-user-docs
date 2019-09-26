@@ -1,6 +1,6 @@
 ---
 title: cioctl load
-description: cioctl load command usage 
+description: cioctl load command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

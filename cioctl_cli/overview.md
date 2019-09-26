@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: cioctl command line interface
+description: cioctl command line interface; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

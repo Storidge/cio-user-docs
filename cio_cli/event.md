@@ -1,6 +1,6 @@
 ---
 title: cio event
-description: cio event command usage 
+description: cio event command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

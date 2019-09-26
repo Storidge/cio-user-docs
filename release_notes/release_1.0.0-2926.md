@@ -1,6 +1,6 @@
 ---
 title: Release 1.0.0-2926
-description: Release notes for Storidge CIO version 1.0.0-2926
+description: Release notes for Storidge CIO version 1.0.0-2926; persistent volumes for kubernetes pods
 lang: en-US
 ---
 

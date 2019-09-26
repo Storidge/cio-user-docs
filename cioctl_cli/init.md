@@ -1,6 +1,6 @@
 ---
 title: cioctl init
-description: cioctl init command usage 
+description: cioctl init command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

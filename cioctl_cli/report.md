@@ -1,6 +1,6 @@
 ---
 title: cioctl report
-description: cioctl report command usage 
+description: cioctl report command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

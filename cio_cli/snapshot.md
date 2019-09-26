@@ -1,6 +1,6 @@
 ---
 title: cio snapshot
-description: cio snapshot command usage 
+description: cio snapshot command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

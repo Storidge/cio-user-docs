@@ -1,10 +1,10 @@
 ---
 title: cioctl join-token
-description: cioctl join-token command usage 
+description: cioctl join-token command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
-# cioctl join-token
+# cioctl join-token; docker volumes for containers; persistent volumes for pods
 
 <h3>Usage</h3>
 

@@ -1,6 +1,6 @@
 ---
 title: cioctl unload
-description: cioctl unload command usage 
+description: cioctl unload command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

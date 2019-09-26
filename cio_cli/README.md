@@ -1,6 +1,6 @@
 ---
 title: Overview of cio cli
-description: cio command line interface
+description: cio command line interface; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

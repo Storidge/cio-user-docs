@@ -1,6 +1,6 @@
 ---
 title: cioctl drive
-description: cioctl drive command usage 
+description: cioctl drive command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

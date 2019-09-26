@@ -1,6 +1,6 @@
 ---
 title: Software
-description: Software prerequisites for persistent storage with Storidge
+description: Software prerequisites for persistent storage with Storidge; docker volumes for containers
 lang: en-US
 ---
 

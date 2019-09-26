@@ -1,6 +1,6 @@
 ---
 title: cio capacity
-description: cio capacity command usage 
+description: cio capacity command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

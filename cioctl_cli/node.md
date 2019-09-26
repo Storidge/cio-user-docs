@@ -1,6 +1,6 @@
 ---
 title: cioctl node
-description: cioctl node command usage 
+description: cioctl node command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

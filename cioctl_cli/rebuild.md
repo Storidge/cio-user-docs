@@ -1,6 +1,6 @@
 ---
 title: cioctl rebuild
-description: cioctl rebuild command usage 
+description: cioctl rebuild command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

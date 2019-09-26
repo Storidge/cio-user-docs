@@ -1,6 +1,6 @@
 ---
 title: Release 0.9.0-2361
-description: Release notes for Storidge CIO version 0.9.0-2361   
+description: Release notes for Storidge CIO version 0.9.0-2361; persistent volumes for kubernetes pods   
 lang: en-US
 ---
 

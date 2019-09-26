@@ -1,6 +1,6 @@
 ---
 title: cioctl join
-description: cioctl join command usage 
+description: cioctl join command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

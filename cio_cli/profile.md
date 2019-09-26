@@ -1,6 +1,6 @@
 ---
 title: cio profile
-description: cio profile command usage 
+description: cio profile command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

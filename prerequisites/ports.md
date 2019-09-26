@@ -1,6 +1,6 @@
 ---
 title: Ports
-description: Ports list used by Storidge CIO software 
+description: Ports list used by Storidge CIO software; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

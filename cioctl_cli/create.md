@@ -1,6 +1,6 @@
 ---
 title: cioctl create
-description: cioctl create command usage 
+description: cioctl create command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 

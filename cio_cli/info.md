@@ -1,6 +1,6 @@
 ---
 title: cio info
-description: cio info command usage 
+description: cio info command; ocker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Hardware
-description: Hardware prerequisites for persistent storage with Storidge
+description: Hardware prerequisites for persistent storage with Storidge; docker volumes for containers
 lang: en-US
 ---
 

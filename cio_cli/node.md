@@ -1,6 +1,6 @@
 ---
 title: cio node
-description: cio node command usage 
+description: cio node command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

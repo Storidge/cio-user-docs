@@ -1,6 +1,6 @@
 ---
 title: cio version
-description: cio version command usage 
+description: cio version command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

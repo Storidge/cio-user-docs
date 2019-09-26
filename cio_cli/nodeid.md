@@ -1,6 +1,6 @@
 ---
 title: cio nodeid
-description: cio nodeid command usage 
+description: cio nodeid command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 

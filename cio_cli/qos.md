@@ -1,6 +1,6 @@
 ---
 title: cio qos
-description: cio qos command usage 
+description: cio qos command; docker volumes for containers; persistent volumes for pods 
 lang: en-US
 ---
 
