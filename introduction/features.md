@@ -20,6 +20,7 @@ lang: en-US
 - Quality of Service
 - NFS shared volumes
 - Local shared volume for services
+- Scale capacity and performance
 
 - [Auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html)
 - Encryption
