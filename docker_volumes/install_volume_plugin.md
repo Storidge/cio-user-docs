@@ -1,6 +1,6 @@
 ---
-title: About Volume Plugins
-description: Overview of volume plugins and the Storidge volume plugin for Docker
+title: Install Volume Plugin
+description: Overview of volume plugins and installing Storidge volume plugin for Docker
 lang: en-US
 ---
 
