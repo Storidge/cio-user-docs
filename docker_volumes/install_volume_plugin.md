@@ -4,7 +4,7 @@ description: Overview of volume plugins and installing Storidge volume plugin fo
 lang: en-US
 ---
 
-# About Volume Plugins
+# Install Storidge Volume Plugin
 
 Docker integrates with external storage systems through the volume plugin API. The API enables data volumes to be natively provisioned in a Docker environment and then attached to an application running in a container. Since the data volume survives termination of the container, stateful data written by the application persists beyond the lifetime of the container.
 

@@ -4,7 +4,7 @@ description: Steps to upgrade the Storidge volume plugin for Docker; docker volu
 lang: en-US
 ---
 
-# Upgrade Storidge Volume Plugin
+# Upgrade Volume Plugin
 
 This guide shows the steps to upgrade the Storidge docker volume plugin. Run the command sequence below on all nodes in the cluster.
 
