@@ -1,6 +1,6 @@
 ---
 title: Persistent Volumes
-description: Provision persistent volumes for Kubernetes clusters with Storidge 
+description: Provision persistent volumes for Kubernetes clusters with Storidge
 lang: en-US
 ---
 
@@ -40,6 +40,6 @@ For dynamically provisioned volumes, pods make requests for storage through a `P
 
 Figure 1. Dynamic provisioning of a persistent volume
 
-The CIO installation package installs a CSI volume plugin (csi-cio) for Kubernetes v1.10 and above. Once deployed, the volume plugin (aka provisioner) forwards requests from `PersistentVolumeClaims` to the CIO software which provisions and automatically attaches the `storidgeVolume` to the node where the pod is scheduled to run.
+The software installation package installs a [Storidge CSI driver](https://hub.docker.com/_/storidge-csi-driver) for Kubernetes v1.14 and above. Once deployed, the volume plugin (aka provisioner) forwards requests from `PersistentVolumeClaims` to the CIO software which provisions and automatically attaches the `storidgeVolume` to the node where the pod is scheduled to run.
 
 Storidge supports multiple volume types in a Kubernetes cluster, including NFS and ISCSI.

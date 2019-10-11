@@ -17,3 +17,5 @@ If the v2 volume plugin is not already installed, it can be downloaded and insta
 ```
 docker plugin install storidge/cio --grant-all-permissions --alias cio
 ```
+
+See [Storidge volume plugin on Docker Hub](https://hub.docker.com/plugins/storidge-volume-plugin) for more information.
