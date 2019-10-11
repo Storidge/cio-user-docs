@@ -8,7 +8,7 @@ lang: en-US
 
 <h3>Usage</h3>
 
-`cioctl create`
+`cioctl create [options]`
 
 Generate command strings for creating a new cluster.
 

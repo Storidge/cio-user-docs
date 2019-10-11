@@ -1,6 +1,6 @@
 ---
 title: cioctl node
-description: cioctl node command; docker volumes for containers; persistent volumes for pods 
+description: cioctl node command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
@@ -14,14 +14,16 @@ Add, cordon, uncordon or remove a node
 
 <h3>Child commands</h3>
 
-| Command               | Description                                    |
-|:----------------------|:-----------------------------------------------|
-| cioctl node add       | Add new node to cluster                        |
-| cioctl node remove    | Remove node from cluster                       |
-| cioctl node cordon    | Drain node and cordon for maintenance          |
-| cioctl node uncordon  | Rejoin cluster and resume scheduling onto node |
-| cioctl node update    | Update Storidge software on node               |
-| cioctl node clean     | Revert changes made from joining a cluster     |
+| Command                 | Description                                    |
+|:------------------------|:-----------------------------------------------|
+| cioctl node add         | Add new node to cluster                        |
+| cioctl node remove      | Remove node from cluster                       |
+| cioctl node cordon      | Drain node and cordon for maintenance          |
+| cioctl node uncordon    | Rejoin cluster and resume scheduling onto node |
+| cioctl node update      | Update Storidge software on node               |
+| cioctl node clean       | Revert changes made from joining a cluster     |
+| cioctl node show-time   | Show time left to complete maintenance         |
+| cioctl node extend-time | Extend time for maintenance up to 60 minutes   |
 
 ## cioctl node add
 
@@ -135,3 +137,23 @@ Success: This node has been updated to cio version 1.0.0-2915. This node will be
 Revert changes made from joining a cluster. Run this command on node to clean state.
 
 `cioctl node clean` will check that the node is not a member of a cluster. If so this command revert changes made to the node by `cioctl init` or `cioctl join`. It removes files that were created and wipes state information on the node.
+
+
+## cioctl node show-time
+
+<h3>Usage</h3>
+
+`cioctl node show-time`
+
+Nodes in maintenance status have 30 minutes countdown before auto removal. Show time left to complete maintenance.
+
+If node is not uncordoned before maintenance window closes, it will be automatically removed from the cluster.
+
+
+## cioctl node extend-time
+
+<h3>Usage</h3>
+
+`cioctl node extend-time <TIME-IN-MINUTES>`
+
+Extend time for maintenance up to maximum of 60 minutes. After maintenance window closes, node left in maintenance status will be removed.

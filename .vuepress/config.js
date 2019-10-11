@@ -68,6 +68,7 @@ module.exports = {
               '/cioctl_cli/join',
               '/cioctl_cli/join-token',
               '/cioctl_cli/load',
+              '/cioctl_cli/migrate',
               '/cioctl_cli/node',
               '/cioctl_cli/report',
               '/cioctl_cli/reboot',
@@ -133,6 +134,7 @@ module.exports = {
             title: 'Release Notes',
             collapsable: true,
             children: [
+              '/release_notes/release_1.0.0-3007.md',
               '/release_notes/release_1.0.0-2984.md',
               '/release_notes/release_1.0.0-2972.md',
               '/release_notes/release_1.0.0-2942.md',

@@ -23,6 +23,7 @@ Running `cioctl` by itself displays help showing all available subcommands. In a
 | cioctl join        | Join node to new cluster. Generated from cioctl create command  |
 | cioctl join-token  | Create token to add a new node                                  |
 | cioctl load        | Restart cio operation. For single node cluster only             |
+| cioctl migrate     | Migrate data to Storidge volume                                 |
 | cioctl node        | Cordon, uncordon, update or remove a node                       |
 | cioctl reboot      | Stop services and reboot all nodes                              |
 | cioctl rebuild     | Restart volume rebuilds                                         |
