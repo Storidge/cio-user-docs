@@ -19,43 +19,24 @@ Storidge requires additional third party libraries. When installing in an enviro
 **CENTOS7 PACKAGES**
 
 autoconf
-
 bc
-
 bind-utils
-
 bison
-
 cryptsetup-luks
-
 expect
-
 gcc
-
 git
-
 libyaml
-
 libyaml-devel
-
 lsof
-
 lsscsi
-
 iscsi-initiator-utils
-
 make
-
 net-tools
-
 pciutils
-
 sg3_utils
-
 subversion
-
 wget
-
 xfsprogs
 
 | Software        | Release      |
