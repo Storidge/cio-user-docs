@@ -127,7 +127,8 @@ module.exports = {
             children: [
               '/prerequisites/hardware',
               '/prerequisites/software',
-              '/prerequisites/ports'
+              '/prerequisites/ports',
+              '/prerequisites/packages'
             ]
           },
           {
