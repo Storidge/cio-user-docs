@@ -57,7 +57,7 @@ volumes:
 
 ## **Mongo Example**
 
-The example [mongo3.yml](https://github.com/Storidge/docker-stacks/blob/master/mongo3.yml) file below deploys 3 tasks as part of a mongo service. Each task has unique volumes (data and config) mounted using templatized notation.
+The example [mongo3.yml](https://github.com/Storidge/docker-stacks/blob/master/mongo3.yml) file below deploys 3 tasks as part of a mongo service. Each task has unique volumes (data and config) mounted using Docker service [template notation](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates).
 
 Keys mongoData and mongoConfig in the volume specification (volumes:) calls the cio driver and the `.Task.Slot` template assigns volume N to task N. Under driver options, the volume definition specifies [profile GOLD](https://github.com/Storidge/cio-profiles/blob/master/GOLD) to be used for creating the volume.
 

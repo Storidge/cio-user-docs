@@ -32,7 +32,7 @@ mysql
 
 This creates a volume named mysql-data with volume options set in [profile](http://storidge.com/docs/profiles/) MYSQL for a MySQL database running as a service.
 
-To create and mount a unique volume into each task of a service, use a templatized notation. The example below deploys a service with 5 tasks with the `.Task.Slot` template assigning volume N to task N.
+To create and mount a unique volume into each task of a service, use a [template notation](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates). The example below deploys a service with 5 tasks with the `.Task.Slot` template assigning volume N to task N.
 
 ```
 docker service create \
