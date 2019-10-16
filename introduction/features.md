@@ -6,7 +6,6 @@ lang: en-US
 
 # Features
 
-- [Auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html)
 - Automated provisioning
 - [Automatic data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/)
 - [Effortless high availability](https://docs.storidge.com/introduction/how_it_works.html#effortlesss-high-availability)
