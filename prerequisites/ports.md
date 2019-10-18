@@ -8,6 +8,8 @@ lang: en-US
 
 The following table lists the ports that need to be open to and from nodes that are running in a Storidge cluster.
 
+Care should also be taken to avoid conflicts with port numbers below when mapping Docker host ports to container ports.
+
 | Protocol    | Port    | Description                         |
 | ------------|:--------|:------------------------------------|
 | TCP         | 22      | SSH provisioning and configuration  |
