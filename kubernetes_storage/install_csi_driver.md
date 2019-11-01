@@ -10,7 +10,7 @@ Storidge's CSI Driver interfaces a Container Orchestrator (CO), such as Kubernet
 
 The Storidge CSI driver is mostly tested on Kubernetes but should also work on other CSI based CO. Feel free to test it on other CO and give us feedback.
 
-A Storige cluster should be deployed first before installing the CSI driver. When ready, install the Storidge CSI driver by running on a master node:
+A Storidge cluster should be deployed first before installing the CSI driver. When ready, install the CSI driver by running on a master node:
 
 <h4>Kubernetes 1.16</h4>
 
