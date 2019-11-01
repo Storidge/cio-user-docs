@@ -94,8 +94,9 @@ module.exports = {
             title: 'Kubernetes Storage',
             collapsable: true,
             children: [
-              '/kubernetes_storage/volumes',
-              '/kubernetes_storage/storage_classes'
+              '/kubernetes_storage/kubernetes_storage',
+              '/kubernetes_storage/storage_classes',
+              '/kubernetes_storage/install_csi_driver'
             ]
           },
           {
