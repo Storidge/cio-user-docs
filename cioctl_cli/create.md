@@ -32,7 +32,7 @@ If creating a single node cluster, use the `--single-node` option to start initi
 
 <h3>Examples</h3>
 
-**Create cluster**
+<h4>Create cluster</h4>
 
 To create a new cluster run `cioctl create` as root user on the SDS node and follow the instructions. If multiple IPs are available a message will prompt to specify IP to use.
 ```
@@ -45,7 +45,7 @@ After adding all storage nodes, return to this node and run following command to
     cioctl init db667503
 ```
 
-**Delete cluster**
+<h4>Delete cluster</h4>
 
 To delete an existing cluster run `cioctl create` as root user on the current SDS node and the cluster will be de-configured and rebooted.
 ```

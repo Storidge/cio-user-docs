@@ -4,7 +4,7 @@ description: cioctl join-token command; docker volumes for containers; persisten
 lang: en-US
 ---
 
-# cioctl join-token; docker volumes for containers; persistent volumes for pods
+# cioctl join-token
 
 <h3>Usage</h3>
 
