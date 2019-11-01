@@ -13,11 +13,13 @@ The Storidge CSI driver is mostly tested on Kubernetes but should also work on o
 A Storige cluster should be deployed first before installing the CSI driver. When ready, install the Storidge CSI driver by running on a master node:
 
 <h4>Kubernetes 1.16</h4>
+
 ```
 kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.2.0.yaml
 ```
 
 <h4>Kubernetes 1.15 and below</h4>
+
 ```
 kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.1.0.yaml
 ```
