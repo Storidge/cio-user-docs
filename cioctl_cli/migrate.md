@@ -25,20 +25,21 @@ Copy files from a source volume to a Storidge volume
 
 `cioctl migrate docker <docker-volume> <storidge-volume> [options]`
 
-Copy files from a docker named volume to a Storidge volume
+Copy files from a docker named volume to a Storidge volume. Storidge volume will be automatically created if it does not exist.
 
 <h3>Options</h3>
 
 | Name             | Description                                          |
 |:-----------------|:-----------------------------------------------------|
 | --ip, -i         | IP address of sds node on external Storidge cluster  |
+| --profile, -p    | Profile to use for creating Storidge volume          |
 | --verbose, -v    | Print extra details about the activities performed   |
 
 <h3>Examples</h3>
 
 Migrate data on Docker named volume foo to Storidge volume bar on the same node
 ```
-[root@c1 ~]# cioctl migrate docker foo bar
+[root@c1 ~]# cioctl migrate docker foo bar --profile DEMO
 Succeed: Copied and compared files from /var/lib/docker/volumes/foo/_data to /cio/bar/vd2
 ```
 
