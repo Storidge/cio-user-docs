@@ -1,17 +1,17 @@
 ---
-title: Release 1.0.0-3046
-description: Release notes for Storidge CIO version 1.0.0-3046; persistent volumes for kubernetes pods
+title: Release 1.0.0-3047
+description: Release notes for Storidge CIO version 1.0.0-3047; persistent volumes for kubernetes pods
 lang: en-US
 ---
 
 # Release 1.0.0-3046
-This release adds many stability and usability improvements, particularly for cluster load balancing and snapshot service.  
+This release adds many stability and usability improvements, particularly for cluster load balancing, cluster reset and snapshot service.  
 
 ## New
 - Add support for Centos 7.7
 - Update csi driver to add support for Kubernetes 1.16
 - Add support for Ubuntu 19.10 as the class "u19"
-- Add initial Prometheus integration
+- Add beta support for Prometheus integration
 
 ## Improvements
 - Add support Centos 7.7 kernels 3.10.0-1062.el7, 3.10.0-1062.1.1, 3.10.0-1062.1.2, 3.10.0-1062.4.1
@@ -37,3 +37,7 @@ This release adds many stability and usability improvements, particularly for cl
 - Add `cio network rm` command
 - Synchronize status information between cio daemons after primary daemon is restarted
 - Update fio to 3.16 and liburing to 0.2
+- Add additional checking before declaring a failed node
+
+## Bugs
+- Fix bug where cio is daemon hung after a cluster reset
