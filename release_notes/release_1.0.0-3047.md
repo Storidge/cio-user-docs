@@ -4,7 +4,7 @@ description: Release notes for Storidge CIO version 1.0.0-3047; persistent volum
 lang: en-US
 ---
 
-# Release 1.0.0-3046
+# Release 1.0.0-3047
 This release adds many stability and usability improvements, particularly for cluster load balancing, cluster reset and snapshot service.  
 
 ## New
