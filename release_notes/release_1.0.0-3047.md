@@ -11,7 +11,6 @@ This release adds many stability and usability improvements, particularly for cl
 - Add support for Centos 7.7
 - Update csi driver to add support for Kubernetes 1.16
 - Add support for Ubuntu 19.10 as the class "u19"
-- Add beta support for Prometheus integration
 
 ## Improvements
 - Add support Centos 7.7 kernels 3.10.0-1062.el7, 3.10.0-1062.1.1, 3.10.0-1062.1.2, 3.10.0-1062.4.1
