@@ -1,20 +1,21 @@
 ---
-title: Release 1.0.0-3047
-description: Release notes for Storidge CIO version 1.0.0-3047; persistent volumes for kubernetes pods
+title: Release 1.0.0-3055
+description: Release notes for Storidge CIO version 1.0.0-3055; persistent volumes for kubernetes pods
 lang: en-US
 ---
 
-# Release 1.0.0-3047
+# Release 1.0.0-3055
 This release adds many stability and usability improvements, particularly for cluster load balancing, cluster reset and snapshot service.  
 
 ## New
 - Add support for Centos 7.7
 - Update csi driver to add support for Kubernetes 1.16
 - Add support for Ubuntu 19.10 as the class "u19"
+- Add beta support for Prometheus integration
 
 ## Improvements
 - Add support Centos 7.7 kernels 3.10.0-1062.el7, 3.10.0-1062.1.1, 3.10.0-1062.1.2, 3.10.0-1062.4.1
-- Add support Ubuntu 4.4.0-167, 4.15.0-{67, 68}, AWS Ubuntu 4.4.0-1097, 4.15.0-1053
+- Add support Ubuntu 4.4.0-{167, 168}, 4.15.0-{67, 68, 69}, AWS Ubuntu 4.4.0-1097, 4.15.0-1053
 - Remove retracted Ubuntu kernel 4.15.0-63
 - Improve interface in cio snapshot to list all snapshots, delete any snapshot and rollback to any snapshot
 - Update snapshot to only remove older periodic snapshots. Manual snapshots are managed manually
@@ -30,7 +31,6 @@ This release adds many stability and usability improvements, particularly for cl
 - Improve cluster power cycle and load balancing to handle case where first worker node is a failed node
 - Update cioctl migrate command to migrate docker named volume to external Storidge cluster
 - Improve `cioctl migrate` command to auto create destination volume if it does not exist
-- Update MongoDB and mongo-c-driver to 4.2.0 / 1.15.0 respectively
 - Update Docker version to 19.03.4
 - Allow restarting cio daemon when one node fails
 - Add `cio network rm` command
@@ -40,3 +40,5 @@ This release adds many stability and usability improvements, particularly for cl
 
 ## Bugs
 - Fix bug where cio is daemon hung after a cluster reset
+- Fix bug where mongodb breaks `cioctl node update`
+- Fix bug where `cioctl load` is allowed to run on multi-node clusters
