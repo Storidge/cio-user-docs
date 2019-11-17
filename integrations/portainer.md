@@ -1,6 +1,6 @@
 ---
 title: Portainer
-description: Integration of Portainer UI with Storidge persistent storage 
+description: Integration of Portainer UI with Storidge persistent storage for Swarm clusters
 lang: en-US
 ---
 

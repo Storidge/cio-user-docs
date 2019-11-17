@@ -63,8 +63,8 @@ Install the following dependencies at the tested release.
 | Software        | Release      | Download                                           |
 | ----------------|:-------------|:---------------------------------------------------|
 | fio             | 2.16         | https://github.com/axboe/fio/releases/tag/fio-2.16 |
-| mongo           | 4.2          | https://www.mongodb.com/download-center/community  |
-| mongo-c-driver  | 1.15.0       | http://mongoc.org/libmongoc/1.15.0/installing.html |
+| mongo           | 3.6          | https://www.mongodb.com/download-center/community  |
+| mongo-c-driver  | 1.14.0       | http://mongoc.org/libmongoc/1.15.0/installing.html |
 | scst            | 3.4.x-r8620  | http://scst.sourceforge.net/downloads.html         |
 | linux-header    | `uname -r`   |                                                    |
 | linux-devel     | `uname -r`   |                                                    |
