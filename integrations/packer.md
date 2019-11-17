@@ -39,10 +39,10 @@ cd packer-cio
 Packer configuration templates are written in JSON format. There are three main sections:
 
 - **variables:** where you define custom variables. Custom variables can be overridden during runtime using the -var flag.
-- **builders:** where you specify one or more builder depending on the target platforms (e.g. AWS, Azure, Digital Ocean, ...).
+- **builders:** where you specify one or more builders depending on the target platforms (e.g. AWS, Azure, Digital Ocean, ...).
 - **provisioners:** where you add a shell script or use configuration managements tools like Ansible, Chef, Puppet or Salt to provision the AMI and install software packages.
 
-We'll use the [aws-u18.json template](https://github.com/Storidge/packer-cio/blob/master/aws-u16.json) as an example.
+We'll use the [aws-u18.json template](https://github.com/Storidge/packer-cio/blob/master/aws-u18.json) as an example.
 
 ```
 {
