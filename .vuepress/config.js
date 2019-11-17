@@ -103,6 +103,7 @@ module.exports = {
             title: 'Integrations',
             collapsable: true,
             children: [
+              '/integrations/packer',
               '/integrations/portainer'
             ]
           },
