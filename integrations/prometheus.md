@@ -64,39 +64,38 @@ scrape_configs:
 ## Exported Metrics
 
 The following cluster information is available for reference on each of the nodes. The ContainerIO API refreshes metrics once per ten seconds.
-
-cio_cluster_nodes_online | Number of nodes that are healthy
-cio_cluster_nodes_maintenance | Number of nodes that are in maintenance mode
-cio_cluster_nodes_cordoned | Number of nodes that are cordoned
-
-cio_cluster_drives_online | Number of drives currently in use by CIO
-cio_cluster_drives_available | Number of drives that can be used by CIO
-cio_cluster_drives_failed | Number of drives are flagged as faulty, and should be replaced
-
-cio_cluster_capacity_total | Total capacity currently available in CIO cluster
-cio_cluster_capacity_used | Total capacity currently in use
-cio_cluster_capacity_free | Total capacity that is available for use
-cio_cluster_capacity_provisioned: Total capacity that is allocated for use by CIO volumes
-cio_cluster_iops_total | Total IOPS currently available in CIO cluster
-cio_cluster_iops_used | Total IOPS currently in use
-cio_cluster_iops_free | Total IOPS that is available for use
-cio_cluster_iops_provisioned | Total IOPS that is currently reserved for use by CIO volumes
-cio_cluster_bw_total | Total bandwidth currently available in CIO cluster
-cio_cluster_bw_used | Total bandwidth currently in use
-cio_cluster_bw_free | Total bandwidth that is available for use
-cio_cluster_bw_provisioned | Total bandwidth that is currently reserved for use by CIO volumes
+|---|---|
+| cio_cluster_nodes_online | Number of nodes that are healthy|
+| cio_cluster_nodes_maintenance | Number of nodes that are in maintenance mode |
+| cio_cluster_nodes_cordoned | Number of nodes that are cordoned |
+| cio_cluster_drives_online | Number of drives currently in use by CIO |
+| cio_cluster_drives_available | Number of drives that can be used by CIO |
+| cio_cluster_drives_failed | Number of drives are flagged as faulty, and should be replaced |
+| cio_cluster_capacity_total | Total capacity currently available in CIO cluster |
+| cio_cluster_capacity_used | Total capacity currently in use |
+| cio_cluster_capacity_free | Total capacity that is available for use |
+| cio_cluster_capacity_provisioned: Total capacity that is allocated for use by CIO volumes |
+| cio_cluster_iops_total | Total IOPS currently available in CIO cluster |
+| cio_cluster_iops_used | Total IOPS currently in use |
+| cio_cluster_iops_free | Total IOPS that is available for use |
+| cio_cluster_iops_provisioned | Total IOPS that is currently reserved for use by CIO volumes |
+| cio_cluster_bw_total | Total bandwidth currently available in CIO cluster |
+| cio_cluster_bw_used | Total bandwidth currently in use |
+| cio_cluster_bw_free | Total bandwidth that is available for use |
+| cio_cluster_bw_provisioned | Total bandwidth that is currently reserved for use by CIO volumes |
 
 The ContainerIO API dynamically exports the following data about CIO volumes that are created. The metrics are automatically removed once the volumes are deleted. The data is only available on the node the volume is on, so monitoring of all nodes by Prometheus is required. The data is derived from `/proc/diskstats`.
 
 The vd0 in the examples below are replaced with the ID of the relevant volume. vd0 is typically reserved for cio cluster data.
 
-cio_volume_vd0_current_ios | Number of current IOs in progress
-cio_volume_vd0_reads_completed | Number of reads that have been performed on the volume
-cio_volume_vd0_reads_merged | Number of times that two or more similar reads have been merged for increased efficiency
-cio_volume_vd0_sectors_read | Number of sectors that have been read
-cio_volume_vd0_sectors_written | Number of sectors that have been written
-cio_volume_vd0_time_doing_ios | Time doing IOs, in ms
-cio_volume_vd0_time_reading | Time spent reading, in ms
-cio_volume_vd0_time_writing | Time spent writing, in ms
-cio_volume_vd0_writes_completed | Number of write operations that have been completed on the volume
-cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency
+|---|---|
+| cio_volume_vd0_current_ios | Number of current IOs in progress |
+| cio_volume_vd0_reads_completed | Number of reads that have been performed on the volume |
+| cio_volume_vd0_reads_merged | Number of times that two or more similar reads have been merged for increased efficiency |
+| cio_volume_vd0_sectors_read | Number of sectors that have been read |
+| cio_volume_vd0_sectors_written | Number of sectors that have been written |
+| cio_volume_vd0_time_doing_ios | Time doing IOs, in ms |
+| cio_volume_vd0_time_reading | Time spent reading, in ms |
+| cio_volume_vd0_writes_completed | Number of write operations that have been completed on the volume |
+| cio_volume_vd0_time_writing | Time spent writing, in ms |
+| cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency |

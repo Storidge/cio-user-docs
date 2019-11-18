@@ -104,7 +104,7 @@ module.exports = {
             collapsable: true,
             children: [
               '/integrations/packer',
-              '/integrations/portainer'
+              '/integrations/portainer',
               '/integrations/prometheus'
             ]
           },
