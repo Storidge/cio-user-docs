@@ -105,6 +105,7 @@ module.exports = {
             children: [
               '/integrations/packer',
               '/integrations/portainer'
+              '/integrations/prometheus'
             ]
           },
           {
