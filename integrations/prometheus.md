@@ -4,7 +4,7 @@ description: Monitoring Storidge cluster metrics with Prometheus and Grafana
 lang: en-US
 ---
 
-# Prometheus
+# Monitoring Storidge cluster metrics with Prometheus and Grafana
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
@@ -12,7 +12,7 @@ The Storidge metrics for Prometheus are available at the /metrics endpoint of al
 
 We have made a Prometheus configuration file and sample Grafana dashboard available on our GitHub repo.
 
-## Setting up Prometheus and Grafana with Storidge
+### Configure Prometheus and Grafana
 
 This guide assumes basic familiarity with Prometheus and Grafana.
 
@@ -63,7 +63,7 @@ Once this configuration is done, Prometheus can be initialized.
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
-## Exported Metrics
+## Exported metrics
 
 The following cluster information is available on each node of the Storidge cluster. The metrics are updated every ten seconds.
 
