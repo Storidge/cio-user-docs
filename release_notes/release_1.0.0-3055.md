@@ -15,7 +15,7 @@ This release adds many stability and usability improvements, particularly for cl
 
 ## Improvements
 - Add support Centos 7.7 kernels 3.10.0-1062.el7, 3.10.0-1062.1.1, 3.10.0-1062.1.2, 3.10.0-1062.4.1
-- Add support Ubuntu 4.4.0-{167, 168}, 4.15.0-{67, 68, 69, 70}, AWS Ubuntu 4.4.0-1097, 4.15.0-1053
+- Add support Ubuntu 4.4.0-{167, 168}, 4.15.0-{67, 68, 69}, AWS Ubuntu 4.4.0-1097, 4.15.0-1053
 - Remove retracted Ubuntu kernel 4.15.0-63
 - Improve interface in cio snapshot to list all snapshots, delete any snapshot and rollback to any snapshot
 - Update snapshot to only remove older periodic snapshots. Manual snapshots are managed manually
