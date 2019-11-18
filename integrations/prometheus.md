@@ -1,6 +1,6 @@
 ---
 title: Prometheus
-description: Instructions for population of Prometheus with Storidge metrics
+description: Monitoring Storidge cluster metrics with Prometheus and Grafana
 lang: en-US
 ---
 
@@ -8,17 +8,19 @@ lang: en-US
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
-The CIO API makes the /metrics endpoint that Prometheus scrapes available on all machines on port 8282 by default.
+The Storidge metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282.
 
-We have made a Prometheus configuration file and sample Grafana dashboard available on our github.
+We have made a Prometheus configuration file and sample Grafana dashboard available on our GitHub repo.
 
-## Setting up Prometheus and Grafana with ContainerIO
+## Setting up Prometheus and Grafana with Storidge
 
 This guide assumes basic familiarity with Prometheus and Grafana.
-[Prometheus Setup Docs](https://prometheus.io/docs/introduction/first_steps/)
-[Grafana Setup Docs](https://grafana.com/docs/installation/)
 
-1. Add each member of your CIO cluster to the Portworks configuration file. In this sample file, our four nodes are 192.168.3.51-54.
+[Installing Prometheus](https://prometheus.io/docs/introduction/first_steps/)
+
+[Installing Grafana](https://grafana.com/docs/installation/)
+
+1. Add each member of your Storidge cluster to the Prometheus configuration file. In this sample file, our four nodes are 192.168.3.51-54.
 
 ```yaml
 # my global config
@@ -51,19 +53,19 @@ scrape_configs:
     - targets: ['192.168.3.51:8282', '192.168.3.52:8282', '192.168.3.53:8282', '192.168.3.54:8282']
 
 ```
-    Once this configuration is done, Prometheus can be initialized.
+Once this configuration is done, Prometheus can be initialized.
 
 2. Verify that Prometheus is collecting data about CIO:
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-3. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
+3. For monitoring, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
 ## Exported Metrics
 
-The following cluster information is available for reference on each of the nodes. The ContainerIO API refreshes metrics once per ten seconds.
+The following cluster information is available on each node of the Storidge cluster. The metrics are updated every ten seconds.
 
 | Exported Cluster Data | Description |
 |---|---|
