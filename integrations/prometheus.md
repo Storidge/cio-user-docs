@@ -14,15 +14,18 @@ The Storidge cluster metrics for Prometheus are available at the /metrics endpoi
 
 A reference Prometheus configuration file and sample Grafana dashboard are available on our GitHub repo.
 
-### Configure Prometheus and Grafana
 
-This guide assumes basic familiarity with Prometheus and Grafana.
+### Install Prometheus and Grafana
 
-[Installing Prometheus](https://prometheus.io/docs/introduction/first_steps/)
+[Install Prometheus](https://prometheus.io/docs/introduction/first_steps/)
 
-[Installing Grafana](https://grafana.com/docs/installation/)
+[Install Grafana](https://grafana.com/docs/installation/)
 
-1. Add the Storidge cluster nodes to the Prometheus configuration file. In the file below, we have four nodes at IP 192.168.3.51-54.
+### Configure Prometheus
+
+This guide assumes basic familiarity with Prometheus.
+
+Add the Storidge cluster nodes to the Prometheus configuration file. In the file below, we have four nodes at IP 192.168.3.51-54.
 
 ```yaml
 # my global config
@@ -56,11 +59,13 @@ scrape_configs:
 ```
 Once this configuration is done, Prometheus can be initialized.
 
-2. Verify that Prometheus is collecting data:
+Verify that Prometheus is collecting data:
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-3. For monitoring, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
+### Configure Grafana
+
+For monitoring, we recommend using Grafana with Prometheus. Use our [example Grafana dashboard](https://grafana.com/grafana/dashboards/11213) as a reference.
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
