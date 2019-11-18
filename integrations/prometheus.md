@@ -64,6 +64,8 @@ scrape_configs:
 ## Exported Metrics
 
 The following cluster information is available for reference on each of the nodes. The ContainerIO API refreshes metrics once per ten seconds.
+
+| Exported Cluster Data | Description |
 |---|---|
 | cio_cluster_nodes_online | Number of nodes that are healthy|
 | cio_cluster_nodes_maintenance | Number of nodes that are in maintenance mode |
@@ -74,7 +76,7 @@ The following cluster information is available for reference on each of the node
 | cio_cluster_capacity_total | Total capacity currently available in CIO cluster |
 | cio_cluster_capacity_used | Total capacity currently in use |
 | cio_cluster_capacity_free | Total capacity that is available for use |
-| cio_cluster_capacity_provisioned: Total capacity that is allocated for use by CIO volumes |
+| cio_cluster_capacity_provisioned | Total capacity that is allocated for use by CIO volumes |
 | cio_cluster_iops_total | Total IOPS currently available in CIO cluster |
 | cio_cluster_iops_used | Total IOPS currently in use |
 | cio_cluster_iops_free | Total IOPS that is available for use |
@@ -88,6 +90,7 @@ The ContainerIO API dynamically exports the following data about CIO volumes tha
 
 The vd0 in the examples below are replaced with the ID of the relevant volume. vd0 is typically reserved for cio cluster data.
 
+| Exported Volume Data | Description |
 |---|---|
 | cio_volume_vd0_current_ios | Number of current IOs in progress |
 | cio_volume_vd0_reads_completed | Number of reads that have been performed on the volume |
@@ -99,3 +102,15 @@ The vd0 in the examples below are replaced with the ID of the relevant volume. v
 | cio_volume_vd0_writes_completed | Number of write operations that have been completed on the volume |
 | cio_volume_vd0_time_writing | Time spent writing, in ms |
 | cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency |
+
+Finally, for convenience we also export the API response data.
+
+| Exported API Data | Description |
+|---|---|
+| cio_api_calls | The total number of API calls |
+| cio_api_calls_ok | The total number of calls that returned 200 OK |
+| cio_api_calls_bad_request |  The total number of calls that returned 400 BAD REQUEST |
+| cio_api_calls_not_found | The total number of calls that returned 404 NOT FOUND |
+| cio_api_calls_conflict | The total number of calls that returned 409 CONFLICT |
+| cio_api_calls_internal_server_error | The total number of calls that returned 500 INTERNAL SERVER ERROR |
+| cio_api_calls_errors_overall | The total number of calls that returned non-200 OK responses |
