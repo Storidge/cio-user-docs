@@ -75,7 +75,6 @@ The following stats are available on each node of the Storidge cluster. These me
 | cio_cluster_nodes_maintenance | Number of nodes that are in maintenance mode |
 | cio_cluster_nodes_cordoned | Number of nodes that are cordoned |
 | cio_cluster_drives_online | Number of drives currently in use by CIO |
-| cio_cluster_drives_available | Number of drives that can be used by CIO |
 | cio_cluster_drives_failed | Number of drives are flagged as faulty, and should be replaced |
 | cio_cluster_capacity_total | Total capacity currently available in CIO cluster |
 | cio_cluster_capacity_used | Total capacity currently in use |
