@@ -6,14 +6,11 @@ lang: en-US
 
 # Monitoring Storidge cluster metrics with Prometheus and Grafana
 
-### Why Prometheus?
+### Prometheus Metrics
 
-Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, while Grafana visualizes it.
+Prometheus is a standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, while Grafana visualizes it.
 
-The Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282.
-
-A reference Prometheus configuration file and sample Grafana dashboard are available on our GitHub repo.
-
+The Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282. Your application can poll http://<NODE_IP_ADDRESS>:8282/metrics to get their runtime values.
 
 ### Install Prometheus and Grafana
 
@@ -25,13 +22,13 @@ A reference Prometheus configuration file and sample Grafana dashboard are avail
 
 This guide assumes basic familiarity with Prometheus.
 
-Add the Storidge cluster nodes to the Prometheus configuration file. In the file below, we have four nodes at IP 192.168.3.51-54.
+Add the Storidge cluster nodes as a target in Prometheus configuration file. In the example below, we have four nodes at IP addresses 192.168.3.51 to 192.168.354.
 
-```yaml
+```
 # my global config
 global:
-  scrape_interval:     10s
-  evaluation_interval: 10s
+  scrape_interval:     15s
+  evaluation_interval: 15s
 
 # Alertmanager configuration
 alerting:
@@ -57,9 +54,8 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.3.51:8282', '192.168.3.52:8282', '192.168.3.53:8282', '192.168.3.54:8282']
 ```
-Once this configuration is done, Prometheus can be initialized.
 
-Verify that Prometheus is collecting data:
+Verify that the Storidge CIO metrics are collected by Prometheus:
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
@@ -71,9 +67,9 @@ For monitoring, we recommend using Grafana with Prometheus. Use our [example Gra
 
 ### Exported metrics
 
-The following cluster information is available on each node of the Storidge cluster. The metrics are updated every ten seconds.
+The following stats are available on each node of the Storidge cluster. These metrics are updated every ten seconds.
 
-| Exported Cluster Data | Description |
+| Cluster Stats | Description |
 |---|---|
 | cio_cluster_nodes_online | Number of nodes that are healthy|
 | cio_cluster_nodes_maintenance | Number of nodes that are in maintenance mode |
@@ -98,7 +94,7 @@ The Storidge API dynamically exports the following data on Storidge volumes. Met
 
 Metrics are tagged with the vdisk ID of the volume. A reserved vdisk (vd0) is used in the examples below.
 
-| Exported Volume Data | Description |
+| Volume Stats | Description |
 |---|---|
 | cio_volume_vd0_current_ios | Number of current IOs in progress |
 | cio_volume_vd0_reads_completed | Number of reads that have been performed on the volume |
@@ -111,9 +107,9 @@ Metrics are tagged with the vdisk ID of the volume. A reserved vdisk (vd0) is us
 | cio_volume_vd0_time_writing | Time spent writing, in ms |
 | cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency |
 
-The API response data is also exported.
+API response data.
 
-| Exported API Data | Description |
+| API Stats | Description |
 |---|---|
 | cio_api_calls | The total number of API calls |
 | cio_api_calls_ok | The total number of calls that returned 200 OK |
