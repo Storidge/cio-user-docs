@@ -117,3 +117,6 @@ API response data.
 | cio_api_calls_conflict | The total number of calls that returned 409 CONFLICT |
 | cio_api_calls_internal_server_error | The total number of calls that returned 500 INTERNAL SERVER ERROR |
 | cio_api_calls_errors_overall | The total number of calls that returned non-200 OK responses |
+
+
+Check our [guide](https://guide.storidge.com/) or [documentation](https://docs.storidge.com/) for more information, and connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

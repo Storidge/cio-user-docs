@@ -120,3 +120,5 @@ us-west-2: ami-09056fa5a2448eb22
 ### Next steps
 
 With the image created, you can deploy a Storidge cluster. See the [Terraform repo](https://github.com/Storidge/terraform-aws-swarm-cio) for an example of how to deploy a Storidge cluster with this AMI.
+
+Check our [guide](https://guide.storidge.com/) or [documentation](https://docs.storidge.com/) for more information, and connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

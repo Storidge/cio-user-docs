@@ -121,7 +121,8 @@ module.exports = {
             collapsable: true,
             children: [
               '/cookbook/cio_volume_with_minio',
-              '/cookbook/cloud_scale_minio_with_cio'
+              '/cookbook/cloud_scale_minio_with_cio',
+              '/cookbook/storidge_with_minikube'
             ]
           },
           {
