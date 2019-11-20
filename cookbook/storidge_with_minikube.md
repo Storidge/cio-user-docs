@@ -52,14 +52,14 @@ When running minikube inside a VM, specify the none driver to skip creation of a
 minikube start --vm-driver=none
 ```
 
-Set none as default driver.
+Set `none` as default driver.
 ```
 minikube config set vm-driver none
 ```
 
 ### Install Storidge CIO
 
-Install the Storidge CIO software with convenience script. This will check your Linux distro, download the matching tarball, and install.
+Install the Storidge CIO software with convenience script. This will check your Linux distro, download matching tarball, and install.
 ```
 curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 ```
@@ -87,7 +87,7 @@ Adding disk /dev/sdd SSD to storage pool
 <13>Nov 20 11:09:46 cluster: Synchronizing VID files
 ```
 
-# Start API
+### Start API
 
 Start the Storidge API server.
 ```
@@ -113,7 +113,7 @@ clusterrole.rbac.authorization.k8s.io/csi-cio-driver-registrar-role created
 clusterrolebinding.rbac.authorization.k8s.io/csi-cio-driver-registrar-binding created
 ```
 
-# Verify CSI driver deployed
+### Verify CSI driver deployed
 
 Verify the csi-cio pods are running.
 ```
