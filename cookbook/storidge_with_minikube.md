@@ -96,7 +96,7 @@ cio-api &
 
 ### Deploy Storidge CSI driver
 
-Deploy the Storidge CSI driver. This will also deploy a default storage class (cio-default).
+Deploy the Storidge CSI driver. This will also deploy a default storage class (cio-default). This example assumes Kubernetes 1.16.
 ```
 root@ubuntu-16:~# kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.2.0.yaml
 csidriver.storage.k8s.io/csi.cio.storidge.com created
@@ -111,6 +111,11 @@ daemonset.apps/csi-cio created
 serviceaccount/csi-nodeplugin-sa created
 clusterrole.rbac.authorization.k8s.io/csi-cio-driver-registrar-role created
 clusterrolebinding.rbac.authorization.k8s.io/csi-cio-driver-registrar-binding created
+```
+
+For Kubernetes 1.15 and below, run:
+```
+kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.1.0.yaml
 ```
 
 ### Verify CSI driver deployed
