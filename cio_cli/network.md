@@ -33,13 +33,13 @@ Add cio network to Swarm cluster
 
 <h3>Options</h3>
 
-| Key                           | Description                            |
-|:------------------------------|:---------------------------------------|
-| --driver macvlan|overlay      | Network driver to use                  |
-| --iprange CIDR|IPstart-IPend  | Range of IP addresses IPAM will manage |
-| --subnet SUBNET               | Subnetwork                             |
-| --gateway GATEWAY-IP          | Gateway IP for subnetwork              |
-| --port INTERFACE              | Port to use for creating cio network   |
+| Name       | Valid Values         | Description                            |
+|:-----------|:---------------------|:---------------------------------------|
+| --driver   | macvlan              | Network driver to use                  |
+| --iprange  | CIDR, IPSTART-IPEND  | Range of IP addresses IPAM will manage |
+| --subnet   | SUBNET               | Subnetwork                             |
+| --gateway  | GATEWAY-IP           | Gateway IP for subnetwork              |
+| --port     | INTERFACE            | Port to use for creating cio network   |
 
 <h3>Examples</h3>
 
@@ -60,6 +60,9 @@ cio network create cionet --driver macvlan --iprange 192.168.3.0/24 --subnet 192
 
 Display network info by network name
 
+<h3>Examples</h3>
+
+Display info on network cionet
 ```
 [root@c1 ~]# cio network inspect cionet
 IP Address      Int Driver  IP Range         Subnet           Gateway          Port
