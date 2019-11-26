@@ -48,6 +48,7 @@ module.exports = {
               '/cio_cli/capacity',
               '/cio_cli/event',
               '/cio_cli/info',
+              '/cio_cli/network',
               '/cio_cli/node',
               '/cio_cli/nodeid',
               '/cio_cli/profile',
