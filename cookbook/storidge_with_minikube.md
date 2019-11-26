@@ -47,12 +47,12 @@ install minikube /usr/local/bin/
 
 ### Start Minikube with none driver for VirtualBox
 
-When running minikube inside a VM, specify the none driver to skip creation of an additional VM layer.
+When running minikube inside a VM, specify the `none` driver to skip creation of an additional VM layer.
 ```
 minikube start --vm-driver=none
 ```
 
-Set `none` as default driver.
+Minikube provides basic commands to start, stop, get status and delete the cluster. Configure `none` as default driver so you can just run `minikube start` when restarting the cluster.
 ```
 minikube config set vm-driver none
 ```
