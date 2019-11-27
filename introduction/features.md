@@ -10,6 +10,7 @@ lang: en-US
 - [Automatic data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/)
 - [Effortless high availability](https://docs.storidge.com/introduction/how_it_works.html#effortlesss-high-availability)
 - [Automated node recovery](https://guide.storidge.com/getting_started/high_availability.html)
+- [Cluster aware updates](https://guide.storidge.com/getting_started/software_updates.html)
 - [Shared storage pool](https://docs.storidge.com/introduction/how_it_works.html#efficient-capacity-sharing)
 - Rapid volume rebuild
 - [Online software updates](https://guide.storidge.com/getting_started/node_maintenance.html)
