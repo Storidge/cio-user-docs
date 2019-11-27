@@ -120,21 +120,36 @@ kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/depl
 
 ### Verify CSI driver deployed
 
+Verify the Storidge volume plugin (csi-cio) is deployed.
+```
+root@minikube:~# kubectl get ds -A
+NAMESPACE     NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+kube-system   csi-cio      1         1         1       1            1           <none>                        18s
+kube-system   kube-proxy   1         1         1       1            1           beta.kubernetes.io/os=linux   7d20h
+```
+
+Verify the Storidge controller plugin is deployed.
+```
+root@minikube:~# kubectl get sts -A
+NAMESPACE     NAME                 READY   AGE
+kube-system   csi-cio-controller   1/1     26s
+```
+
 Verify the csi-cio pods are running.
 ```
-root@ubuntu-16:~# kubectl get po -A
-NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
-kube-system   coredns-5644d7b6d9-p44kv           1/1     Running   0          15h
-kube-system   coredns-5644d7b6d9-pm9wq           1/1     Running   0          15h
-kube-system   csi-cio-2hzn9                      2/2     Running   0          15h
-kube-system   csi-cio-controller-0               3/3     Running   0          15h
-kube-system   etcd-minikube                      1/1     Running   0          15h
-kube-system   kube-addon-manager-minikube        1/1     Running   0          15h
-kube-system   kube-apiserver-minikube            1/1     Running   0          15h
-kube-system   kube-controller-manager-minikube   1/1     Running   0          15h
-kube-system   kube-proxy-4pzpd                   1/1     Running   0          15h
-kube-system   kube-scheduler-minikube            1/1     Running   0          15h
-kube-system   storage-provisioner                1/1     Running   0          15h
+root@minikube:~# kubectl get pods -A
+NAMESPACE              NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system            coredns-5644d7b6d9-p44kv                     1/1     Running   11         7d20h
+kube-system            coredns-5644d7b6d9-pm9wq                     1/1     Running   10         7d20h
+kube-system            csi-cio-5c65s                                2/2     Running   0          2m37s
+kube-system            csi-cio-controller-0                         3/3     Running   0          2m27s
+kube-system            etcd-minikube                                1/1     Running   10         7d20h
+kube-system            kube-addon-manager-minikube                  1/1     Running   10         7d20h
+kube-system            kube-apiserver-minikube                      1/1     Running   10         7d20h
+kube-system            kube-controller-manager-minikube             1/1     Running   9          7d4h
+kube-system            kube-proxy-4pzpd                             1/1     Running   10         7d20h
+kube-system            kube-scheduler-minikube                      1/1     Running   10         7d20h
+kube-system            storage-provisioner                          1/1     Running   12         7d20h
 ```
 
 ### Next steps
