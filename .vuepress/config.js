@@ -113,8 +113,9 @@ module.exports = {
             title: 'Cloud Reference',
             collapsable: true,
             children: [
-              '/cloud_reference/aws',
-              '/cloud_reference/digitalocean'
+              '/cloud_reference/swarm_storidge_aws',
+              '/cloud_reference/swarm_storidge_digitalocean',
+              '/cloud_reference/swarm_storidge_vsphere'
             ]
           },
           {
