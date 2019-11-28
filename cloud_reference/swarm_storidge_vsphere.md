@@ -1,5 +1,5 @@
 ---
-title: Swarm and Storidge on vSphere
+title: Swarm on vSphere
 description: Cloud reference for installing persistent storage cluster on AWS
 lang: en-US
 ---

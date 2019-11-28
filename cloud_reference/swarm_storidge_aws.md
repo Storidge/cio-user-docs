@@ -1,5 +1,5 @@
 ---
-title: Swarm and Storidge on AWS
+title: Swarm on AWS
 description: Cloud reference for installing persistent storage cluster on AWS
 lang: en-US
 ---

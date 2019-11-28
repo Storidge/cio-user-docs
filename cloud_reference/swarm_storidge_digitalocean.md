@@ -1,5 +1,5 @@
 ---
-title: Swarm and Storidge on Digital Ocean
+title: Swarm on Digital Ocean
 description: Cloud reference for installing persistent storage cluster on Digital Ocean
 lang: en-US
 ---
