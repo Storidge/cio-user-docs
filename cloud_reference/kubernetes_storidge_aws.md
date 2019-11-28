@@ -165,7 +165,7 @@ kube-system            kube-scheduler-minikube                      1/1     Runn
 kube-system            storage-provisioner                          1/1     Running   12         7d20h
 ```
 
-### Next steps
+<h3>Next steps</h3>
 
 With the Storidge cluster deployed, create storage classes and persistent volumes claims, or deploy pods with persistent storage. See [examples from GitHub repo](https://github.com/Storidge/csi-cio).
 
