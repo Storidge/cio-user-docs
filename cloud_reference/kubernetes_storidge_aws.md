@@ -169,4 +169,4 @@ kube-system            storage-provisioner                          1/1     Runn
 
 With the Storidge cluster deployed, create storage classes and persistent volumes claims, or deploy pods with persistent storage. See [examples from GitHub repo](https://github.com/Storidge/csi-cio).
 
-Check our [guide](https://guide.storidge.com/) or [documentation](https://docs.storidge.com/) for more information, and connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.
+Check our [Getting Started guide](https://guide.storidge.com/) for a tutorial or [documentation](https://docs.storidge.com/) for more information. Connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

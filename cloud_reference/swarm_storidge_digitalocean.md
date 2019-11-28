@@ -162,3 +162,7 @@ z8gj7wd6zhfd        portainer           replicated          1/1                 
 ```
 
 Login to the Portainer dashboard at any node's public IP on port 9000.
+
+<h3>Next steps</h3>
+
+Check our [Getting Started guide](https://guide.storidge.com/) for a tutorial or [documentation](https://docs.storidge.com/) for more information. Connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

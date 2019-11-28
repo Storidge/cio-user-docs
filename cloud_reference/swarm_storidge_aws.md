@@ -130,3 +130,7 @@ zhu4ykc1hdlu        portainer.1         portainer/portainer:latest   c-6945fd81 
 **Note:** If not using a VPN, you will need to add a rule to the security group allowing inbound TCP traffic on port 9000 to access the Portainer dashboard.
 
 Login to Portainer at any node's public IP on port 9000. The public IP addresses of the AWS instances can be found in the EC2 Management Console under Instances.
+
+<h3>Next steps</h3>
+
+Check our [Getting Started guide](https://guide.storidge.com/) for a tutorial or [documentation](https://docs.storidge.com/) for more information. Connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.
