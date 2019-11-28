@@ -129,6 +129,13 @@ c-1cdb75bb           172.31.19.191     1cdb75bb   backup2    normal      V1.0.0-
 c-7f0b896f           172.31.27.103     7f0b896f   storage    normal      V1.0.0-3062
 ```
 
+## Start API
+
+Start the Storidge API server.
+```
+cio-api &
+```
+
 ## Deploy CSI driver
 
 With the Storidge cluster initialized, deploy the Storidge CSI driver from a Kubernetes master node. This will also deploy a default storage class (cio-default). This example below assumes Kubernetes 1.16.
