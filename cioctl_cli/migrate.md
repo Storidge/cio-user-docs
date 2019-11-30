@@ -25,7 +25,9 @@ Copy files from a source volume to a Storidge volume
 
 `cioctl migrate docker <docker-volume> <storidge-volume> [options]`
 
-Copy files from a docker named volume to a Storidge volume. Storidge volume will be automatically created if it does not exist.
+Copy files from a docker named volume to a Storidge volume. The Storidge volume will be automatically created if it does not exist.
+
+A docker named volume is broadly defined as any volume that is listed in `docker volume ls` regardless of the volume driver.
 
 <h3>Options</h3>
 
@@ -37,14 +39,27 @@ Copy files from a docker named volume to a Storidge volume. Storidge volume will
 
 <h3>Examples</h3>
 
-Migrate data on Docker named volume foo to Storidge volume bar on the same node
+Migrate data on Docker named volume foo to Storidge volume bar on the same node. Note the volume names must be different due to namespace conflict. 
 ```
 [root@c1 ~]# cioctl migrate docker foo bar --profile DEMO
 Succeed: Copied and compared files from /var/lib/docker/volumes/foo/_data to /cio/bar/vd2
 ```
 
-Migrate data on Docker named volume foo across network to volume bar on external Storidge cluster
+In example below, volume bar created by Docker's local driver and volume foo created by Storidge's cio volume plugin are both docker named volumes. Both volume bar and foo can be migrated to a remote Storidge cluster.  
 ```
-[root@c1 ~]# cioctl migrate docker foo bar --ip 192.168.1.120
-Succeed: Copied and compared files from /var/lib/docker/volumes/foo/_data to /cio/bar/vd2
+root@minikube:~# docker volume ls
+DRIVER              VOLUME NAME
+local               bar
+cio:latest          foo
+```
+
+Migrate volumes bar and foo to remote Storidge cluster. Since there is no namespace conflict, volume names on local and remote cluster can be identical.
+```
+root@u181:~# cioctl migrate docker bar bar --ip 192.168.3.96
+bar
+Succeed: Copied and compared files from /cio/bar/vd2 to /cio/bar/vd2
+
+root@u181:~# cioctl migrate docker foo foo --ip 192.168.3.96
+foo
+Succeed: Copied and compared files from /cio/foo/vd1 to /cio/foo/vd3
 ```
