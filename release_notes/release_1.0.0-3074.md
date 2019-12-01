@@ -10,6 +10,7 @@ This release updates the supported kernel list, adds a few feature requests and 
 The changes to the `cioctl migrate` command enable any docker named volume to be migrated to a Storidge volume. Since Storidge volumes are also docker named volumes, any Storidge volume can be easily migrated from one Storidge cluster to a remote Storidge cluster, e.g. from production cluster to test cluster.
 
 ## New
+- Migrate docker named volumes or Storidge volumes between Storidge clusters
 - Add support for Ubuntu 19.04 (u19 class) on x86_64 architecture
 
 ## Improvements
