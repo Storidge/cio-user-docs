@@ -17,8 +17,17 @@ We have made a Prometheus configuration file and sample Grafana dashboard availa
 This guide assumes basic familiarity with Prometheus and Grafana.
 [Prometheus Setup Docs](https://prometheus.io/docs/introduction/first_steps/)
 [Grafana Setup Docs](https://grafana.com/docs/installation/)
+1. On a node with an active CIO cluster, start the exporter. Note that the exporter
+requires host network access:
 
-1. Add each member of your CIO cluster to the Portworks configuration file. In this sample file, our four nodes are 192.168.3.51-54.
+```
+# docker run -d --rm --network=host storidge/cio-prom:latest
+bbc4d8c3bdad4102964f5687ef2f8739664ab8cad8c57c843708c227964eb035
+```
+
+The exporter will then automatically gather data from all nodes in the cluster, including data from newly added nodes.
+
+2. Add the exporter to the Portworks configuration file. In our sample config, the node we have chosen to run it on is 192.168.3.51 and the exporter runs on port 16995.
 
 ```yaml
 # my global config
@@ -48,16 +57,16 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-    - targets: ['192.168.3.51:8282', '192.168.3.52:8282', '192.168.3.53:8282', '192.168.3.54:8282']
+    - targets: ['192.168.3.51:16995']
 
 ```
-    Once this configuration is done, Prometheus can be initialized.
+Once this configuration is done, Prometheus can be initialized.
 
-2. Verify that Prometheus is collecting data about CIO:
+3. Verify that Prometheus is collecting data about CIO:
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-3. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
+4. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
