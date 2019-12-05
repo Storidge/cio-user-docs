@@ -66,7 +66,7 @@ Once this configuration is done, Prometheus can be initialized.
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-4. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11213)
+4. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11359)
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
