@@ -40,9 +40,15 @@ To simplify the user experience, after initialization of the Storidge cluster, t
 
 The only thing you have to do is connect to the Portainer dashboard, set the admin credentials and start launching applications.
 
+<h3>Portainer Stack</h3>
+
+After a Storidge cluster is initialized, the Portainer service is launched using stack file /etc/storidge/config/portainer.yml. This stack file deploys the Portainer service `portainer_portainer` and a `portainer_agent` for each node in the cluster.
+
+The Portainer stack can be redeployed with `docker stack deploy -c portainer.yml portainer`.
+
 <h3>Portainer Volume</h3>
 
-As part of the initialization, the Storidge software will automatically create a 'portainer' volume to preserve Portainer state.
+As part of the initialization, the Storidge software will automatically create `portainer_portainer` volume to persist Portainer state.
 
 In the event of a node failure, the portainer volume will be moved by the Storidge storage orchestrator to the new node where the Portainer service is rescheduled. This ensures that the Portainer dashboard is always available.
 

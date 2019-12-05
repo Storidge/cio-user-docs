@@ -8,15 +8,15 @@ lang: en-US
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
-The CIO API makes the /metrics endpoint that Prometheus scrapes available on all machines on port 8282 by default.
+For convenience, we have made available a containerized exporter that will expose /metrics to Prometheus.
 
-We have made a Prometheus configuration file and sample Grafana dashboard available on our github.
 
 ## Setting up Prometheus and Grafana with ContainerIO
 
 This guide assumes basic familiarity with Prometheus and Grafana.
 [Prometheus Setup Docs](https://prometheus.io/docs/introduction/first_steps/)
 [Grafana Setup Docs](https://grafana.com/docs/installation/)
+
 1. On a node with an active CIO cluster, start the exporter. Note that the exporter
 requires host network access:
 
@@ -27,7 +27,7 @@ bbc4d8c3bdad4102964f5687ef2f8739664ab8cad8c57c843708c227964eb035
 
 The exporter will then automatically gather data from all nodes in the cluster, including data from newly added nodes.
 
-2. Add the exporter to the Portworks configuration file. In our sample config, the node we have chosen to run it on is 192.168.3.51 and the exporter runs on port 16995.
+2. Add the exporter as a target to the Prometheus configuration file. In our sample config, the node we have chosen to run it on is 192.168.3.51 and the exporter listens to port 16995.
 
 ```yaml
 # my global config
@@ -95,9 +95,9 @@ The following cluster information is available for reference on each of the node
 | cio_cluster_bw_free | Total bandwidth that is available for use |
 | cio_cluster_bw_provisioned | Total bandwidth that is currently reserved for use by CIO volumes |
 
-The ContainerIO API dynamically exports the following data about CIO volumes that are created. The metrics are automatically removed once the volumes are deleted. The data is only available on the node the volume is on, so monitoring of all nodes by Prometheus is required. The data is derived from `/proc/diskstats`.
+The ContainerIO API dynamically exports the following data about drives and volumes in use by CIO. The metrics are automatically removed once the volumes are deleted. The data is derived from `/proc/diskstats`.
 
-The vd0 in the examples below are replaced with the ID of the relevant volume. vd0 is typically reserved for cio cluster data.
+The sample data below applies to drives as well; however, they will be marked as drive and their name will be generated from node ID and drive letter, e.g. `cio_drive_5927e513sdb_reads_merged`.
 
 | Exported Volume Data | Description |
 |---|---|
@@ -112,7 +112,7 @@ The vd0 in the examples below are replaced with the ID of the relevant volume. v
 | cio_volume_vd0_time_writing | Time spent writing, in ms |
 | cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency |
 
-Finally, for convenience we also export the API response data.
+Finally, the API response data is also included.
 
 | Exported API Data | Description |
 |---|---|

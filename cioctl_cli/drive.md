@@ -1,6 +1,6 @@
 ---
 title: cioctl drive
-description: cioctl drive command; docker volumes for containers; persistent volumes for pods 
+description: cioctl drive command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
@@ -14,7 +14,7 @@ List, inspect, add, remove or rescan drive resources.
 
 Drives are the raw devices that cio adds to a storage pool for creating volumes used by applications. When a cluster is created, cio will perform an automated discovery for drives to be added. Only drives that do not have filesystems or partitions will be automatically added. Drives can be local attached devices, e.g. ephemeral drives on cloud instances or can be networked attached devices.
 
-The `add` subcommand enable drives to added to increase capacity in the storage pool. Drives that are marked 'faulty' by the cio software can be removed and replaced. Drives with 'normal' status cannot be removed. New drives that are attached to nodes can be discovered with the `rescan` subcommand if they are not listed automatically.
+The `add` subcommand enable drives to be added to increase capacity in the storage pool. Drives that are marked 'faulty' by the cio software can be removed and replaced. Drives with 'normal' status cannot be removed. New drives that are attached to nodes can be discovered with the `rescan` subcommand if they are not listed automatically.
 
 <h3>Child commands</h3>
 

@@ -105,13 +105,18 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 Updates Storidge software on node to latest version
 
-The `cioctl node update` command simplifies node maintenance when the only component to be updated is the Storidge software. This command automatically checks for software updates.
+Storidge supports cluster aware updates so users can easily upgrade to the latest capabilities. Cluster aware updating upgrade nodes to the latest software releases, while the cluster is online and services continue to run.
 
-If an update is available, the node is cordoned, services drained to other nodes, update software is downloaded and installed. When the software installation is completed, the node is rebooted and automatically rejoins the cluster.
+`cioctl node update` updates the Storidge software components and dependencies on a node. When the command is run, it checks for any software update. If an update is available, it performs the following sequence:
 
-::: tip Important
-Always update the 'standard' nodes first, and update the sds node last.
-:::
+1. Cordon node, setting it into maintenance mode
+2. Drain node, so services are moved to operating nodes
+3. Download latest software release to /var/lib/storidge
+4. Install software update and any dependencies
+5. Reboot node
+6. Uncordon node to exit maintenance mode, and rejoin cluster
+
+The `cioctl node update` command will prescribe an update sequence so worker nodes are updated first, and the sds node (primary) is updated last.
 
 <h3>Example</h3>
 

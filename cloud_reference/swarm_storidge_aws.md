@@ -1,10 +1,10 @@
 ---
-title: AWS
+title: Swarm on AWS
 description: Cloud reference for installing persistent storage cluster on AWS
 lang: en-US
 ---
 
-# AWS
+# Swarm and Storidge on AWS
 
 This guide shows you how to easily deploy Storidge's Container IO (CIO) software on AWS instances. Follow the steps below to bring up a Swarm cluster with a Portainer dashboard, that's ready to run stateful apps in just a few minutes.
 
@@ -15,9 +15,9 @@ First, you'll need to setup the cluster resources to orchestrate:
 - Each node will need a minimum of four drives; one boot drive and three data drives for CIO to ensure data redundancy.
 - A security group which enables all inbound traffic within the cluster.
 
-## Install cio software
+## Install Storidge software
 
-Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
+Storidge's CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
 
 Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the server edition of Ubuntu 18.04 instead for 4.15 kernel support.  
 
@@ -97,7 +97,7 @@ Configuring Docker Swarm cluster with Portainer service
 ```
 
 ## Login dashboard
-At the end of initialization, you have a CIO storage cluster running. A Docker Swarm cluster will be automatically configured if one is not already
+At the end of initialization, you have a Storidge cluster running. A Docker Swarm cluster will be automatically configured if one is not already
 running.
 
 Run `docker node ls` to show the compute cluster nodes.
@@ -130,3 +130,7 @@ zhu4ykc1hdlu        portainer.1         portainer/portainer:latest   c-6945fd81 
 **Note:** If not using a VPN, you will need to add a rule to the security group allowing inbound TCP traffic on port 9000 to access the Portainer dashboard.
 
 Login to Portainer at any node's public IP on port 9000. The public IP addresses of the AWS instances can be found in the EC2 Management Console under Instances.
+
+<h3>Next steps</h3>
+
+Check our [Getting Started guide](https://guide.storidge.com/) for a tutorial or [documentation](https://docs.storidge.com/) for more information. Connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

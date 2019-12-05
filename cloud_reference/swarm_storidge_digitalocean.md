@@ -1,10 +1,10 @@
 ---
-title: Digital Ocean
+title: Swarm on Digital Ocean
 description: Cloud reference for installing persistent storage cluster on Digital Ocean
 lang: en-US
 ---
 
-# Digital Ocean
+# Swarm and Storidge on Digital Ocean
 
 This guide shows you how to easily deploy Storidge's Container IO (CIO) software on the DigitalOcean cloud platform. Follow the steps below to bring up a Swarm cluster with a Portainer dashboard, that's ready to run stateful apps in just a few minutes.
 
@@ -19,9 +19,9 @@ First, you'll need to setup the cluster resources to orchestrate:
 The Digital Ocean block storage service is only available in regions AMS3, BLR1, FRA1, LON1, NYC1, NYC3, SFO1, SFO2, SGP1 and TOR1.
 :::
 
-## Install cio software
+## Install Storidge software
 
-Storidge's cio software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
+Storidge's CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
 
 Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the server edition of Ubuntu 18.04 instead for 4.15 kernel support.  
 
@@ -129,7 +129,7 @@ Configuring Docker Swarm cluster with Portainer service
 
 ## Login dashboard
 
-At the end of initialization, you have a cio cluster running. A Swarm cluster will be automatically configured if one is not already running.
+At the end of initialization, you have a Storidge cluster running. A Docker Swarm cluster will be automatically configured if one is not already running.
 
 Run `docker node ls` to show the compute cluster nodes.
 
@@ -162,3 +162,7 @@ z8gj7wd6zhfd        portainer           replicated          1/1                 
 ```
 
 Login to the Portainer dashboard at any node's public IP on port 9000.
+
+<h3>Next steps</h3>
+
+Check our [Getting Started guide](https://guide.storidge.com/) for a tutorial or [documentation](https://docs.storidge.com/) for more information. Connect with us on our [Slack channel](http://storidge.com/join-cio-slack/) for support.

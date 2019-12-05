@@ -48,6 +48,7 @@ module.exports = {
               '/cio_cli/capacity',
               '/cio_cli/event',
               '/cio_cli/info',
+              '/cio_cli/network',
               '/cio_cli/node',
               '/cio_cli/nodeid',
               '/cio_cli/profile',
@@ -112,8 +113,10 @@ module.exports = {
             title: 'Cloud Reference',
             collapsable: true,
             children: [
-              '/cloud_reference/aws',
-              '/cloud_reference/digitalocean'
+              '/cloud_reference/kubernetes_storidge_aws',
+              '/cloud_reference/swarm_storidge_aws',
+              '/cloud_reference/swarm_storidge_digitalocean',
+              '/cloud_reference/swarm_storidge_vsphere'
             ]
           },
           {
@@ -121,7 +124,8 @@ module.exports = {
             collapsable: true,
             children: [
               '/cookbook/cio_volume_with_minio',
-              '/cookbook/cloud_scale_minio_with_cio'
+              '/cookbook/cloud_scale_minio_with_cio',
+              '/cookbook/storidge_with_minikube'
             ]
           },
           {
@@ -138,6 +142,8 @@ module.exports = {
             title: 'Release Notes',
             collapsable: true,
             children: [
+              '/release_notes/release_1.0.0-3074.md',
+              '/release_notes/release_1.0.0-3062.md',
               '/release_notes/release_1.0.0-3055.md',
               '/release_notes/release_1.0.0-3007.md',
               '/release_notes/release_1.0.0-2984.md',
