@@ -8,7 +8,7 @@ lang: en-US
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
-For convenience, we have made available a containerized exporter that will expose /metrics to Prometheus.
+For convenience, we have made available a containerized exporter that will expose /metrics to Prometheus. This feature is enabled from revision 3080 onwards.
 
 
 ## Setting up Prometheus and Grafana with ContainerIO
