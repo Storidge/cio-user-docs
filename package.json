@@ -1,7 +1,7 @@
 {
   "name": "cio-userdocs",
   "version": "1.0.0",
-  "description": "Storidge’s CIO (container I/O) software was created to simplify the life of developers, DevOps and storage administrators. Purpose built to remove the pain of managing storage for applications, we make storage simple so you can focus on applications instead of managing infrastructure.",
+  "description": "Storidge CIO was created to simplify the life of developers and operators. We make storage simple so you can focus on applications instead of managing infrastructure.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
