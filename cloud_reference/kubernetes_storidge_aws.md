@@ -1,6 +1,6 @@
 ---
 title: Kubernetes on AWS
-description: Cloud reference for adding persistent storage to a Kubernetes cluster on AWS
+description: Install guide for persistent storage cluster for Kubernetes cluster on AWS
 lang: en-US
 ---
 

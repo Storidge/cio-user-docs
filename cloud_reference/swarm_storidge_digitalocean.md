@@ -1,6 +1,6 @@
 ---
 title: Swarm on Digital Ocean
-description: Cloud reference for installing persistent storage cluster on Digital Ocean
+description: Install guide for persistent storage cluster on Digital Ocean
 lang: en-US
 ---
 

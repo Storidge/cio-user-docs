@@ -1,6 +1,6 @@
 ---
 title: Swarm on vSphere
-description: Cloud reference for installing persistent storage cluster on AWS
+description: Install guide for persistent storage cluster on vSphere
 lang: en-US
 ---
 
