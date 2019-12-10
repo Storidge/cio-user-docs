@@ -87,13 +87,6 @@ Adding disk /dev/sdd SSD to storage pool
 <13>Nov 20 11:09:46 cluster: Synchronizing VID files
 ```
 
-### Start API
-
-Start the Storidge API server.
-```
-cio-api &
-```
-
 ### Deploy Storidge CSI driver
 
 Deploy the Storidge CSI driver. This will also deploy a default storage class (cio-default). This example assumes Kubernetes 1.16.
