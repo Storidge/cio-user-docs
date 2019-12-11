@@ -4,30 +4,40 @@ description: Instructions for population of Prometheus with Storidge metrics
 lang: en-US
 ---
 
-# Prometheus
+# Storidge integration with Prometheus
+
+The stats for a Storidge cluster is easily integrated into [Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/) or similar applications such as the [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) agent shipped with InfluxDB.
+
+Storidge provides a containerized exporter (storidge/cio-prom) that exposes stats at port 16995 on the /metrics endpoint. This exporter aggregates stats from nodes in the Storidge cluster, including auto-discovering new nodes as they join the cluster. Your monitoring application can poll http://<IP_ADDRESS>:16995/metrics to scrap the metrics.
+
+This feature is supported from version v1.0.0-3080 onwards.
+
+<h2>Setup Prometheus</h2>
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
-For convenience, we have made available a containerized exporter that will expose /metrics to Prometheus. This feature is enabled from revision 3080 onwards.
+This guide assumes basic familiarity with Prometheus and Grafana. Follow the links to install Prometheus and Grafana.
 
-
-## Setting up Prometheus and Grafana with ContainerIO
-
-This guide assumes basic familiarity with Prometheus and Grafana.
 [Prometheus Setup Docs](https://prometheus.io/docs/introduction/first_steps/)
+
 [Grafana Setup Docs](https://grafana.com/docs/installation/)
 
-1. On a node with an active CIO cluster, start the exporter. Note that the exporter
-requires host network access:
+<h2>Start exporter on Storidge cluster</h2>
+
+Start the exporter as a service on a Storidge cluster.
 
 ```
-# docker run -d --rm --network=host storidge/cio-prom:latest
-bbc4d8c3bdad4102964f5687ef2f8739664ab8cad8c57c843708c227964eb035
+docker service create \
+--name cio_prom \
+--publish 16995:16995 \
+storidge/cio-prom:latest
 ```
 
-The exporter will then automatically gather data from all nodes in the cluster, including data from newly added nodes.
+The exporter automatically gathers data from all nodes in the cluster, including data from newly added nodes.
 
-2. Add the exporter as a target to the Prometheus configuration file. In our sample config, the node we have chosen to run it on is 192.168.3.51 and the exporter listens to port 16995.
+<h2>Configure exporter as target in Prometheus config file</h2>
+
+Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In static_configs section below, we are pointing Prometheus at 192.168.3.51 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
 
 ```yaml
 # my global config
@@ -58,21 +68,21 @@ scrape_configs:
 
     static_configs:
     - targets: ['192.168.3.51:16995']
-
 ```
-Once this configuration is done, Prometheus can be initialized.
 
-3. Verify that Prometheus is collecting data about CIO:
+<h2>Monitor Storidge cluster metrics</h2>
+
+Start Prometheus to watch the exporter. Verify that Prometheus is collecting data:
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-4. To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [Here is a link to our sample Grafana JSON dashboard.](https://grafana.com/grafana/dashboards/11359)
+To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [See our example Grafana dashboard.](https://grafana.com/grafana/dashboards/11359)
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
-## Exported Metrics
+## Exported metrics
 
-The following cluster information is available for reference on each of the nodes. The ContainerIO API refreshes metrics once per ten seconds.
+The following cluster stats are available on each of the nodes. The Storidge API refreshes metrics every ten seconds.
 
 | Exported Cluster Data | Description |
 |---|---|
@@ -95,7 +105,7 @@ The following cluster information is available for reference on each of the node
 | cio_cluster_bw_free | Total bandwidth that is available for use |
 | cio_cluster_bw_provisioned | Total bandwidth that is currently reserved for use by CIO volumes |
 
-The ContainerIO API dynamically exports the following data about drives and volumes in use by CIO. The metrics are automatically removed once the volumes are deleted. The data is derived from `/proc/diskstats`.
+The /metrics endpoint dynamically exports the following data about drives and volumes in the Storidge cluster. Metrics are removed once volumes are deleted. The data is derived from `/proc/diskstats`.
 
 The sample data below applies to drives as well; however, they will be marked as drive and their name will be generated from node ID and drive letter, e.g. `cio_drive_5927e513sdb_reads_merged`.
 
@@ -112,7 +122,7 @@ The sample data below applies to drives as well; however, they will be marked as
 | cio_volume_vd0_time_writing | Time spent writing, in ms |
 | cio_volume_vd0_writes_merged | Number of times that two or more write requests have been merged for increased efficiency |
 
-Finally, the API response data is also included.
+The API response data is also exported.
 
 | Exported API Data | Description |
 |---|---|
