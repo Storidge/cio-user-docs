@@ -1,5 +1,5 @@
 ---
-title: Prometheus
+title: Prometheus on Swarm
 description: Instructions for population of Prometheus with Storidge metrics
 lang: en-US
 ---
