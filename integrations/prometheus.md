@@ -80,7 +80,7 @@ To establish a proper monitoring solution, we recommend using Grafana with Prome
 
 ![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
 
-<h2>Exported metrics</h2>/
+<h2>Exported metrics</h2>
 
 The following cluster stats are available on each of the nodes. The Storidge API refreshes metrics every ten seconds.
 
