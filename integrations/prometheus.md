@@ -37,7 +37,7 @@ The exporter automatically gathers data from all nodes in the cluster, including
 
 <h2>Configure exporter as target in Prometheus config file</h2>
 
-Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In static_configs section below, we are pointing Prometheus at 192.168.3.51 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
+Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing Prometheus at 192.168.3.51 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
 
 ```yaml
 # my global config
@@ -72,7 +72,7 @@ scrape_configs:
 
 <h2>Monitor Storidge cluster metrics</h2>
 
-Start Prometheus to watch the exporter. Verify that Prometheus is collecting data:
+Start Prometheus to watch the exporter (e.g. ./prometheus --config.file=prometheus.yml). Verify Prometheus is serving metrics by navigating to IP address of your server at port 9090.
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
