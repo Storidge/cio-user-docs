@@ -1,10 +1,10 @@
 ---
-title: Grafana with Prometheus on Swarm
+title: Grafana
 description: Instructions for configuring Grafana with Prometheus on Storidge cluster
 lang: en-US
 ---
 
-# Grafana with Storidge
+# Visualize Storidge cluster metrics with Grafana
 
 Grafana is often paired with Prometheus to visualize metrics. Where Prometheus gathers time-series data, Grafana visualizes it.
 
