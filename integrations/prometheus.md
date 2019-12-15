@@ -16,11 +16,9 @@ This feature is supported from version v1.0.0-3080 onwards.
 
 Prometheus is the standard open-source monitoring solution for many clusters. As it does not come with a feature-rich dashboard, it is often paired with Grafana; Prometheus gathers time-series data, and Grafana visualizes it.
 
-This guide assumes basic familiarity with Prometheus and Grafana. Follow the links to install Prometheus and Grafana.
+This guide assumes basic familiarity with Prometheus. Follow the link to install Prometheus.
 
 [Prometheus Setup Docs](https://prometheus.io/docs/introduction/first_steps/)
-
-[Grafana Setup Docs](https://grafana.com/docs/installation/)
 
 <h2>Start exporter on Storidge cluster</h2>
 
@@ -37,7 +35,7 @@ The exporter automatically gathers data from all nodes in the cluster, including
 
 <h2>Configure exporter as target in Prometheus config file</h2>
 
-Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing Prometheus at 192.168.3.51 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
+Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing Prometheus at 192.168.3.65 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
 
 ```yaml
 # my global config
@@ -67,7 +65,7 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-    - targets: ['192.168.3.51:16995']
+    - targets: ['192.168.3.65:16995']
 ```
 
 <h2>Monitor Storidge cluster metrics</h2>
@@ -76,9 +74,11 @@ Start Prometheus to watch the exporter (e.g. ./prometheus --config.file=promethe
 
 ![Prometheus Dashboard](https://i.imgur.com/r1C4GBI.png)
 
-To establish a proper monitoring solution, we recommend using Grafana with Prometheus. [See our example Grafana dashboard.](https://grafana.com/grafana/dashboards/11359)
+::: tip
+If you do not see metrics being served, verify the IP address and port number. Also confirm time setting between the Storidge cluster and the Prometheus server is correct.
+:::
 
-![Grafana Dashboard](https://i.imgur.com/94DZSg7.png)
+To visualize the metrics with Grafana, follow the steps in [Grafana with Storidge](https://docs.storidge.com/integrations/grafana.html).
 
 <h2>Exported metrics</h2>
 

@@ -104,6 +104,7 @@ module.exports = {
             title: 'Integrations',
             collapsable: true,
             children: [
+              '/integrations/grafana',
               '/integrations/packer',
               '/integrations/portainer',
               '/integrations/prometheus'
