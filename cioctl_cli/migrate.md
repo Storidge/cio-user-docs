@@ -14,10 +14,18 @@ Copy files from a source volume to a Storidge volume
 
 <h3>Child commands</h3>
 
-| Command               | Description                                                |
-|:----------------------|:-----------------------------------------------------------|
-| cioctl migrate docker | Migrate data from docker named volume to Storidge volume   |
+| Command                | Description                                                |
+|:-----------------------|:-----------------------------------------------------------|
+| cioctl migrate docker  | Migrate data from docker named volume to Storidge volume   |
+| cioctl migrate generic | Migrate data from any volume by specifying the mountpoint  |
 
+<h3>Options</h3>
+
+| Name             | Description                                          |
+|:-----------------|:-----------------------------------------------------|
+| --ip, -i         | IP address of sds node on external Storidge cluster  |
+| --profile, -p    | Profile to use for creating Storidge volume          |
+| --verbose, -v    | Print extra details about the activities performed   |
 
 ## cioctl migrate docker
 
@@ -29,17 +37,17 @@ Copy files from a docker named volume to a Storidge volume. The Storidge volume 
 
 A docker named volume is broadly defined as any volume that is listed in `docker volume ls` regardless of the volume driver.
 
-<h3>Options</h3>
+## cioctl migrate generic
 
-| Name             | Description                                          |
-|:-----------------|:-----------------------------------------------------|
-| --ip, -i         | IP address of sds node on external Storidge cluster  |
-| --profile, -p    | Profile to use for creating Storidge volume          |
-| --verbose, -v    | Print extra details about the activities performed   |
+<h3>Usage</h3>
+
+`cioctl migrate generic <MOUNTPOINT> <storidge-volume> [options]`
+
+Copy files from volume at the specified mountpoint. The Storidge volume will be automatically created if it does not exist.
 
 <h3>Examples</h3>
 
-Migrate data on Docker named volume foo to Storidge volume bar on the same node. Note the volume names must be different due to namespace conflict. 
+Migrate data on Docker named volume foo to Storidge volume bar on the same node. Note the volume names must be different due to namespace conflict.
 ```
 [root@c1 ~]# cioctl migrate docker foo bar --profile DEMO
 Succeed: Copied and compared files from /var/lib/docker/volumes/foo/_data to /cio/bar/vd2
@@ -62,4 +70,11 @@ Succeed: Copied and compared files from /cio/bar/vd2 to /cio/bar/vd2
 root@u181:~# cioctl migrate docker foo foo --ip 192.168.3.96
 foo
 Succeed: Copied and compared files from /cio/foo/vd1 to /cio/foo/vd3
+```
+
+Migrate files from current directory to volume bar on remote Storidge cluster. Create destination volume with profile MYSQL.
+```
+root@minikube:~/.minikube# cioctl migrate generic . bar --ip 192.168.3.201 --profile MYSQL
+bar
+Succeed: Copied and compared files from . to /cio/bar/vd11
 ```
