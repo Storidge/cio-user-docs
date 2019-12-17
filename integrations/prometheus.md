@@ -10,7 +10,7 @@ The stats for a Storidge cluster is easily integrated into [Prometheus](https://
 
 Storidge provides a containerized exporter (storidge/cio-prom) that exposes stats at port 16995 on the /metrics endpoint. This exporter aggregates stats from nodes in the Storidge cluster, including auto-discovering new nodes as they join the cluster. Your monitoring application can poll http://<IP_ADDRESS>:16995/metrics to scrap the metrics.
 
-This feature is supported from version v1.0.0-3080 onwards.
+This feature is supported from version v1.0.0-3085 onwards.
 
 <h2>Setup Prometheus</h2>
 
