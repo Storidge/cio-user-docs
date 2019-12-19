@@ -33,9 +33,9 @@ storidge/cio-prom:latest
 
 The exporter automatically gathers data from all nodes in the cluster, including data from newly added nodes.
 
-<h2>Configure exporter as target in Prometheus config file</h2>
+<h2>Add exporter as target to external Prometheus monitor</h2>
 
-Add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing Prometheus at 192.168.3.65 port 16995. Any node IP address in the Storidge cluster can be used to pull the metrics.
+If running the Prometheus monitor on an external server, add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing the Prometheus monitor to 192.168.3.65 port 16995 on the Storidge cluster. Any node IP address in the Storidge cluster can be used to pull the metrics.
 
 ```yaml
 # my global config
@@ -67,6 +67,26 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.3.65:16995']
 ```
+
+<h2>Running Prometheus monitor on Storidge cluster</h2>
+
+Edit Prometheus configuration file with localhost target on port 16995, if the Prometheus monitor is on the Storidge cluster, e.g.:
+
+```
+static_configs:
+- targets: ['192.168.3.65:16995']
+```
+
+Start the Prometheus monitor, e.g.:
+```
+docker run --rm -d -p 9090:9090 \
+-v /home/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+--net=host \
+--name prom-monitor \s
+prom/prometheus
+```
+
+Replace the host network setting with your overlay network name as needed.
 
 <h2>Monitor Storidge cluster metrics</h2>
 
