@@ -19,14 +19,6 @@ Copy files from a source volume to a Storidge volume
 | cioctl migrate docker  | Migrate data from docker named volume to Storidge volume   |
 | cioctl migrate generic | Migrate data from any volume by specifying the mountpoint  |
 
-<h3>Options</h3>
-
-| Name             | Description                                          |
-|:-----------------|:-----------------------------------------------------|
-| --ip, -i         | IP address of sds node on external Storidge cluster  |
-| --profile, -p    | Profile to use for creating Storidge volume          |
-| --verbose, -v    | Print extra details about the activities performed   |
-
 ## cioctl migrate docker
 
 <h3>Usage</h3>
@@ -37,6 +29,14 @@ Copy files from a docker named volume to a Storidge volume. The Storidge volume 
 
 A docker named volume is broadly defined as any volume that is listed in `docker volume ls` regardless of the volume driver.
 
+<h3>Options</h3>
+
+| Name             | Description                                          |
+|:-----------------|:-----------------------------------------------------|
+| --ip, -i         | IP address of sds node on external Storidge cluster  |
+| --profile, -p    | Profile to use for creating Storidge volume          |
+| --verbose, -v    | Print extra details about the activities performed   |
+
 ## cioctl migrate generic
 
 <h3>Usage</h3>
@@ -44,6 +44,14 @@ A docker named volume is broadly defined as any volume that is listed in `docker
 `cioctl migrate generic <MOUNTPOINT> <storidge-volume> [options]`
 
 Copy files from volume at the specified mountpoint. The Storidge volume will be automatically created if it does not exist.
+
+<h3>Options</h3>
+
+| Name             | Description                                          |
+|:-----------------|:-----------------------------------------------------|
+| --ip, -i         | IP address of sds node on external Storidge cluster  |
+| --profile, -p    | Profile to use for creating Storidge volume          |
+| --verbose, -v    | Print extra details about the activities performed   |
 
 <h3>Examples</h3>
 
