@@ -1,0 +1,19 @@
+  - name: Playbook
+    hosts: sds
+    become: yes
+    become_user: root
+    tasks:
+      - name: Set a bind mount
+        docker_swarm_service:
+          name: myservice
+          image: alpine
+          command: sleep
+          args:
+            - "3600"
+          mounts:
+            - source: mysql-data
+              target: /var/lib/mysql
+              type: volume
+              readonly: no
+              driver_config:
+                name: cio

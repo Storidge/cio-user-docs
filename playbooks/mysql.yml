@@ -1,0 +1,25 @@
+  - name: Playbook
+    hosts: sds
+    become: yes
+    become_user: root
+    tasks:
+      - name: Set a bind mount
+        docker_swarm_service:
+          name: mysql-replica
+          state: present
+          mode: replicated
+          replicas: 3
+          image: mysql
+          env:
+            MYSQL_ROOT_PASSWORD: "mysecret"
+          mounts:
+            - source: '{{ "{{.Service.Name}}-{{.Task.Slot}}" }}'
+              target: /var/lib/mysql
+              type: volume
+              readonly: no
+              driver_config:
+                name: cio
+                options:
+                  profile: MYSQL
+          labels:
+            mysql.backend: "cio"

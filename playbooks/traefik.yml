@@ -1,0 +1,52 @@
+- name: Playbook
+  hosts: sds
+  become: yes
+  become_user: root
+  tasks:
+    - name: Provision Consul Replicas
+      docker_swarm_service:
+        name: consul-replica
+        command: >
+          /usr/local/bin/docker-entrypoint.sh agent -server -client=0.0.0.0 -retry-join="consul-leader"
+        state: present
+        mode: replicated
+        replicas: 3
+        image: consul:1.6.2
+        env:
+          CONSUL_BIND_INTERFACE: "eth0"
+          CONSUL_LOCAL_CONFIG: '{"leave_on_terminate": true}'
+        networks:
+          - consul
+          - proxy
+        mounts:
+          - source: '{{ "{{.Service.Name}}-{{.Task.Slot}}" }}'
+            target: /consul/data
+            type: volume
+            readonly: no
+            driver_config: 
+              name: cio
+        restart_config:
+          condition: on-failure
+        update_config:
+          parallelism: 1
+          delay: 120s
+          monitor: 120s
+          order: start-first
+          failure_action: rollback
+        placement:
+          constraints: 
+            - node.role == manager
+          preferences:
+            - spread: node.id
+        labels:
+          traefik.enable: "true"
+          traefik.tags: "proxy"
+          traefik.docker.network: "proxy"
+          traefik.port: "8500"
+#          traefik.frontend.rule: "Host:consul.{{ base_domain }}"
+          traefik.backend: "consul"
+          traefik.protocol: "http"
+          traefik.frontend.headers.SSLRedirect: "true"
+          traefik.frontend.entryPoints: "http,https"
+          traefik.backend.loadbalancer.stickiness: "true"
+#        register: provision_consul_replica

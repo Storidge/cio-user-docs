@@ -87,6 +87,7 @@ module.exports = {
               '/docker_volumes/volumes_for_services',
               '/docker_volumes/volumes_for_docker_compose',
               '/docker_volumes/volumes_and_dockerfiles',
+              '/docker_volumes/volumes_with_ansible',
               '/docker_volumes/install_volume_plugin',
               '/docker_volumes/upgrade_cio_volume_plugin'
             ]
