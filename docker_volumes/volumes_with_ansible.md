@@ -12,7 +12,7 @@ This guide uses a couple of examples to show how Storidge volumes can be easily 
 
 ## Provision Storidge volume for Alpine service
 
-This playbook deploys a task using an alpine image, and creates volume myservice-data for the task named myservice. Since volume options are not defined, default settings will be used to create the volume.
+This [playbook](https://github.com/Storidge/cio-user-docs/blob/master/playbooks/alpine.yml) deploys a task using an alpine image, and creates volume myservice-data for the task named myservice. Since volume options are not defined, default settings will be used to create the volume.
 
 The mount specification (mounts:) defines the volume with `source` parameter naming the volume, and the `target` parameter setting the path within the container. The `driver_config` parameter directs the volume create request to the Storidge cio volume plugin.
 
@@ -48,7 +48,7 @@ The playbook is set to run on the sds node (primary) of the Storidge cluster. Th
 
 You can create and mount a unique volume into each task of a service using [template notation](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates). The playbook below deploys three MySQL tasks using the `.Task.Slot` template to assign volume N to task N. The template notation is passed through the Ansible `source` parameter which maps to the mount source, as in a `docker service create` command.
 
-This playbook creates volumes for tasks mysql-replica with volume options set by a [profile](http://storidge.com/docs/profiles/) named MYSQL.
+This [playbook](https://github.com/Storidge/cio-user-docs/blob/master/playbooks/mysql.yml) creates volumes for tasks mysql-replica with volume options set by a [profile](http://storidge.com/docs/profiles/) named MYSQL.
 ```
 - name: Playbook
   hosts: sds
