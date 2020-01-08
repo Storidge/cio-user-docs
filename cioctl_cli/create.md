@@ -17,12 +17,15 @@ Generate command strings for creating a new cluster.
 | Name               | Description                                    |
 |:-------------------|:-----------------------------------------------|
 | --ip <ip-address>  | Network interface to use for data path traffic |
+| --no-portainer     | Initialize without Portainer service           |
 | --single-node      | Initialize for single node cluster             |
 | --zone             | Specify zone names for multi-zone cluster      |
 
 Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
 Use the `--ip` option to specify the interface to use for the storage network. This is used when there are more than one network interfaces that can be specified, to keep host and storage traffic separated.
+
+Use the `--no-portainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.  
 
 If a cluster is already configured, running this command will provide option to delete current configuration, destroy cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
 
