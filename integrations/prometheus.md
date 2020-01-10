@@ -74,7 +74,7 @@ Edit Prometheus configuration file with localhost target on port 16995, if the P
 
 ```
 static_configs:
-- targets: ['192.168.3.65:16995']
+- targets: ['localhost:16995']
 ```
 
 Start the Prometheus monitor, e.g.:
@@ -82,7 +82,7 @@ Start the Prometheus monitor, e.g.:
 docker run --rm -d -p 9090:9090 \
 -v /home/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
 --net=host \
---name prom-monitor \s
+--name prom-monitor \
 prom/prometheus
 ```
 
