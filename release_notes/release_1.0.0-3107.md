@@ -7,7 +7,7 @@ lang: en-US
 # Release 1.0.0-3107
 This update adds new kernel releases, including new class u19 for Ubuntu 19.10.
 
-This release also adds a cluster freeze capability to improve tolerance for unstable networks. Cluster will be automatically frozen when a potential cluster breaking failure is detected. Cluster can be recovered by power cycling nodes and letting the cluster reform.
+This release also adds a cluster freeze capability to improve tolerance for unstable networks. Cluster will be automatically frozen when a potential cluster breaking failure is detected. This build also adds initial NVMEoF support for the upcoming Workgroup Edition to improve I/O performance for demanding applications. 
 
 ## New
 - Add initial support for NVMe-TCP
