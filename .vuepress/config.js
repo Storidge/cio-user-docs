@@ -122,12 +122,12 @@ module.exports = {
             ]
           },
           {
-            title: 'Cookbook',
+            title: 'Guidebook',
             collapsable: true,
             children: [
-              '/cookbook/cio_volume_with_minio',
-              '/cookbook/cloud_scale_minio_with_cio',
-              '/cookbook/storidge_with_minikube'
+              '/guidebook/cio_volume_with_minio',
+              '/guidebook/cloud_scale_minio_with_cio',
+              '/guidebook/storidge_with_minikube'
             ]
           },
           {
