@@ -19,6 +19,10 @@ The `cioctl node update` command updates Storidge software components and depend
 5. Reboots node
 6. Uncordons node to exit maintenance mode, and rejoin cluster
 
+## Changed block tracking
+
 While in cordoned state, the node is put into maintenance mode. This engages the change block tracking feature to track updates that are destined for the cordoned node. After a node is updated and rejoins the cluster, the recovery is extremely fast as only the changed blocks are rebuilt. Also the amount of changed data is small as node updates take only a few minutes.
+
+## Node update sequence
 
 The `cioctl node update` command will prescribe an update sequence where worker nodes are updated first. Follow the suggested sequence to update each node. All node update commands can be issued from the sds node. The last node to be updated will be the sds node.
