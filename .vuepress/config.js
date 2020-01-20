@@ -105,7 +105,7 @@ module.exports = {
             title: 'Operations',
             collapsable: true,
             children: [
-              '/operations/snapshots',
+              '/operations/snapshots'
             ]
           },
           {
