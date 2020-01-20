@@ -120,7 +120,7 @@ labels
 allocated                      0.5%
 ```
 
-## Use profile for snapshot settings
+## Using profiles for snapshot settings
 
 While you can pass snapshot settings through CLI options, you may want to use a profile for operational consistency. The profile can easily be passed as volume options in kubectl manifests and docker stack files.
 
