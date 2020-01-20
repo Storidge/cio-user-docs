@@ -102,13 +102,19 @@ module.exports = {
             ]
           },
           {
-            title: 'Integrations',
+            title: 'Operations',
             collapsable: true,
             children: [
-              '/integrations/grafana',
-              '/integrations/packer',
-              '/integrations/portainer',
-              '/integrations/prometheus'
+              '/operations/snapshots',
+            ]
+          },
+          {
+            title: 'Guidebook',
+            collapsable: true,
+            children: [
+              '/guidebook/cio_volume_with_minio',
+              '/guidebook/cloud_scale_minio_with_cio',
+              '/guidebook/storidge_with_minikube'
             ]
           },
           {
@@ -119,15 +125,6 @@ module.exports = {
               '/cloud_reference/swarm_storidge_aws',
               '/cloud_reference/swarm_storidge_digitalocean',
               '/cloud_reference/swarm_storidge_vsphere'
-            ]
-          },
-          {
-            title: 'Guidebook',
-            collapsable: true,
-            children: [
-              '/guidebook/cio_volume_with_minio',
-              '/guidebook/cloud_scale_minio_with_cio',
-              '/guidebook/storidge_with_minikube'
             ]
           },
           {
