@@ -102,10 +102,12 @@ module.exports = {
             ]
           },
           {
-            title: 'Operations',
+            title: 'Guidebook',
             collapsable: true,
             children: [
-              '/operations/snapshots'
+              '/guidebook/cio_volume_with_minio',
+              '/guidebook/cloud_scale_minio_with_cio',
+              '/guidebook/storidge_with_minikube'
             ]
           },
           {
@@ -119,12 +121,10 @@ module.exports = {
             ]
           },
           {
-            title: 'Guidebook',
+            title: 'Operations',
             collapsable: true,
             children: [
-              '/guidebook/cio_volume_with_minio',
-              '/guidebook/cloud_scale_minio_with_cio',
-              '/guidebook/storidge_with_minikube'
+              '/operations/snapshots'
             ]
           },
           {

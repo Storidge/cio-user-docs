@@ -1,5 +1,5 @@
 ---
-title: snapshots
+title: Snapshots
 description: working with basic snapshot operations  
 lang: en-US
 ---
