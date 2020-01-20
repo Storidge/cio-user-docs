@@ -124,6 +124,9 @@ module.exports = {
             title: 'Operations',
             collapsable: true,
             children: [
+              '/operations/node_decommision',
+              '/operations/node_maintenance',
+              '/operations/node_update',
               '/operations/snapshots'
             ]
           },
