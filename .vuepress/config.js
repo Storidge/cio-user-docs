@@ -126,8 +126,8 @@ module.exports = {
             children: [
               '/operations/node_decommision',
               '/operations/node_maintenance',
-              '/operations/node_update',
-              '/operations/snapshots'
+              '/operations/snapshots',
+              '/operations/update_storidge_software'
             ]
           },
           {

@@ -1,5 +1,5 @@
 ---
-title: Node Update
+title: Update Storidge Software
 description: Update Storidge software and dependencies on a node  
 lang: en-US
 ---
