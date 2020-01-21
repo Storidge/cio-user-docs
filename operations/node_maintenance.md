@@ -6,6 +6,8 @@ lang: en-US
 
 # Node Maintenance
 
+## Cordon node for maintenance
+
 You may want to put a node in maintenance to apply software updates (non Storidge software), replace or update hardware.
 
 Storidge supports cluster aware updates. This allows a node to be put into maintenance mode while the cluster is online and services continue to run on operating nodes.
@@ -14,7 +16,7 @@ The `cioctl node cordon` command is used to temporarily remove a node from the c
 
 The node will show status 'cordoned' in `cio node ls`.
 
-## Uncordon or reboot node
+## Uncordon node to rejoin
 
 After maintenance is completed, run `cioctl node uncordon` to add the node back to the cluster. The uncordoned node is automatically re-enabled to run services.
 
@@ -25,5 +27,7 @@ Rebooting a node after maintenance is completed will automatically uncordon the 
 When change block tracking is engaged, a maintenance window of 30 minutes is started. At the end of 30 minutes, the cordoned node will be automatically removed from the cluster so rebuilds can be started to restore redundancy.
 
 If additional time is needed, the maintenance window can be extended. Use `cioctl node extend-time` to extend time for maintenance up to maximum of 60 minutes.
+
+## Show maintenance time available
 
 Run `cioctl node show-time` to display time left in maintenance window.

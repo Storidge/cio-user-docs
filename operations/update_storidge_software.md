@@ -19,7 +19,7 @@ The `cioctl node update` command updates Storidge software components and depend
 5. Reboots node
 6. Uncordons node to exit maintenance mode, and rejoin cluster
 
-## Changed block tracking
+## Auto rebuild after update
 
 While in cordoned state, the node is put into maintenance mode. This engages the change block tracking feature to track updates that are destined for the cordoned node.
 
