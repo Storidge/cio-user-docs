@@ -6,7 +6,39 @@ lang: en-US
 
 # Troubleshooting
 
-## Collect cluster report
+## Useful commands
+
+Get Storidge cluster information
+```
+cio info
+```
+
+Get node status
+```
+cio node ls
+```
+
+List Storidge volumes with allocated capacity
+```
+cio volume ls -a
+```
+
+Get drive status
+```
+cioctl drive ls
+```
+
+List events with warning tag
+```
+cio events |grep warning
+```
+
+Get cluster report
+```
+cioctl report
+```
+
+## Get cluster report
 
 Run `cioctl report` to gather troubleshooting information to help with cluster diagnostics. The logs and info collected from all nodes are saved as file report.txz in location /var/lib/storidge.
 
@@ -31,4 +63,4 @@ Include the cluster report (report.txz) when contacting us for support.
 
 If you have a Workgroup or Enterprise license, please contact us at support@storidge.com with your license key and cluster report.
 
-We are also available on Slack. [Join us](https://storidge.com/join-cio-slack/)!
+We are also available on Slack. [Join us!](https://storidge.com/join-cio-slack/)
