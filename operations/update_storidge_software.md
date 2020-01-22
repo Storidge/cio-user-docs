@@ -12,8 +12,8 @@ Storidge supports cluster aware updates. This enables updating nodes to the late
 
 The `cioctl node update` command updates Storidge software components and dependencies. When the command is run, it checks for any software update. If an update is available, it performs the following sequence:
 
-1. Cordons node, setting it into maintenance mode
-2. Drains node, so services are moved to operating nodes
+1. Drains node, so services are moved to operating nodes
+2. Cordons node, setting it into maintenance mode
 3. Downloads latest software release to /var/lib/storidge
 4. Installs software update and any dependencies
 5. Reboots node
