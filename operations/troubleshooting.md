@@ -62,7 +62,7 @@ Information gathered includes:
 - system logs
 - system uptime
 
-Include the cluster report (report.txz) when contacting us for support.
+Please include the cluster report (report.txz) when contacting us for support.
 
 ## Get support
 
