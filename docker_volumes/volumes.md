@@ -1,10 +1,10 @@
 ---
-title: Docker Volumes
+title: Pre-povisioned Volumes
 description: Provision Docker volumes for Swarm clusters with Storidge
 lang: en-US
 ---
 
-# Pre-provisioned Volumes
+# Docker Volume Create
 
 You can create and manage volumes separate from a container using the `docker volume create` command. Use the `--driver` flag to specify the volume plugin and use the `-o` or `--opt` flag to set options for creating a volume.
 

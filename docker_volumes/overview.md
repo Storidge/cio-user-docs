@@ -27,7 +27,7 @@ The Storidge installation package installs a v2 volume plugin for Docker version
 
 For Docker Enterprise (EE), Storidge provides both a volume plugin and CSI driver to support both Swarm and Kubernetes modes.
 
-## Storage configuration
+## Storage configurations
 
 Docker works with the assumption that a Docker Volume is a local directory on a node where the container or service is running. There are three ways to provision storage to Docker as volumes consumed by stateful applications:
 
