@@ -4,29 +4,11 @@ description: Provision Docker volumes for Swarm clusters with Storidge
 lang: en-US
 ---
 
-# Volumes
-
-Storidge provides scalable and persistent storage for your Docker infrastructure. Our CIO (container I/O) software aggregates storage from a cluster of nodes into a global capacity and performance pool. The CIO software creates volumes and allocates capacity and performance for containers and services from this global resource.
-
-Capacity and performance can be scaled by adding new nodes to or removing existing nodes from the cluster. Storidge's CIO software runs hyperconverged with Docker on both physical and virtual servers to enable consistent and repeatable deployments across public and private clouds.
-
-The data volumes created by Storidge's CIO software:
-
-- are protected from hardware and node failures through automatic replication
-- writes are synchronous and strongly consistent
-- are highly performant with data distributed across multiple nodes and drives
-- are managed through profiles to greatly simplify operations
-- are provisioned programmatically in seconds through a scheduler or orchestration system
-
-## **Docker Volume**
-
-Docker integrates with external storage systems through the [volume plugin API](https://docs.docker.com/engine/extend/plugins_volume/). The API enables volumes to be natively provisioned in a Docker environment and then attached to an application running in a container or service.
-
-The Storidge installation package installs a v2 volume plugin for Docker version 1.13.0 and above. The volume plugin enables request for storage to be passed to the CIO software whether from a `docker run`, `docker service create`, `docker volume create` command or [Docker Compose](https://docs.docker.com/compose/overview/) file.
-
-**Create volumes**
+# Pre-provisioned Volumes
 
 You can create and manage volumes separate from a container using the `docker volume create` command. Use the `--driver` flag to specify the volume plugin and use the `-o` or `--opt` flag to set options for creating a volume.
+
+## Create
 
 For example, create a Storidge volume with name “foo” and use profile MYSQL to set volume options.
 
@@ -68,7 +50,7 @@ docker volume create --driver cio --name bar \
 --opt capacity=88 --opt directory=/cio/volumes --opt provision=thick
 ```
 
-**List volumes**
+## List
 
 ```
 $ docker volume ls
@@ -76,7 +58,7 @@ DRIVER              VOLUME NAME
 cio:latest          bar
 ```
 
-**Inspect a volume**
+## Inspect
 
 ```
 $ docker volume inspect bar
@@ -96,52 +78,9 @@ $ docker volume inspect bar
 ]
 ```
 
-**Remove a volume**
+## Remove
 
 ```
 $ docker volume rm bar
 bar
-```
-
-
-
-**Create and manage with cio cli**
-
-Volumes can be created and managed using the cio cli commands. The named volume is then passed to docker using the `-v` or `--volume` flag in a `docker run` command or the `--mount` flag in a `docker service create` command.
-
-The `cio volume create ` command creates a virtual disk (vdisk) as a Linux block devices in /dev/vdisk and works with standard Linux utilities. When a bind mount directory is specified, the vdisk is automatically formatted and mounted as a volume. The created volume can be used with containers, virtual machines or native apps.
-
-Use the `-h` or `--help` to show available options.  
-
-```
-$ cio volume create --help
-Usage: cio volume create [<volumename>] [options]
-
-Create a volume
-
-    --bandwidthmin <min BW>             set min bandwidth in MiB/s
-    --bandwidthmax <max BW>             set max bandwidth in MiB/s
-    -c | --capacity <size in GB>        volume size in GB
-    -d | --dedupe                       enable de-duplication
-    -D | --directory <directory>        set bind mount directory for Docker, defaults to /cio
-    -e | --encryption                   enable encryption
-    -f | --filesystem <filesystemtype>  set a filesystem for this volume
-    -h | --help                         show usage information
-    --iopsmin <min IOPS>                set min IOPS
-    --iopsmax <max IOPS>                set max IOPS
-    -I | --interface interface_params   set interface parameters
-    --interval <snapshot interval>      snapshot interval in minutes
-    --label key'='value                 set a label on this volume
-    -l | --level <2 | 3>                set redundancy level to 2 copy or 3 copy
-    -m | --compress                     enable compression
-    -n | --node <nodename>              create volume on named node
-    -N | --nodeid <nodeid>              create volume on named node
-    -o | --local                        create volume with drives of local node
-    -p | --profile <profile>            use profile to add volume
-    -P | --provision <thin | thick>     select thin or thick provisioned volume
-    -q | --quiet                        display the assigned vdisk ID
-    -s | --snapshot                     create volume with snapshot enabled
-    --snapshotMax <max snapshots>       maximum number of snapshots
-    -t | --type <SSD | HDD>             set backend drive type
-    -v | --volume <volumename>          volume name
 ```

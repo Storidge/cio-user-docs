@@ -57,7 +57,7 @@ $ docker service create \
 mongo
 ```
 
-## **Inspect**
+## Inspect
 
 We use `docker service inspect mongo` to verify that the volumes above were created and mounted correctly. Looking in the `Mounts` section we see both volumes.
 

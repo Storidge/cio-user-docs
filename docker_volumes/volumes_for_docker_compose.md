@@ -10,7 +10,7 @@ lang: en-US
 
 Compose includes the ability to attach volumes to any service that has persistent storage requirements. With Compose version 3 and the Storidge volume plugin (cio), you can easily create persistent storage for any stateful applications.  
 
-## **Wordpress MySQL Example**
+## Wordpress MySQL Example
 
 This guide uses an example to show how the Storidge volume plugin is called within a Docker Compose file. Additional examples of Compose files with the volume plugin are available [here](https://github.com/Storidge/docker-stacks).
 
@@ -55,7 +55,7 @@ volumes:
       profile: "MYSQL"
 ```
 
-## **Mongo Example**
+## Mongo Example
 
 The example [mongo3.yml](https://github.com/Storidge/docker-stacks/blob/master/mongo3.yml) file below deploys 3 tasks as part of a mongo service. Each task has unique volumes (data and config) mounted using Docker service [template notation](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates).
 
@@ -105,7 +105,7 @@ Valid placeholders you can use with the template notation are:
 | .Task.Slot                 | Task slot                   |
 
 
-## **Driver Options**
+## Driver Options
 
 The driver options supported by Storidge's volume plugin in a Docker Compose file include:
 

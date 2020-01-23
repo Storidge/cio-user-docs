@@ -82,6 +82,7 @@ module.exports = {
             title: 'Docker Volumes',
             collapsable: true,
             children: [
+              '/docker_volumes/overview',
               '/docker_volumes/volumes',
               '/docker_volumes/volumes_for_containers',
               '/docker_volumes/volumes_for_services',

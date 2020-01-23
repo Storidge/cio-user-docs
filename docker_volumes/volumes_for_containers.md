@@ -7,7 +7,7 @@ lang: en-US
 
 # Volumes for Containers
 
-## **Create**
+## Create
 
 To start a container you use the `docker run` command. You can specify a volume in a `docker run` command by using the `-v` or `--volume` flag. If the volume does not yet exist, Docker creates the volume.
 
@@ -50,7 +50,7 @@ The following options are supported by the CIO volume plugin:
 | provision  | Thick or thin provisioning   | thin, thick         | provision=thick |
 | profile    | Template for volume creation | profile name        | profile=MYSQL   |
 
-## **Inspect**
+## Inspect
 
 Use `docker inspect foobar` to verify that the volume above was created and mounted correctly. Look for the `Mounts` section.
 
@@ -71,7 +71,7 @@ Use `docker inspect foobar` to verify that the volume above was created and moun
 
 This shows that the mount is a volume, with the source (volume name foobar) a propagated mount from /cio/volumes/vd8 and the mount is readable and writable.
 
-## **Remove**
+## Remove
 
 To remove the volume, first stop and remove the container.
 
