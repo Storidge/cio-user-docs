@@ -4,7 +4,9 @@ description: Provision Docker volumes for Swarm clusters with Storidge
 lang: en-US
 ---
 
-# Storage abstraction layer
+# Overview
+
+## Storage abstraction layer
 
 Storidge provides persistent storage for stateful applications. Our CIO software aggregates storage devices from a cluster of nodes into a shared capacity and performance pool. Docker sees the storage pool as an abstraction layer from which volumes are created for containers and services.
 
@@ -21,7 +23,7 @@ Volumes created by Storidge are:
 
 Docker integrates with external storage systems through the [volume plugin API](https://docs.docker.com/engine/extend/plugins_volume/). The API enables volumes to be natively provisioned in a Docker environment and then attached to an application running in a container or service.
 
-The Storidge installation package installs a v2 volume plugin for Docker version 1.13.0 and above. The volume plugin enables request for storage to be passed to the CIO software whether from a [docker run](https://docs.storidge.com/docker_volumes/volumes_for_containers.html), [docker service create](https://docs.storidge.com/docker_volumes/volumes_for_services.html), [docker volume create](https://docs.storidge.com/docker_volumes/volumes.html) command or [Docker Compose](https://docs.docker.com/compose/overview/) file.
+The Storidge installation package installs a v2 volume plugin for Docker version 1.13.0 and above. The volume plugin enables request for storage to be passed to the CIO software whether from a [docker run](https://docs.storidge.com/docker_volumes/volumes_for_containers.html), [docker service create](https://docs.storidge.com/docker_volumes/volumes_for_services.html), [docker volume create](https://docs.storidge.com/docker_volumes/volumes.html) command or [Docker Compose](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) file.
 
 For Docker Enterprise (EE), Storidge provides both a volume plugin and CSI driver to support both Swarm and Kubernetes modes.
 
