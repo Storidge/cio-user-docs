@@ -13,7 +13,7 @@ Get Storidge cluster information
 cio info
 ```
 
-Get node status
+Get node status and installed software version
 ```
 cio node ls
 ```
@@ -26,6 +26,11 @@ cio volume ls -a
 Get drive status
 ```
 cioctl drive ls
+```
+
+Get Storidge software version
+```
+cio version
 ```
 
 List events with warning tag
