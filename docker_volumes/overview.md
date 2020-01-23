@@ -10,7 +10,7 @@ lang: en-US
 
 Storidge provides persistent storage for stateful applications. Our CIO software aggregates storage devices from a cluster of nodes into a shared capacity and performance pool. Docker sees the storage pool as an abstraction layer from which volumes are created for containers and services.
 
-Capacity and performance can be scaled by adding new nodes to or removing existing nodes from the cluster. The Storidge software runs hyperconverged with Docker on cloud, virtual machines or bare metal servers. Storidge can also operate as ab external scale-out storage cluster.
+Capacity and performance can be scaled by adding new nodes to or removing existing nodes from the cluster. The Storidge software runs hyperconverged with Docker on cloud, virtual machines or bare metal servers. Storidge can also operate as an external scale-out storage cluster.
 
 Volumes created by Storidge are:
 - protected from hardware and node failures through network RAID
@@ -31,8 +31,8 @@ For Docker Enterprise (EE), Storidge provides both a volume plugin and CSI drive
 
 Docker works with the assumption that a Docker Volume is a local directory on a node where the container or service is running. There are three ways to provision storage to Docker as volumes consumed by stateful applications:
 
-1. Local attached storage on nodes - Storidge aggregates the attached devices from nodes into a storage pool. The Docker volumes created by Storidge are drawn from the storage pool, and appear as standard Linux devices that are local attached.
+1. Local attached storage on nodes - examples are ephemeral storage in cloud instances, or storage in server chassis. Storidge aggregates the attached devices from nodes into a storage pool. The Docker volumes created by Storidge are drawn from the storage pool, and appear as standard Linux devices that are local attached.
 
-2. External storage attached to nodes - storage can be provisioned from external storage systems and attached to nodes. Examples are NFS shares from NAS or ISCSI LUNs from a SAN. Storidge aggregates the attached devices into a storage pool, and the Docker volumes created are consumed by containerized apps as local attached volumes.  
+2. External storage attached to nodes - storage can be provisioned from external storage systems and attached to nodes. Examples are NFS shares from NAS or ISCSI LUNs from a SAN, and cloud storage. Storidge aggregates the attached devices into a storage pool, and the Docker volumes created are consumed by containerized apps as local attached volumes.  
 
 3. External volume accessed through storage protocol - Docker's storage drivers includes an NFS client for accessing NFS shares across a network, e.g. NFS share exported from an external NAS. Storidge's software enables any Storidge volume to be exported as an NFS share and accessed by Docker's NFS client. The NFS share can also be accessed by servers outside the cluster on the local subnet.
