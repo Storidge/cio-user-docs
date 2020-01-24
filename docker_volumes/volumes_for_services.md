@@ -1,5 +1,5 @@
 ---
-title: Services
+title: Docker Service
 description: Provision volumes for Docker services with Storidge persistent storage
 lang: en-US
 ---

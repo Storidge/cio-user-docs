@@ -1,5 +1,5 @@
 ---
-title: Docker Volume Create
+title: Docker Volume
 description: Provision Docker volumes for Swarm clusters with Storidge
 lang: en-US
 ---
