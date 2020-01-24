@@ -30,7 +30,7 @@ docker volume create --driver cio
 
 Volume options supported by the plugin are:  
 
-| **option** | **description**              | value           | example          |
+| Option     | Description                  | Value           | Example          |
 | ---------- | ---------------------------- | --------------- | ---------------- |
 | capacity   | Size in GB                   | 1 to 65536      | capacity=25      |
 | directory  | Host path to bind mount      | /path/to/volume | directory=/cio   |

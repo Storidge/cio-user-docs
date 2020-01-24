@@ -38,7 +38,7 @@ The `provisioner` field determines the volume plugin used, in this case, `csi.ci
 The format of the provisioner field changed to forward dns in Kubernetes 1.16. Use `com.storidge.csi.cio` as the provisioner value for Kubernetes 1.15 and earlier.
 :::
 
-The key value pairs in  `parameters` pass the desired volume attributes to the volume plugin.
+The key value pairs in `parameters` pass the desired volume attributes to the volume plugin.
 
 For dynamically provisioned volumes, the `reclaimPolicy` determines whether the volume is tied to the lifecycle of the pod.  
 
@@ -51,29 +51,19 @@ Storidge volumes support both online capacity expansion and [auto capacity expan
 
 Entries in `parameters` are optional as defaults are set for basic attributes. Storidge supports the following volume attributes:
 
-`directory`:  set the bind mount directory on the host
-
-`filesystem`:  file system to use for the volume. Valid values are `btrfs` , `etx4` and `xfs`. Defaults to `xfs`  
-
-`iopsMin`:  sets the minimum iops guaranteed for the volume. This value is valid when volume `type` is `ssd` backed by flash memory devices on physical servers. Defaults to `30`.  
-
-`iopsMax`:  sets the maximum iops allowed for the volume. This value is valid when volume `type` is `ssd` backed by flash memory devices on physical servers. Defaults to `1000000`, i.e. unlimited
-
-`level`:  sets the redundancy level/number of synchronous replicas for the volume. Valid values are `1`, `2` and `3`. Defaults to two replicas.
-
-`profile`:  sets the name of the [profile](https://storidge.com/docs/profiles/) to use for the volume. Provides option to manage parameter entries in profiles instead of maintaining multiple storage classes.
-
-`provision`:  is the volume `thin` or `thick` provisioned. Defaults to `thin ` provisioned so capacity is automatically allocated on application I/O
-
-`type`:   sets the media type for the volume. Valid values are `ssd` and `hdd`. Defaults to `ssd`
-
-`encryption`:  is snapshot enabled for the volume. Defaults to `no`  
-
-`snapshotEnabled`:  is snapshot enabled for the volume. Defaults to `no`  
-
-`snapshotInterval`:  time interval in minutes for rotating snapshots. When interval is not specified, snapshots are created through script or cli command only
-
-`snapshotMax`:  maximum number of snapshots to retain. The oldest snapshot is rotated out when the value of `snapshotMax` is reached
+| Attribute         | Description                            | Valid Values       |
+| ----------------- | -------------------------------------- | ------------------ |
+| directory         | Bind mount on the host                 | /path/to/volume    |
+| filesystem        | Filesystem on volume                   | btrfs, ext4, xfs*  |
+| iopsMin           | Minimum iops guaranteed (SSD required) | minimum 30         |
+| iopsMax           | Maximum iops allowed (SSD required)    | 10,000,000 max     |
+| level             | Number of replicas for data redundancy | 1, 2, 3            |
+| profile           | Profile to use for volume creation     | PROFILENAME        |
+| provision         | Select thick or thin provisioning      | thin*, thick       |
+| type              | Type of media or backend storage       | ssd, hdd           |
+| snapshotEnabled   | Enable snapshot for volume             | yes, no*           |  
+| snapshotInterval  | Periodic snapshot interval in minutes  | minimum 1          |
+| snapshotMax       | maximum number of snapshots to keep    | 99 max             |
 
 ## Example with nginx
 
