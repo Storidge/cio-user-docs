@@ -16,7 +16,7 @@ To use a volume, a Pod specifies the volume type, and the mountpoint in one or m
 
 ## PV, PVC and Storage Class
 
-Kubernetes manages resources in a cluster through abstraction layers. For storage, persistent volume (PV) and persistent volume claim (PVC) are objects used to represent and request storage resources. PV and PVC ultimately points to storage resources where data for the Pod is actually persisted.
+Kubernetes manages resources in a cluster through abstraction layers. For storage, persistent volumes and persistent volume claims are objects used to represent and request storage resources. The persistent volume points to the storage resource where data for the Pod is actually persisted.
 
 **Persistent Volume (PV)**
 
