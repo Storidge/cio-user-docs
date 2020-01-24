@@ -33,6 +33,12 @@ There are three ways to provision storage to Kubernetes workloads as persistent 
 
 1. Local attached storage on nodes - examples are ephemeral storage in cloud instances, or storage in server chassis. Storidge aggregates the attached devices from nodes into a storage pool. The persistent volumes created by Storidge are drawn from the storage pool, and appear as standard Linux devices that are local attached.
 
-2. External storage attached to nodes - storage can be provisioned from external storage systems and attached to nodes. Examples are NFS shares from NAS, ISCSI LUNs from a SAN, and cloud storage. Storidge aggregates the attached devices into a storage pool, and the persistent volumes created are consumed by containerized apps as local attached storage.  
+![hyperconverged](../images/hyperconverged.png)
+
+2. External storage attached to nodes - storage can be provisioned from external storage systems and attached to nodes. Examples are NFS shares from NAS, ISCSI LUNs from a SAN, and cloud storage. Storidge aggregates the attached devices into a storage pool, and the persistent volumes created are consumed by containerized apps as local attached storage.
+
+![hyperconverged](../images/network-attached.png)
 
 3. External volume accessed through storage protocol - storage drivers in Kubernetes include an NFS client for accessing NFS shares across a network, e.g. NFS share exported from an external NAS. Storidge's software enables any Storidge volume to be exported as an NFS share and accessed by any NFS client. The NFS share can also be accessed by servers outside the cluster on the local subnet.
+
+![hyperconverged](../images/network-storage.png)
