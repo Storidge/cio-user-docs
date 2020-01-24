@@ -31,5 +31,5 @@ Succeed: node a8d3b506 has drive /dev/sdd added
 ```
 
 ::: tip
-Storidge does not require all nodes to have the same capacity or drives. However it may be operationally simpler to add the same drive capacity to all nodes.
+Storidge does not require all nodes to have the same capacity or drives. However it may be operationally simpler to have consistent drive capacity on all nodes.
 :::
