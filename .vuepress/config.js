@@ -79,7 +79,18 @@ module.exports = {
             ]
           },
           {
-            title: 'Storage Operations - Docker',
+            title: 'Kubernetes Storage',
+            collapsable: true,
+            children: [
+              '/kubernetes_storage/overview',
+              '/kubernetes_storage/storage_concepts',
+              '/kubernetes_storage/expand_volume_capacity',
+              '/kubernetes_storage/storage_classes',
+              '/kubernetes_storage/install_csi_driver'
+            ]
+          },
+          {
+            title: 'Docker Storage',
             collapsable: true,
             children: [
               '/docker_volumes/overview',
@@ -94,23 +105,16 @@ module.exports = {
             ]
           },
           {
-            title: 'Storage Operations - Kubernetes',
+            title: 'Operations',
             collapsable: true,
             children: [
-              '/kubernetes_storage/overview',
-              '/kubernetes_storage/storage_concepts',
-              '/kubernetes_storage/expand_volume_capacity',
-              '/kubernetes_storage/storage_classes',
-              '/kubernetes_storage/install_csi_driver'
-            ]
-          },
-          {
-            title: 'Guidebook',
-            collapsable: true,
-            children: [
-              '/guidebook/cio_volume_with_minio',
-              '/guidebook/cloud_scale_minio_with_cio',
-              '/guidebook/storidge_with_minikube'
+              '/operations/expand_storage_pool',
+              '/operations/monitoring',
+              '/operations/node_decommision',
+              '/operations/node_maintenance',
+              '/operations/snapshots',
+              '/operations/troubleshooting',
+              '/operations/update_storidge_software'
             ]
           },
           {
@@ -124,16 +128,12 @@ module.exports = {
             ]
           },
           {
-            title: 'Cluster Operations',
+            title: 'Guidebook',
             collapsable: true,
             children: [
-              '/operations/expand_storage_pool',
-              '/operations/monitoring',
-              '/operations/node_decommision',
-              '/operations/node_maintenance',
-              '/operations/snapshots',
-              '/operations/troubleshooting',
-              '/operations/update_storidge_software'
+              '/guidebook/cio_volume_with_minio',
+              '/guidebook/cloud_scale_minio_with_cio',
+              '/guidebook/storidge_with_minikube'
             ]
           },
           {
