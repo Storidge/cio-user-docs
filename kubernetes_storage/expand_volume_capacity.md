@@ -29,6 +29,8 @@ spec:
 The StorageClass must have allowVolumeExpansion: true
 :::
 
+## Create PVC and expand size
+
 1. Run `kubectl apply -f pvc-test.yaml` to apply the PVC spec and create a Storidge volume of size 11GiB.
 
 2. To resize the volume, run `kubectl edit pvc pvc-test` and change the size in the PVC spec to 22Gi.
@@ -41,5 +43,5 @@ The StorageClass must have allowVolumeExpansion: true
 ```
 
 ::: tip
-Storidge volumes support [automatic capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html) to minimize operator effort, and chance for application disruptions.
+Storidge volumes support automatic capacity expansion to minimize operator effort, and chance for application disruptions. See [example]((https://guide.storidge.com/getting_started/autoexpand.html) to enable this service. 
 :::
