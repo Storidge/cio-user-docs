@@ -20,4 +20,6 @@ New drives that are attached to nodes can be discovered with `cioctl drive resca
 
 2. Using the `cioctl drive add` command to add the drive capacity to the storage pool.
 
-List drives in the cluster with `cioctl drive ls`. Only drives marked with 'available' status can be added to the storage pool. Drives are added by specifying the drive path and node name. Both parameters are listed in the `cioctl drive ls` command.
+List drives in the cluster with `cioctl drive ls`. Only drives marked with 'available' status can be added to the storage pool.
+
+Drives are added by specifying the drive path and node name. Both parameters are listed in the `cioctl drive ls` command.
