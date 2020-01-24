@@ -99,6 +99,7 @@ module.exports = {
             children: [
               '/kubernetes_storage/overview',
               '/kubernetes_storage/storage_concepts',
+              '/kubernetes_storage/expand_volume_capacity',
               '/kubernetes_storage/storage_classes',
               '/kubernetes_storage/install_csi_driver'
             ]
