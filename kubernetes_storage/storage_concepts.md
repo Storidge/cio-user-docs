@@ -1,5 +1,5 @@
 ---
-title: Persistent Volume Concepts
+title: Storage Concepts
 description: Kubernetes storage concepts; persistent volume, persistent volume claim, storage class
 lang: en-US
 ---
@@ -14,7 +14,7 @@ There are many types of volumes, and a Pod can use any number of them at the sam
 
 To use a volume, a Pod specifies the volume type, and the mountpoint in one or more containers.
 
-## Persistent volume, persistent volume claim, and storage class
+## PV, PVC and Storage Class
 
 Kubernetes manages resources in a cluster through abstraction layers. For storage, persistent volume (PV) and persistent volume claim (PVC) are objects used to represent and request storage resources. PV and PVC ultimately points to storage resources where data for the Pod is actually persisted.
 
