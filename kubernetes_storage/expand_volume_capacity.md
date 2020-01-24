@@ -43,5 +43,5 @@ The StorageClass must have allowVolumeExpansion: true
 ```
 
 ::: tip
-Storidge volumes support automatic capacity expansion to minimize operator effort, and chance for application disruptions. See [example]((https://guide.storidge.com/getting_started/autoexpand.html) to enable this service.
+Storidge volumes support automatic capacity expansion to minimize operator effort, and chance for application disruptions. See [auto expansion example](https://guide.storidge.com/getting_started/autoexpand.html) to enable this service.
 :::
