@@ -98,6 +98,7 @@ module.exports = {
             collapsable: true,
             children: [
               '/kubernetes_storage/overview',
+              '/kubernetes_storage/storage_concepts',
               '/kubernetes_storage/storage_classes',
               '/kubernetes_storage/install_csi_driver'
             ]
