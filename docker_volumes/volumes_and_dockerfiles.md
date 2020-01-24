@@ -1,5 +1,5 @@
 ---
-title: Volumes and Dockerfiles
+title: Dockerfiles
 description: Provision volumes from Dockerfile with Storidge persistent storage
 lang: en-US
 ---

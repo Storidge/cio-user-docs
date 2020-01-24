@@ -79,7 +79,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Docker Volumes',
+            title: 'Storage Operations - Docker',
             collapsable: true,
             children: [
               '/docker_volumes/overview',
@@ -94,7 +94,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Kubernetes Storage',
+            title: 'Storage Operations - Kubernetes',
             collapsable: true,
             children: [
               '/kubernetes_storage/overview',
@@ -124,7 +124,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Operations',
+            title: 'Cluster Operations',
             collapsable: true,
             children: [
               '/operations/expand_storage_pool',

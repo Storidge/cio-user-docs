@@ -1,5 +1,5 @@
 ---
-title: Volumes for Docker Compose
+title: Docker Compose
 description: Provision volumes from Docker compose files with Storidge persistent storage
 lang: en-US
 ---

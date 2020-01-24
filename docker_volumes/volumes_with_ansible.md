@@ -1,5 +1,5 @@
 ---
-title: Volumes with Ansible
+title: Ansible and Storidge
 description: Provision Storidge volumes with Ansible on Docker Swarm cluster
 lang: en-US
 ---

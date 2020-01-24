@@ -28,4 +28,4 @@ A persistent volume claim is an abstraction representing a request for storage. 
 
 **Storage Class**
 
-While PVCs allow Pods to consume storage resources, it is common to request volumes with varying attributes for different applications. Kubernetes uses the [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) object to express the desired properties of a PV. This enables the underlying storage infrastructure to support and deliver different classes of service to applications.
+While PVCs allow Pods to consume storage resources, it is common to request volumes with varying attributes for different applications. Kubernetes uses the [storage class](https://docs.storidge.com/kubernetes_storage/storage_classes.html) object to express the desired properties of a PV. This enables the underlying storage infrastructure to support and deliver different classes of service to applications.

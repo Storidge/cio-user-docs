@@ -1,5 +1,5 @@
 ---
-title: Volumes for Containers
+title: Containers
 description: Provision volumes for Docker containers with Storidge persistent storage
 lang: en-US
 ---
