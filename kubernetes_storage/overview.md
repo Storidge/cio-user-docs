@@ -68,3 +68,15 @@ A persistent volume claim is an abstraction representing a request for storage. 
 **Storage Class**
 
 While PVCs allow Pods to consume storage resources, it is common to request volumes with varying attributes for different applications. Kubernetes uses the [storage class](https://docs.storidge.com/kubernetes_storage/storage_classes.html) object to express the desired properties of a PV. This enables the underlying storage infrastructure to support and deliver different classes of service to applications.
+
+### How dynamic provisioning works
+
+For dynamic provisioning, a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
+
+When the PVC is deployed, Kubernetes passes the request to the volume plugin registered for the Storage Class. The persistent volume will be provisioned with a set of attributes that was defined for that Storage Class.
+
+The Storidge volume plugin includes storage orchestration capability. Once provisioned, the persistent volume will be automatically attached by the Storidge software to the node where the Pod is scheduled to run.
+
+With the volume available on the node, Kubernetes then binds the persistent volume to the Pod that made the request.
+
+![dynamic_provisioning](../images/pod-pvc-plugin-pv.png)
