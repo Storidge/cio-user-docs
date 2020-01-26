@@ -43,7 +43,9 @@ There are three ways to provision storage to Kubernetes workloads as persistent 
 
 ![hyperconverged](../images/network-storage.png)
 
-## Volumes
+## Kubernetes Storage Concepts
+
+### Volumes
 
 Kubernetes uses a [volume abstraction](https://kubernetes.io/docs/concepts/storage/volumes/) to share files between containers in a pod, and to provide data persistence across pod restarts. The shared volume is a directory which is accessible to each container in the Pod.
 
@@ -51,7 +53,7 @@ There are many types of volumes, and a Pod can use any number of them at the sam
 
 To use a volume, a Pod specifies the volume type, and the mountpoint in one or more containers.
 
-## PV, PVC and Storage Class
+### PV, PVC and Storage Class
 
 Kubernetes manages resources in a cluster through abstraction layers. For storage, persistent volumes and persistent volume claims are objects used to represent and request storage resources. The persistent volume points to the storage resource where data for the Pod is actually persisted.
 
