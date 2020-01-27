@@ -15,7 +15,7 @@ A Storidge cluster should be deployed first before installing the CSI driver. Wh
 <h4>Kubernetes 1.16</h4>
 
 ```
-kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.2.0.yaml
+kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.3.0.yaml
 ```
 
 <h4>Kubernetes 1.15 and below</h4>

@@ -62,6 +62,8 @@ VolumeBindingMode:     Immediate
 Events:                <none>
 ```
 
+The example storage class above includes a few of the parameters supported by Storidge. See the full list of storage attributes supported [here](https://docs.storidge.com/kubernetes_storage/storage_classes.html).
+
 ### 2. Create pvc
 
 Save example below as file 'pvc-test.yaml'.
