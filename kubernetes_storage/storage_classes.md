@@ -6,13 +6,13 @@ lang: en-US
 
 # Storage Classes
 
-Kubernetes provides the [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource as a way to deliver different types of storage to the cluster. A `StorageClass` can represent storage with different media or backends, performance guarantees, data protection capabilities or services, etc.
+Kubernetes provides the [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource as a way to deliver different types of storage to the cluster. A storage class can represent storage with different media or backends, performance guarantees, data protection capabilities or services, etc.
 
-[Dynamic provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) of volumes is dependent on the `StorageClass` resource. At least one or more `StorageClass` must be deployed in the cluster before volumes can be dynamically provisioned. Multiple `StorageClasses` can be deployed with each presenting access to different capabilities and services of the underlying storage systems.
+[Dynamic provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) of volumes is dependent on the `StorageClass` resource. At least one or more storage class must be deployed in the cluster before volumes can be dynamically provisioned. Multiple storage classes can be deployed with each presenting access to different capabilities and services of the underlying storage systems.
 
 ## Storage Class Fields
 
-The name of the `StorageClass` is how users request a particular class. In the `StorageClass` below, the [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) (metadata) sets `cio-default` as the default. A default `StorageClass` is useful for automatic provisioning of volumes for `PersistentVolumeClaims` that do not name any storage class, i.e. the `storageClassName` field is not specified.
+The name of the `StorageClass` resource is how users request a particular class. In the storage class below, the [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) (metadata) sets `cio-default` as the default. A default storage class is useful for automatic provisioning of volumes for persistent volume claims that do not name any storage class, i.e. the `storageClassName` field is not specified.
 
 ```
 kind: StorageClass
@@ -42,8 +42,8 @@ The key value pairs in `parameters` pass the desired volume attributes to the vo
 
 For dynamically provisioned volumes, the `reclaimPolicy` determines whether the volume is tied to the lifecycle of the pod.  
 
-- `Delete` will result in the volume being removed when the pod and the `PersistentVolumeClaim` are terminated
-- A `Retain` policy will preserve the `PersistentVolume ` beyond the lifecycle of the pod. However the `PersistentVolume` and Storidge volume will require manual removal. Kubernetes defaults to `Delete` when no `reclaimPolicy` is defined.
+- `reclaimPolicy: Delete` will result in the volume being removed when the pod and the persistent volume claim are terminated
+- `reclaimPolicy: Retain` will preserve the persistent volume beyond the lifecycle of the pod. However the persistent volume and Storidge volume will require manual removal. Kubernetes defaults to `Delete` when no `reclaimPolicy` is defined.
 
 Storidge volumes support both online capacity expansion and [auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html) of btrfs, ext4 and xfs formatted volumes, so the `allowVolumeExpansion` field is set to "true".
 
@@ -67,7 +67,7 @@ Entries in `parameters` are optional as defaults are set for basic attributes. S
 
 ## Example with nginx
 
-The `cio-nginx` class below deploys a `StorageClass` with desired parameters for an nginx application.
+The 'cio-nginx' example below deploys a storage class with desired parameters for an nginx application.
 
 ```
 kind: StorageClass
@@ -88,7 +88,7 @@ reclaimPolicy: Delete
 allowVolumeExpansion: true
 ```
 
-If the volume attributes are managed in a [profile](https://docs.storidge.com/cio_cli/profile.html), the `StorageClass` can be expressed in compact form as:
+If the volume attributes are managed in a [profile](https://docs.storidge.com/cio_cli/profile.html), the storage class can be expressed in compact form as:
 
 ```
 kind: StorageClass
@@ -104,14 +104,14 @@ allowVolumeExpansion: true
 
 ## Create
 
-Save either of the `StorageClass` above in a file named 'cio-sc-nginx.yaml'. Deploy the `StorageClass` with:
+Save either of the storage class above to a file named 'cio-sc-nginx.yaml'. Deploy with:
 
 `kubectl create -f cio-sc-nginx.yaml`
 
 ## Inspect
 
-Use `kubectl get sc` to confirm `cio-nginx` class was deployed. Run `kubectl describe sc cio-nginx` to show details.
+Use `kubectl get sc` to confirm 'cio-nginx' storage class was deployed. Run `kubectl describe sc cio-nginx` to show details.
 
 ## Delete
 
-Run `kubectl delete -f cio-sc-nginx.yaml` to remove the `StorageClass`.
+Run `kubectl delete -f cio-sc-nginx.yaml` to remove the storage class.

@@ -71,7 +71,7 @@ While PVCs allow Pods to consume storage resources, it is common to request volu
 
 ### How dynamic provisioning works
 
-For dynamic provisioning, a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
+For [dynamic provisioning](https://docs.storidge.com/kubernetes_storage/dynamic_provisioning.html), a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
 
 When the PVC is deployed, Kubernetes passes the request to the volume plugin registered for the Storage Class. The persistent volume will be provisioned by the plugin with a set of attributes that was defined for that Storage Class.
 
