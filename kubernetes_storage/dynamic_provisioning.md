@@ -62,7 +62,7 @@ VolumeBindingMode:     Immediate
 Events:                <none>
 ```
 
-### 2. Create persistent volume claim
+### 2. Create pvc
 
 Save example below as file 'pvc-test.yaml'.
 ```

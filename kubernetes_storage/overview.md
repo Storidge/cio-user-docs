@@ -25,7 +25,7 @@ Storidge volumes can be dynamically created or pre-provisioned, and then referen
 
 Kubernetes introduced [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md) (CSI) support as alpha in v1.9 and moved to beta in v1.10. CSI defines a standard interface for container orchestration systems to integrate external storage systems, such as Storidge, and provision volumes for container workloads.
 
-The Storidge software installation package installs a [CSI driver](https://hub.docker.com/_/storidge-csi-driver) for Kubernetes v1.14 and above. Once deployed, the CSI driver (aka provisioner) forwards requests from `PersistentVolumeClaims` to the Storidge CIO software which provisions and automatically attaches the volume to the node where the pod is scheduled to run.
+The Storidge software installation package installs a [CSI driver](https://hub.docker.com/_/storidge-csi-driver) for Kubernetes v1.14 and above. Once deployed, the CSI driver (aka provisioner) forwards requests from persistent volume claims to the Storidge CIO software which provisions and automatically attaches the volume to the node where the pod is scheduled to run.
 
 ## Storage configurations
 
@@ -67,11 +67,13 @@ A persistent volume claim is an abstraction representing a request for storage. 
 
 **Storage Class**
 
-While PVCs allow Pods to consume storage resources, it is common to request volumes with varying attributes for different applications. Kubernetes uses the [storage class](https://docs.storidge.com/kubernetes_storage/storage_classes.html) object to express the desired properties of a PV. This enables the underlying storage infrastructure to support and deliver different classes of service to applications.
+While PVCs allow Pods to consume storage resources, it is common to request volumes with varying attributes for different applications. Kubernetes uses the [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) object to express the desired properties of a PV. This enables the underlying storage infrastructure to support and deliver different classes of service to applications.
+
+See the list of storage attributes supported by Storidge [here](https://docs.storidge.com/kubernetes_storage/storage_classes.html).
 
 ### How dynamic provisioning works
 
-For [dynamic provisioning](https://docs.storidge.com/kubernetes_storage/dynamic_provisioning.html), a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
+For [dynamic provisioning](), a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
 
 When the PVC is deployed, Kubernetes passes the request to the volume plugin registered for the Storage Class. The persistent volume will be provisioned by the plugin with a set of attributes that was defined for that Storage Class.
 
@@ -80,3 +82,5 @@ The Storidge volume plugin includes storage orchestration capability. Once provi
 With the volume available on the node, Kubernetes then binds the persistent volume to the Pod that made the request.
 
 ![dynamic_provisioning](../images/pod-pvc-plugin-pv.png)
+
+See dynamic provisioning example with Storidge [here](https://docs.storidge.com/kubernetes_storage/dynamic_provisioning.html).

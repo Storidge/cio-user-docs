@@ -8,11 +8,11 @@ lang: en-US
 
 Kubernetes provides the [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource as a way to deliver different types of storage to the cluster. A storage class can represent storage with different media or backends, performance guarantees, data protection capabilities or services, etc.
 
-[Dynamic provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) of volumes is dependent on the `StorageClass` resource. At least one or more storage class must be deployed in the cluster before volumes can be dynamically provisioned. Multiple storage classes can be deployed with each presenting access to different capabilities and services of the underlying storage systems.
+[Dynamic provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) of volumes is dependent on the `StorageClass` resource. At least one or more storage classes must be deployed in the cluster before volumes can be dynamically provisioned. Multiple storage classes can be deployed with each presenting access to different capabilities and services of the underlying storage systems.
 
 ## Storage Class Fields
 
-The name of the `StorageClass` resource is how users request a particular class. In the storage class below, the [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) (metadata) sets `cio-default` as the default. A default storage class is useful for automatic provisioning of volumes for persistent volume claims that do not name any storage class, i.e. the `storageClassName` field is not specified.
+The name of the storage class is how users request a particular class. In the storage class below, the [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) (metadata) names `cio-default` as the default. A default storage class is useful for automatic provisioning of volumes for persistent volume claims that do not name any storage class, i.e. the `storageClassName` field is not specified.
 
 ```
 kind: StorageClass
