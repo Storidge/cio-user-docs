@@ -171,7 +171,7 @@ NAME       READY   STATUS    RESTARTS   AGE
 pod-test   1/1     Running   0          2m10s
 ```
 
-## Delete volumes
+## Cleanup
 
 For the dynamic provisioned volume in this example, when the persistent volume claim is deleted, the corresponding Storidge volume will also be deleted. This is because the storage class had `reclaimPolicy: Delete` set.
 

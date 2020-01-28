@@ -1,6 +1,6 @@
 ---
 title: cio snapshot
-description: cio snapshot command; docker volumes for containers; persistent volumes for pods 
+description: cio snapshot command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
@@ -10,16 +10,17 @@ lang: en-US
 
 `cio snapshot COMMAND [options] [YYYY-MM-DD-HHMM-NODEID-VDID]`
 
-Create, get info, list, or remove snapshots.
+Create, get info, list, remove, or rollback snapshots.
 
 <h3>Child commands</h3>
 
-| Command             | Description                                         |
-|:--------------------|:----------------------------------------------------|
-| cio snapshot create | Create snapshot of a volume                         |
-| cio snapshot info   | Display snapshot information by snapshot identifier |
-| cio snapshot list   | List snapshots on a volume                          |
-| cio snapshot remove | Remove snapshot by snapshot identifier              |
+| Command               | Description                                         |
+|:----------------------|:----------------------------------------------------|
+| cio snapshot create   | Create snapshot of a volume                         |
+| cio snapshot info     | Display snapshot information by snapshot identifier |
+| cio snapshot list     | List snapshots on a volume                          |
+| cio snapshot remove   | Remove snapshot by snapshot identifier              |
+| cio snapshot rollback | Revert volume state to previous snapshot            |
 
 <h3>Options</h3>
 
@@ -111,5 +112,20 @@ Remove a snapshot by id.
 
 ```
 # cio snapshot rm 2019-04-21-1626-2c19b9f6-0000005
-Delete snapshot on volume rotate at '/cio/snap/vd5/.snap/2019-04-21-1626-2c19b9f6-0000005'
+Succeed: Deleted snapshot on volume rotate at '/cio/snap/vd5/.snap/2019-04-21-1626-2c19b9f6-0000005'
+```
+
+## cio snapshot rollback
+
+<h3>Usage</h3>
+
+`cio snapshot rollback <YYYY-MM-DD-HHMM-NODEID-VDID>`
+
+Revert volume state to previous snapshot
+
+<h3>Examples</h3>
+
+```
+# cio snapshot rollback 2020-01-28-0052-816a0c7d-0000003
+Succeed: Rolled back volume snap at /cio/snap/vd3 to snapshot 2020-01-28-0052-816a0c7d-0000003
 ```
