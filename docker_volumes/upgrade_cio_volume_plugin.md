@@ -1,5 +1,5 @@
 ---
-title: Upgrade Volume Plugin
+title: Volume Plugin Upgrade
 description: Steps to upgrade the Storidge volume plugin for Docker; docker volumes for containers
 lang: en-US
 ---

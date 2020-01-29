@@ -1,6 +1,6 @@
 ---
 title: Node Update
-description: Update Storidge software and dependencies on a node  
+description: Update Storidge software and dependencies in Kubernetes  
 lang: en-US
 ---
 
@@ -10,7 +10,18 @@ You may want to update Storidge software and dependencies on a node when a new v
 
 Storidge supports cluster aware updates. This enables updating nodes to the latest software release, while the cluster is online and services continue to run. Each node is updated sequentially while services continue to run on operating nodes.
 
-The `cioctl node update` command updates Storidge software components and dependencies. When the command is run, it checks for any software update. If an update is available, it performs the following sequence:
+The node update follows sequence below to prepare node for maintenance, update software, and then uncordon the node:
+1. Drain node with `kubectl drain <NODENAME> --ignore-daemonsets`
+2. Update Storidge software with `cioctl node update <NODENAME>`
+3. Uncordon node with `kubectl uncordon <NODENAME>`
+
+## 1. Drain node
+
+Run `kubectl drain <NODENAME> --ignore-daemonsets` to drain the node and prepare for maintenance. This marks the node as unschedulable and delete pods.
+
+## 2. Update Storidge software
+
+Run `cioctl node update <NODENAME>` to update Storidge software components and dependencies. This command checks for available software update. If an update is available, it performs the following sequence:
 
 1. Drains node, so services are moved to operating nodes
 2. Cordons node, setting it into maintenance mode
@@ -18,6 +29,10 @@ The `cioctl node update` command updates Storidge software components and depend
 4. Installs software update and any dependencies
 5. Reboots node
 6. Uncordons node to exit maintenance mode, and rejoin cluster
+
+## 3. Uncordon node
+
+After the node has rebooted and rejoined the Storidge cluster, run `kubectl uncordon <NODENAME>` so the node is schedulable again.
 
 ## Auto rebuild after update
 
@@ -27,6 +42,6 @@ After a node is updated and rejoins the cluster, the recovery is extremely fast 
 
 ## Node update sequence
 
-The `cioctl node update` command will prescribe an update sequence where worker nodes are updated first. Follow the suggested sequence to update each node.
+`cioctl node update` will prescribe an update sequence where storage nodes are updated before controller nodes. Follow the suggested sequence to update each node.
 
 All node update commands can be issued from the sds node. The last node to be updated will be the sds node.
