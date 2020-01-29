@@ -1,10 +1,10 @@
 ---
-title: Update Storidge Software
+title: Node Update
 description: Update Storidge software and dependencies on a node  
 lang: en-US
 ---
 
-# Node Update
+# Update Storidge Software
 
 You may want to update Storidge software and dependencies on a node when a new version is released.
 

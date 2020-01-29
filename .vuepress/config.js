@@ -79,7 +79,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Kubernetes Storage',
+            title: 'Kubernetes',
             collapsable: true,
             children: [
               '/kubernetes_storage/overview',
@@ -90,7 +90,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Docker Storage',
+            title: 'Docker Swarm',
             collapsable: true,
             children: [
               '/docker_volumes/overview',
@@ -101,7 +101,10 @@ module.exports = {
               '/docker_volumes/volumes_and_dockerfiles',
               '/docker_volumes/volumes_with_ansible',
               '/docker_volumes/install_volume_plugin',
-              '/docker_volumes/upgrade_cio_volume_plugin'
+              '/docker_volumes/upgrade_cio_volume_plugin',
+              '/docker_volumes/node_decommision',
+              '/docker_volumes/node_maintenance',
+              '/docker_volumes/update_storidge_software'
             ]
           },
           {
