@@ -114,11 +114,8 @@ module.exports = {
             children: [
               '/operations/expand_storage_pool',
               '/operations/monitoring',
-              '/operations/node_decommision',
-              '/operations/node_maintenance',
               '/operations/snapshots',
-              '/operations/troubleshooting',
-              '/operations/update_storidge_software'
+              '/operations/troubleshooting'
             ]
           },
           {
