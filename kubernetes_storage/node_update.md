@@ -17,7 +17,7 @@ The node update follows sequence below to prepare node for maintenance, update s
 
 ## 1. Drain node
 
-Run `kubectl drain <NODENAME> --ignore-daemonsets` to drain the node and prepare for maintenance. This marks the node as unschedulable and delete pods.
+Run `kubectl drain <NODENAME> --ignore-daemonsets` to drain the node and prepare for maintenance. This marks the node as unschedulable and deletes pods.
 
 ## 2. Update Storidge software
 

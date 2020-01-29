@@ -86,6 +86,8 @@ module.exports = {
               '/kubernetes_storage/dynamic_provisioning',
               '/kubernetes_storage/expand_volume_capacity',
               '/kubernetes_storage/install_csi_driver',
+              '/kubernetes_storage/node_addition',
+              '/kubernetes_storage/node_removal',
               '/kubernetes_storage/node_update',
               '/kubernetes_storage/storage_classes'
             ]
@@ -101,8 +103,9 @@ module.exports = {
               '/docker_volumes/volumes_for_services',
               '/docker_volumes/volumes_for_docker_compose',
               '/docker_volumes/volumes_and_dockerfiles',
-              '/docker_volumes/node_decommision',
+              '/docker_volumes/node_addition',
               '/docker_volumes/node_maintenance',
+              '/docker_volumes/node_removal',
               '/docker_volumes/node_update',
               '/docker_volumes/install_volume_plugin',
               '/docker_volumes/upgrade_cio_volume_plugin'

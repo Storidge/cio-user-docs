@@ -1,16 +1,14 @@
 ---
-title: Node Decommision
-description: Decommision and remove node from cluster  
+title: Node Removal
+description: Remove a node from Storidge cluster  
 lang: en-US
 ---
 
-# Decommision a Node
-
-## Remove decommisioned node
+# Remove Node
 
 You can decommision and remove a Storidge node from your cluster.
 
-The `cioctl node remove` command is used to remove nodes that are either no longer needed or must be replaced. This command triggers a process to drain the node which gracefully stops running containers and services. Services are restarted on operating nodes, and volumes from the drained node are automatically reattached to new nodes where the services are restarted.
+The `cioctl node remove <NODENAME>` command is used to remove nodes that are either no longer needed or must be replaced. This command triggers a process to drain the node which gracefully stops running containers and services. Services are restarted on operating nodes, and volumes from the drained node are automatically reattached to new nodes where the services are restarted.
 
 After all data and metadata on the node is flushed, volumes detached and unmounted, the Storidge modules are unloaded. During the process of exiting the cluster, the node will show status 'leaving' in `cio node ls`.
 
