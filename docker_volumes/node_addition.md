@@ -15,5 +15,7 @@ root@sds:~# cioctl join-token
 ```
 
 ::: tip
-The creation of new join tokens is disabled when there are on-going node operations, e.g. cordon, uncordon or removing a node from cluster. Wait and re-run the join-token command when the node operation is completed.
+The creation of new join tokens is disabled when there are on-going node operations, e.g. cordon, uncordon or removing a node from cluster.
+
+Wait, then re-run the join-token command when the node operation is completed.
 :::

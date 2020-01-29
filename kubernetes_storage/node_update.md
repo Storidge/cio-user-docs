@@ -32,7 +32,7 @@ Run `cioctl node update <NODENAME>` to update Storidge software components and d
 
 ## 3. Uncordon node
 
-After the node has rebooted and rejoined the Storidge cluster, run `kubectl uncordon <NODENAME>` so the node is schedulable again.
+After the node has rejoined the Storidge cluster, run `kubectl uncordon <NODENAME>` so the node is schedulable again.
 
 ## Auto rebuild after update
 

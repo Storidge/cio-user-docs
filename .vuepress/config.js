@@ -87,6 +87,7 @@ module.exports = {
               '/kubernetes_storage/expand_volume_capacity',
               '/kubernetes_storage/install_csi_driver',
               '/kubernetes_storage/node_addition',
+              '/kubernetes_storage/node_maintenance',
               '/kubernetes_storage/node_removal',
               '/kubernetes_storage/node_update',
               '/kubernetes_storage/storage_classes'
