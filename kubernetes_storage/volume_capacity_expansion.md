@@ -1,5 +1,5 @@
 ---
-title: Expand Volume Capacity
+title: Volume Capacity Expansion
 description: Expand capacity of persistent volume in Kubernetes cluster
 lang: en-US
 ---

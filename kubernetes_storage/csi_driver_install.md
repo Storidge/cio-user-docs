@@ -1,5 +1,5 @@
 ---
-title: Install CSI Driver
+title: CSI Driver Install
 description: Overview of csi driver and installing Storidge csi driver for Kubernetes
 lang: en-US
 ---

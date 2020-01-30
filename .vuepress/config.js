@@ -83,14 +83,14 @@ module.exports = {
             collapsable: true,
             children: [
               '/kubernetes_storage/overview',
-              '/kubernetes_storage/dynamic_provisioning',
-              '/kubernetes_storage/expand_volume_capacity',
-              '/kubernetes_storage/install_csi_driver',
+              '/kubernetes_storage/csi_driver_install',
               '/kubernetes_storage/node_addition',
               '/kubernetes_storage/node_maintenance',
               '/kubernetes_storage/node_removal',
               '/kubernetes_storage/node_update',
-              '/kubernetes_storage/storage_classes'
+              '/kubernetes_storage/storage_classes',
+              '/kubernetes_storage/volume_capacity_expansion',
+              '/kubernetes_storage/volume_dynamic_provision'
             ]
           },
           {
@@ -108,8 +108,8 @@ module.exports = {
               '/docker_volumes/node_maintenance',
               '/docker_volumes/node_removal',
               '/docker_volumes/node_update',
-              '/docker_volumes/install_volume_plugin',
-              '/docker_volumes/upgrade_cio_volume_plugin'
+              '/docker_volumes/volume_plugin_install',
+              '/docker_volumes/volume_plugin_upgrade'
             ]
           },
           {

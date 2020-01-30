@@ -1,10 +1,10 @@
 ---
-title: Dynamic Provisioning
+title: Volume Dynamic Provision
 description: Dynamic provisioning of persistent volume claims for Kubernetes workloads with Storidge
 lang: en-US
 ---
 
-# Using Dynamic Provisioning
+# Using dynamic volume provisioning
 
 Dynamic provisioning allows persistent volumes to be created during application deployments. This eliminates having to pre-provision a storage volume, and then creating a persistent volume object to represent it. Using dynamic provisioning, storage is automatically provisioned when requested by users.
 
