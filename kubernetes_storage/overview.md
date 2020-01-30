@@ -27,9 +27,9 @@ Kubernetes introduced [Container Storage Interface](https://github.com/container
 
 The Storidge software installation package installs a [CSI driver](https://hub.docker.com/_/storidge-csi-driver) for Kubernetes v1.14 and above. Once deployed, the CSI driver (aka provisioner) forwards requests from persistent volume claims to the Storidge CIO software which provisions and automatically attaches the volume to the node where the pod is scheduled to run.
 
-## Storage configurations
+## Deployment configurations
 
-There are three ways to provision storage to Kubernetes workloads as persistent volumes:
+There are three ways to deploy storage clusters for Kubernetes workloads:
 
 1. Local attached storage on nodes - examples are ephemeral storage in cloud instances, or storage in server chassis. Storidge aggregates the attached devices from nodes into a storage pool. The persistent volumes created by Storidge are drawn from the storage pool, and appear as standard Linux devices that are local attached.
 
