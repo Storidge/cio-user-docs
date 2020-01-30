@@ -6,11 +6,25 @@ lang: en-US
 
 # Adding new node
 
+## Install Storidge software
+
+Install the Storidge software and dependencies on the new node with:
+
+```
+curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+```
+
+::: tip
+The installation requires access to system devices so sudo access or root user is needed
+:::
+
+## Add node
+
 Adding a new node just takes two steps:
 1. Add new node to Storidge cluster
 2. Add new node to Kubernetes
 
-## 1. Add to Storidge cluster
+### 1. Add to Storidge cluster
 
 Running `cioctl join-token` generates a token to add a new node to an existing Storidge cluster. Copy the `cioctl node add ...` command string generated, and run on the new node.
 
@@ -26,7 +40,7 @@ The creation of new join tokens is disabled when there are on-going node operati
 Wait, then re-run the join-token command when the node operation is completed.
 :::
 
-## 2. Add to Kubernetes
+### 2. Add to Kubernetes
 
 After the new node is added to Storidge cluster, include in Kubernetes so pods can be scheduled.
 
