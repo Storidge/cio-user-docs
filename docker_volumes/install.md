@@ -1,6 +1,6 @@
 ---
 title: Install cio
-description: Install persistent storage for Docker Swarm and Kubernetes cluster
+description: Install persistent storage for Docker Swarm 
 lang: en-US
 ---
 

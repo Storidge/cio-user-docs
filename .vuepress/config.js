@@ -117,6 +117,7 @@ module.exports = {
             title: 'Operations',
             collapsable: true,
             children: [
+              '/operations/auto_capacity_expansion',
               '/operations/expand_storage_pool',
               '/operations/monitoring',
               '/operations/snapshots',

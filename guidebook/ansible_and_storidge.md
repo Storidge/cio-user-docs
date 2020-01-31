@@ -10,7 +10,7 @@ For current users of Ansible, playbooks represent a familiar tool for configurat
 
 This guide uses a couple of examples to show how Storidge volumes can be easily provisioned for stateful applications using an Ansible playbook.
 
-## Example 
+## Example
 
 This [playbook](https://github.com/Storidge/cio-user-docs/blob/master/playbooks/alpine.yml) deploys a task using an alpine image, and creates volume myservice-data for the task named myservice. Since volume options are not defined, default settings will be used to create the volume.
 
@@ -44,7 +44,7 @@ The playbook is set to run on the sds node (primary) of the Storidge cluster. Th
 192.168.3.201
 ```
 
-## Using template notation with Ansible
+## Using template notation
 
 You can create and mount a unique volume into each task of a service using [template notation](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates). The playbook below deploys three MySQL tasks using the `.Task.Slot` template to assign volume N to task N. The template notation is passed through the Ansible `source` parameter which maps to the mount source, as in a `docker service create` command.
 

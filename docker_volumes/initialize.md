@@ -1,6 +1,6 @@
 ---
 title: Initialize Cluster
-description: Create persistent storage cluster for Docker Swarm and Kubernetes
+description: Create persistent storage cluster for Docker Swarm 
 lang: en-US
 ---
 
