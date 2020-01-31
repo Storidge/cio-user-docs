@@ -36,4 +36,10 @@ When working with virtual servers, it is common to clone off a base image. For m
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
 
+## Install Kubernetes components
+
 Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker nodes if not already installed.
+
+## Next
+
+With software components installed, you are ready to configure and [initialize a cluster](https://docs.storidge.com/kubernetes_storage/initialize_cluster.html).

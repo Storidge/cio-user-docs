@@ -35,3 +35,7 @@ When working with virtual servers, it is common to clone off a base image. For m
 
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
+
+## Next
+
+With software installation completed, you are ready to configure and [initialize a cluster](https://docs.storidge.com/docker_volumes/initialize_cluster.html).
