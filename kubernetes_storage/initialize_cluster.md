@@ -27,7 +27,7 @@ The first node, from which the `cioctl create` command is run, becomes the sds c
 
 ## 2. Join nodes to cluster
 
-The output of the create sub-command includes a `cioctl join` command to add new nodes to the cluster. Add nodes by running the `cioctl join` command on each new node.
+The output of the create sub-command includes a `cioctl join` command to add new nodes to the cluster. Add nodes by running the `cioctl join` command on each worker node.
 
 Example four node cluster with new nodes c2, c3, c4:
 ```
@@ -71,9 +71,9 @@ root@master:~/examples# kubeadm token create --print-join-command
 kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token-ca-cert-hash sha256:d748737fa0b8f5f9145381cb681f5fbc41a1860ecd805e77cdce93acd92e07f2
 ```
 
-## 4. Install Storidge CSI Driver
+## 4. Install CSI Driver
 
-Install the CSI driver so you can dynamically provision volumes from Kubernetes. Install by running on a master node:
+Install the CSI driver so you can dynamically provision volumes from Kubernetes. Install the driver by running on a master node:
 
 <h4>Kubernetes 1.16+</h4>
 

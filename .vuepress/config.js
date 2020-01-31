@@ -85,7 +85,6 @@ module.exports = {
               '/kubernetes_storage/overview',
               '/kubernetes_storage/install',
               '/kubernetes_storage/initialize_cluster',
-              '/kubernetes_storage/csi_driver_install',
               '/kubernetes_storage/node_addition',
               '/kubernetes_storage/node_maintenance',
               '/kubernetes_storage/node_removal',

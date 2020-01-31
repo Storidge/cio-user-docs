@@ -36,4 +36,4 @@ When working with virtual servers, it is common to clone off a base image. For m
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
 
-Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker node if not already installed.
+Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker nodes if not already installed.
