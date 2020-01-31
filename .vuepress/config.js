@@ -98,7 +98,6 @@ module.exports = {
             collapsable: true,
             children: [
               '/docker_volumes/overview',
-              '/docker_volumes/volumes_with_ansible',
               '/docker_volumes/docker_volume_create',
               '/docker_volumes/volumes_for_containers',
               '/docker_volumes/volumes_for_services',
@@ -136,9 +135,10 @@ module.exports = {
             title: 'Guidebook',
             collapsable: true,
             children: [
-              '/guidebook/cio_volume_with_minio',
-              '/guidebook/cloud_scale_minio_with_cio',
-              '/guidebook/storidge_with_minikube'
+              '/guidebook/ansible_and_storidge',
+              '/guidebook/minikube_and_storidge',
+              '/guidebook/minio_and_storidge',
+              '/guidebook/scale_minio_with_storidge'
             ]
           },
           {

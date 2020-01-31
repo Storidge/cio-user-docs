@@ -13,7 +13,7 @@ Decommisioning a node follows sequence below to drain node, remove from Storidge
 
 ## 1. Drain node
 
-Run `kubectl drain <NODENAME> --delete-local-data --ignore-daemonsets` to drain the node. This marks the node as unschedulable and deletes pods.
+Run `kubectl drain <NODENAME> --delete-local-data --ignore-daemonsets` to drain the node. This marks the node as unschedulable stopping new pods from landing, and safely evicts pods on the node. Pods with replica sets are replaced by a new pod scheduled to another node. For pods with no replica sets use the `--force` option to drain, then bring up a new copy of the pod.
 
 ## 2. Remove Storidge node
 

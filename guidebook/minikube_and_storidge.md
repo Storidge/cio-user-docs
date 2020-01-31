@@ -1,10 +1,10 @@
 ---
-title: Storidge with Minikube
-description: Cookbook for testing Storidge persistent storage with Minikube
+title: Minikube and Storidge
+description: Testing Storidge persistent storage with Minikube
 lang: en-US
 ---
 
-# Storidge with Minikube
+# Testing Storidge on Minikube
 
 Minikube is a lightweight Kubernetes implementation which deploys a simple cluster containing only one node. Deploying Storidge alongside a Minikube single node cluster, provides a quick way to get started with persistent storage on Kubernetes.
 

@@ -18,7 +18,7 @@ Follow sequence below to prepare node for maintenance, maintain, and then uncord
 
 ## 1. Drain node
 
-Run `kubectl drain <NODENAME> --ignore-daemonsets` to drain the node and prepare for maintenance. This marks the node as unschedulable and deletes pods.
+Run `kubectl drain <NODENAME> --ignore-daemonsets` to drain the node and prepare for maintenance. This marks the node as unschedulable stopping new pods from landing, and safely evicts pods on the node. Pods with replica sets are replaced by a new pod scheduled to another node. For pods with no replica sets use the `--force` option to drain, then bring up a new copy of the pod.
 
 ## 2. Cordon Storidge node
 

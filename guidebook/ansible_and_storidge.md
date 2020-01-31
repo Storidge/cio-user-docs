@@ -4,7 +4,7 @@ description: Provision Storidge volumes with Ansible on Docker Swarm cluster
 lang: en-US
 ---
 
-# Persistent storage, Swarm services and Ansible Playbooks
+# Provision Storidge volumes from Ansible
 
 For current users of Ansible, playbooks represent a familiar tool for configuration management and multi-node deployments. Playbooks can declare configurations, and orchestrate the multiple steps of any ordered process. For Swarm clusters, Ansible provides a [docker_swarm_service module](https://docs.ansible.com/ansible/latest/modules/docker_swarm_service_module.html) that enables docker services to be managed through a manager node.
 

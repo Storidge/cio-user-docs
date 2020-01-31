@@ -1,10 +1,10 @@
 ---
-title: Cloud Scale Minio With Storidge
+title: Scaling Minio With Storidge
 description: Cookbook for using Storidge persistent storage with Minio
 lang: en-US
 ---
 
-# Cloud Scale Minio With Storidge
+# Scaling Minio With Storidge
 
 [Minio](https://minio.io/) is a popular object storage server compatible with [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). It is suited for storing unstructured data such as photos, videos, log files, backups and container images.
 

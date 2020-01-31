@@ -1,10 +1,10 @@
 ---
-title: Storidge Volume With Minio
+title: Minio and Storidge
 description: Cookbook for using Storidge persistent storage with Minio
 lang: en-US
 ---
 
-# Storidge Volume With Minio
+# Using Storidge volume with Minio
 
 [Minio](https://minio.io/) is an object storage server compatible with [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). It is suited for storing unstructured data such as photos, videos, log files, backups and container images.
 
@@ -12,15 +12,11 @@ Using Storidge volumes with Minio is a great way to setup a highly available S3 
 
 In this recipe we use a Docker Stack file to define the Minio service and the Storidge volume. Then, using a single command, we can create and launch the Minio instance with highly available persistent storage.
 
-
-
 ## **Prerequisites**
 
 - Familiarity with [Docker Stack](https://docs.docker.com/docker-cloud/apps/stacks/).
 
 - Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html).
-
-  ​
 
 ## **Create Docker secrets for Minio**
 
