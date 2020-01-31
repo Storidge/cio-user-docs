@@ -98,6 +98,8 @@ module.exports = {
             collapsable: true,
             children: [
               '/docker_volumes/overview',
+              '/docker_volumes/install',
+              '/docker_volumes/initialize',
               '/docker_volumes/docker_volume_create',
               '/docker_volumes/volumes_for_containers',
               '/docker_volumes/volumes_for_services',
