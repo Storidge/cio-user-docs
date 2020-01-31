@@ -18,7 +18,7 @@ curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 The installation requires access to system devices so sudo access or root user is needed
 :::
 
-Verify if you need to install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker node.
+Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker node if not already installed.
 
 ## Add node
 

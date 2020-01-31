@@ -1,6 +1,6 @@
 ---
 title: Install cio
-description: Install persistent storage for Docker Swarm
+description: Install persistent storage for Kubernetes cluster
 lang: en-US
 ---
 
@@ -8,7 +8,7 @@ lang: en-US
 
 A convenience script installs the community edition of the Storidge software quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
-Run the convenience script below on all nodes. A multi-node cluster requires minimum three nodes. For production deployments and high availability support, a minimum of four nodes is recommended:
+Run the convenience script below on all workers nodes. A multi-node cluster requires minimum three nodes. For production deployments and high availability support, a minimum of four nodes is recommended:
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
@@ -35,3 +35,5 @@ When working with virtual servers, it is common to clone off a base image. For m
 
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
+
+Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker node if not already installed.

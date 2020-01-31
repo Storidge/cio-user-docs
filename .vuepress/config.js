@@ -83,6 +83,8 @@ module.exports = {
             collapsable: true,
             children: [
               '/kubernetes_storage/overview',
+              '/kubernetes_storage/install',
+              '/kubernetes_storage/initialize_cluster',
               '/kubernetes_storage/csi_driver_install',
               '/kubernetes_storage/node_addition',
               '/kubernetes_storage/node_maintenance',
@@ -99,7 +101,7 @@ module.exports = {
             children: [
               '/docker_volumes/overview',
               '/docker_volumes/install',
-              '/docker_volumes/initialize',
+              '/docker_volumes/initialize_cluster',
               '/docker_volumes/docker_volume_create',
               '/docker_volumes/volumes_for_containers',
               '/docker_volumes/volumes_for_services',
