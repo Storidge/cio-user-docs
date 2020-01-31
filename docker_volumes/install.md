@@ -1,10 +1,12 @@
 ---
-title: Install cio
+title: Install
 description: Install persistent storage for Docker Swarm
 lang: en-US
 ---
 
-# Install cio
+# Install software and dependencies
+
+## Install Storidge
 
 A convenience script installs the community edition of the Storidge software quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
