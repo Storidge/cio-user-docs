@@ -6,7 +6,7 @@ lang: en-US
 
 # Overview
 
-## Storage abstraction layer
+## Abstraction layer
 
 Storidge provides persistent storage for stateful applications. Our CIO software aggregates storage devices from a cluster of nodes into a shared capacity and performance pool. Kubernetes sees the storage pool as an abstraction layer from which volumes are created for containers and pods.
 
@@ -27,7 +27,7 @@ Kubernetes introduced [Container Storage Interface](https://github.com/container
 
 The Storidge software installation package installs a [CSI driver](https://hub.docker.com/_/storidge-csi-driver) for Kubernetes v1.14 and above. Once deployed, the CSI driver (aka provisioner) forwards requests from persistent volume claims to the Storidge CIO software which provisions and automatically attaches the volume to the node where the pod is scheduled to run.
 
-## Deployment configurations
+## Deployment options
 
 There are three ways to deploy storage clusters for Kubernetes workloads:
 
@@ -43,7 +43,7 @@ There are three ways to deploy storage clusters for Kubernetes workloads:
 
 ![hyperconverged](../images/network-storage.png)
 
-## Kubernetes Storage Concepts
+## Storage Concepts
 
 ### Volumes
 

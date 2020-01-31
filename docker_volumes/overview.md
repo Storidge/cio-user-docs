@@ -6,7 +6,7 @@ lang: en-US
 
 # Overview
 
-## Storage abstraction layer
+## Abstraction layer
 
 Storidge provides persistent storage for stateful applications. Our CIO software aggregates storage devices from a cluster of nodes into a shared capacity and performance pool. Docker sees the storage pool as an abstraction layer from which volumes are created for containers and services.
 
@@ -27,7 +27,7 @@ The Storidge installation package installs a v2 volume plugin for Docker version
 
 For Docker Enterprise (EE), Storidge provides both a volume plugin and CSI driver to support both Swarm and Kubernetes modes.
 
-## Deployment configurations
+## Deployment options
 
 Docker works with the assumption that a Docker Volume is a local directory on a node where the container or service is running. There are three ways to deploy storage clusters for Docker stateful workloads:
 

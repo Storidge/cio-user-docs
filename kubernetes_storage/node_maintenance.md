@@ -40,6 +40,6 @@ When change block tracking is engaged, a maintenance window of 30 minutes is sta
 
 If additional time is needed, the maintenance window can be extended. Use `cioctl node extend-time` to extend time for maintenance up to maximum of 60 minutes.
 
-## Show maintenance time available
+## Show maintenance window
 
 Run `cioctl node show-time` to display time left in maintenance window.
