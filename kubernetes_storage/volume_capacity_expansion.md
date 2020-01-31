@@ -42,6 +42,8 @@ The StorageClass must have allowVolumeExpansion: true
   Normal   VolumeResizeSuccessful  20s (x2 over 50s)  external-resizer csi.cio.storidge.com                              Resize volume succeeded
 ```
 
-::: tip
-Storidge volumes support automatic capacity expansion to minimize operator effort, and chance for application disruptions. See [auto expansion example](https://guide.storidge.com/getting_started/autoexpand.html) to enable this service.
-:::
+## Automate capacity expansion
+
+Storidge volumes support automatic capacity expansion to minimize operator effort, and the possibility of application disruptions. This eliminates the need to edit the PVC spec to change the size of a volume. 
+
+See [auto expansion example](https://guide.storidge.com/getting_started/autoexpand.html) to enable this service.

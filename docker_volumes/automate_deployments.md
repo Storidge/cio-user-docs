@@ -20,4 +20,6 @@ The `provisioners` portion of the Packer template can be easily updated to inclu
 
 Refer to the [terraform-aws-swarm-cio](https://github.com/Storidge/terraform-aws-swarm-cio) or [terraform-do-swarm-cio](https://github.com/Storidge/terraform-do-swarm-cio) repo for examples of configuration files which Terraform executes to deploy a Storidge cluster.
 
-Update the .tf files to fit your requirements and run `terraform apply` to deploy. The configuration files look for an image to launch the cloud instances. You can also update Ansible to download and install the community edition Storidge software as part of the deployment, instead of generating a Packer image first.
+Update the .tf files to fit your requirements and run `terraform apply` to deploy. The configuration files look for an image to launch the cloud instances.
+
+You can also update Ansible to download and install the community edition Storidge software as part of the deployment, instead of generating a Packer image first.
