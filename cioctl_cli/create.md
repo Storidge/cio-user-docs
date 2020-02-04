@@ -16,13 +16,13 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 
 <h3>Options</h3>
 
-| Name                   | Description                                    |
-|:-----------------------|:-----------------------------------------------|
-| --drive <auto|ssd|hdd> | Force a drive type for initialization          |
-| --ip <ip-address>      | Network interface to use for data path traffic |
-| --no-portainer         | Initialize without Portainer service           |
-| --single-node          | Initialize for single node cluster             |
-| --zone                 | Specify zone names for multi-zone cluster      |
+| Name            | Valid Values    | Description                                    |
+|:----------------|:----------------|:-----------------------------------------------|
+| --drive         | auto, ssd, hdd  | Force a drive type for initialization          |
+| --ip            | IP-ADDRESS      | Network interface to use for data path traffic |
+| --no-portainer  |                 | Initialize without Portainer service           |
+| --single-node   |                 | Initialize for single node cluster             |
+| --zone          |                 | Specify zone names for multi-zone cluster      |
 
 Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
