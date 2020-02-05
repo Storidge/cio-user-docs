@@ -120,6 +120,8 @@ root@u181:~#     cioctl init f57c51a0
 Nodes for the cluster can be cloned off a common template. If you see iscsi error messages reported, verify that the ISCSI initiator name on each node is unique.
 
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
+
+If the ISCSI initiator name is not unique, you can change it with:  `echo "InitiatorName=`/sbin/iscsi-iname`" > /etc/iscsi/initiatorname.iscsi`
 :::
 
 ## Login dashboard
