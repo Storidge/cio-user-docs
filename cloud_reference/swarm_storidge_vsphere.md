@@ -16,6 +16,14 @@ First, you'll need to setup the cluster resources to orchestrate:
 - Select VMXNET3 virtual adapter.
 - Secure boot turned off. Storidge CIO will load kernel modules with modprobe.
 
+::: tip
+To turn secure boot off, VM must be powered off.
+
+Then right-click VM, select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
+
+Deselect the Secure Boot check box to disable secure boot. Click OK.
+:::
+
 ## Install Storidge software
 
 Storidge CIO currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
