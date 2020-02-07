@@ -51,7 +51,6 @@ cluster: Starting cio daemon
 cluster: Starting API
 ```
 
-
 ## cioctl node remove
 
 <h3>Usage</h3>
@@ -143,6 +142,11 @@ Revert changes made from joining a cluster. Run this command on node to clean st
 
 `cioctl node clean` will check that the node is not a member of a cluster. If so this command revert changes made to the node by `cioctl init` or `cioctl join`. It removes files that were created and wipes state information on the node.
 
+<h3>Options</h3>
+
+| Name          | Description                                    |
+|:--------------|:-----------------------------------------------|
+| --force       | Clean state a node regardless of node status   |
 
 ## cioctl node show-time
 

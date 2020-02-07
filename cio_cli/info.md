@@ -1,6 +1,6 @@
 ---
 title: cio info
-description: cio info command; ocker volumes for containers; persistent volumes for pods 
+description: cio info command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
@@ -17,6 +17,7 @@ Display cluster or node information.
 | Name                | Description                          |
 |:--------------------|:-------------------------------------|
 | --capacity, -c      | Display capacity details             |
+| --count             | Display node count over time         |
 | --node, -n NODENAME | Display info for node name           |
 | --nodeid, -N NODEID | Display info for node identifier     |
 | --nounits           | Display information using byte units |
