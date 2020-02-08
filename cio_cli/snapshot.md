@@ -80,6 +80,12 @@ Succeed: Cloned snapshot 2020-02-07-1329-69b2ae3a-0000013 to volume snapclone
 
 Display snapshot information by snapshot id.
 
+<h3>Options</h3>
+
+| Name           | Description                            |
+|:---------------|:---------------------------------------|
+| --json, -j     | Display snapshot info in JSON format   |
+
 <h3>Examples</h3>
 
 ```
