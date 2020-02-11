@@ -25,6 +25,8 @@ Install Docker for the Linux distribution you are using.
 
 [Docker on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
+Run `docker version` to confirm both the client and server are running.
+
 ### Install kubectl
 
 Install the kubectl binary with curl on Linux.
@@ -91,7 +93,7 @@ Adding disk /dev/sdd SSD to storage pool
 
 Deploy the Storidge CSI driver. This will also deploy a default storage class (cio-default). This example assumes Kubernetes 1.16.
 ```
-root@ubuntu-16:~# kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.2.0.yaml
+root@ubuntu-16:~# kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.3.0.yaml
 csidriver.storage.k8s.io/csi.cio.storidge.com created
 storageclass.storage.k8s.io/cio-default created
 statefulset.apps/csi-cio-controller created
@@ -110,6 +112,10 @@ For Kubernetes 1.15 and below, run:
 ```
 kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.1.0.yaml
 ```
+
+::: tip
+If you hit error message "The connection to the server 192.168.3.99:8443 was refused - did you specify the right host or port?", run `minikube delete`, then `minikube start`
+:::
 
 ### Verify CSI driver deployed
 
