@@ -117,7 +117,7 @@ root@u181:~#     cioctl init f57c51a0
 ```
 
 ::: warning
-Nodes for the cluster can be cloned off a common template. If you see iscsi error messages reported, verify that the ISCSI initiator name on each node is unique.
+In vSphere, nodes for the cluster can be cloned off a common template. If you see iscsi error messages reported, verify that the ISCSI initiator name on each node is unique.
 
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 
@@ -160,6 +160,12 @@ y5xjd5xsyph7        portainer_portainer   replicated          1/1               
 ```
 
 Login to the Portainer dashboard at any node's IP address on port 9000.
+
+::: warning
+It is recommended not to use VMware snapshot for backups of cluster nodes. The snapshot, backup, remove snapshot cycle suspends the VM breaking connectivity to the rest of the cluster. See [this faq](https://faq.storidge.com/troubleshooting.html#cluster-breaks-on-vsphere-vms-with-errors-sds-node-mgmt-14380-warning-node-pingable-node-0-node-id-ab7dc460-172-164-2-21-last-alive-sec) for more info.
+
+Storidge will be introducing a native backup service with container granularity that does not require a cluster node to be suspended.
+:::
 
 <h3>Next steps</h3>
 
