@@ -55,14 +55,14 @@ Entries in `parameters` are optional as defaults are set for basic attributes. S
 | ----------------- | -------------------------------------- | ------------------ |
 | directory         | Bind mount on the host                 | /path/to/volume    |
 | filesystem        | Filesystem on volume                   | btrfs, ext4, xfs*  |
-| iopsMin           | Minimum iops guaranteed (SSD required) | minimum 30         |
-| iopsMax           | Maximum iops allowed (SSD required)    | 10,000,000 max     |
+| iopsmin           | Minimum iops guaranteed (SSD required) | minimum 30         |
+| iopsmax           | Maximum iops allowed (SSD required)    | 10,000,000 max     |
 | level             | Number of replicas for data redundancy | 1, 2, 3            |
 | profile           | Profile to use for volume creation     | PROFILENAME        |
 | provision         | Select thick or thin provisioning      | thin*, thick       |
 | type              | Type of media or backend storage       | ssd, hdd           |
-| snapshotEnabled   | Enable snapshot for volume             | yes, no*           |  
-| snapshotInterval  | Periodic snapshot interval in minutes  | minimum 1          |
+| snapshot          | Enable snapshot for volume             | yes, no*           |  
+| interval          | Periodic snapshot interval in minutes  | minimum 1          |
 | snapshotMax       | maximum number of snapshots to keep    | 99 max             |
 
 ## Example with nginx
