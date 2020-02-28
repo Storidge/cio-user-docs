@@ -63,7 +63,7 @@ Entries in `parameters` are optional as defaults are set for basic attributes. S
 | type              | Type of media or backend storage       | ssd, hdd           |
 | snapshot          | Enable snapshot for volume             | yes, no*           |  
 | interval          | Periodic snapshot interval in minutes  | minimum 1          |
-| snapshotMax       | maximum number of snapshots to keep    | 99 max             |
+| snapshotmax       | maximum number of snapshots to keep    | 99 max             |
 
 ## Example with nginx
 
