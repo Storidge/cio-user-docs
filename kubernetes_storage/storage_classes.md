@@ -76,14 +76,14 @@ metadata:
   name: cio-nginx
 provisioner: csi.cio.storidge.com
 parameters:
-  iopsMin: "100"
-  iopsMax: "10000"  
+  iopsmin: "100"
+  iopsmax: "10000"  
   level: "2"
   provision: "thin"
   type: "ssd"
-  snapshotEnabled: "yes"
-  snapshotInterval: "60"
-  snapshotMax: "5"
+  snapshot: "yes"
+  interval: "60"
+  snapshotmax: "5"
 reclaimPolicy: Delete
 allowVolumeExpansion: true
 ```
