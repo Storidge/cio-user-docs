@@ -26,7 +26,9 @@ bind-utils
 
 bison
 
-cryptsetup-luks
+cryptsetup
+
+dc
 
 docker
 
@@ -35,6 +37,8 @@ expect
 gcc
 
 git
+
+libaio
 
 libyaml
 
@@ -48,9 +52,9 @@ iscsi-initiator-utils
 
 make
 
-net-tools
+rsync
 
-pciutils
+sg3utils
 
 subversion
 
