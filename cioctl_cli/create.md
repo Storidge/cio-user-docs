@@ -16,25 +16,25 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 
 <h3>Options</h3>
 
-| Name            | Valid Values    | Description                                    |
-|:----------------|:----------------|:-----------------------------------------------|
-| --drive         | auto, ssd, hdd  | Force a drive type for initialization          |
-| --ip            | IP-ADDRESS      | Network interface to use for data path traffic |
-| --no-portainer  |                 | Initialize without Portainer service           |
-| --single-node   |                 | Initialize for single node cluster             |
-| --zone          |                 | Specify zone names for multi-zone cluster      |
+| Name            | Valid Values         | Description                                    |
+|:----------------|:---------------------|:-----------------------------------------------|
+| --drive         | auto, ssd, hdd       | Force a drive type for initialization          |
+| --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic |
+| --no-portainer  |                      | Initialize without Portainer service           |
+| --single-node   |                      | Initialize for single node cluster             |
+| --zone          |                      | Specify zone names for multi-zone cluster      |
 
 Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
-Use the `--ip` option to specify the interface to use for the storage network. This is used when there are more than one network interfaces that can be specified, to keep host and storage traffic separated.
+Use the `--ip` option to specify the network interface to use for the storage traffic. This option is used when there are more than one network interface, and it is desirable to keep host and storage traffic separate, e.g. in production cluster.
 
-Use the `--no-portainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.  
+You can also use the host name to specify network interface to use in environments that support DNS.
 
-If a cluster is already configured, running this command will provide option to delete current configuration, destroy cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
+Use the `--no-portainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.
 
-::: tip
-If creating a single node cluster, use the `--single-node` option to start initializing the cluster, e.g. `cioctl create --single-node`
-:::
+Run `cioctl create --single-node` to quickly create a single node cluster. This eliminates the extra step of running the `cioctl init` command.
+
+Using `cioctl create` command again on an already running cluster provides the option to delete current cluster configuration, destroy the cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
 
 <h3>Examples</h3>
 
