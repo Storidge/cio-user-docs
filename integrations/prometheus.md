@@ -102,7 +102,7 @@ To visualize the metrics with Grafana, follow the steps in [Grafana with Storidg
 
 <h2>Exported metrics</h2>
 
-The following cluster stats are available on each of the nodes. The Storidge API refreshes metrics every ten seconds.
+The following cluster stats are available on each of the nodes.
 
 | Exported Cluster Data | Description |
 |---|---|
@@ -153,3 +153,24 @@ The API response data is also exported.
 | cio_api_calls_conflict | The total number of calls that returned 409 CONFLICT |
 | cio_api_calls_internal_server_error | The total number of calls that returned 500 INTERNAL SERVER ERROR |
 | cio_api_calls_errors_overall | The total number of calls that returned non-200 OK responses |
+
+<h2>Configuring Metrics To Export</h2>
+
+Environment variables can be passed to configure the amount of metrics exported. The default settings are API_LEVEL=2, DRIVE_LEVEL=1, and SYSTEM_LEVEL=1.
+
+The following environment variables and values are supported:
+
+| Environment Variable  | Description |
+|---|---|
+| API_LEVEL=2	|	All API stats are exported |
+| API_LEVEL=1	|	Only Total OK and Total Errors are exported |
+| API_LEVEL=0	|	No API stats exported |
+| DRIVE_LEVEL=1	|	All drive stats exported |
+| DRIVE_LEVEL=0	|	No drive stats exported |
+| SYSTEM_LEVEL=1 | All cluster stats from `cio info` are exported |
+| SYSTEM_LEVEL=0| No cluster stats from `cio info` exported |
+
+Example:
+```
+docker service create --name cio_prom --publish 16995:16995 -e API_LEVEL=1 -e SYSTEM_LEVEL=0 -e DRIVE_LEVEL=1 storidge/cio-prom:latest
+```
