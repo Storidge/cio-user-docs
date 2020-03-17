@@ -15,14 +15,14 @@ Support is added for installing Storidge software on AWS EKS instances. This mak
 
 This release fixes a SCST issue that can stop a node from shutting down correctly. When `cioctl node update` updates a cluster node to latest release, this bug may result in a node hang.
 
-If you have an existing cluster and hit this issue during a node update operation, perform a hard reset to reboot the node. After the node has rebooted and rejoined the cluster, run `cioctl node update` again to complete the node update. 
+If you have an existing cluster and hit this issue during a node update operation, perform a hard reset to reboot the node. After the node has rebooted and rejoined the cluster, run `cioctl node update` again to complete the node update.
 
 :::
 
 ## New
 - Add support for running Storidge on AWS Ubuntu EKS images
 - Automatically assign a new Swarm manager node when manager node is removed from cluster
-- Add support for S3 interface on volumes using minio image. Naming convention for volumes are <interface>-<vdisk id>, e.g. s3-vd1
+- Add support for S3 interface on volumes using minio image. Naming convention for volumes are INTERFACE-VDISK_ID, e.g. s3-vd1
 - Add `--no-reboot` option in `cioctl node update` so node reboot can be automated through Ansible
 - Provide environment variables to configure metrics exported by storidge/cio-prom
 
@@ -32,7 +32,7 @@ If you have an existing cluster and hit this issue during a node update operatio
 - Add support AWS Ubuntu 4.15.0-{1060, 1063}
 - Add support Ubuntu 4.4.0-{175, 176}, AWS Ubuntu 4.4.0-{1103. 1104}
 - Remove retracted kernels 4.15.0-{89, 90, 1061, 1062}
-- Enable user to use host name for passing IP addresses to cioctl create
+- Enable user to use host name for passing IP addresses to `cioctl create`
 - Update to Golang version 1.14
 - Add gbio support for Ubuntu 19.10 when crossing boundaries
 - Fix bug where large I/O crosses three or more microdisks
