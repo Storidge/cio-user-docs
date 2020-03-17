@@ -35,7 +35,6 @@ If you have an existing cluster and hit this issue during a node update operatio
 - Enable user to use host name for passing IP addresses to `cioctl create`
 - Update to Golang version 1.14
 - Add gbio support for Ubuntu 19.10 when crossing boundaries
-- Fix bug where large I/O crosses three or more microdisks
 - Improve node partial failure handling
 - Significantly reduce amount of messages going into system syslog
 - Update Prometheus exporter to add more volume info; volume name, capacity, allocated percentage. This is to enable displaying graphs of disk usage, e.g. on grafana
@@ -47,4 +46,5 @@ If you have an existing cluster and hit this issue during a node update operatio
 - Fixed issue with `cio network create` where '---' is incorrectly inserted in network configuration file
 - Fixed bug where Ubuntu 18.04.1 did not install because subversion package was missing
 - Fixed bug in `cioctl unload` to correctly search for volume portainer_portainer from stack file portainer  
+- Fixed bug where large I/O crosses three or more microdisks
 - Fixed bug to resolve potential node hangs during cordon operation due to dependency between initiator and target scst code
