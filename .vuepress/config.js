@@ -170,6 +170,7 @@ module.exports = {
             title: 'Release Notes',
             collapsable: true,
             children: [
+              '/release_notes/release_1.0.0-3186.md',
               '/release_notes/release_1.0.0-3138.md',
               '/release_notes/release_1.0.0-3107.md',
               '/release_notes/release_1.0.0-3085.md',
