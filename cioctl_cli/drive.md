@@ -38,7 +38,7 @@ Add a drive to the storage pool.
 
 Only drives marked with 'available' status can be added to the storage pool. Drives are added by specifying the drive path and node name. These two parameters are listed in the `cioctl drive ls` command.
 
-<h3>Arguments</h3>
+<h3>Options</h3>
 
 | Name   | Description                                       |
 |:-------|:--------------------------------------------------|

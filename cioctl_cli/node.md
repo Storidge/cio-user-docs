@@ -100,9 +100,15 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 <h3>Usage</h3>
 
-`cioctl node update <NODENAME | NODEID>`
+`cioctl node update <NODENAME | NODEID> [options]`
 
 Updates Storidge software on node to latest version
+
+<h3>Options</h3>
+
+| Name            | Description                                                                 |
+|:----------------|:----------------------------------------------------------------------------|
+| --no-reboot     | No node reboot after update so reboot can be automated through scripting |
 
 Storidge supports cluster aware updates so users can easily upgrade to the latest capabilities. Cluster aware updating upgrade nodes to the latest software releases, while the cluster is online and services continue to run.
 
