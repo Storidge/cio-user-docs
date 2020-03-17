@@ -11,6 +11,14 @@ New features include support for configuring S3 interface on any Storidge volume
 
 Support is added for installing Storidge software on AWS EKS instances. This makes it much simpler to deploy a cluster of Kubernetes worker nodes with integrated persistent storage, while using AWS EKS for the Kubernetes control plane (master nodes).
 
+::: warning Important
+
+This release fixes a SCST issue that can stop a node from shutting down correctly. When `cioctl node update` updates a cluster node to latest release, this bug may result in a node hang.
+
+If you have an existing cluster and hit this issue during a node update operation, perform a hard reset to reboot the node. After the node has rebooted and rejoined the cluster, run `cioctl node update` again to complete the node update. 
+
+:::
+
 ## New
 - Add support for running Storidge on AWS Ubuntu EKS images
 - Automatically assign a new Swarm manager node when manager node is removed from cluster
