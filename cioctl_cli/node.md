@@ -104,13 +104,14 @@ After maintenance is completed, run the `cioctl node uncordon` command to add th
 
 Updates Storidge software on node to latest version
 
+Storidge supports cluster aware updates so users can easily upgrade to the latest capabilities. Cluster aware updating upgrade nodes to the latest software releases, while the cluster is online and services continue to run.
+
 <h3>Options</h3>
 
-| Name            | Description                                                                 |
-|:----------------|:----------------------------------------------------------------------------|
-| --no-reboot     | No node reboot after update so reboot can be automated through scripting |
-
-Storidge supports cluster aware updates so users can easily upgrade to the latest capabilities. Cluster aware updating upgrade nodes to the latest software releases, while the cluster is online and services continue to run.
+| Name            | Description                                                               |
+|:----------------|:--------------------------------------------------------------------------|
+| --no-reboot     | No node reboot after update so reboot can be automated through scripting  |
+| --version       | Specify software version node will be updated to                          |
 
 `cioctl node update` updates the Storidge software components and dependencies on a node. When the command is run, it checks for any software update. If an update is available, it performs the following sequence:
 
@@ -123,7 +124,7 @@ Storidge supports cluster aware updates so users can easily upgrade to the lates
 
 The `cioctl node update` command will prescribe an update sequence so worker nodes are updated first, and the sds node (primary) is updated last.
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 To update node worker3, run:
 
@@ -137,6 +138,21 @@ Loading cio software for: u16  (4.4.0-116-generic)
 .
 Success: This node has been updated to cio version 1.0.0-2915. This node will be rebooted and automatically rejoin the cluster
 ```
+
+To update node c5 to version 3186, run:
+
+```
+[root@c1 ~]# cioctl node update c5 --version 3186
+Loading cio software for: c7xl3  (3.10.0-1062.el7.x86_64)
+Succeed: node 6eeb0bc5 state is cordon
+.
+.
+.
+Succeed: This node has been updated to cio version 1.0.0-3186. This node will be rebooted and automatically rejoin the cluster
+
+Connection to 192.168.1.235 closed by remote host.
+```
+
 
 ## cioctl node clean
 

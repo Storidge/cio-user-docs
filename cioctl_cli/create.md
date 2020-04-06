@@ -18,6 +18,7 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 
 | Name            | Valid Values         | Description                                    |
 |:----------------|:---------------------|:-----------------------------------------------|
+| --all-managers  |                      | Set all nodes to manager role in Swarm cluster |
 | --drive         | auto, ssd, hdd       | Force a drive type for initialization          |
 | --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic |
 | --no-portainer  |                      | Initialize without Portainer service           |
