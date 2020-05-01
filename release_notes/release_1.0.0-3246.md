@@ -8,8 +8,8 @@ lang: en-US
 This update adds user feature requests, stability Improvements, important bug fixes and support for new kernel releases.
 
 ## New
-- Add feature request to provide `--all-managers` option in cioctl create command. This assigns all nodes to have manager role in a Swarm cluster
-- Add feature request to provide `--version` option in cioctl node update command. This provides ability for user to update to a specified cio version instead of automatically updating to latest version
+- Add feature request to provide `--all-managers` option in `cioctl create` command. This assigns all nodes to have manager role in a Swarm cluster
+- Add feature request to provide `--version` option in `cioctl node update` command. This provides ability for user to update to a specified cio version instead of automatically updating to latest version
 - Add support for shared volumes. Shared volumes are specified using `--shared` flag in `cio volume create` or `shared: yes` key value in a profile. The shared volume is accessible on all nodes without having to spec an nfs client within a container or pod. Shared volumes are initially supported where Storidge's IPAM capability can allocate and manage IP addresses for each shared volume.
 - Add initial support for Ubuntu 20.04
 - Add command `cio license add --token | --license` for cluster setup and enable additional functionality during runtime
