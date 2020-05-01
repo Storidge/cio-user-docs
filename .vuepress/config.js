@@ -48,6 +48,7 @@ module.exports = {
               '/cio_cli/capacity',
               '/cio_cli/event',
               '/cio_cli/info',
+              '/cio_cli/license',
               '/cio_cli/network',
               '/cio_cli/node',
               '/cio_cli/nodeid',
@@ -170,6 +171,7 @@ module.exports = {
             title: 'Release Notes',
             collapsable: true,
             children: [
+              '/release_notes/release_1.0.0-3246.md',
               '/release_notes/release_1.0.0-3186.md',
               '/release_notes/release_1.0.0-3138.md',
               '/release_notes/release_1.0.0-3107.md',
