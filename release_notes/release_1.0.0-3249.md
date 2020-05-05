@@ -1,10 +1,10 @@
 ---
-title: Release 1.0.0-3247
-description: Release notes for Storidge CIO version 1.0.0-3247
+title: Release 1.0.0-3249
+description: Release notes for Storidge CIO version 1.0.0-3249
 lang: en-US
 ---
 
-# Release 1.0.0-3247
+# Release 1.0.0-3249
 This update adds user feature requests, stability Improvements, important bug fixes and support for new kernel releases.
 
 ## New
