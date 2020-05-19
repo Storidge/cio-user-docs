@@ -14,6 +14,12 @@ Run the convenience script below on all workers nodes. A multi-node cluster requ
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
+::: tip
+FTP access may not be allowed from certain countries or locations. Try using http to download and install:
+
+`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+:::
+
 Example:
 ```
 root@demo:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
@@ -38,7 +44,7 @@ When working with virtual servers, it is common to clone off a base image. For m
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
 
-## Install Kubernetes 
+## Install Kubernetes
 
 Install the Kubernetes components (kubelet, kubeadm, kubectl, kubernetes-cni) on the worker nodes if not already installed.
 

@@ -14,6 +14,12 @@ Run the convenience script below on all nodes. A multi-node cluster requires min
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
+::: tip
+FTP access may not be allowed from certain countries or locations. Try using http to download and install:
+
+`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+:::
+
 Example:
 ```
 root@demo:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
