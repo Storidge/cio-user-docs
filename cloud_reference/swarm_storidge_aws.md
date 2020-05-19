@@ -25,6 +25,12 @@ After verifying you have a supported distribution, run the convenience script be
 
 `curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
+::: tip
+FTP access may not be allowed from certain countries or locations. Try using http to download and install:
+
+`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+:::
+
 Example:
 ```
 root@ip-172-31-27-160:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
