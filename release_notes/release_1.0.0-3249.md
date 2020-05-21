@@ -16,8 +16,8 @@ This update adds user feature requests, stability Improvements, important bug fi
 - Add support for air-gap installations on RHEL 7 node with new `install --air-gap` option
 
 ## Improvements
-- Add support for Ubuntu 4.4.0-{177, 178, 179}, 4.15.0-{96, 97, 99, 100}
-- Add support for AWS Ubuntu 4.4.0-1105, 4.15.0-{1065, 1066}
+- Add support for Ubuntu 4.4.0-{177, 178, 179, 180}, 4.15.0-{96, 97, 99, 100, 101, 102}
+- Add support for AWS Ubuntu 4.4.0-{1105, 1106, 1007}, 4.15.0-{1065, 1066, 1067}
 - Add support for Centos 3.10.0-1062.18.1
 - Update SCST to version scst-3.4.x-r8836
 - Update Docker version to 19.03.8
