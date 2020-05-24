@@ -27,7 +27,7 @@ Install Docker for the Linux distribution you are using.
 
 Run `docker version` to confirm both the client and server are running.
 
-Kubernetes recommends systemd as the Docker cgroup driver. See guide at https://kubernetes.io/docs/setup/cri/ for Centos/RHEL installs.
+Kubernetes recommends using systemd for the Docker cgroup driver. Update the docker config file with:  
 
 ```
 cat > /etc/docker/daemon.json <<EOF
@@ -40,7 +40,12 @@ cat > /etc/docker/daemon.json <<EOF
   "storage-driver": "overlay2"
 }
 EOF
+```
+For Centos/RHEL installs, see guide at https://kubernetes.io/docs/setup/cri/
 
+
+Next, restart Docker
+```
 mkdir -p /etc/systemd/system/docker.service.d
 systemctl daemon-reload
 systemctl restart docker
