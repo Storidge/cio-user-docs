@@ -27,6 +27,25 @@ Install Docker for the Linux distribution you are using.
 
 Run `docker version` to confirm both the client and server are running.
 
+Kubernetes recommends systemd as the Docker cgroup driver. See guide at https://kubernetes.io/docs/setup/cri/ for Centos/RHEL installs.
+
+```
+cat > /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+mkdir -p /etc/systemd/system/docker.service.d
+systemctl daemon-reload
+systemctl restart docker
+```
+
 ### Install kubectl
 
 Install the kubectl binary with curl on Linux.
@@ -35,6 +54,11 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version
+```
+
+Add dependency
+```
+apt-get install -y conntrack
 ```
 
 ### Install Minikube
@@ -68,25 +92,30 @@ curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 
 ### Create Storidge cluster
 
-Run `cioctl create --single-node` to initialize a single node Storidge cluster. This creates a storage abstraction layer for persistent storage.
+Run `cioctl create --kubernetes --single-node` to initialize a single node Storidge cluster. This creates a storage abstraction layer for persistent storage.
 ```
-root@ubuntu-16:~# cioctl create --single-node
-<13>Nov 20 11:09:18 cluster: initialization started
-<13>Nov 20 11:09:19 cluster: Start node initialization
-<13>Nov 20 11:09:21 node: Clear drives
-<13>Nov 20 11:09:23 node: Load module
-<13>Nov 20 11:09:23 node: Add node backup relationship
-<13>Nov 20 11:09:27 node: Check drives
+root@ubuntu18:~# cioctl create --kubernetes --single-node
+Key Generation setup
+<13>May 23 22:45:09 cluster: initialization started
+<13>May 23 22:45:11 cluster: WARNING: No user license info specified, using default
+<13>May 23 22:45:12 cluster: Start node initialization
+<13>May 23 22:45:13 node: Clear drives
+<13>May 23 22:45:22 node: Load module
+<13>May 23 22:45:22 node: Add node backup relationship
+<13>May 23 22:45:22 node: Check drives
 Adding disk /dev/sdb SSD to storage pool
 Adding disk /dev/sdc SSD to storage pool
 Adding disk /dev/sdd SSD to storage pool
-<13>Nov 20 11:09:38 node: Collect drive IOPS and BW: Total IOPS:43196  Total BW:2042.2MB/s
-<13>Nov 20 11:09:39 node: Initializing metadata
-<13>Nov 20 11:09:39 cluster: Node initialization completed
-<13>Nov 20 11:09:39 cluster: Start cio daemon
-<13>Nov 20 11:09:43 cluster: Succeed: Add vd0: Type:2-copy, Size:20GB
-<13>Nov 20 11:09:45 cluster: MongoDB ready
-<13>Nov 20 11:09:46 cluster: Synchronizing VID files
+<13>May 23 22:45:33 node: Collect drive IOPS and BW: Total IOPS:23955  Total BW:1102.8MB/s
+<13>May 23 22:45:33 node: Initializing metadata
+<13>May 23 22:45:33 cluster: Node initialization completed
+<13>May 23 22:45:35 cluster: Synchronizing license
+<13>May 23 22:45:35 cluster: Start cio daemon
+<13>May 23 22:45:39 cluster: Succeed: Add vd0: Type:2-copy, Size:20GB
+<13>May 23 22:45:41 cluster: MongoDB ready
+<13>May 23 22:45:42 cluster: Synchronizing VID files
+<13>May 23 22:45:58 cluster: Starting API
+<13>May 23 22:46:06 cluster: Starting Portainer and Agent
 ```
 
 ### Deploy Storidge CSI driver
