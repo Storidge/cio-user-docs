@@ -19,7 +19,7 @@ Configure your virtual machine for:
 
 ### Install Docker
 
-Install Docker for the Linux distribution you are using.
+Install Docker for your Linux distribution with the links below:
 
 [Docker on CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 
@@ -53,7 +53,7 @@ systemctl restart docker
 
 ### Install kubectl
 
-Install the kubectl binary with curl on Linux.
+Install the kubectl binary.
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -61,7 +61,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version
 ```
 
-Add dependency
+Add a dependency required in latter releases of Kubernetes.
 ```
 apt-get install -y conntrack
 ```
@@ -95,7 +95,7 @@ Install the Storidge CIO software with convenience script. This will check your 
 curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 ```
 
-### Create Storidge cluster
+### Create single node Storidge cluster
 
 Run `cioctl create --kubernetes --single-node` to initialize a single node Storidge cluster. This creates a storage abstraction layer for persistent storage.
 ```
@@ -123,37 +123,9 @@ Adding disk /dev/sdd SSD to storage pool
 <13>May 23 22:46:06 cluster: Starting Portainer and Agent
 ```
 
-### Deploy Storidge CSI driver
-
-Deploy the Storidge CSI driver. This will also deploy a default storage class (cio-default). This example assumes Kubernetes 1.16.
-```
-root@ubuntu-16:~# kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.3.0.yaml
-csidriver.storage.k8s.io/csi.cio.storidge.com created
-storageclass.storage.k8s.io/cio-default created
-statefulset.apps/csi-cio-controller created
-serviceaccount/csi-cio-controller-sa created
-clusterrole.rbac.authorization.k8s.io/csi-cio-provisioner-role created
-clusterrolebinding.rbac.authorization.k8s.io/csi-cio-provisioner-binding created
-clusterrole.rbac.authorization.k8s.io/csi-cio-attacher-role created
-clusterrolebinding.rbac.authorization.k8s.io/csi-cio-attacher-binding created
-daemonset.apps/csi-cio created
-serviceaccount/csi-nodeplugin-sa created
-clusterrole.rbac.authorization.k8s.io/csi-cio-driver-registrar-role created
-clusterrolebinding.rbac.authorization.k8s.io/csi-cio-driver-registrar-binding created
-```
-
-For Kubernetes 1.15 and below, run:
-```
-kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.1.0.yaml
-```
-
-::: tip
-If you hit error message "The connection to the server 192.168.3.99:8443 was refused - did you specify the right host or port?", run `minikube delete`, then `minikube start`
-:::
-
 ### Verify CSI driver deployed
 
-Verify the Storidge volume plugin (csi-cio) is deployed.
+The install script will automatically deploy the Storidge CSI driver. Verify the CSI driver (csi-cio) is deployed with:
 ```
 root@minikube:~# kubectl get ds -A
 NAMESPACE     NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
