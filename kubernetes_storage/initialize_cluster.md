@@ -63,7 +63,7 @@ When the cio software is installed on physical servers with high performance dev
 
 Add the worker nodes to Kubernetes so pods can be scheduled.
 
-Run `kubeadm token create --print-join-command` on a master node. Copy the `kubeadm join ...` command string, and run on each of the worker nodes.
+Run `kubeadm token create --print-join-command` on an initialized cluster master node to print join commands. Copy the `kubeadm join ...` command string, and run on each of the worker nodes.
 
 Example:
 ```
@@ -73,7 +73,14 @@ kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token
 
 ## 4. Install CSI Driver
 
-Install the CSI driver so you can dynamically provision volumes from Kubernetes. Install the driver by running on a master node:
+Install the CSI driver so you can dynamically provision volumes from Kubernetes. Ensure you have the following prerequisites:
+
+- Kubernetes v1.15+
+- Storidge CIO cluster
+- Enabled ``--allow-privileged`` on Kubernetes API Server and kubelet
+- Set the following feature gates: ``--feature-gates=VolumeSnapshotDataSource=true,KubeletPluginsWatcher=true,CSINodeInfo=true,CSIDriverRegistry=true`` on Kubernetes API server and kubelet
+
+Install the driver by running on a master node:
 
 <h4>Kubernetes 1.16+</h4>
 

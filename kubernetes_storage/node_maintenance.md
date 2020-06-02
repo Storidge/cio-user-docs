@@ -38,7 +38,7 @@ After the node has rejoined the Storidge cluster, run `kubectl uncordon <NODENAM
 
 When change block tracking is engaged, a maintenance window of 30 minutes is started. At the end of 30 minutes, the cordoned node will be automatically removed from the cluster so rebuilds can be started to restore redundancy.
 
-If additional time is needed, the maintenance window can be extended. Use `cioctl node extend-time` to extend time for maintenance up to maximum of 60 minutes.
+If additional time is needed, the maintenance window can be extended. Use `cioctl node extend-time time-in-minutes` to extend time for maintenance up to maximum of 60 minutes, where time-in-minutes is an int value for the number of minutes to extend.
 
 ## Show maintenance window
 
