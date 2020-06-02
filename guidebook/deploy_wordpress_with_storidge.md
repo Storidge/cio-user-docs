@@ -6,15 +6,15 @@ lang: en-US
 
 # Deploying Wordpress and MySQL on Storidge Volume with Docker Swarm
 
-Docker Swarm can be used to deploy stateful web applications. One of the more simpler types of applications we can deploy on Docker Swarm with Storidge is Wordpress. Previously mentioned in the [Docker Swarm](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) section, this guide will show how to user Docker to set up Wordpress with a MySQL database on a CIO cluster.
+Docker Swarm can be used to deploy stateful web applications. One of the more simpler types of applications we can deploy on Docker Swarm with Storidge is Wordpress. Previously mentioned in the [Docker Swarm](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) section, this guide will show how to use Docker to set up Wordpress with a MySQL database on a CIO cluster.
 
-## Prerequisites
+## **Prerequisites**
 
 Have Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html) and set up a cluster.
 
 Make sure your nodes are running with `cio node ls` and Portainer service is working with `docker service ps portainer`. Open up Portainer by going to your master node IP address at port 9000.
 
-## Setup
+## **Setup**
 
 The example below shows a file with two services, a MySQL database (key db:) and a WordPress (key wordpress:) installation. The MySQL service will use volume mysql-data to persist data which is accessed inside the container at path /var/lib/mysql. Default usernames and passwords will be specified in the `environment` portions of the file.
 
@@ -59,9 +59,9 @@ volumes:
 
 ```
 
-## Deployment, Usage, and Teardown
+## **Deployment, Usage, and Teardown**
 
-After you have created the .yml file, deploy Wordpress by running `docker stack deploy -c wordpress-mysql.yml test`. The `-c` flag refers to the .yml compose file that we created. 
+After you have created the YAML file, deploy Wordpress by running `docker stack deploy -c wordpress-mysql.yml test`. The `-c` flag refers to the YAML compose file that we created. 
 
 You will see that a service called `test_db` and `test_wordpress` have shown up on your stacks tab in Portainer.
 
