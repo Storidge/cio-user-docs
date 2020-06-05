@@ -146,7 +146,8 @@ module.exports = {
               '/guidebook/minio_and_storidge',
               '/guidebook/scale_minio_with_storidge',
               '/guidebook/deploy_wordpress_with_storidge',
-              '/guidebook/deploy_cassandra_with_storidge'
+              '/guidebook/deploy_cassandra_with_storidge',
+              '/guidebook/deploy_cockroach_db_docker'
             ]
           },
           {
