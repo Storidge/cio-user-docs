@@ -40,12 +40,11 @@ sudo mv cockroach /usr/local/bin/
 
 ## **Keys and Secrets Setup**
 
-1. Create a `certs` directory on your to keep your CA key:
+1. Create a `certs` directory and a safe directory to keep your CA key:
 
 ```
 $ mkdir certs
-```
-```
+
 $ mkdir my-safe-directory
 ```
 
@@ -56,18 +55,12 @@ $ cockroach cert create-ca \
 --certs-dir=certs \
 --ca-key=my-safe-directory/ca.key
 ```
-```
-$ ls certs
-```
-```
-ca.crt
-```
+Make sure there exists a `ca.crt` file inside your `certs` directory. This is your CA certificate.
 
-3. Create a Docker secret, or password, for `ca.crt`. It creates a secret called `ca-crt` and specifies where the CA certificate file is located.:
+3. Create a Docker secret, or password, for `ca.crt`. It creates a secret called `ca-crt` and specifies that the CA certificate file is located in `certs`:
 
 ```
-$ sudo docker secret create ca-crt certs/ca.crt
-
+$ docker secret create ca-crt certs/ca.crt
 ```
 
 4. Now we can get to creating the ceritifates and keys for the first node in the cluster. In this guide, we will create **3 nodes**. Run the following:
@@ -88,6 +81,7 @@ ca.crt
 node.crt
 node.key
 ```
+Make sure there exists a `ca.crt`, `node.crt`, and `node.key` inside your `certs` directory. The `node.crt` file specifies the certificate and the `node.key` file is the key.
 
 5. Next, we make secrets for the certificate and key that we just made:
 
@@ -108,106 +102,57 @@ localhost \
 --certs-dir=certs \
 --ca-key=my-safe-directory/ca.key
 ```
-```
-$ ls certs
-```
-```
-ca.crt
-node.crt
-node.key
-```
 
 7. Create the second node's Docker secrets for its certificate and key:
 
 ```
 $ sudo docker secret create cockroachdb-2-crt certs/node.crt
-```
-```
+
+...
+
 $ sudo docker secret create cockroachdb-2-key certs/node.key
 ```
 
-8. Repeat the node creation we did with the second node for the third node:
+8. Repeat the node creation and secret creation we did with the second node for the third node. Simply replace every instance of `cockroachdb-2` with `cockroachdb-3`. Secrets would be named `cockroachdb-3-crt` and `cockroachdb-3-key`.
 
-```
-$ cockroach cert create-node --overwrite \
-cockroachdb-3 \
-localhost \
-127.0.0.1 \
---certs-dir=certs \
---ca-key=my-safe-directory/ca.key
-```
-```
-$ ls certs
-```
-```
-ca.crt
-node.crt
-node.key
-```
-
-9. Repeat the Docker secret creation for the third node's certificate and key:
-
-```
-$ sudo docker secret create cockroachdb-3-crt certs/node.crt
-```
-```
-$ sudo docker secret create cockroachdb-3-key certs/node.key
-```
-
-10. Create a client certificate and key for root user:
+9. Create a client certificate and key and their corresponding secrets for root user:
 
 ```
 $ cockroach cert create-client \
 root \
 --certs-dir=certs \
 --ca-key=my-safe-directory/ca.key
-```
 
-11. Repeat Docker secret creation for root certificate and key:
+...
 
-```
 $ sudo docker secret create cockroachdb-root-crt certs/client.root.crt
-```
-```
+
+...
+
 $ sudo docker secret create cockroachdb-root-key certs/client.root.key
 ```
 
 ## **Volume and Service Creation**
 
-Before we create our services for each node, we want to create the CIO volumes that each service will run on. Let's create three volumes for three nodes following the CIO [guide](https://guide.storidge.com/getting_started/docker_volumes.html):
+Run the following to create all three nodes:
 
 ```
-$ docker volume create --driver cio --name cockroach1 --opt capacity=15
-...
-$ docker volume create --driver cio --name cockroach2 --opt capacity=15
-...
-$ docker volume create --driver cio --name cockroach3 --opt capacity=15
-```
-
-This creates three Docker volumes with Storidge's CIO driver with capacity 15GB. Their names are `cockroach1`, `cockroach2`, and `cockroach3`. Verify creation with `docker volume ls`:
-
-```
-DRIVER              VOLUME NAME
-cio:latest          cockroach1
-cio:latest          cockroach2
-cio:latest          cockroach3
-cio:latest          portainer_portainer
-```
-
-Run the following to create your first node:
-
-```
-$ sudo docker service create \
+$ allCrt=(cockroachdb-1-crt cockroachdb-2-crt cockroachdb-3-crt)
+allKey=(cockroachdb-1-key cockroachdb-2-key cockroachdb-3-key)
+allName=(cockroachdb-1 cockroachdb-2 cockroachdb-3)
+allVol=(cockroach1 cockroach2 cockroach3)
+all=(0 1 2)
+for i in ${all[@]}; do
+sudo docker service create \
 --replicas 1 \
---name cockroachdb-1 \
---hostname cockroachdb-1 \
+--name "${allName[i]}" \
+--hostname "${allName[i]}" \
 --network cockroachdb \
---mount type=volume,source=cockroachdb-1,target=/cockroach/cockroach-data,volume-driver=cio:latest,src=cockroach1 \
+--mount type=volume,source="${allName[i]}",target=/cockroach/cockroach-data,volume-driver=cio:latest,src="${allVol[i]}" \
 --stop-grace-period 60s \
---publish 8080:8080 \
 --secret source=ca-crt,target=ca.crt \
---secret source=cockroachdb-1-crt,target=node.crt \
---secret source=cockroachdb-1-key,target=node.key,mode=0600 \
+--secret source=${allCrt[i]},target=node.crt \
+--secret source=${allKey[i]},target=node.key,mode=0600 \
 --secret source=cockroachdb-root-crt,target=client.root.crt \
 --secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
 cockroachdb/cockroach:v20.1.1 start \
@@ -215,10 +160,20 @@ cockroachdb/cockroach:v20.1.1 start \
 --cache=.25 \
 --max-sql-memory=.25 \
 --logtostderr \
---certs-dir=/run/secrets
+--certs-dir=/run/secrets \
+
+done
 ```
 
-This creates the first node, `cockroachdb-1`, using the `volume-driver` called `cio:latest`. Specify `src=cockroach1` to assign the correct volume for it. Some explanations for each flag according to the CockroachDB docs are as follows:
+Then publish our cockroachdb-1 node on port `8080` for browser access: 
+
+```
+$ docker service update cockroachdb-1 --publish-add 8080:8080
+```
+
+This bash command specifies the necessary names we need to use for each `docker service create` flag and uses the `volume-driver` called `cio:latest`, effectively putting us on a Storidge volume that gets automatically created, one for each CockroachDB node.
+
+Some explanations for each flag according to the CockroachDB docs are as follows:
 
 - `sudo docker service create`: Creates a new service.
 - `--replicas`: The number of containers controlled by our service. We set this value to `1` for each node since it's one CockroachDB node per local node.
@@ -229,49 +184,6 @@ This creates the first node, `cockroachdb-1`, using the `volume-driver` called `
 - `--stop-grace-period`: Setse a grace period for CockroachDB so it can shut down in time.
 - `--publish`: Makes the Admin UI accessible at the IP of any instance running a swarm mode on port `8080`.
 - `--secret`: Identify the secrets to use in securing the node. We created our secrets earlier in this guide. We must specify our ca-crt, node crt and key, and root crt and key.
-
-Do the same with the next two nodes:
-
-```
-$ sudo docker service create \
---replicas 1 \
---name cockroachdb-2 \
---hostname cockroachdb-2 \
---network cockroachdb \
---stop-grace-period 60s \
---mount type=volume,source=cockroachdb-2,target=/cockroach/cockroach-data,volume-driver=cio:latest,src=cockroach2 \
---secret source=ca-crt,target=ca.crt \
---secret source=cockroachdb-2-crt,target=node.crt \
---secret source=cockroachdb-2-key,target=node.key,mode=0600 \
---secret source=cockroachdb-root-crt,target=client.root.crt \
---secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
-cockroachdb/cockroach:v20.1.1 start \
---join=cockroachdb-1:26257,cockroachdb-2:26257,cockroachdb-3:26257 \
---cache=.25 \
---max-sql-memory=.25 \
---logtostderr \
---certs-dir=/run/secrets
-```
-```
-$ sudo docker service create \
---replicas 1 \
---name cockroachdb-3 \
---hostname cockroachdb-3 \
---network cockroachdb \
---mount type=volume,source=cockroachdb-3,target=/cockroach/cockroach-data,volume-driver=cio:latest,src=cockroach3 \
---stop-grace-period 60s \
---secret source=ca-crt,target=ca.crt \
---secret source=cockroachdb-3-crt,target=node.crt \
---secret source=cockroachdb-3-key,target=node.key,mode=0600 \
---secret source=cockroachdb-root-crt,target=client.root.crt \
---secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
-cockroachdb/cockroach:v20.1.1 start \
---join=cockroachdb-1:26257,cockroachdb-2:26257,cockroachdb-3:26257 \
---cache=.25 \
---max-sql-memory=.25 \
---logtostderr \
---certs-dir=/run/secrets
-```
 
 We can then verify that we've created all of the services successfully:
 
@@ -303,7 +215,7 @@ Now that our cluster has been initialized and is ready to go, we need to log in 
 $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd)/certs",target=/cockroach/certs,readonly cockroachdb/cockroach:v20.1.1 sql --host=cockroachdb-1 --certs-dir=certs
 ```
 
-Create a `securenodetest database` with `CREATE DATABASE securenodetest`; and create a username and password with `CREATE USER <username> WITH PASSWORD <password>;` as follows:
+Create a `securenodetest database` with `CREATE DATABASE securenodetest;` and create a username and password with `CREATE USER <username> WITH PASSWORD <password>;` as follows:
 
 ```
 #
@@ -335,14 +247,9 @@ Open your browser and to to `https://<any node's external IP address>:8080`. You
 
 ![](../images/cockroachlogin.png)
 
-We arrive at the dashboard, where we can monitor the clusters we created. Note that there are the three nodes that we created on the home page.
+We arrive at the dashboard, where we can monitor the clusters we created. Note that there are the three nodes that we created on the home page. Clicking on any of the nodes we created will allow us to monitor their conditions.
 
 ![](../images/cockroachhome.png)
-
-Clicking on `cockroachdb-1` node gives us the following. The user can then monitor its status.
-
-![](../images/cockroachnode.png)
-
 
 ## **Teardown**
 
@@ -357,21 +264,6 @@ $ docker volume rm cockroach1 cockroach2 cockroach3
 
 Next, remove the secrets that we created: 
 
-```
-$ docker secrets ls
-```
-```
-ID                          NAME                   DRIVER              CREATED             UPDATED
-xejm7w9ctb3pdua2lv55dqcal   ca-crt                                     3 seconds ago       3 seconds ago
-kv7c1we4ud9s4lmu8qgkbpqh2   cockroachdb-1-crt                          7 minutes ago       7 minutes ago
-j8fu64n05x3h5l5okeplf466c   cockroachdb-1-key                          7 minutes ago       7 minutes ago
-aume3g9mgcz0hfrudhjikqbgk   cockroachdb-2-crt                          6 minutes ago       6 minutes ago
-37snguo2cu125iqhzb9gnjoxi   cockroachdb-2-key                          6 minutes ago       6 minutes ago
-j5dz36vtuqmfhol03bpvd8k14   cockroachdb-3-crt                          4 minutes ago       4 minutes ago
-gu8srmbk9joslfsphxc230z0z   cockroachdb-3-key                          4 minutes ago       4 minutes ago
-p3jjoemqdv1wh7i87j2x7q1lt   cockroachdb-root-crt                       4 minutes ago       4 minutes ago
-mcvgi14e8d7o7jvrb90k5ogyg   cockroachdb-root-key                       4 minutes ago       4 minutes ago
-```
 ```
 $ docker secrets rm ca-crt cockroachdb-1-crt cockroachdb-1-key cockroachdb-2-crt cockroachdb-2-key cockroachdb-3-crt cockroachdb-3-key cockroachdb-root-crt cockroachdb-root-key
 ```
