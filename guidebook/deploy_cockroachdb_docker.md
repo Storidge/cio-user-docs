@@ -1,22 +1,22 @@
 ---
-title: Deploy CockroachDB with Storidge
-description: Deploying CockroachDB on Storidge volume with Docker Swarm
+title: CockroachDB on Swarm
+description: Deploying CockroachDB with Storidge on Swarm cluster
 lang: en-US
 ---
 
-# Deploying CockroachDB on Storidge Volume with Docker Swarm
+# Deploying CockroachDB with Storidge on Swarm cluster
 
-[CockroachDB](https://www.cockroachlabs.com/docs/stable/) is a distributed SQL database system that stores persistent data that allows for fast access. In this guide, we will deploy a CockroachDB cluster on Docker Swarm that uses Storidge CIO volume types. The guide will follow parts of Cockroach Labs' [guide](https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html).
+[CockroachDB](https://www.cockroachlabs.com/docs/stable/) is a distributed SQL database system that stores persistent data that allows for fast access. In this guide, we will deploy a CockroachDB cluster on Docker Swarm that uses Storidge volumes. The guide will follow parts of Cockroach Labs' [guide](https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html).
 
-## **Prerequisites**
+## Prerequisites
 
 - Storidge [CIO](https://guide.storidge.com/getting_started/install.html) cluster with at least 3 nodes.
 - Familiarity with Docker volume and service creation.
 - Root access enabled on your master node on your CIO and Docker Swarm cluster. Everything on this guide **will be run on the master node**.
 
-## **Installation**
+## Installation
 
-1. Make sure that your CIO cluster and Docker Swarm is running. We first create an overlay network for container communications purposes. Run the following command:
+1. Make sure that your CIO cluster and Docker Swarm is running. We first create an overlay network for container communications with:
 
 `sudo docker network create --driver overlay --attachable cockroachdb`
 
@@ -25,7 +25,6 @@ lang: en-US
 ```
 $ # Get CockroachDB tarball:
 wget https://binaries.cockroachdb.com/cockroach-v20.1.1.linux-amd64.tgz
-
 ...
 
 $ # Extract the binary:
@@ -38,7 +37,7 @@ $ # Move the binary:
 sudo mv cockroach /usr/local/bin/
 ```
 
-## **Keys and Secrets Setup**
+## Keys and Secrets Setup
 
 1. Create a `certs` directory and a safe directory to keep your CA key:
 
@@ -63,7 +62,7 @@ Make sure there exists a `ca.crt` file inside your `certs` directory. This is yo
 $ docker secret create ca-crt certs/ca.crt
 ```
 
-4. Now we can get to creating the ceritifates and keys for the first node in the cluster. In this guide, we will create **3 nodes**. Run the following:
+4. Now we can get to creating the certificates and keys for the first node in the cluster. In this guide, we will create **3 nodes**. Run the following:
 
 ```
 $ cockroach cert create-node \
@@ -81,6 +80,7 @@ ca.crt
 node.crt
 node.key
 ```
+
 Make sure there exists a `ca.crt`, `node.crt`, and `node.key` inside your `certs` directory. The `node.crt` file specifies the certificate and the `node.key` file is the key.
 
 5. Next, we make secrets for the certificate and key that we just made:
@@ -132,7 +132,7 @@ $ sudo docker secret create cockroachdb-root-crt certs/client.root.crt
 $ sudo docker secret create cockroachdb-root-key certs/client.root.key
 ```
 
-## **Volume and Service Creation**
+## Volume and Service Creation
 
 Run the following to create all three nodes:
 
@@ -165,7 +165,7 @@ cockroachdb/cockroach:v20.1.1 start \
 done
 ```
 
-Then publish our cockroachdb-1 node on port `8080` for browser access: 
+Then publish our cockroachdb-1 node on port `8080` for browser access:
 
 ```
 $ docker service update cockroachdb-1 --publish-add 8080:8080
@@ -207,7 +207,7 @@ $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd
 
 This `docker run` command will run the `cockroach init` command against one of the nodes we created and initialize our cluster.
 
-## **CockroachDB MySQL Configuration**
+## CockroachDB MySQL Configuration
 
 Now that our cluster has been initialized and is ready to go, we need to log in to our CockroachDB dashboard. Before we do this, we use CockroachDB's SQL client to create an account:
 
@@ -241,7 +241,7 @@ Time: 412.04257ms
 
 Exit with `CTRL-D`, `CTRL-C` or type `\q` in the shell. We are now ready to access the dashboard and monitor the cluster.
 
-## **Dashboard Access**
+## Dashboard Access
 
 Open your browser and to to `https://<any node's external IP address>:8080`. You will be directed to the following login screen, where you can enter the username and password you created.
 
@@ -251,7 +251,7 @@ We arrive at the dashboard, where we can monitor the clusters we created. Note t
 
 ![](../images/cockroachhome.png)
 
-## **Teardown**
+## Teardown
 
 To first shutdown the cluster, we simply remove the node services and the volumes associated with them:
 
@@ -262,11 +262,10 @@ $ docker volume rm cockroach1 cockroach2 cockroach3
 
 ```
 
-Next, remove the secrets that we created: 
+Next, remove the secrets that we created:
 
 ```
 $ docker secrets rm ca-crt cockroachdb-1-crt cockroachdb-1-key cockroachdb-2-crt cockroachdb-2-key cockroachdb-3-crt cockroachdb-3-key cockroachdb-root-crt cockroachdb-root-key
 ```
 
 Verify that there are no more instances of the secrets, volumes, or services that were created. Finally, we can remove the certs and safe directory with `rm -rf certs` `rm -rf my-safe-directory`.
-
