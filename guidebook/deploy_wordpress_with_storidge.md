@@ -1,5 +1,5 @@
 ---
-title: Wordpress and MySQL on Swarm
+title: Wordpress & MySQL on Swarm
 description: Deploying Wordpress and MySQL with Storidge on Docker Swarm
 lang: en-US
 ---
