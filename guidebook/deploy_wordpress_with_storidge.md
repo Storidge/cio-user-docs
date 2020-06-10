@@ -1,5 +1,5 @@
 ---
-title: Wordpress on Swarm
+title: Wordpress and MySQL on Swarm
 description: Deploying Wordpress and MySQL with Storidge on Docker Swarm
 lang: en-US
 ---
@@ -8,13 +8,13 @@ lang: en-US
 
 Docker Swarm can be used to deploy stateful web applications. One of the more simpler types of applications we can deploy on Docker Swarm with Storidge is Wordpress. Previously mentioned in the [Docker Swarm](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) section, this guide will show how to use Docker to set up Wordpress with a MySQL database on a Storidge volume.
 
-## **Prerequisites**
+## Prerequisites
 
 Have Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html) and set up a cluster.
 
 Make sure your nodes are running with `cio node ls` and Portainer service is working with `docker service ps portainer`. Open up Portainer by going to your master node IP address at port 9000.
 
-## **Setup**
+## Setup
 
 The example stack file below shows two services; a MySQL database (key db:) and WordPress (key wordpress:). The MySQL service will use volume mysql-data to persist data which is accessed inside the container at path /var/lib/mysql. Default usernames and passwords will be specified in the `environment` portions of the file.
 
@@ -57,7 +57,7 @@ volumes:
       profile: "MYSQL"
 ```
 
-## **Deployment, Usage, and Teardown**
+## Deployment, Usage, and Teardown
 
 After you have created the YAML file, deploy by running `docker stack deploy -c wordpress-mysql.yml test`.
 
