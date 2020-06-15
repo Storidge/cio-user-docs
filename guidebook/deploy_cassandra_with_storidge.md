@@ -1,12 +1,12 @@
 ---
-title: Deploy Cassandra Cluster with Storidge
-description: Deploying Cassandra for Storidge on Docker Swarm cluster
+title: Cassandra Database on Swarm
+description: Deploying Cassandra with Storidge on Swarm cluster
 lang: en-US
 ---
 
-# Deploying Cassandra Cluster on Storidge Volume with Docker Swarm
+# Deploying Cassandra database with Storidge on Swarm cluster
 
-[Apache Cassandra]() is a NoSQL database that we can use to deal with larger amounts of data across a cluster. It has Docker support and can be deployed and accessed through Portainer in conjunction with Storidge CIO software. This guide will show how to deploy Cassandra using a CIO cluster and Docker, while accessing it through Portainer.
+Apache Cassandra is a NoSQL database that we can use to deal with large amounts of data across a cluster. It has Docker support and can be deployed and accessed through Portainer in conjunction with Storidge CIO software. This guide steps through deploying Cassandra with Storidge volumes on a Swarm cluster.
 
 ## Prerequisites
 
@@ -72,12 +72,11 @@ services:
             nofile: 100000
 networks:
     dc1ring:
-
 ```
 
-## **Deployment, Usage, and Teardown**
+## Deployment, Usage, and Teardown
 
-Create and save the YAML file above. We will deploy this by running `docker stack deploy -c cassandra.yml test`. Open up Portainer on the lead Docker Swarm node on port 9000 and navigate to the stacks tab under your portainer stack.
+Create and save the YAML file above. Deploy the file by running `docker stack deploy -c cassandra.yml test`. Open up Portainer on the lead Docker Swarm node on port 9000 and navigate to the stacks tab.
 
 You will see that the 2 nodes have been created. Go to the console under the seed node container and enter `nodetool status`. It will return the IP addresses of each connected node.
 

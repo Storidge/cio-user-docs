@@ -1,27 +1,26 @@
 ---
-title: Deploy Wordpress with Storidge
-description: Deploying Wordpress and MySQL for Storidge on Docker Swarm cluster
+title: Wordpress & MySQL on Swarm
+description: Deploying Wordpress and MySQL with Storidge on Docker Swarm
 lang: en-US
 ---
 
-# Deploying Wordpress and MySQL on Storidge Volume with Docker Swarm
+# Deploying Wordpress and MySQL with Storidge on Docker Swarm
 
-Docker Swarm can be used to deploy stateful web applications. One of the more simpler types of applications we can deploy on Docker Swarm with Storidge is Wordpress. Previously mentioned in the [Docker Swarm](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) section, this guide will show how to use Docker to set up Wordpress with a MySQL database on a CIO cluster.
+Docker Swarm can be used to deploy stateful web applications. One of the more simpler types of applications we can deploy on Docker Swarm with Storidge is Wordpress. Previously mentioned in the [Docker Swarm](https://docs.storidge.com/docker_volumes/volumes_for_docker_compose.html) section, this guide will show how to use Docker to set up Wordpress with a MySQL database on a Storidge volume.
 
-## **Prerequisites**
+## Prerequisites
 
 Have Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html) and set up a cluster.
 
 Make sure your nodes are running with `cio node ls` and Portainer service is working with `docker service ps portainer`. Open up Portainer by going to your master node IP address at port 9000.
 
-## **Setup**
+## Setup
 
-The example below shows a file with two services, a MySQL database (key db:) and a WordPress (key wordpress:) installation. The MySQL service will use volume mysql-data to persist data which is accessed inside the container at path /var/lib/mysql. Default usernames and passwords will be specified in the `environment` portions of the file.
+The example stack file below shows two services; a MySQL database (key db:) and WordPress (key wordpress:). The MySQL service will use volume mysql-data to persist data which is accessed inside the container at path /var/lib/mysql. Default usernames and passwords will be specified in the `environment` portions of the file.
 
-A volume specification (volumes:) at the end of the wordpress-mysql.yml file completes the definition of the volume. Note the key mysql-data names the volume and calls the cio volume plugin. Under driver options, the volume definition also specifies a MYSQL profile to be used for creating the volume.
+A volume specification (volumes:) at the end of the wordpress-mysql.yml file completes the definition of the volume. Note the key mysql-data names the volume and calls the Storidge cio volume plugin. Under driver options, the volume definition also specifies a MYSQL profile to be used for creating the volume. The [profile](https://guide.storidge.com/getting_started/why_profiles.html) is a compact way for declaring the attributes of a volume.
 
 ```
-
 # wordpress-mysql.yml
 version: '3'
 services:
@@ -56,17 +55,16 @@ volumes:
     driver: cio
     driver_opts:
       profile: "MYSQL"
-
 ```
 
-## **Deployment, Usage, and Teardown**
+## Deployment, Usage, and Teardown
 
-After you have created the YAML file, deploy Wordpress by running `docker stack deploy -c wordpress-mysql.yml test`. The `-c` flag refers to the YAML compose file that we created. 
+After you have created the YAML file, deploy by running `docker stack deploy -c wordpress-mysql.yml test`.
 
-You will see that a service called `test_db` and `test_wordpress` have shown up on your stacks tab in Portainer.
+You will see service `test_db` and `test_wordpress` in your stacks tab in Portainer.
 
 ![](../images/wp_SQL_portainer_ss.png)
 
-Wordpress will be accessible on your host node at the Published Port for `test_wordpress`. You will be able to log in and access your personal Wordpress dashboard, or create a new account from there.
+Wordpress is accessible on your host node at port 8080. Log in and access your personal Wordpress dashboard, or create a new account from there.
 
 You can remove the service from your stacks tab by clicking the checkbox next to `test_wordpress` and `test_db` and clicking the Remove button. Using Portainer to remove the service is a useful abstraction that saves the time of having to run a `docker service rm`.
