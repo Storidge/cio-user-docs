@@ -21,7 +21,7 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 | --all-managers  |                      | Set all nodes to manager role in Swarm cluster |
 | --drive         | auto, ssd, hdd       | Force a drive type for initialization          |
 | --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic |
-| --no-portainer  |                      | Initialize without Portainer service           |
+| --noportainer   |                      | Initialize without Portainer service           |
 | --single-node   |                      | Initialize for single node cluster             |
 | --zone          |                      | Specify zone names for multi-zone cluster      |
 
@@ -31,7 +31,7 @@ Use the `--ip` option to specify the network interface to use for the storage tr
 
 You can also use the host name to specify network interface to use in environments that support DNS.
 
-Use the `--no-portainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.
+Use the `--noportainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.
 
 Run `cioctl create --single-node` to quickly create a single node cluster. This eliminates the extra step of running the `cioctl init` command.
 
