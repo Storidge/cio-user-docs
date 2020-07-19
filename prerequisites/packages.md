@@ -32,8 +32,6 @@ dc
 
 docker
 
-expect
-
 gcc
 
 git
@@ -53,10 +51,6 @@ iscsi-initiator-utils
 make
 
 nfs-utils
-
-rsync
-
-sg3utils
 
 subversion
 
