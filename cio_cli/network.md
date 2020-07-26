@@ -43,9 +43,9 @@ Add cio network to Swarm cluster
 
 <h3>Examples</h3>
 
-Create network 'cionet' with IP range 192.168.3.128 to 192.168.3.255, on network interface enp0s3
+Create network 'cionet' with IP range 192.168.3.128 to 192.168.3.254, on network interface enp0s3
 ```
-cio network create cionet --driver macvlan --iprange 192.168.3.0/24 --subnet 192.168.3.0 --gateway 192.168.3.1 --port enp0s3
+cio network create cionet --driver macvlan --iprange 192.168.3.128-192.168.3.254 --subnet 192.168.3.0/24 --gateway 192.168.3.1 --port enp0s3
 ```
 
 ## cio network info
