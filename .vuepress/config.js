@@ -148,7 +148,8 @@ module.exports = {
               '/guidebook/minio_and_storidge',
               '/guidebook/scale_minio_with_storidge',
               '/guidebook/deploy_wordpress_with_storidge',
-              '/guidebook/dockermysql_k8s_deployment'
+              '/guidebook/dockermysql_k8s_deployment',
+              '/guidebook/deploy_vitess'
             ]
           },
           {
