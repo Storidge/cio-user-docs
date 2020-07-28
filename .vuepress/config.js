@@ -142,13 +142,14 @@ module.exports = {
             collapsable: true,
             children: [
               '/guidebook/ansible_and_storidge',
+              '/guidebook/deploy_cassandra_on_kubernetes',
               '/guidebook/deploy_cassandra_with_storidge',
               '/guidebook/deploy_cockroachdb_docker',
+              '/guidebook/dockermysql_k8s_deployment',              
               '/guidebook/minikube_and_storidge',
               '/guidebook/minio_and_storidge',
               '/guidebook/scale_minio_with_storidge',
               '/guidebook/deploy_wordpress_with_storidge',
-              '/guidebook/dockermysql_k8s_deployment',
               '/guidebook/deploy_vitess'
             ]
           },
