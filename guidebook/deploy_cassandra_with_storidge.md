@@ -8,7 +8,7 @@ lang: en-US
 
 Apache Cassandra is a NoSQL database that we can use to deal with large amounts of data across a cluster. It has Docker support and can be deployed and accessed through Portainer in conjunction with Storidge CIO software. This guide steps through deploying Cassandra with Storidge volumes on a Swarm cluster.
 
-## Prerequisites
+## **Prerequisites**
 
 - Storidge CIO software installed on your machine. Install from [here](https://guide.storidge.com/getting_started/install.html).
 
@@ -16,7 +16,7 @@ Apache Cassandra is a NoSQL database that we can use to deal with large amounts 
 
 - Familiarity with [Docker Stack](https://docs.docker.com/docker-cloud/apps/stacks/).
 
-## Setup
+## **Setup**
 
 The [YAML](http://abiasforaction.net/apache-cassandra-cluster-docker/) file below will be used for deployment. We first create a seed node called `DC1N1` and an additional non-seed node. Seed nodes discover the cluster in the time it takes to start it up, as well as [gossip](https://www.geeksforgeeks.org/gossip-protocol-in-cassandra/), with new nodes joining the cluster.
 
@@ -74,7 +74,7 @@ networks:
     dc1ring:
 ```
 
-## Deployment, Usage, and Teardown
+## **Deployment, Usage, and Teardown**
 
 Create and save the YAML file above. Deploy the file by running `docker stack deploy -c cassandra.yml test`. Open up Portainer on the lead Docker Swarm node on port 9000 and navigate to the stacks tab.
 
