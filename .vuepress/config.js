@@ -108,6 +108,7 @@ module.exports = {
               '/docker_volumes/volumes_for_services',
               '/docker_volumes/volumes_for_docker_compose',
               '/docker_volumes/volumes_and_dockerfiles',
+              '/docker_volumes/nfs_volumes'
               '/docker_volumes/node_addition',
               '/docker_volumes/node_maintenance',
               '/docker_volumes/node_removal',
