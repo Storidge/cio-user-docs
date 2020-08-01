@@ -14,7 +14,7 @@ This update adds user feature requests, stability Improvements, important bug fi
 ## Improvements
 - Add support for Ubuntu 4.4.0-{180, 184, 185, 186, 187}, 4.15.0-{101, 102, 103, 106, 107, 108, 109, 110, 111, 112}  
 - Add support for AWS Ubuntu 4.4.0-{1106, 1107, 1109, 1110, 1111}, 4.15.0-{1067, 1068, 1073, 1074, 1076, 1077, 1079}
-- Add support for Centos 3.10.0-{1127, 1127.8.2, 1127.10.1, 1127.13.1}
+- Add support for Centos 3.10.0-{1127, 1127.8.2, 1127.10.1, 1127.13.1, 1127.18.2}
 - Remove retracted Ubuntu 4.15.0-{97, 100} kernels
 - Remove retracted Ubuntu 4.4.0-{181}, AWS Ubuntu 4.4.0-1108 kernels
 - Standardize message for memory allocation failures to simplify cio-report pattern matching
