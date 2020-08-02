@@ -1,5 +1,5 @@
 ---
-title: Wordpress with Storidge on Kubernetes
+title: Wordpress & MySQL on Kubernetes
 description: Deploying Wordpress and MySQL for Storidge on Kubernetes
 lang: en-US
 ---

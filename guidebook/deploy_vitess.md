@@ -1,5 +1,5 @@
 ---
-title: Vitess Operator with Storidge
+title: Vitess Operator on Kubernetes
 description: Deploying Vitess with Storidge on Kubernetes
 ---
 
@@ -24,10 +24,16 @@ description: Deploying Vitess with Storidge on Kubernetes
 
 
 ## **Setup**
+After making sure that there is an active CIO and Kubernetes cluster present across your machine, check if the CSI driver is created. If the Storidge CSI driver has not been applied to the master node, run `kubectl get sc` and make sure that there is a StorageClass with provisioner name `csi.cio.storidge.com`. It should look something like this:
+
+```
+NAME                    PROVISIONER            RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+cio-default (default)   csi.cio.storidge.com   Delete          Immediate           true                   8s
+```
 
 We will be working with Vitess's sample repositories to deploy our cluster. On your main node, run `git clone https://github.com/vitessio/vitess.git` and `cd vitess/examples/operator` to access an example setup.
 
-Next, apply the Vitess Operator with `kubectl apply -f operator.yaml` and apply the cluster sample with `kubectl apply -f 101_initial_cluster.yaml`. Verify that your cluster has been created with `kubectl get pods`. It will display something like the following:
+Next, apply the Vitess Operator with `kubectl apply -f operator.yaml` and apply the cluster sample with `kubectl apply -f 101_initial_cluster.yaml`. The pods created will bind with the `csi.cio.storidge.com` StorageClass, effectively applying Storidge's CSI driver. Verify that your cluster has been created with `kubectl get pods`. It will display something like the following:
 
 ```
 [root@c1 operator]# kubectl get pods
@@ -80,9 +86,3 @@ mysql> show databases;
 +-----------+
 1 row in set (0.00 sec)
 ```
-
-## **Integration with PlanetScaleDB**
-
-Now that we have set up a Vitess cluster up with Kubernetes and the Storidge CSI driver, we can deploy another cluster on PlanetScaleDB. PlanetScale provides an overview for the PlanetScaleDB Operator for Vitess [here](https://docs.planetscale.com/psdb-operator/overview).
-
-It is [recommended](https://docs.planetscale.com/psdb-operator/getting-access) to request access to PlanetScale's own Google Cloud Platform Service in order to use the PlanetScale operator. Once access has been granted, PlanetScaleDB is able to deploy its operator with Vitess. Please use PlanetScale's [guide](https://docs.planetscale.com/psdb-operator/gcp-quickstart) with the Storidge CSI driver installed to deploy Vitess with the PlanetScaleDB operator.
