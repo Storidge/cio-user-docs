@@ -1,5 +1,5 @@
 ---
-title: Cassandra Database on Swarm
+title: CassandraDB on Swarm
 description: Deploying Cassandra with Storidge on Swarm cluster
 lang: en-US
 ---
