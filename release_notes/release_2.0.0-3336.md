@@ -1,10 +1,10 @@
 ---
-title: Release 1.0.0-3336
-description: Release notes for Storidge CIO version 1.0.0-3336
+title: Release 2.0.0-3336
+description: Release notes for Storidge CIO version 2.0.0-3336
 lang: en-US
 ---
 
-# Release 1.0.0-3336
+# Release 2.0.0-3336
 This update adds user feature requests, stability Improvements, important bug fixes and support for new kernel releases.
 
 ::: warning Important
