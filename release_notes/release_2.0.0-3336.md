@@ -1,11 +1,17 @@
 ---
-title: Release 1.0.0-3330
-description: Release notes for Storidge CIO version 1.0.0-3330
+title: Release 2.0.0-3336
+description: Release notes for Storidge CIO version 2.0.0-3336
 lang: en-US
 ---
 
-# Release 1.0.0-3330
+# Release 2.0.0-3336
 This update adds user feature requests, stability Improvements, important bug fixes and support for new kernel releases.
+
+::: warning Important
+This release includes a protocol change for internode communications. This protocol change was made to support installation and operation in highly secure network environments. 
+
+Although security is enhanced, this change breaks the ability to use `cioctl node update` (cluster aware update) to upgrade nodes to the latest release. A release is planned which will support updating existing clusters to newer releases using the new communications protocol.
+:::
 
 ## New
 - Add cio-report utility to pre-process and extract information collected by cioctl report
