@@ -36,7 +36,7 @@ spec:
     app: cassandra
 ```
 
-This Service will be used for communication and DNS lookups between your Cassandra Pods. After creating this file, run a `kubectl apply -f cassandra-service.yaml` to create the Service.
+This Service will be used for communication and DNS lookups between your Cassandra Pods. After creating this file, run a `kubectl create -f cassandra-service.yaml` to create the Service.
 
 Validate Cassandra with `kubectl get svc cassandra` to make sure your Cassandra service exists. Next, create a StatefulSet file called `cassandra-statefulset.yaml` containing the following:
 
@@ -143,7 +143,7 @@ parameters:
   type: "ssd"
 ```
 
-This StatefulSet file will use our CSI driver (cio-default) as the `StorageClass` and create 3 Cassandra instances with a timeout of 10 seconds each. Run `kubectl apply -f cassandra-statefulset.yaml` to apply the StatefulSet.
+This StatefulSet file will use our CSI driver (cio-default) as the `StorageClass` and create 3 Cassandra instances with a timeout of 10 seconds each. Run `kubectl create -f cassandra-statefulset.yaml` to apply the StatefulSet.
 
 We can check if our StatefulSet was created with `kubectl get statefulset cassandra` and check our pods with `kubectl get pods`. The pods should look something like the following once they are all running:
 
