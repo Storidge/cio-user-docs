@@ -1,6 +1,6 @@
 ---
 title: cio volume
-description: cio volume command; docker volumes for containers; persistent volumes for pods 
+description: cio volume command; docker volumes for containers; persistent volumes for pods
 lang: en-US
 ---
 
@@ -348,6 +348,21 @@ Open volumes cannot be moved!
 ```
 $ cio volume move portainer -n v2
 Fail: Move vd1: vdisk is opened
+```
+
+## cio volume clone
+
+<h3>Usage</h3>
+
+`cio volume clone [<SOURCEVOLUMENAME>] [<DESTINATIONVOLUMENAME>]`
+
+Clone volume to a new volume.
+
+<h3>Examples</h3>
+
+```
+$ cio volume clone foo newFoo
+Success: This operation will take some time. Run 'cio events' for completion status.
 ```
 
 ## cio volume remove
