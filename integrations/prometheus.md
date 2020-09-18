@@ -8,9 +8,16 @@ lang: en-US
 
 The stats for a Storidge cluster is easily integrated into [Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/) or similar applications such as the [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) agent shipped with InfluxDB.
 
-Storidge provides a containerized exporter (storidge/cio-prom) that exposes stats at port 16995 on the /metrics endpoint. This exporter aggregates stats from nodes in the Storidge cluster, including auto-discovering new nodes as they join the cluster. Your monitoring application can poll http://<IP_ADDRESS>:16995/metrics to scrap the metrics.
+Storidge provides a containerized exporter (storidge/cio-prom) that exposes stats at port 16990 on the /metrics endpoint. This exporter aggregates stats from nodes in the Storidge cluster, including auto-discovering new nodes as they join the cluster. Your monitoring application can poll http://<IP_ADDRESS>:16990/metrics to scrap the metrics.
 
-This feature is supported from version v1.0.0-3085 onwards.
+::: tip
+Releases of the containerized exporter (storidge/cio-prom) prior to September 17, 2020 uses port 16995 instead of 16990. See Prometheus Exporter table below. 
+:::
+
+| Prometheus Exporter          | Port          | Storidge CIO compatibility      |
+| -----------------------------|:--------------|:--------------------------------|
+| storidge/cio-prom:0.3        | 16990         | v2.0.0-3336 and above           |
+| storidge/cio-prom:0.2        | 16995         | v1.0.0-3249 and below           |
 
 <h2>Setup Prometheus</h2>
 
@@ -27,15 +34,15 @@ Start the exporter as a service on a Storidge cluster.
 ```
 docker service create \
 --name cio_prom \
---publish 16995:16995 \
-storidge/cio-prom:latest
+--publish 16990:16990 \
+storidge/cio-prom:0.3
 ```
 
 The exporter automatically gathers data from all nodes in the cluster, including data from newly added nodes.
 
 <h2>Add exporter as target to external Prometheus monitor</h2>
 
-If running the Prometheus monitor on an external server, add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing the Prometheus monitor to 192.168.3.65 port 16995 on the Storidge cluster. Any node IP address in the Storidge cluster can be used to pull the metrics.
+If running the Prometheus monitor on an external server, add the exporter as a target to the Prometheus configuration file (prometheus.yml). In the static_configs section below, we are pointing the Prometheus monitor to 192.168.3.65 port 16990 on the Storidge cluster. Any node IP address in the Storidge cluster can be used to pull the metrics.
 
 ```yaml
 # my global config
@@ -65,16 +72,16 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-    - targets: ['192.168.3.65:16995']
+    - targets: ['192.168.3.65:16990']
 ```
 
 <h2>Running Prometheus monitor on Storidge cluster</h2>
 
-Edit Prometheus configuration file with localhost target on port 16995, if the Prometheus monitor is on the Storidge cluster, e.g.:
+Edit Prometheus configuration file with localhost target on port 16990, if the Prometheus monitor is on the Storidge cluster, e.g.:
 
 ```
 static_configs:
-- targets: ['localhost:16995']
+- targets: ['localhost:16990']
 ```
 
 Start the Prometheus monitor, e.g.:
@@ -172,5 +179,5 @@ The following environment variables and values are supported:
 
 Example:
 ```
-docker service create --name cio_prom --publish 16995:16995 -e API_LEVEL=1 -e SYSTEM_LEVEL=0 -e DRIVE_LEVEL=1 storidge/cio-prom:latest
+docker service create --name cio_prom --publish 16990:16990 -e API_LEVEL=1 -e SYSTEM_LEVEL=0 -e DRIVE_LEVEL=1 storidge/cio-prom:latest
 ```
