@@ -6,6 +6,8 @@ lang: en-US
 
 ::: warning Important
 Due to a critical bug, release 3373 has been retracted. 
+
+New features, improvements and bug fixes from this release will be carried forward to the next GA release
 :::
 
 # Release 2.0.0-3373
