@@ -20,20 +20,34 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 |:----------------|:---------------------|:-----------------------------------------------|
 | --all-managers  |                      | Set all nodes to manager role in Swarm cluster |
 | --drive         | auto, ssd, hdd       | Force a drive type for initialization          |
+| --email         | EMAIL_ADDRESS        | Use email address to get CE token              |
 | --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic |
+| --kubernetes    |                      | Configure a Kubernetes cluster                 |
 | --noportainer   |                      | Initialize without Portainer service           |
-| --single-node   |                      | Initialize for single node cluster             |
-| --zone          |                      | Specify zone names for multi-zone cluster      |
+| --single-node   |                      | Initialize single node cluster                 |
+| --swarm         |                      | Configure a Docker Swarm cluster (default)     |
+| --token         | TOKEN                | Use token to enable more cluster capabilities  |
+| --zone          | ZONE1, ZONE2         | Specify zone names for multi-zone cluster      |
 
 Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
-Use the `--ip` option to specify the network interface to use for the storage traffic. This option is used when there are more than one network interface, and it is desirable to keep host and storage traffic separate, e.g. in production cluster.
+Use the `--drive` option to set the drive type for cluster initialization. This is useful for virtual servers where caching software may confuse drive type discovery. 
+
+Specify the email address to register using the `--email` option. This enables a token for CE software license to be generated and used for initializing the cluster.
+
+Use the `--ip` option to specify the network interface to use for the storage traffic. This option is used when there are more than one network interface, and it is desirable to keep host and storage traffic separate. Separating storage traffic is recommended for production clusters.
 
 You can also use the host name to specify network interface to use in environments that support DNS.
+
+Use the `--kubernetes` option to configure the Storidge cluster for a Kubernetes environment.  
 
 Use the `--noportainer` option when you prefer not to have the Portainer service automatically started. This provides an option for the Portainer admin credentials to be preset before launching the service.
 
 Run `cioctl create --single-node` to quickly create a single node cluster. This eliminates the extra step of running the `cioctl init` command.
+
+Use the `--swarm` option to specify creating a Swarm cluster together with the Storidge cluster. This is the default when creating a new cluster. Three manager nodes will be configured unless the `--all-managers` option is used. 
+
+Specify the token to use with `--token` option. The token is used to add Workgroup and Enterprise Edition capabilities.
 
 Using `cioctl create` command again on an already running cluster provides the option to delete current cluster configuration, destroy the cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
 
