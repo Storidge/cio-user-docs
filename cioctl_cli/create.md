@@ -14,6 +14,8 @@ Generate command strings for creating a new cluster.
 
 Node where create command runs, becomes the primary (sds) node of a cluster. Outputs command string for joining other nodes to cluster and displays command string for primary node to initialize the cluster.
 
+Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
+
 <h3>Options</h3>
 
 | Name            | Valid Values         | Description                                    |
@@ -28,8 +30,6 @@ Node where create command runs, becomes the primary (sds) node of a cluster. Out
 | --swarm         |                      | Configure a Docker Swarm cluster (default)     |
 | --token         | TOKEN                | Use token to enable more cluster capabilities  |
 | --zone          | ZONE1, ZONE2         | Specify zone names for multi-zone cluster      |
-
-Run the `cioctl join` command string on nodes to be added to the cluster. Run the `cioctl init` command string on the primary node, after adding nodes to cluster.
 
 Use the `--drive` option to set the drive type for cluster initialization. This is useful for virtual servers where caching software may confuse drive type discovery. 
 
@@ -51,9 +51,10 @@ Specify the token to use with `--token` option. The token is used to add Workgro
 
 Using `cioctl create` command again on an already running cluster provides the option to delete current cluster configuration, destroy the cluster and reboot all nodes. After running this command to erase the cluster, the nodes will be left in a clean state and a new cluster can be created. This command will prompt for confirmation to destroy the cluster.
 
+
 <h3>Examples</h3>
 
-<h4>Create cluster</h4>
+**Create cluster with default settings**
 
 To create a new cluster run `cioctl create` as root user on the SDS node and follow the instructions. If multiple IPs are available a message will prompt to specify IP to use.
 ```
@@ -66,7 +67,21 @@ After adding all storage nodes, return to this node and run following command to
     cioctl init db667503
 ```
 
-<h4>Delete cluster</h4>
+**Create single node cluster**
+
+Use the `--single-node` option to quickly create a single node cluster for exploring Storidge features. 
+```
+$ cioctl create --single-node
+```
+
+**Force drive type to ssd**
+
+Force all discovered drives to be of type ssd when creating a new cluster. 
+```
+$ cioctl create --ssd
+```
+
+## Delete cluster
 
 To delete an existing cluster run `cioctl create` as root user on the current SDS node and the cluster will be de-configured and rebooted.
 ```
