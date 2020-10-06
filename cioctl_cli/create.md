@@ -35,9 +35,7 @@ Use the `--drive` option to set the drive type for cluster initialization. This 
 
 Specify the email address to register using the `--email` option. This enables a token for CE software license to be generated and used for initializing the cluster.
 
-Use the `--ip` option to specify the network interface to use for the storage traffic. This option is used when there are more than one network interface, and it is desirable to keep host and storage traffic separate. Separating storage traffic is recommended for production clusters.
-
-You can also use the host name to specify network interface to use in environments that support DNS.
+Use the `--ip` option to specify the network interface to use for the storage traffic. This option is used when there are more than one network interface, and it is desirable to keep host and storage traffic separate. Separating storage traffic is recommended for production clusters. You can also use the host name to specify the network interface to use in environments that support DNS.
 
 Use the `--kubernetes` option to configure the Storidge cluster for a Kubernetes environment.  
 
@@ -67,6 +65,13 @@ After adding all storage nodes, return to this node and run following command to
     cioctl init db667503
 ```
 
+**Specify network interface to use for storage traffic**
+
+Use the `--ip` option to specify the network interface to use for the storage traffic. If there is only one network interface on the instance, it will be automatically selected. 
+```
+$ cioctl create --ip 10.0.1.5
+```
+
 **Create single node cluster**
 
 Use the `--single-node` option to quickly create a single node cluster for exploring Storidge features. 
@@ -79,6 +84,13 @@ $ cioctl create --single-node
 Force all discovered drives to be of type ssd when creating a new cluster. 
 ```
 $ cioctl create --ssd
+```
+
+**Create cluster with Workgroup Edition token**
+
+Use the `--token` option to add more features when creating a Storidge cluster. Tokens are available from buy.storidge.com
+```
+$ cioctl create --token CIO-8893-9175-2625
 ```
 
 ## Delete cluster
