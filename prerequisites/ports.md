@@ -16,7 +16,8 @@ Care should also be taken to avoid conflicts with port numbers below when mappin
 | TCP         | 3260    | ISCSI                               |
 | TCP         | 8282    | REST API                            |
 | TCP         | 8383    | Secure cluster configuration        |
-| TCP         | 16995   | Metrics exporter                    |
+| TCP         | 16990   | Metrics exporter                    |
+| TCP         | 16995   | cior daemon                         |
 | TCP         | 16996   | DFS internode communication         |
 | TCP         | 16997   | SDS CLI server                      |
 | TCP         | 16998   | Controller nodes heartbeat          |

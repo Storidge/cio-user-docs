@@ -4,6 +4,12 @@ description: Release notes for Storidge CIO version 2.0.0-3373
 lang: en-US
 ---
 
+::: warning Important
+Due to a critical bug, release 3373 has been retracted. 
+
+New features, improvements and bug fixes from this release will be carried forward to the next GA release
+:::
+
 # Release 2.0.0-3373
 This update adds volume cloning features, improved cluster resilience, critical bug fixes and support for new kernel releases.
 
