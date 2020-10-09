@@ -18,6 +18,15 @@ lang: en-US
 
 ## Installation
 
+Check that the Storidge CSI driver is running with `kubectl get sc`. The CSI driver allows us to dynamically provision the persistent volumes that will be created in this guide.
+
+```
+$ kubectl get sc
+NAME                    PROVISIONER            RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+cio-default (default)   csi.cio.storidge.com   Delete          Immediate           true                   19h
+
+```
+
 There are two ways of starting up CockroachDB. One option is to use Helm, a package manager, and the other option is to use manual installs through `curl`.
 
 ### Helm Download
