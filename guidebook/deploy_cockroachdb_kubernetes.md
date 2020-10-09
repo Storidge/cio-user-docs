@@ -4,7 +4,7 @@ description: Deploying CockroachDB with Storidge on Kubernetes cluster
 lang: en-US
 ---
 
-# Deploying CockroachDB with Storidge on Swarm cluster
+# Deploying CockroachDB with Storidge on Kubernetes cluster
 
 [CockroachDB](https://www.cockroachlabs.com/docs/stable/) is a distributed SQL database system that stores persistent data that allows for fast access. In this guide, we will deploy a CockroachDB cluster on a Kubernetes cluster that uses Storidge volumes. The guide will follow parts of Cockroach Labs' [guide](https://www.cockroachlabs.com/docs/stable/orchestrate-a-local-cluster-with-kubernetes.html).
 
