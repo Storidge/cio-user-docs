@@ -13,10 +13,20 @@ This guide shows you how to easily deploy Storidge's Container IO (CIO) software
 First, you'll need to setup the cluster resources to orchestrate:
 - A minimum of three nodes (aka droplets) are required to form a cluster. Four nodes minimum are recommended for production clusters.
 - Each node will need one boot volume and three data drives. Create the data drives using the Digital Ocean block storage service . Choose 'Manually Format & Mount' for volume configuration option, i.e. no filesystem
-- Enable private networking for node-to-node networking within a region
 
 ::: tip
 The Digital Ocean block storage service is only available in regions AMS3, BLR1, FRA1, LON1, NYC1, NYC3, SFO1, SFO2, SGP1 and TOR1.
+:::
+
+- Enable private networking for node-to-node networking within a region
+- Deploy with dedicated droplets for production
+
+::: warning Important
+Digital Ocean supports both shared and dedicated CPU plans for droplets. 
+
+With shared CPU droplets, the hyperthread allocated may be shared with multiple other droplets, i.e. access to underlying physical processors may be pre-empted for short periods of time. For clusters running stateful workloads, this may exhibit as lost heartbeats, network connectivity issues, or dropped nodes. 
+
+Dedicated CPU droplets have guaranteed access to the full hyperthread at all times. For production use, ALWAYS deploy droplets on dedicated CPU plans. 
 :::
 
 ## Install Storidge software
