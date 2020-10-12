@@ -18,18 +18,18 @@ Run the `cioctl join` command string on nodes to be added to the cluster. Run th
 
 <h3>Options</h3>
 
-| Name            | Valid Values         | Description                                    |
-|:----------------|:---------------------|:-----------------------------------------------|
-| --all-managers  |                      | Set all nodes to manager role in Swarm cluster |
-| --drive         | auto, ssd, hdd       | Force a drive type for initialization          |
-| --email         | EMAIL_ADDRESS        | Use email address to get CE token              |
-| --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic |
-| --kubernetes    |                      | Configure a Kubernetes cluster                 |
-| --noportainer   |                      | Initialize without Portainer service           |
-| --single-node   |                      | Initialize single node cluster                 |
-| --swarm         |                      | Configure a Docker Swarm cluster (default)     |
-| --token         | TOKEN                | Use token to enable more cluster capabilities  |
-| --zone          | ZONE1, ZONE2         | Specify zone names for multi-zone cluster      |
+| Name            | Valid Values         | Description                                           |
+|:----------------|:---------------------|:------------------------------------------------------|
+| --all-managers  |                      | Set all nodes to manager role in Swarm cluster        |
+| --drive         | auto, ssd, hdd       | Force a drive type for initialization                 |
+| --email         | EMAIL_ADDRESS        | Register email address for CE token and notifications |
+| --ip            | IP_ADDRESS, HOSTNAME | Network interface to use for data path traffic        |
+| --kubernetes    |                      | Configure persistent storage cluster for Kubernetes   |
+| --noportainer   |                      | Initialize cluster without Portainer service          |
+| --single-node   |                      | Initialize single node cluster                        |
+| --swarm         |                      | Configure Storidge and Docker Swarm cluster (default) |
+| --token         | TOKEN                | Use token to enable more cluster capabilities         |
+| --zone          | ZONE1, ZONE2         | Specify zone names for multi-zone cluster             |
 
 Use the `--drive` option to set the drive type for cluster initialization. This is useful for virtual servers where caching software may confuse drive type discovery. 
 
