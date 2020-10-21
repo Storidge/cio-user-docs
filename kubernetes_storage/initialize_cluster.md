@@ -85,7 +85,7 @@ Install the driver by running on a master node:
 <h4>Kubernetes 1.16+</h4>
 
 ```
-kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.3.0.yaml
+kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.6.0.yaml
 ```
 
 <h4>Kubernetes 1.15 and below</h4>
