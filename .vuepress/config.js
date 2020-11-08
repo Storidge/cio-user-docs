@@ -3,6 +3,11 @@
 module.exports = {
     title: '',
     description: "User documentation for Storidge CIO software",
+    head: [ ['script', {}, `
+      <!-- Start of HubSpot Embed Code -->
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6369842.js"></script>
+      <!-- End of HubSpot Embed Code -->
+    `]],
     plugins: [
       [
         '@vuepress/google-analytics',
