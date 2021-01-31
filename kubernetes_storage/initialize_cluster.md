@@ -71,25 +71,18 @@ root@master:~/examples# kubeadm token create --print-join-command
 kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token-ca-cert-hash sha256:d748737fa0b8f5f9145381cb681f5fbc41a1860ecd805e77cdce93acd92e07f2
 ```
 
-## 4. Install CSI Driver
+## 4. Install kubeconfig and CSI Driver
 
-Install the CSI driver so you can dynamically provision volumes from Kubernetes. Ensure you have the following prerequisites:
+Install the kubeconfig file for storidge user and the CSI driver to dynamically provision volumes from Kubernetes. 
 
+Ensure you have the following prerequisites:
 - Kubernetes v1.15+
 - Storidge CIO cluster
-- Enabled ``--allow-privileged`` on Kubernetes API Server and kubelet
-- Set the following feature gates: ``--feature-gates=VolumeSnapshotDataSource=true,KubeletPluginsWatcher=true,CSINodeInfo=true,CSIDriverRegistry=true`` on Kubernetes API server and kubelet
+- Enabled `--allow-privileged` on Kubernetes API Server and kubelet
+- Set the following feature gates: `--feature-gates=VolumeSnapshotDataSource=true,KubeletPluginsWatcher=true,CSINodeInfo=true,CSIDriverRegistry=true` on Kubernetes API server and kubelet
 
-Install the driver by running on a master node:
-
-<h4>Kubernetes 1.16+</h4>
+On master node run:
 
 ```
-kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.6.0.yaml
-```
-
-<h4>Kubernetes 1.15 and below</h4>
-
-```
-kubectl create -f https://raw.githubusercontent.com/Storidge/csi-cio/master/deploy/releases/csi-cio-v1.1.0.yaml
+curl -fsSL ftp://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
 ```
