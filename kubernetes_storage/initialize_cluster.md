@@ -61,9 +61,9 @@ When the cio software is installed on physical servers with high performance dev
 
 ## 3. Add to Kubernetes
 
-Add the worker nodes to Kubernetes so pods can be scheduled.
+Add the worker nodes to the Kubernetes control plane so pods can be scheduled.
 
-Run `kubeadm token create --print-join-command` on an initialized cluster master node to print join commands. Copy the `kubeadm join ...` command string, and run on each of the worker nodes.
+Run `kubeadm token create --print-join-command` on a master node. Copy the `kubeadm join ...` command string, and run on each of the worker nodes.
 
 Example:
 ```

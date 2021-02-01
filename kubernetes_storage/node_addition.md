@@ -44,7 +44,7 @@ Wait, then re-run the join-token command when the node operation is completed.
 
 ### 2. Add to Kubernetes
 
-After the new node is added to Storidge cluster, include in Kubernetes so pods can be scheduled.
+After the new node is added to Storidge cluster, join node to Kubernetes control plane so pods can be scheduled.
 
 Run `kubeadm token create --print-join-command` on a master node. Copy the `kubeadm join ...` command string, and run on the new node.
 
