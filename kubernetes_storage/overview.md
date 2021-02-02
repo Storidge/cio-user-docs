@@ -45,7 +45,7 @@ There are three ways to deploy storage clusters for Kubernetes workloads:
 
 ## Storage Concepts
 
-### Volumes
+<h3>Volumes</h3>
 
 Kubernetes uses a [volume abstraction](https://kubernetes.io/docs/concepts/storage/volumes/) to share files between containers in a pod, and to provide data persistence across pod restarts. The shared volume is a directory which is accessible to each container in the Pod.
 
@@ -53,7 +53,7 @@ There are many types of volumes, and a Pod can use any number of them at the sam
 
 To use a volume, a Pod specifies the volume type, and the mountpoint in one or more containers.
 
-### PV, PVC and Storage Class
+<h3>PV, PVC and Storage Class</h3>
 
 Kubernetes manages resources in a cluster through abstraction layers. For storage, persistent volumes and persistent volume claims are objects used to represent and request storage resources. The persistent volume points to the storage resource where data for the Pod is actually persisted.
 
@@ -71,7 +71,7 @@ While PVCs allow Pods to consume storage resources, it is common to request volu
 
 See the list of storage attributes supported by Storidge [here](https://docs.storidge.com/kubernetes_storage/storage_classes.html).
 
-### How dynamic provisioning works
+<h3>How dynamic provisioning works</h3>
 
 For [dynamic provisioning](), a pod makes a request for storage through a PVC. The definition file (usually yaml formatted) for the PVC specifies the desired Storage Class for the volume.
 

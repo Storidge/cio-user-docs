@@ -8,7 +8,7 @@ lang: en-US
 
 With the cio software installed on all nodes, the next step is to configure a cluster and then initialize the cluster for use. As part of cluster creation, cio will automatically discover and add drive resources from each node into a storage pool. Drives that are partitioned or have a file system will not be added.
 
-## 1. Create cluster
+<h2>1. Create cluster</h2>
 
 Start configuring a cio storage cluster with the `cioctl create` command. This generates two command strings.
 
@@ -25,7 +25,7 @@ After adding all storage nodes, return to this node and run following command to
 ```
 The first node, from which the `cioctl create` command is run, becomes the sds controller node (c1 in example above). This node is identified as the sds node when the `cio node ls` command is run.
 
-## 2. Join nodes to cluster
+<h2>2. Join nodes to cluster</h2>
 
 The output of the create sub-command includes a `cioctl join` command to add new nodes to the cluster. Add nodes by running the `cioctl join` command on each worker node.
 
@@ -59,7 +59,7 @@ The initialization process will take a few minutes to complete for virtual serve
 
 When the cio software is installed on physical servers with high performance devices such as SSDs, the first initialization of the cluster will take about 30 minutes. This extra time is used to characterize the available performance. This performance information is used in the quality-of-service (QoS) feature to deliver guaranteed performance for individual applications.
 
-## 3. Add to Kubernetes
+<h2>3. Add to Kubernetes</h2>
 
 Add the worker nodes to the Kubernetes control plane so pods can be scheduled.
 
@@ -71,7 +71,7 @@ root@master:~/examples# kubeadm token create --print-join-command
 kubeadm join 192.168.3.21:6443 --token d7817i.flcq83smoad7npnd --discovery-token-ca-cert-hash sha256:d748737fa0b8f5f9145381cb681f5fbc41a1860ecd805e77cdce93acd92e07f2
 ```
 
-## 4. Install kubeconfig and CSI Driver
+<h2>4. Install kubeconfig and CSI Driver</h2>
 
 Install the kubeconfig file for storidge user and the CSI driver to dynamically provision volumes from Kubernetes. 
 

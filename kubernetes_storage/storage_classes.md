@@ -102,16 +102,16 @@ reclaimPolicy: Delete
 allowVolumeExpansion: true
 ```
 
-## Create
+<h3>Create</h3>
 
 Save either of the storage class above to a file named 'cio-sc-nginx.yaml'. Deploy with:
 
 `kubectl create -f cio-sc-nginx.yaml`
 
-## Inspect
+<h3>Inspect</h3>
 
 Use `kubectl get sc` to confirm 'cio-nginx' storage class was deployed. Run `kubectl describe sc cio-nginx` to show details.
 
-## Delete
+<h3>Delete</h3>
 
 Run `kubectl delete -f cio-sc-nginx.yaml` to remove the storage class.

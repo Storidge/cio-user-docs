@@ -17,7 +17,7 @@ This example below goes through three steps to dynamically provision a Storidge 
 
 ## Dynamic provisioning example
 
-### 1. Create storage class
+<h3>1. Create storage class</h3>
 
 Save example below as file 'cio-test.yaml'.
 ```
@@ -64,7 +64,7 @@ Events:                <none>
 
 The example storage class above includes a few of the parameters supported by Storidge. See the full list of storage attributes supported [here](https://docs.storidge.com/kubernetes_storage/storage_classes.html).
 
-### 2. Create pvc
+<h3>2. Create pvc</h3>
 
 Save example below as file 'pvc-test.yaml'.
 ```
@@ -137,7 +137,7 @@ Source:
 Events:                <none>
 ```
 
-### 3. Create pod to consume pvc
+<h3>3. Create pod to consume pvc</h3>
 
 Save example below as file 'pod-test.yaml'.
 ```
