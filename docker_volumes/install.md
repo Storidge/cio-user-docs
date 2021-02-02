@@ -6,8 +6,6 @@ lang: en-US
 
 # Install software and dependencies
 
-## Install Storidge
-
 A convenience script installs the community edition of the Storidge software quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
 Run the convenience script below on all workers nodes:
@@ -47,6 +45,6 @@ When working with virtual servers, it is common to clone off a base image. For m
 On Linux, you can show the initiator name with:  `cat /etc/iscsi/initiatorname.iscsi`
 :::
 
-## Next
+<h2>Next</h2>
 
 With software installation completed, you are ready to configure and [initialize a cluster](https://docs.storidge.com/docker_volumes/initialize_cluster.html).
