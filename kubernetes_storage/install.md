@@ -10,9 +10,12 @@ lang: en-US
 
 A convenience script installs the community edition of the Storidge software quickly and non-interactively. The use of convenience scripts is recommended for dev environments only, as root permissions are required to run them. This script will detect your Linux distribution and version, and install all dependencies and suggestions of the package manager without asking for confirmation.
 
-Run the convenience script below on all workers nodes. A multi-node cluster requires minimum three nodes. For production deployments and high availability support, a minimum of four nodes is recommended:
+Run the convenience script below on all workers nodes:
+```
+curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+```
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+A multi-node cluster requires minimum three nodes. For production deployments and high availability support, a minimum of four nodes is recommended. 
 
 ::: tip
 FTP access may not be allowed from certain countries or locations. Try using http to download and install:

@@ -18,7 +18,7 @@ curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
 The installation requires access to system devices so sudo access or root user is needed
 :::
 
-## Add node
+## Add node to cluster
 
 Running `cioctl join-token` generates a token to add a new node to an existing Storidge cluster. Copy the `cioctl node add ...` command string generated, and run on the new node.
 

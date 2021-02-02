@@ -33,7 +33,7 @@ cioctl node uncordon
 
 This rejoins the node back to the Storidge cluster and uncordons the node so new pods can be scheduled.
 
-Rebooting a node after maintenance is completed will automatically uncordon the node to rejoin the cluster.
+If a node was powered off for maintenance, rebooting a node after maintenance is completed will automatically uncordon the node to rejoin the cluster.
 
 <h2>Extend maintenance window</h2>
 

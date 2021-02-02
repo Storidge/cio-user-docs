@@ -26,7 +26,7 @@ Adding a new node just takes two steps:
 1. Add new node to Storidge cluster
 2. Add new node to Kubernetes
 
-<h3>1. Add to Storidge cluster</h3>
+<h3>Add to Storidge cluster</h3>
 
 Running `cioctl join-token` generates a token to add a new node to an existing Storidge cluster. Copy the `cioctl node add ...` command string generated, and run on the new node.
 
@@ -42,7 +42,7 @@ The creation of new join tokens is disabled when there are on-going node operati
 Wait, then re-run the join-token command when the node operation is completed.
 :::
 
-<h3>2. Add to Kubernetes</h3>
+<h3>Add to Kubernetes</h3>
 
 After the new node is added to Storidge cluster, join node to Kubernetes control plane so pods can be scheduled.
 

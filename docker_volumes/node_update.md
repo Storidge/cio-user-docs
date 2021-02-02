@@ -10,8 +10,12 @@ You may want to update Storidge software and dependencies on a node when a new v
 
 Storidge supports cluster aware updates. This enables updating nodes to the latest software release, while the cluster is online and services continue to run. Each node is updated sequentially while services continue to run on operating nodes.
 
-`cioctl node update <NODENAME>` updates Storidge software components and dependencies. This command checks for available software update. If an update is available, it performs the following sequence:
+To update Storidge software components and dependencies, run: 
+```
+cioctl node update <NODENAME>
+``` 
 
+This command checks for available software update. If an update is available, it performs the following sequence:
 1. Drains node, so services are moved to operating nodes
 2. Cordons node, setting it into maintenance mode
 3. Downloads latest software release to /var/lib/storidge
