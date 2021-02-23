@@ -97,7 +97,8 @@ module.exports = {
               '/kubernetes_storage/node_update',
               '/kubernetes_storage/storage_classes',
               '/kubernetes_storage/volume_capacity_expansion',
-              '/kubernetes_storage/volume_dynamic_provision'
+              '/kubernetes_storage/volume_dynamic_provision',
+              '/kubernetes_storage/stateful_set'
             ]
           },
           {
