@@ -45,7 +45,7 @@ For dynamically provisioned volumes, the `reclaimPolicy` determines whether the 
 - `reclaimPolicy: Delete` will result in the volume being removed when the pod and the persistent volume claim are terminated
 - `reclaimPolicy: Retain` will preserve the persistent volume beyond the lifecycle of the pod. However the persistent volume and Storidge volume will require manual removal. Kubernetes defaults to `Delete` when no `reclaimPolicy` is defined.
 
-Storidge volumes support both online capacity expansion and [auto capacity expansion](https://guide.storidge.com/getting_started/autoexpand.html) of btrfs, ext4 and xfs formatted volumes, so the `allowVolumeExpansion` field is set to "true".
+Storidge volumes support both online capacity expansion and [auto capacity expansion](https://guide.storidge.com/docker_volumes/autoexpand.html) of btrfs, ext4 and xfs formatted volumes, so the `allowVolumeExpansion` field is set to "true".
 
 ## Parameters
 
