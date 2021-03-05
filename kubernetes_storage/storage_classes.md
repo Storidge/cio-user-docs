@@ -23,6 +23,7 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: csi.cio.storidge.com
 parameters:
+  filesystem: "xfs"
   level: "2"
   provision: "thin"
   iopsMin: "10"
