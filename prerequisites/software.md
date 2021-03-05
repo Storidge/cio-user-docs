@@ -10,9 +10,9 @@ Verify that your system meets the software requirements below before proceeding 
 
 | Software      | Release            | Kernel             |
 | --------------|:-------------------|:-------------------|
-| Centos        | 7.7, 7.6           | 3.10 or greater    |
-| Ubuntu        | 16.04              | 4.4.0 or greater   |
+| Centos        | 7.7, 7.8, 7.9      | 3.10 or greater    |
 | Ubuntu        | 18.04              | 4.15.0 or greater  |
+| Ubuntu        | 20.04              | 5.4.0 or greater   |
 | Docker        | 1.13.1 or greater  |                    |
 
 
