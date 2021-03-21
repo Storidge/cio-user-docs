@@ -62,14 +62,14 @@ xfsprogs
 
 Install the following dependencies at the tested release.
 
-| Software        | Release      | Download                                                                                       |
-| ----------------|:-------------|:-----------------------------------------------------------------------------------------------|
-| fio             | 2.2.8        | http://rpm.pbone.net/info_idpl_34465559_distro_redhat_el_7_com_fio-2.2.8-2.el7.x86_64.rpm.html |
-| mongo           | 3.6          | https://www.mongodb.com/download-center/community                                              |
-| mongo-c-driver  | 1.14.0       | http://mongoc.org/libmongoc/1.15.0/installing.html                                             |
-| scst            | 3.4.x-r8836  | http://scst.sourceforge.net/downloads.html                                                     |
-| linux-header    | `uname -r`   |                                                                                                |
-| linux-devel     | `uname -r`   |                                                                                                |
+| Software        | Release        | Download                                                                                       |
+| ----------------|:---------------|:-----------------------------------------------------------------------------------------------|
+| fio             | 2.2.8          | http://rpm.pbone.net/info_idpl_34465559_distro_redhat_el_7_com_fio-2.2.8-2.el7.x86_64.rpm.html |
+| mongo           | 3.6            | https://www.mongodb.com/download-center/community                                              |
+| mongo-c-driver  | 1.14.0         | http://mongoc.org/libmongoc/1.15.0/installing.html                                             |
+| scst            | 3.4.x-r8836    | http://scst.sourceforge.net/downloads.html                                                     |
+| linux-header    | `uname -r`     |                                                                                                |
+| linux-devel     | `uname -r`     |                                                                                                |
 
 
 Use `docker pull` to download the latest images
