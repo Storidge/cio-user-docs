@@ -83,4 +83,4 @@ With the volume available on the node, Kubernetes then binds the persistent volu
 
 ![dynamic_provisioning](../images/pod-pvc-plugin-pv.png)
 
-See dynamic provisioning example with Storidge [here](https://docs.storidge.com/kubernetes_storage/dynamic_provisioning.html).
+See dynamic provisioning example with Storidge [here](https://docs.storidge.com/kubernetes_storage/volume_dynamic_provision.html#dynamic-provisioning-example).
