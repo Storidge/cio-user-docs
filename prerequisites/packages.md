@@ -83,4 +83,16 @@ Use `docker pull` to download the latest images
 
 **Storidge CIO tarball**
 
-Contact Storidge or integration partner for access to the cio tarball
+Download the Storidge tarball matching the release you wish to install. For example, to download release 3452 run:
+
+```
+wget ftp://download.storidge.com/pub/ce/c7xl3/cio-3452-c7xl3-ce.amd64.txz
+```
+
+Install with:
+
+```
+tar xvf cio-3452-c7xl3-ce.amd64.txz
+cd cio-3452-c7xl3.amd64
+./install
+```
