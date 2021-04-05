@@ -178,5 +178,4 @@ root@master:~# kubectl get pvc
 NAME      STATUS        VOLUME     CAPACITY    ACCESS MODES    STORAGECLASS     AGE
 ```
 
-Note: Deleting a pvc may lead to data loss.
 
