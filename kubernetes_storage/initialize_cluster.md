@@ -105,10 +105,6 @@ Example:
 ```
 root@kmaster:~# kubectl get pods -A
 NAMESPACE     NAME                                       READY   STATUS        RESTARTS   AGE
-default       config-move-5f27j                          1/1     Terminating   0          27s
-default       config-move-6lqp4                          1/1     Terminating   0          27s
-default       config-move-bhg8n                          1/1     Terminating   0          27s
-default       config-move-bqcf5                          1/1     Terminating   0          27s
 kube-system   calico-kube-controllers-744cfdf676-65bjr   1/1     Running       5          69d
 kube-system   calico-node-567pj                          1/1     Running       0          19d
 kube-system   calico-node-gcbrs                          1/1     Running       5          69d
