@@ -169,6 +169,7 @@ module.exports = {
               '/cloud_reference/kubernetes_storidge_aws',
               '/cloud_reference/swarm_storidge_aws',
               '/cloud_reference/swarm_storidge_digitalocean',
+              '/cloud_reference/swarm_storidge_equinix',
               '/cloud_reference/swarm_storidge_vsphere'
             ]
           },
