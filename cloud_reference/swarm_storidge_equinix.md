@@ -1,5 +1,5 @@
 ---
-title: Swarm and Storidge on Equinix metal
+title: Swarm and Storidge on Equinix
 description: Deployment guide for persistent storage cluster on Equinix Metal
 lang: en-US
 ---
