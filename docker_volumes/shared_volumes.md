@@ -112,7 +112,11 @@ labels
 allocated                      1.10%
 ```
 
-Note: If you are running in a virtual instance, allow 'promiscuous mode' on the VM so network requests will be passed through to the macvlan driver.
+::: warning Important
+If you are running in a virtual machine or server, enable 'promiscuous mode' on the VM. 
+
+This allows network requests for IP addresses other than the host IP to be passed through to the network port to the macvlan driver.
+:::
 
 The SHARED profile creates a NFS share which is auto-mounted to each node at the same directory path. This allows transparent accessed from all nodes without having to setup/configure NFS clients. This directory can be seen from `cio volume info`, e.g. /cio/shared/vd2 above.  
 
