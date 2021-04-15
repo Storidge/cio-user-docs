@@ -12,6 +12,12 @@ The Storidge software enables any Storidge volume to be shared as a NFS volume. 
 
 This guide steps through examples of how to configure, create and access NFS volumes on a Docker Swarm cluster. 
 
+::: warning Important
+If you are running in a virtual machine or server, enable 'promiscuous mode' on the VM. 
+
+This allows network requests for IP addresses other than the host IP to be passed through to the network port and forwarded to the macvlan driver.
+:::
+
 ## Create "cionet" network
 
 Each NFS volume must be assigned a unique network address through which the NFS share is accessed. The Storidge software includes an IP address management (IPAM) function to allocate/deallocate IP addresses for the NFS volumes. To enable this capability, create a network named 'cionet' and pass a range of IP addresses that will be managed by the IPAM function. The Storidge software will assign IP addresses from this range to the NFS volumes.

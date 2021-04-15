@@ -16,6 +16,12 @@ Example use cases include:
 - Pushing data from multiple containers to a shared volume for centralized backup
 - Sharing a volume with a single writer and multiple readers
 
+::: warning Important
+If you are running in a virtual machine or server, enable 'promiscuous mode' on the VM. 
+
+This allows network requests for IP addresses other than the host IP to be passed through to the network port and forwared to the macvlan driver.
+:::
+
 ## Create "cionet" network
 
 Each shared volume must be assigned a unique network address for access. The Storidge software includes an IP address management (IPAM) function to allocate/deallocate IP addresses for shared volumes. To enable this capability, create a network named 'cionet' and pass a range of IP addresses that will be managed by the IPAM function. The Storidge software will assign IP addresses from this range to the shared volumes.
@@ -111,12 +117,6 @@ filesystem                     xfs
 labels
 allocated                      1.10%
 ```
-
-::: warning Important
-If you are running in a virtual machine or server, enable 'promiscuous mode' on the VM. 
-
-This allows network requests for IP addresses other than the host IP to be passed through to the network port to the macvlan driver.
-:::
 
 The SHARED profile creates a NFS share which is auto-mounted to each node at the same directory path. This allows transparent accessed from all nodes without having to setup/configure NFS clients. This directory can be seen from `cio volume info`, e.g. /cio/shared/vd2 above.  
 
