@@ -34,17 +34,17 @@ Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the serve
 
 After verifying you have a supported distribution, run the convenience script below on a worker node:
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
 FTP access may not be allowed from certain countries or locations. Try using http to download and install:
 
-`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 :::
 
 Example:
 ```
-root@worker1:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+root@worker1:~# curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash
 Started installing release 3062 at Thu Nov 28 15:46:06 UTC 2019
 Loading cio software for: u18  (4.15.0-1051-aws)
 Installing system packages
@@ -71,7 +71,7 @@ with 'cioctl join-token' on sds node. Then run the 'cioctl node add ...' output 
 
 You can add more worker nodes to the Storidge cluster to increase capacity, performance and enable high availability for your applications. Repeat the convenience script installation on all worker nodes that will be part of the Storidge cluster.
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
 For production deployments, a minimum of four nodes is recommended

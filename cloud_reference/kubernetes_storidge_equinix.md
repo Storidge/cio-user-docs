@@ -30,11 +30,11 @@ A convenience script installs the community edition of the Storidge software qui
 
 Run the convenience script below on all nodes that will be running stateful workloads:
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 Example:
 ```
-root@demo:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+root@demo:~# curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash
 Started installing release 2859 at Tue Jul  9 13:05:15 PDT 2019
 Loading cio software for: u16  (4.4.0-148-generic)
 Reading package lists... Done
@@ -157,7 +157,7 @@ Install the kubeconfig file for storidge user and the CSI driver to dynamically 
 On the master node run:
 
 ```
-curl -fsSL ftp://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
+curl -fsSL https://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
 ```
 
 Verify that the csi driver has been deployed with `kubectl get pods -A`

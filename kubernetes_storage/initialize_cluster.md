@@ -96,7 +96,7 @@ Ensure you have the following prerequisites:
 On master node run:
 
 ```
-curl -fsSL ftp://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
+curl -fsSL https://download.storidge.com/pub/ce/update-kubeconfig | sudo bash
 ```
 
 Verify that the csi driver has been deployed with `kubectl get pods -A`

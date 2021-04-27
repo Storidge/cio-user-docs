@@ -37,17 +37,17 @@ Note that the desktop edition of Ubuntu 16.04 lists a 4.15 kernel. Use the serve
 
 After verifying you have a supported distribution, run the convenience script below to begin installation.
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
 FTP access may not be allowed from certain countries or locations. Try using http to download and install:
 
-`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 :::
 
 Example:
 ```
-root@cio1:~# curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash
+root@cio1:~# curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash
 Started installing release 2887 at Thu Jul 18 04:23:23 UTC 2019
 Loading cio software for: u16  (4.4.0-154-generic)
 Reading package lists... Done
@@ -66,7 +66,7 @@ root@cio1:~#
 
 You can add more nodes to the cluster to increase capacity, performance and enable high availability for your applications. Repeat the convenience script installation on all nodes that will be added to the cluster.
 
-`curl -fsSL ftp://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ::: tip
 For production deployments, a minimum of four nodes is recommended
