@@ -50,6 +50,7 @@ module.exports = {
             collapsable: true,
             children: [
               '/cio_cli/overview',
+              '/cio_cli/backup',
               '/cio_cli/capacity',
               '/cio_cli/credential',
               '/cio_cli/event',
