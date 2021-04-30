@@ -41,7 +41,7 @@ A Storidge cluster must have the following four credentials configured before it
 | cio_aws_restic_password  | Password for backup repository           |
 
 
-For disaster recovery purposes, it is sometimes necessary to restore from the backup of a previous cluster. The credentials of the previous cluster (alternate) must first be configured before staring the restore service. The credentials for the alternate backup repo are: 
+For disaster recovery purposes, it is sometimes necessary to restore from the backup of a previous cluster. The credentials of the previous cluster (alternate) must first be configured before starting the restore service. The credentials for the alternate backup repo are: 
 
 | Credential                   | Description                              |
 |:-----------------------------|:-----------------------------------------|
