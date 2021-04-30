@@ -51,6 +51,7 @@ module.exports = {
             children: [
               '/cio_cli/overview',
               '/cio_cli/capacity',
+              '/cio_cli/credential',
               '/cio_cli/event',
               '/cio_cli/info',
               '/cio_cli/license',
