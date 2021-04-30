@@ -54,9 +54,9 @@ For disaster recovery purposes, it is sometimes necessary to restore from the ba
 
 Create set of credentials for an AWS S3 repository
 ```
-cio credential create cio_aws_restic_repo s3:https://s3.amazonaws.com/restic-12345678
-cio credential create cio_aws_access_key AKIAYHD623GGZX7VCEMJ
-cio credential create cio_aws_secret_key 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
+cio credential create cio_aws_restic_repo s3:https://s3.amazonaws.com/backup-123
+cio credential create cio_aws_access_key AKIAYHD623GGZX7VDFMJ
+cio credential create cio_aws_secret_key 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
 cio credential create cio_aws_restic_password password
 ```
 
