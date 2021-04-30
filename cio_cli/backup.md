@@ -65,11 +65,12 @@ Inspect backup info on a volume
 
 <h3>Options</h3>
 
-| Name               | Description                                                                          |
-|:-------------------|:-------------------------------------------------------------------------------------|
-| --backupid         | Backup identifier for a volume. A volume can have up to backupmax number of backupid |
-| --domainid         | Domain identifier for a Storidge cluster                                             |
-| --alternate        | Point to backup repository of another cluster, i.e. alternate repository             |
+| Name               | Description                                               |
+|:-------------------|:----------------------------------------------------------|
+| --backupid         | Backup identifier for a volume. A volume can have         |
+|                    | up to backupmax number of backup identifiers              |
+| --domainid         | Domain identifier for a Storidge cluster                  |
+| --alternate        | Point to backup repository of another cluster (alternate) |
 
 <h3>Examples</h3>
 
