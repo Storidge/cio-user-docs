@@ -14,14 +14,14 @@ Manage backup services for volumes
 
 <h3>Child commands</h3>
 
-| Command              | Description                           |
-|:---------------------|:--------------------------------------|
-| cio backup create    | Create backup for a volume            |
-| cio backup info      | Inspect backup info on a volume       |
-| cio backup list      | List all backup volumes in a cluster  |
-| cio backup remove    | Remove backup for a volume            |
-| cio backup restore   | Restore backup to a new volume        |
-| cio backup update    | Update backup parameters on a volume  |
+| Command            | Description                              |
+|:-------------------|:-----------------------------------------|
+| cio backup create  | Create backup for a volume               |
+| cio backup info    | Show backup info on volume or repository |
+| cio backup list    | List all backup volumes in a cluster     |
+| cio backup remove  | Remove backup for a volume               |
+| cio backup restore | Restore backup to a new volume           |
+| cio backup update  | Update backup parameters on a volume     |
 
 ## cio backup create
 
@@ -37,11 +37,11 @@ The backup service for a volume can be created using the `cio backup create` com
 
 <h3>Options</h3>
 
-| Name               | Description                                       |
-|:-------------------|:--------------------------------------------------|
-| --backupinterval   | Backup interval in hours                          |
-| --backupmax        | Maximum number of backups to keep for a volume    |
-| --provider         | Provider for backup repository                    |
+| Name              | Description                                     |
+|:------------------|:------------------------------------------------|
+| --backupinterval  | Backup interval in hours                        |
+| --backupmax       | Maximum number of backups to keep for a volume  |
+| --provider        | Provider for backup repository                  |
 
 <h3>Examples</h3>
 
@@ -61,16 +61,17 @@ cio backup create -V 5 --backupinterval 24 --backupmax 3 --provider aws
 
 `cio backup info [VOLUMENAME] <OPTIONS>`
 
-Inspect backup info on a volume 
+Show backup info on volume or backup repository
 
 <h3>Options</h3>
 
-| Name               | Description                                               |
-|:-------------------|:----------------------------------------------------------|
-| --backupid         | Backup identifier for a volume. A volume can have         |
-|                    | up to backupmax number of backup identifiers              |
-| --domainid         | Domain identifier for a Storidge cluster                  |
-| --alternate        | Point to backup repository of another cluster (alternate) |
+| Name         | Description                                              |
+|:-------------|:---------------------------------------------------------|
+| --alternate  | Specify backup repository of another cluster (alternate) |
+| --backupid   | List backup identifiers for volume or list all backupids |
+| --domainid   | Domain identifier for a Storidge cluster                 |
+| --vdisk, -V  | Virtual disk identifier                                  |
+| --volume, -v | Volume name                                              |
 
 <h3>Examples</h3>
 
@@ -155,11 +156,13 @@ Update backup parameters on a volume
 
 <h3>Options</h3>
 
-| Name               | Description                                       |
-|:-------------------|:--------------------------------------------------|
-| --backupinterval   | Backup interval in hours                          |
-| --backupmax        | Maximum number of backups to keep for a volume    |
-| --provider         | Provider for backup repository                    |
+| Name             | Description                                    |
+|:-----------------|:-----------------------------------------------|
+| --backupinterval | Backup interval in hours                       |
+| --backupmax      | Maximum number of backups to keep for a volume |
+| --provider       | Provider for backup repository                 |
+| --vdisk, -V      | Virtual disk identifier                        |
+| --volume, -v     | Volume name                                    |
 
 <h3>Examples</h3>
 
@@ -180,13 +183,15 @@ Restore from a backup to a new volume
 
 <h3>Options</h3>
 
-| Name                 | Description                                                        |
-|:---------------------|:-------------------------------------------------------------------|
-| --alternate          | Point to backup repository of another cluster                      |
-| --backupid           | Backup interval in hours                                           |
-| --node, -n           | Node name                                                          |
-| --nodeid, -N         | Node identifier                                                    |
-| --source             | Source of original backup. Format of source is DOMAINID:VOLUMENAME |
+| Name          | Description                                                        |
+|:--------------|:-------------------------------------------------------------------|
+| --alternate   | Point to backup repository of another cluster                      |
+| --backupid    | Backup interval in hours                                           |
+| --node, -n    | Node name                                                          |
+| --nodeid, -N  | Node identifier                                                    |
+| --source      | Source of original backup. Format of source is DOMAINID:VOLUMENAME |
+| --vdisk, -V   | Virtual disk identifier                                            |
+| --volume, -v  | Volume name                                                        |
 
 <h3>Examples</h3>
 
