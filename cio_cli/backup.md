@@ -135,7 +135,7 @@ $ cio backup list
 
 `cio backup delete [VOLUMENAME]`
 
-Remove a credential
+Remove backup service on a volume
 
 <h3>Examples</h3>
 
@@ -186,7 +186,7 @@ Restore from a backup to a new volume
 | Name          | Description                                                        |
 |:--------------|:-------------------------------------------------------------------|
 | --alternate   | Point to backup repository of another cluster                      |
-| --backupid    | Backup interval in hours                                           |
+| --backupid    | Backup identifier of a backup object                               |
 | --node, -n    | Node name                                                          |
 | --nodeid, -N  | Node identifier                                                    |
 | --source      | Source of original backup. Format of source is DOMAINID:VOLUMENAME |
