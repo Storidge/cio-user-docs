@@ -70,6 +70,7 @@ Show backup info on volume or backup repository
 | --alternate  | Specify backup repository of another cluster (alternate) |
 | --backupid   | List backup identifiers for volume or list all backupids |
 | --domainid   | Domain identifier for a Storidge cluster                 |
+| --provider   | Cloud or service provider for backup repository          |
 | --vdisk, -V  | Virtual disk identifier                                  |
 | --volume, -v | Volume name                                              |
 
@@ -82,12 +83,12 @@ cio backup info foo
 
 Show all backups in the repository for volume	foo
 ```
-cio backup info foo --backupid		  	  
+cio backup info foo --backupid --provider aws  
 ```
 
 List all backups in the repository
 ```
-$ cio backup info --backupid 			 
+$ cio backup info --backupid --provider aws			 
 ID        TIME                 HOST          SOURCE                         PATH
 bfb4edf6  2021-04-08 23:23:02  830da6a07ff4  ffda21df:vd2_b2b965e6          /data
 111deb9f  2021-04-08 23:25:01  5773ca693321  ffda21df:vd2_b2b965e6          /data
@@ -98,17 +99,17 @@ dd83830a  2021-04-08 23:29:11  c1d9268a8574  ffda21df:vd2_b2b965e6          /dat
 
 List all backups in the repository for a particular domain or cluster
 ```
-cio backup info --backupid --domainid a28bcd11
+cio backup info --backupid --domainid a28bcd11 --provider aws
 ```
 
 List all backups in the alternate repository
 ```
-cio backup info --backupid --alternate	  
+cio backup info --backupid --alternate --provider aws
 ```
 
 List all backups in the alternate repo for a particular domain or cluster 
 ```
-cio backup info --backupid --domainid a28bcd11 --alternate  
+cio backup info --backupid --domainid a28bcd11 --alternate --provider aws
 ```
 
 ## cio backup list
@@ -197,30 +198,30 @@ Restore from backup identifier to a new volume
 
 Restore most recent backup of volume foo to sds node (default). The restored volume will be named foo_lastcopy
 ```
-cio backup restore foo
+cio backup restore foo --provider aws
 ```
 
 Restore most recent backup of volume foo to node name host3. The restored volume will be named foo_lastcopy
 ```
-cio backup restore foo -n host3
+cio backup restore foo -n host3 --provider aws
 ```
 
 Restore backup of volume foo using backup identifier 83c8f46f. The restored volume will be named foo_83c8f46f attached to node host3
 ```
-cio backup restore foo -n host3 --backupid 83c8f46f
+cio backup restore foo -n host3 --backupid 83c8f46f --provider aws
 ```
 
 Restore most recent backup of volume mysql-1 from alternate cluster with domain identifier bb1c4c92. The restored volume will be the original volume name attached to node name host3. 
 ```
-cio backup restore -n host3 --alternate --source bb1c4c92:mysql-1
+cio backup restore -n host3 --alternate --source bb1c4c92:mysql-1 --provider aws
 ```
 
 Restore most recent backup of volume mysql-1 from alternate cluster with domain identifier bb1c4c92. The restored volume will be the original volume name attached to sds node. 
 ```
-cio backup restore --alternate --source bb1c4c92:mysql-1
+cio backup restore --alternate --source bb1c4c92:mysql-1 --provider aws
 ```
 
 Restore volume mysql-1 from alternate cluster with domain identifier bb1c4c92. Restore using backup identifier 83c8f46f. The restored volume will be the original volume name
 ```
-cio backup restore -n host3 --alternate --source bb1c4c92:mysql-1 --backupid 83c8f46f
+cio backup restore -n host3 --alternate --source bb1c4c92:mysql-1 --backupid 83c8f46f --provider aws
 ```
