@@ -14,14 +14,14 @@ Manage backup services for volumes
 
 <h3>Child commands</h3>
 
-| Command            | Description                              |
-|:-------------------|:-----------------------------------------|
-| cio backup create  | Create backup for a volume               |
-| cio backup info    | Show backup info on volume or repository |
-| cio backup list    | List all backup volumes in a cluster     |
-| cio backup remove  | Remove backup for a volume               |
-| cio backup restore | Restore backup to a new volume           |
-| cio backup update  | Update backup parameters on a volume     |
+| Command            | Description                                |
+|:-------------------|:-------------------------------------------|
+| cio backup create  | Create backup service for a volume         |
+| cio backup info    | Show backup info on volume or repository   |
+| cio backup list    | List all backup volumes in a cluster       |
+| cio backup remove  | Remove backup service for a volume         |
+| cio backup restore | Restore backup identifier to a new volume  |
+| cio backup update  | Update backup service settings on a volume |
 
 ## cio backup create
 
@@ -31,7 +31,7 @@ Manage backup services for volumes
 
 `cio backup add [<VOLUMENAME>] <OPTIONS>`
 
-Create backup for a volume 
+Create backup service for a volume 
 
 The backup service for a volume can be created using the `cio backup create` command. The backup service can also be started by using a profile to create a volume. The profile must have the backup service already enabled.  
 
@@ -152,7 +152,7 @@ cio backup remove foo
 
 `cio backup update [VOLUMENAME] [OPTIONS]`
 
-Update backup parameters on a volume
+Update backup service settings on a volume
 
 <h3>Options</h3>
 
@@ -166,7 +166,7 @@ Update backup parameters on a volume
 
 <h3>Examples</h3>
 
-Update backup parameter for volume foo
+Update backup settings for volume foo
 ```
 cio backup update foo --backupinterval 1 --backupmax 2 --provider aws
 ```
@@ -179,7 +179,7 @@ cio backup update foo --backupinterval 1 --backupmax 2 --provider aws
 
 `cio backup restore [VOLUMENAME] [OPTIONS]`
 
-Restore from a backup to a new volume  
+Restore from backup identifier to a new volume  
 
 <h3>Options</h3>
 
