@@ -31,24 +31,35 @@ Manage credentials for cloud providers and backup servers
 
 Create credential for provider or backup service
 
-A Storidge cluster must have the following four credentials configured before it can backup, list or restore it's own volumes. Currently an AWS S3 bucket is supported as the backend for the backup service. 
+A Storidge cluster must have the following four credentials configured before it can backup, list or restore it's own volumes. Currently an AWS S3 bucket or MinIO object storage is supported as the backend for the backup service. 
 
-| Credential               | Description                              |
-|:-------------------------|:-----------------------------------------|
-| cio_aws_backup_repo      | URL for AWS S3 bucket                    |
-| cio_aws_access_key       | AWS access key for backup user           |
-| cio_aws_secret_key       | AWS secret key for backup user           |
-| cio_aws_backup_password  | Password for backup repository           |
-
+| Credential                | Description                       |
+|:--------------------------|:----------------------------------|
+| AWS                       |                                   |
+| cio_aws_backup_repo       | URL for AWS S3 bucket             |
+| cio_aws_access_key        | AWS access key for backup user    |
+| cio_aws_secret_key        | AWS secret key for backup user    |
+| cio_aws_backup_password   | Password for backup repository    |
+| MinIO                     |                                   |
+| cio_minio_backup_repo     | URL for MinIO object storage      |
+| cio_minio_access_key      | MinIO access key for backup user  |
+| cio_minio_secret_key      | MinIO secret key for backup user  |
+| cio_minio_backup_password | Password for backup repository    |
 
 For disaster recovery purposes, it is sometimes necessary to restore from the backup of a previous cluster. The credentials of the previous cluster (alternate) must first be configured before starting the restore service. The credentials for the alternate backup repo are: 
 
-| Credential                   | Description                              |
-|:-----------------------------|:-----------------------------------------|
-| cio_aws_alt_backup_repo      | URL for AWS S3 bucket                    |
-| cio_aws_alt_access_key       | AWS access key for backup user           |
-| cio_aws_alt_secret_key       | AWS secret key for backup user           |
-| cio_aws_alt_backup_password  | Password for backup repository           |
+| Credential                    | Description                     |
+|:------------------------------|:--------------------------------|
+| AWS                           |                                 |
+| cio_aws_alt_backup_repo       | URL for AWS S3 bucket           |
+| cio_aws_alt_access_key        | AWS access key for backup user  |
+| cio_aws_alt_secret_key        | AWS secret key for backup user  |
+| cio_aws_alt_backup_password   | Password for backup repository  |
+| MinIO                         |                                 |
+| cio_minio_alt_backup_repo     | URL for AWS S3 bucket           |
+| cio_minio_alt_access_key      | AWS access key for backup user  |
+| cio_minio_alt_secret_key      | AWS secret key for backup user  |
+| cio_minio_alt_backup_password | Password for backup repository  |
 
 <h3>Examples</h3>
 
