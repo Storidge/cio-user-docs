@@ -157,13 +157,13 @@ Update backup service settings on a volume
 
 <h3>Options</h3>
 
-| Name             | Description                                    |
-|:-----------------|:-----------------------------------------------|
-| --backupinterval | Backup interval in hours                       |
-| --backupmax      | Maximum number of backups to keep for a volume |
-| --provider       | Provider for backup repository                 |
-| --vdisk, -V      | Virtual disk identifier                        |
-| --volume, -v     | Volume name                                    |
+| Name             | Description                                     |
+|:-----------------|:------------------------------------------------|
+| --backupinterval | Backup interval in hours                        |
+| --backupmax      | Maximum number of backups to keep for a volume  |
+| --provider       | Cloud or service provider for backup repository |
+| --vdisk, -V      | Virtual disk identifier                         |
+| --volume, -v     | Volume name                                     |
 
 <h3>Examples</h3>
 
@@ -184,15 +184,16 @@ Restore from backup identifier to a new volume
 
 <h3>Options</h3>
 
-| Name          | Description                                                        |
-|:--------------|:-------------------------------------------------------------------|
-| --alternate   | Point to backup repository of another cluster                      |
-| --backupid    | Backup identifier of a backup object                               |
-| --node, -n    | Node name                                                          |
-| --nodeid, -N  | Node identifier                                                    |
-| --source      | Source of original backup. Format of source is DOMAINID:VOLUMENAME |
-| --vdisk, -V   | Virtual disk identifier                                            |
-| --volume, -v  | Volume name                                                        |
+| Name         | Description                                                        |
+|:-------------|:-------------------------------------------------------------------|
+| --alternate  | Point to backup repository of another cluster                      |
+| --backupid   | Backup identifier of a backup object                               |
+| --node, -n   | Node name                                                          |
+| --nodeid, -N | Node identifier                                                    |
+| --provider   | Cloud or service provider for backup repository                    |
+| --source     | Source of original backup. Format of source is DOMAINID:VOLUMENAME |
+| --vdisk, -V  | Virtual disk identifier                                            |
+| --volume, -v | Volume name                                                        |
 
 <h3>Examples</h3>
 
