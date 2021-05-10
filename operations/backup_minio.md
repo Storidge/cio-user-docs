@@ -116,8 +116,10 @@ cio credential create cio_minio_secret_key mysecret
 cio credential create cio_minio_backup_password password
 ```
 
-`cio_minio_backup_repo` sets the URL for the MinIO interface. The URL consists of the endpoint and fixed path 'cio-backup-bucket'. 
+`cio_minio_backup_repo` sets the URL for the MinIO interface. The URL consists of the endpoint and fixed path 'cio-backup-bucket'.
+
 The `cio_minio_access_key` and `cio_minio_secret_key` values are defined in the S3 profile that was used for volume creation on the backup cluster. Modify the values accordingly for your environment. 
+
 `cio_minio_backup_password` sets the password for the backup repo. Modify as appropriate for your environment. 
 
 For details on `cio credential` command, follow [link](https://docs.storidge.com/cio_cli/credential.html).
@@ -129,7 +131,7 @@ Create a volume test for the backup service.
 cio volume create test -D
 ```
 
-Enable backup on the volume. The backup interval is every one hour with a maximum of 4 backups retained. 
+Enable backup on the volume. The backup interval is every one hour with a maximum of four most recent backups retained. 
 ```
 cio backup create test --backupinterval 1 --backupmax 4 --provider minio
 ```
