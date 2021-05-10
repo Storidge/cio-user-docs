@@ -37,11 +37,11 @@ The backup service for a volume can be created using the `cio backup create` com
 
 <h3>Options</h3>
 
-| Name              | Description                                     |
-|:------------------|:------------------------------------------------|
-| --backupinterval  | Backup interval in hours                        |
-| --backupmax       | Maximum number of backups to keep for a volume  |
-| --provider        | Provider for backup repository                  |
+| Name              | Description                                      |
+|:------------------|:-------------------------------------------------|
+| --backupinterval  | Backup interval in hours                         |
+| --backupmax       | Max number of backups to keep, 0 means unlimited |
+| --provider        | Provider for backup repository                   |
 
 <h3>Examples</h3>
 
@@ -157,13 +157,13 @@ Update backup service settings on a volume
 
 <h3>Options</h3>
 
-| Name             | Description                                     |
-|:-----------------|:------------------------------------------------|
-| --backupinterval | Backup interval in hours                        |
-| --backupmax      | Maximum number of backups to keep for a volume  |
-| --provider       | Cloud or service provider for backup repository |
-| --vdisk, -V      | Virtual disk identifier                         |
-| --volume, -v     | Volume name                                     |
+| Name             | Description                                      |
+|:-----------------|:-------------------------------------------------|
+| --backupinterval | Backup interval in hours                         |
+| --backupmax      | Max number of backups to keep, 0 means unlimited |
+| --provider       | Cloud or service provider for backup repository  |
+| --vdisk, -V      | Virtual disk identifier                          |
+| --volume, -v     | Volume name                                      |
 
 <h3>Examples</h3>
 
