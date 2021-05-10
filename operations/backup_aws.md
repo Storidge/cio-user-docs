@@ -38,7 +38,8 @@ Setting up a backup repo using AWS S3 consists of two major steps:
 ### Create S3 bucket 
 
 From AWS dashboard, select `/Services/S3/Create bucket`. Assign a unique bucket name (e.g. backup-123), enable versioning if desired, and click [Create bucket] button.
-The new bucket should now show on the list of S3 buckets. 
+
+Verify that the new bucket shows on the list of S3 buckets. 
 
 ### Create backup user for bucket
 
@@ -106,11 +107,11 @@ Click [Create user] to complete the bucket setup.
 
 After successful creation of the backup user, credentials for the user is available for download. Download and copy the backup user credentials to a safe place. This csv file contains the `access key id` and `secret access key` for the backup user.
 
-The S3 bucket is now ready for use. Next the `access key id` and `secret access key` will be used with the `cio credential` command to connect the Storidge cluster to the S3 bucket. 
+The S3 bucket is now ready for use. Next the `access key id` and `secret access key` will be used with the `cio credential` command to connect the Storidge backup service to the S3 bucket.
 
 ## 2. Setup credentials to access AWS repo
 
-On the cluster where backup services will be started, setup credentials to access the backup repo. For an AWS repo, the following four credentials are needed. Example: 
+On the cluster where backup services will be started, setup credentials to access the AWS S3 bucket. For an AWS repository, the following four credentials are needed. Example: 
 ```
 cio credential create cio_aws_backup_repo s3:https://s3.amazonaws.com/backup-123
 cio credential create cio_aws_access_key AKIAYHD688GGWU68G2P6
@@ -120,7 +121,7 @@ cio credential create cio_aws_backup_password password
 
 `cio_aws_backup_repo` points to the URL for the AWS S3 bucket.
 
-The `cio_aws_access_key` and `cio_aws_secret_key` values are defined for the AWS user enabled for access to the AWS S3 bucket. 
+The `cio_aws_access_key` and `cio_aws_secret_key` values are the AWS credentials for the backup user used to access to the AWS S3 bucket. 
 
 `cio_aws_backup_password` sets the password for the backup repo. Modify as appropriate for your environment. 
 
