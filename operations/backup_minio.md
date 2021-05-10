@@ -50,7 +50,7 @@ curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash
 
 Initialize a single node cluster with `cioctl create --single-node`. 
 
-::: Important
+::: warning Important
 If you are running a virtual machine or server, enable 'promiscuous mode' on the VM.
 
 This allows network requests for IP addresses other than the host IP to be passed through to the network port and forwarded to the macvlan driver.
