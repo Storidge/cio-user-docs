@@ -122,6 +122,11 @@ The `cio_minio_access_key` and `cio_minio_secret_key` values are defined in the 
 
 `cio_minio_backup_password` sets the password for the backup repo. Modify as appropriate for your environment. 
 
+Verify credentials are correctly configured and the backup repo is accessible. Run:
+```
+cio backup info --backupid --provider minio
+```
+
 For details on `cio credential` command, follow [link](https://docs.storidge.com/cio_cli/credential.html).
 
 ## 4. Create backup service  

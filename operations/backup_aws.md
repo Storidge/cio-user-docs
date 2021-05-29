@@ -125,6 +125,11 @@ The `cio_aws_access_key` and `cio_aws_secret_key` values are the AWS credentials
 
 `cio_aws_backup_password` sets the password for the backup repo. Modify as appropriate for your environment. 
 
+Verify credentials are correctly configured and the backup repo is accessible. Run:
+```
+cio backup info --backupid --provider aws
+```
+
 For details on `cio credential` command, follow [link](https://docs.storidge.com/cio_cli/credential.html).
 
 ## 3. Create backup service  
