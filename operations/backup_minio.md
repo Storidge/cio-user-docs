@@ -31,7 +31,7 @@ The instructions in this guide are organized in four sections:
 - Setup credentials for MinIO (S3) interface
 - Create backup service for volumes and stateful services 
 
-## 1. Create cluster as backup target
+## 1. Create backup cluster
 
 The example below sets up a single node cluster to use as the backup target. This node will present storage via a MinIO interface to store the backup data. 
 
