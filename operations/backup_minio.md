@@ -172,7 +172,7 @@ e13b56bd  2021-05-09 23:42:26  2318516c8376  478166ef:test:profile    /data/.bac
 
 For consistent operation, you can use [profiles](https://docs.storidge.com/cio_cli/profile.html#cio-profile-create) to ensure backup is enabled for certain applications or classes of service. 
 
-Using the MYSQL profile as an example, set the 'enabled' key for the backup service to 'yes'. Save the profile to the datastore with `cio profile add MYSQL`. 
+Using the MYSQL profile as an example, set the 'enabled' key for the backup service to 'yes'. Change other backup service parameters to meet your backup requirements. Save the profile to the datastore with `cio profile add MYSQL`. 
 
 ```
 capacity: 10
