@@ -39,14 +39,14 @@ Note that you can also configure a multi-node Storidge cluster as a backup targe
 
 In addition, if you are operating more than one cluster in different locations, you can configure cross-cluster backups so each cluster serves as the backup target for the other. 
 
-### Download
+<h3>Download</h3>
 
 Download and install the Storidge software using a convenience script. For additional details, follow this [link](https://docs.storidge.com/docker_volumes/install.html).
 
 ```
 curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash
 ```
-### Initialize
+<h3>Initialize</h3>
 
 Initialize a single node cluster with `cioctl create --single-node`. 
 
@@ -56,7 +56,7 @@ If you are running a virtual machine or server, enable 'promiscuous mode' on the
 This allows network requests for IP addresses other than the host IP to be passed through to the network port and forwarded to the macvlan driver.
 :::
 
-### Create "cionet"
+<h3>Create "cionet"</h3>
 
 The Storidge software includes an IP address management (IPAM) function to allocate/deallocate IP addresses for MinIO/S3 volumes. 
 
@@ -69,7 +69,7 @@ cio network create cionet --driver macvlan --iprange 192.168.1.100-192.168.1.150
 
 Run `cio network ls` or `docker network ls` to confirm that cionet is created. 
 
-## 2. Create volume as backup repo
+## 2. Create volume for repo
 
 Create a volume with a MinIO (S3) interface. This volume will provide storage capacity for backup data. 
 

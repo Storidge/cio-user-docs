@@ -35,13 +35,13 @@ Setting up a backup repo using AWS S3 consists of two major steps:
 - Create an S3 bucket
 - Create backup user with access to only this bucket
 
-### Create S3 bucket 
+<h3>Create S3 bucket<</h3>
 
 From AWS dashboard, select `/Services/S3/Create bucket`. Assign a unique bucket name (e.g. backup-123), enable versioning if desired, and click [Create bucket] button.
 
 Verify that the new bucket shows on the list of S3 buckets. 
 
-### Create backup user for bucket
+<h3>Create backup user for bucket</h3>
 
 1.	From AWS dashboard, select `/Services/IAM/Users`. Click [Add user] button and assign name (e.g. backup-user1). Set Assess type to “Programmatic access”.
 
@@ -109,7 +109,7 @@ After successful creation of the backup user, credentials for the user is availa
 
 The S3 bucket is now ready for use. Next the `access key id` and `secret access key` will be used with the `cio credential` command to connect the Storidge backup service to the S3 bucket.
 
-## 2. Setup credentials to access AWS repo
+## 2. Setup credentials for AWS
 
 On the cluster where backup services will be started, setup credentials to access the AWS S3 bucket. For an AWS repository, the following four credentials are needed. Example: 
 ```
