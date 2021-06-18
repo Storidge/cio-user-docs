@@ -131,7 +131,12 @@ For details on `cio credential` command, follow [link](https://docs.storidge.com
 
 ## 4. Create backup service  
 
-Create a volume test for the backup service. 
+<h3>With command line options</h3>
+
+You can use the command line options of `cio backup create` to set the backup parameters for a volume. 
+
+First, create a volume test for the backup service. 
+
 ```
 cio volume create test -D
 ```
@@ -162,5 +167,59 @@ BACKUPID  TIME                 HOST          SOURCE                             
 e13b56bd  2021-05-09 23:42:26  2318516c8376  478166ef:test:profile    /data/.backup/profile
 95836b8e  2021-05-09 23:42:28  2318516c8376  478166ef:test            /data
 ```
+
+<h3>Using profiles</h3>
+
+For consistent operation, you can use [profiles](https://docs.storidge.com/cio_cli/profile.html#cio-profile-create) to ensure backup is enabled for certain applications or classes of service. 
+
+Using the MYSQL profile as an example, set the 'enabled' key for the backup service to 'yes'. Save the profile to the datastore with `cio profile add MYSQL`. 
+
+```
+capacity: 10
+directory: /cio/mysql
+iops:
+  min: 1000
+  max: 5000
+level: 3
+local: no
+provision: thin
+type: ssd
+service:
+  autoexpand:
+    enabled: no
+    threshold: 80
+    increment: 25
+    limit: 3
+  backup:
+    enabled: yes
+    interval: 1
+    max: 10
+    provider: aws
+  compression:
+    enabled: no
+    algorithm: lzo
+  encryption:
+    enabled: no
+  replication:
+    enabled: no
+    destination: none
+    interval: 120
+    type: synchronous
+  snapshot:
+    enabled: no
+    interval: 60
+    max: 10
+```
+
+NOTE:  Reference copies of profiles are available in the /etc/storidge/profiles directory
+
+Launch the application specifying the profile as a volume option, e.g.:
+
+```
+docker service create \
+--mount source=mysql-1,target=/var/lib/mysql,volume-driver=cio,volume-opt=profile=MYSQL \
+--replicas 1 --detach=false -e MYSQL_ROOT_PASSWORD=mysecret --name mysql-1 mysql
+``` 
+
 
 For details on `cio backup` command, follow [link](https://docs.storidge.com/cio_cli/backup.html).
