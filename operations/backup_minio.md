@@ -221,5 +221,12 @@ docker service create \
 --replicas 1 --detach=false -e MYSQL_ROOT_PASSWORD=mysecret --name mysql-1 mysql
 ``` 
 
+Confirm volume mysql-1 was created with backup enabled with `cio backup ls`, e.g. 
+```
+root@u1:~# cio backup ls
+NODENAME             VDISK     VOLUMENAME
+u1                   vd9       mysql-1
+```
+
 
 For details on `cio backup` command, follow [link](https://docs.storidge.com/cio_cli/backup.html).

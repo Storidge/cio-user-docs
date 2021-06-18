@@ -213,7 +213,7 @@ service:
     max: 10
 ```
 
-NOTE:  Reference copies of profiles are available in the /etc/storidge/profiles directory
+NOTE:  'interval: 1' creates one backup every hour. The first backup is available one hour after the volume is created. Reference copies of profiles are available in /etc/storidge/profiles directory.
 
 Launch the application specifying the profile as a volume option, e.g.:
 
@@ -222,6 +222,13 @@ docker service create \
 --mount source=mysql-1,target=/var/lib/mysql,volume-driver=cio,volume-opt=profile=MYSQL \
 --replicas 1 --detach=false -e MYSQL_ROOT_PASSWORD=mysecret --name mysql-1 mysql
 ``` 
+
+Confirm volume mysql-1 was created with backup enabled with `cio backup ls`, e.g. 
+```
+root@u1:~# cio backup ls
+NODENAME             VDISK     VOLUMENAME
+u1                   vd9       mysql-1
+```
 
 
 For details on `cio backup` command, follow [link](https://docs.storidge.com/cio_cli/backup.html).
