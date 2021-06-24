@@ -134,6 +134,7 @@ module.exports = {
               '/operations/backup_aws',
               '/operations/backup_minio',
               '/operations/expand_storage_pool',
+              '/operations/migrate_volume',
               '/operations/monitoring',
               '/operations/profiles',
               '/operations/restore_volume',

@@ -4,7 +4,7 @@ description: configure backup to MinIO repo
 lang: en-US
 ---
 
-# Backup
+# Backup to MinIO S3
 
 The Storidge cluster includes a built-in backup and restore capability to cover critical data management and protection use cases. This capability balances the needs of developers and operators, making it simple to deploy, and manage data for containerized applications at scale.
 

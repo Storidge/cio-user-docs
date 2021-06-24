@@ -4,7 +4,7 @@ description: restore volume data from previous backup
 lang: en-US
 ---
 
-# Restore
+# Restore volume
 
 If you need to recover files that were accidentally deleted or were corrupted, you can restore them from a backup. This guide steps through restoring a backup to the cluster you created it from.
 
