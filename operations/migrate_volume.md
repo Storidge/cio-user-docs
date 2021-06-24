@@ -13,9 +13,9 @@ You can use the backup and recovery capabilities to move data to a different clu
 First setup the credentials for access to the backup repo of the source cluster. The credentials will be the same used by the source cluster to access its backup repo. However it is setup using the 'alt' credentials, as this cluster may have its own backup repo. 
 
 ```
-cio credential create cio_alt_aws_backup_repo s3:https://s3.amazonaws.com/backup8888
+cio credential create cio_alt_aws_backup_repo s3:https://s3.amazonaws.com/backuprepo
 cio credential create cio_alt_aws_access_key AKIAYHD623GGZ5GRNDBI
-cio credential create cio_alt_aws_secret_key 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
+cio credential create cio_alt_aws_secret_key RMSWh/8fh8CWPf8+HNFCgmpXI0z0JUElKGE5w7KM
 cio credential create cio_alt_aws_backup_password password
 ```
 
