@@ -135,6 +135,8 @@ module.exports = {
               '/operations/backup_minio',
               '/operations/expand_storage_pool',
               '/operations/monitoring',
+              '/operations/profiles',
+              '/operations/restore_volume',
               '/operations/snapshots',
               '/operations/troubleshooting'
             ]
