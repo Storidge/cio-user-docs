@@ -21,13 +21,13 @@ cio credential create cio_alt_aws_backup_password password
 
 ## Specify source for volume
 
-List the backup copies (by backupid) on the backup repo the source cluster, e.g. domainid 4e3efbff
+List the backup copies (by backupid) of the source cluster, e.g. domainid 4e3efbff
 
 ```
 cio backup info --backupid --domainid 4e3efbff --alternate --provider aws
 ```
 
-Pick a volume to migrate, using the `--source` option to specify the source cluster and volume. The most recent backup copy is used by default if the backupid is not specified. 
+Pick a volume to migrate using the `--source` option to specify the source cluster and volume. The most recent backup copy is used by default if the backupid is not specified. 
 
 Example:
 
